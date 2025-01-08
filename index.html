@@ -227,7 +227,7 @@
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 3rem;
-            text-align: center;
+            text-align: left;
         }
 
         .section-subtitle {
@@ -576,7 +576,7 @@
 }
 
 .pricing-card {
-    background: yellowgreen;
+    background: yellow;
     border-radius: 1rem;
     padding: 2rem;
     text-align: left;
@@ -833,6 +833,7 @@ const newStyles = `
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#work">Work</a>
+                <a href="#shop">Shop</a>
                 <a href="#blog">Blog</a>
                 <a href="#about">About</a>
                 
@@ -860,7 +861,7 @@ const newStyles = `
                     <img src="images/NFT.jpeg" alt="Project 1">
                     <div class="card-content">
                         <h3>NFT Marketplace & Community Platform</h3>
-                        <p>With curated collections, artist spotlights, and a beginner-friendly NFT guide, this platform bridges the gap between creativity and blockchain technology. Designed with modern aesthetics and user-focused functionality, it’s the ultimate hub for discovering and trading the next generation of art. Explore vibrant NFT marketplaces, connect with trailblazing creators, and dive into a community where art meets innovation. Whether you're an experienced collector or new to the NFT scene, this platform is your gateway to a world of digital creativity.</p>
+                        <p>With curated collections, artist spotlights, and a beginner-friendly NFT guide, this platform bridges the gap between creativity and blockchain technology.</p>
                         <div class="project-links">
                             <a href="https://github.com/siphosenkosi803/NFT_Market_Place" target="_blank">
                                 <i class="fab fa-github"></i>
@@ -876,7 +877,7 @@ const newStyles = `
                     <img src="images/Vintage 3D Cinema Audience.jpeg" alt="Project 2">
                     <div class="card-content">
                         <h3>VR Experience Platform</h3>
-                        <p>Discover a new way to explore the world with VRxplore, a cutting-edge virtual reality platform that brings global destinations and live events right to your fingertips. With curated collections of iconic locations, interactive experiences, and exclusive events, VRxplore offers seamless access through VR headsets or mobile devices. Immerse yourself in stunning visuals, from HD to 8K streaming, and enjoy tailored plans for every adventurer. Whether you're strolling through Paris, joining live concerts, or attending tech summits, VRxplore makes it all possible—without ever leaving your home.</p>
+                        <p>Discover a new way to explore the world with this cutting-edge virtual reality platform that brings global destinations and live events right to your fingertips.</p>
                         <div class="project-links">
                             <a href="https://github.com/siphosenkosi803/VR_Platform" target="_blank">
                                 <i class="fab fa-github"></i>
@@ -891,7 +892,7 @@ const newStyles = `
                     <img src="images/BOOKSHOP.jpeg" alt="Project 3">
                     <div class="card-content">
                         <h3>Indie Book Shop Website</h3>
-                        <p>an online platform celebrating creativity through a curated selection of independent publications, art books, and design materials. With its sleek and responsive design, the website offers an intuitive shopping experience, featuring detailed product collections, engaging testimonials, and a robust contact form. Join the creative community by subscribing to the newsletter for exclusive updates and inspiration. Whether you're a designer, artist, or enthusiast, Indie Book Shop is your gateway to unique artistic treasures.</p>
+                        <p>an online platform celebrating creativity through a curated selection of independent publications, art books, and design materials.</p>
                         <div class="project-links">
                             <a href="https://github.com/siphosenkosi803/Indie_Book_Shop" target="_blank">
                                 <i class="fab fa-github"></i>
@@ -906,7 +907,7 @@ const newStyles = `
                     <img src="images/REMOTE.jpeg" alt="Project 4">
                     <div class="card-content">
                         <h3>Remote Collaboration and Productivity Platform</h3>
-                        <p>a dynamic platform designed to enhance the productivity of remote teams by offering a comprehensive suite of tools for time tracking, collaboration, and team engagement. With features like automated time tracking, integrated communication tools, and a virtual watercooler for fostering team culture, RemoteTools empowers teams to collaborate efficiently, no matter where they are. The platform offers flexible pricing plans tailored to businesses of all sizes, ensuring that teams—from startups to enterprises—have access to the tools they need for seamless remote work.</p>
+                        <p>a dynamic platform designed to enhance the productivity of remote teams by offering a comprehensive suite of tools for time tracking, collaboration, and team engagement.</p>
                         <div class="project-links">
                             <a href="https://github.com/siphosenkosi803/Remote_Collaboration_Platform" target="_blank">
                                 <i class="fab fa-github"></i>
@@ -956,14 +957,14 @@ const newStyles = `
     </section> -->
 
     <!--Shop section -->
-    <!--<section class="section shop-section" id="shop">
+    <section class="section shop-section" id="shop">
         <div class="container">
-            <h2 class="section-title">get a custom website</h2> -->
+            <h2 class="section-title">need a custom website?</h2> 
 
     
 
     <!-- Custom Web Design Section -->
-    <!--<h3 class="section-subtitle"></h3>
+    <h3 class="section-subtitle"></h3>
     <div class="pricing-grid">
         <div class="pricing-card">
             <h2>Basic</h2>
@@ -975,7 +976,7 @@ const newStyles = `
                 <li>Contact Form Integration</li>
                 <li>Social Media Links Integration</li>
             </ul>
-            <button class="btn btn-primary" onclick="openPricingModal('Basic Plan')">PLACE ORDER</button>
+            <a href="mailto:siphosenkosi.m@.com?subject=Web Design Order - Basic Plan&body=I'm interested in ordering the Basic Plan ($149) for web design services." class="btn btn-primary">PLACE ORDER</a>
         </div>
         
         <div class="pricing-card">
@@ -988,7 +989,7 @@ const newStyles = `
                 <li>Google Analytics Integration</li>
                 <li>Custom Design Elements</li>
             </ul>
-            <button class="btn btn-primary" onclick="openPricingModal('Standard Plan')">PLACE ORDER</button>
+            <a href="mailto:siphosenkosi.m@yahoo.com?subject=Web Design Order - Standard Plan&body=I'm interested in ordering the Standard Plan ($299) for web design services." class="btn btn-primary">PLACE ORDER</a>
         </div>
 
         <div class="pricing-card">
@@ -1001,9 +1002,9 @@ const newStyles = `
                 <li>Speed Optimization & Performance Testing</li>
                 <li>Dedicated 30-Day Post-Launch Support</li>
             </ul>
-            <button class="btn btn-primary" onclick="openPricingModal('Premium Plan')">PLACE ORDER</button>
+            <a href="mailto:siphosenkosi.m@yahoo.com?subject=Web Design Order - Premium Plan&body=I'm interested in ordering the Premium Plan ($699) for web design services." class="btn btn-primary">PLACE ORDER</a>
         </div>
-    </div> -->
+    </div> 
 </div>
 </section>   
 
@@ -1017,7 +1018,7 @@ const newStyles = `
                     <div class="card-content">
                         <span class="category"></span>
                         <h3>Humanity's Future as Interplanetary and Interstellar Travelers</h3>
-                        <p>Humanity is on the brink of becoming an interplanetary species, with advancements in spacecraft technology, propulsion systems, space habitation, and artificial intelligence paving the way for sustainable exploration and colonization of Mars and beyond. While interstellar travel remains a distant goal, the technological strides made in interplanetary exploration provide the foundation for future missions to other star systems.</p>
+                        <p></p>
                         <a href="#" class="read-more" data-article="article1">Read More →</a>
                     </div>
                 </div>
@@ -1026,7 +1027,7 @@ const newStyles = `
                     <div class="card-content">
                         <span class="category"></span>
                         <h3>AI and the Future of Global Stability: Can Machines Be Trusted to Maintain Peace?</h3>
-                        <p>AI has the potential to bring about global stability through data-driven decision-making and preemptive actions, eliminating inefficiencies, corruption, and societal threats. However, the lack of empathy and the risk of authoritarian control make it a double-edged sword, challenging the balance between safety and individual freedom.</p>
+                        <p></p>
                         <a href="#" class="read-more" data-article="article2">Read More →</a>
                     </div>
                 </div>
@@ -1035,7 +1036,7 @@ const newStyles = `
                     <div class="card-content">
                         <span class="category"></span>
                         <h3>Building the OASIS: A Tech Breakdown of the Virtual World of the Future</h3>
-                        <p>Creating an immersive virtual world like the OASIS from *Ready Player One* requires a blend of advanced hardware, sophisticated software, and scalable infrastructure to support millions of users in a seamless experience. While the technology to build such a world is rapidly evolving, the societal and ethical implications, including data security and the potential for addiction, present significant challenges that must be addressed.</p>
+                        <p></p>
                         <a href="#" class="read-more" data-article="article3">Read More →</a>
                     </div>
                 </div>
@@ -1051,10 +1052,7 @@ const newStyles = `
                 <div class="about-text">
                     <h3>Siphosenkosi Mlotshwa</h3>
                     <div class="about-contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+27 812 875 120</span>
-                    </div>
+                    
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <span>siphosenkosi.m@yahoo.com</span>
@@ -1076,7 +1074,7 @@ const newStyles = `
             <span class="close-modal" onclick="closeResumeModal()">&times;</span>
             <h2>Professional Resume</h2>
             <div class="resume-content">
-                <iframe src="docs/siphosenkosi_mlotshwa.pdf"></iframe>
+                <iframe src="docs/siphosenkosi_mlotshwa_resume.pdf"></iframe>
             </div>
         </div>
     </div>
@@ -1139,10 +1137,10 @@ const newStyles = `
                     <h3></h3>
                     <p></p>
                     <div class="social-links">
-                        <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
-                        <a href="https://instagram.com/yourusername"><i class="fab fa-instagram"></i></a>
-                        <a href="https://linkedin.com/in/yourusername"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:your.email@domain.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/siphosenkosi803"><i class="fab fa-github"></i></a>
+                        <a href="https://instagram.com/1heavy0"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:siphosenkosi.m@yahoo.com"><i class="fas fa-envelope"></i></a>
                     </div>
                     
                 </div>
@@ -1152,39 +1150,7 @@ const newStyles = `
         </div>
     </footer>
 
-    <!-- Contact Form Modal -->
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Get in Touch</h2>
-            <form class="contact-form" id="contactForm">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="text" placeholder="Subject" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </div>
-
-    <div id="pricingModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closePricingModal()">&times;</span>
-            <h2>Get Started with <span id="selectedPlanTitle"></span></h2>
-            <form id="pricingForm" onsubmit="sendPricingEmail(event)">
-                <input type="hidden" id="selectedPlan" name="selectedPlan">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="tel" name="phone" placeholder="Phone Number" required>
-                <textarea name="requirements" placeholder="Additional Requirements or Questions" rows="4"></textarea>
-                <button type="submit" class="btn btn-primary">Submit Request</button>
-            </form>
-            <div id="successMessage" class="success-message" style="display: none;">
-                Thank you for your interest! We'll get back to you shortly about your selected plan.
-            </div>
-        </div>
-    </div>
-
+    
 
 
 
