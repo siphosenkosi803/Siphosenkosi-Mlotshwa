@@ -922,39 +922,7 @@ const newStyles = `
         </div>
     </section>
 
-    <!-- New App Development section -->
-    <!--<section class="section" id="apps">
-        <div class="container">
-            <h2 class="section-title">App Development</h2>
-            <div class="grid grid-2">
-                <div class="card">
-                    <img src="images/app1.jpg" alt="App Project 1">
-                    <div class="card-content">
-                        <h3>Fitness Tracking App</h3>
-                        <p>A comprehensive fitness tracking solution with progress monitoring.</p>
-                        <div class="tech-stack">
-                            <span class="tag">React Native</span>
-                            <span class="tag">Firebase</span>
-                            <span class="tag">Redux</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <img src="images/app2.jpg" alt="App Project 2">
-                    <div class="card-content">
-                        <h3>Food Delivery App</h3>
-                        <p>Real-time food ordering and delivery tracking system.</p>
-                        <div class="tech-stack">
-                            <span class="tag">Flutter</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">MongoDB</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
+    
 
     <!--Shop section -->
     <section class="section shop-section" id="shop">
@@ -1106,21 +1074,7 @@ const newStyles = `
         </div>
     </div>
 
-    <!--Contact section -->
-    <!-- <section class="section contact-section" id="contact">
-    <div class="container">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="contact-form-container">
-            <form id="contactForm" onsubmit="sendEmail(event)">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="text" placeholder="Subject" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-        </div>
-    </div>
-</section> -->
+    
 
 <!-- Add necessary modals -->
 <div id="blogModal" class="blog-modal">
@@ -1137,10 +1091,10 @@ const newStyles = `
                     <h3></h3>
                     <p></p>
                     <div class="social-links">
-                        <a href="https://github.com/siphosenkosi803"><i class="fab fa-github"></i></a>
-                        <a href="https://instagram.com/1heavy0"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:siphosenkosi.m@yahoo.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
+                        <a href="https://instagram.com/yourusername"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/yourusername"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:your.email@domain.com"><i class="fas fa-envelope"></i></a>
                     </div>
                     
                 </div>
@@ -1259,133 +1213,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Initialize EmailJS
-    if (typeof emailjs !== 'undefined') {
-        emailjs.init("6YdWPrE_MXY30SAKk");
-    }
-
-    // Contact Form Handler
-    async function sendPricingEmail(event) {
-    event.preventDefault();
-    const form = event.target;
-    const successMessage = document.getElementById('successMessage');
-
-    try {
-        await emailjs.sendForm(
-            'service_qldygu8',
-            'template_fwnqp9d',
-            form,
-            '6YdWPrE_MXY30SAKk'
-        );
-
-        // Hide the form and show success message
-        form.style.display = 'none';
-        successMessage.style.display = 'block';
-
-        // Close modal and reset form after 3 seconds
-        setTimeout(() => {
-            closePricingModal();
-            form.reset();
-            form.style.display = 'block';
-            successMessage.style.display = 'none';
-        }, 3000);
-
-    } catch (error) {
-        console.error('Failed to send pricing request:', error);
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
-        errorDiv.textContent = 'Failed to send request. Please try again.';
-        form.appendChild(errorDiv);
-
-        setTimeout(() => {
-            errorDiv.remove();
-        }, 5000);
-    }
-}
-    // Pricing Modal Functions
-    function openPricingModal(plan) {
-    const modal = document.getElementById('pricingModal');
-    const selectedPlanTitle = document.getElementById('selectedPlanTitle');
-    const selectedPlanInput = document.getElementById('selectedPlan');
     
-    // Store the original form HTML for reset purposes
-    const form = document.getElementById('pricingForm');
-    if (!form.originalHTML) {
-        form.originalHTML = form.innerHTML;
-    }
-    
-    selectedPlanTitle.textContent = plan;
-    selectedPlanInput.value = plan;
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-function closePricingModal() {
-    const modal = document.getElementById('pricingModal');
-    const form = document.getElementById('pricingForm');
-    
-    // Reset the form to original state
-    if (form.originalHTML) {
-        form.innerHTML = form.originalHTML;
-    }
-    
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-}
-
-// Pricing Form Handler
-async function sendPricingEmail(event) {
-    event.preventDefault();
-    const form = event.target;
-    const successMessage = document.getElementById('successMessage');
-    
-    try {
-        const result = await emailjs.send(
-            'service_qldygu8',
-            'template_fwnqp9d',
-            {
-                selectedPlan: form.selectedPlan.value,
-                name: form.name.value,
-                email: form.email.value,
-                phone: form.phone.value,
-                requirements: form.requirements.value
-            },
-            '6YdWPrE_MXY30SAKk'
-        );
-
-        if (result.status === 200) {
-            // Hide the form
-            form.style.display = 'none';
-            // Show success message
-            successMessage.style.display = 'block';
-            
-            // Reset and close after delay
-            setTimeout(() => {
-                form.reset();
-                form.style.display = 'block';
-                successMessage.style.display = 'none';
-                closePricingModal();
-            }, 3000);
-        }
-    } catch (error) {
-        console.error('Failed to send pricing request:', error);
-        // Create and show error message
-        const errorMessage = document.createElement('div');
-        errorMessage.className = 'error-message';
-        errorMessage.textContent = 'Failed to send request. Please try again.';
-        form.appendChild(errorMessage);
-        
-        // Remove error message after 5 seconds
-        setTimeout(() => {
-            errorMessage.remove();
-        }, 5000);
-    }
-}
-
-// Initialize EmailJS
-(function() {
-    emailjs.init('6YdWPrE_MXY30SAKk');
-})();
 
     // Make functions globally available
     window.openResumeModal = openResumeModal;
