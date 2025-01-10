@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Font Awesome -->
+    <!-- Keep all your existing head content (fonts, styles, etc.) -->
+     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- Google Fonts -->
@@ -17,9 +17,8 @@
             emailjs.init('6YdWPrE_MXY30SAKk');
         })();
     </script>
-
-
-    <title>Siphosenkosi Mlotshwa</title>
+    <title>About - Siphosenkosi Mlotshwa</title>
+    <!-- Add your existing styles -->
     <style>
         /* Reset and base styles */
         * {
@@ -576,7 +575,7 @@
 }
 
 .pricing-card {
-    background: whitesmoke;
+    background: yellow;
     border-radius: 1rem;
     padding: 2rem;
     text-align: left;
@@ -822,9 +821,10 @@ const newStyles = `
 <body>
     <div class="grid-background"></div>
     
+    <!-- Same navbar as index.html -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">siphosenkosi mlotshwa</a>
+            <a href="index.html" class="logo">siphosenkosi mlotshwa</a>
             <button class="mobile-menu-btn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M3 12h18M3 6h18M3 18h18"/>
@@ -832,192 +832,79 @@ const newStyles = `
             </button>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="#work">Work</a>
-                <a href="#shop">Shop</a>
+                <a href="index.html#work">Work</a>
+                <a href="index.html#shop">Shop</a>
                 <a href="blog.html">Blog</a>
                 <a href="about.html">About</a>
-                
             </div>
         </div>
     </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-blur"></div>
-        <div class="hero-content">
-            <h1>Frontend<br><span class="gradient-text">Developer & Virtual Assistant</span></h1>
-            <h3>Empowering businesses with impactful websites, applications, and seamless administrative solutions.</h3>
-            <div class="hero-buttons">
-                <a href="#work" class="btn btn-primary">View My Work</a>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <img src="images/20230605_102114.jpg" alt="Profile" class="profile-img">
+                <div class="about-text">
+                    <h3>Siphosenkosi Mlotshwa</h3>
+                    <div class="about-contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>siphosenkosi.m@yahoo.com</span>
+                        </div>
+                    </div>
+                    <p>A certified Software Engineer and Virtual Assistant passionate about empowering businesses and individuals to bring their visions to life through the power of technology. With a strong foundation in software development and a knack for streamlining workflows, I specialize in creating innovative solutions that bridge the gap between creativity and functionality. Whether it's designing intuitive websites, optimizing processes, or providing dedicated virtual support, I aim to deliver results that align with your goals and exceed expectations. Driven by a commitment to growth and adaptability, I thrive on tackling challenges and exploring new opportunities. Let's work together to transform your ideas into reality.</p>
+                    <div class="btn-group">
+                        <button class="btn btn-primary" onclick="openResumeModal()">View Resume</button>
+                        <button class="btn btn-outline" onclick="openCertModal()">View Certifications</button>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Keep the resume and certification modals -->
+    <div id="resumeModal" class="doc-modal">
+        <!-- Your existing resume modal content -->
+        <div class="doc-modal-content">
+            <span class="close-modal" onclick="closeResumeModal()">&times;</span>
+            <h2>Professional Resume</h2>
+            <div class="resume-content">
+                <iframe src="docs/siphosenkosi_mlotshwa_resume.pdf"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="certModal" class="doc-modal">
+        <!-- Your existing certification modal content -->
+        <div class="doc-modal-content">
+            <span class="close-modal" onclick="closeCertModal()">&times;</span>
+            <h2>Professional Certifications</h2>
+            <div class="cert-grid">
+                <!-- First Certification -->
+                <div class="cert-card">
+                    <img src="images/engineering_certification.png" alt="Certification 1">
+                    <h3>Software Engineering</h3>
+                    <p>Holberton School</p>
+                    <p>Date Achieved: November 2023</p>
+                    <a href="docs/engineering_certification.pdf" class="btn btn-primary" target="_blank">View Certificate</a>
+                </div>
                 
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="work">
-        <div class="container">
-            <h2 class="section-title">Web Design Work</h2>
-            <div class="grid grid-2">
-                <div class="card">
-                    <img src="images/NFT.jpeg" alt="Project 1">
-                    <div class="card-content">
-                        <h3>NFT Marketplace & Community Platform</h3>
-                        <p>With curated collections, artist spotlights, and a beginner-friendly NFT guide, this platform bridges the gap between creativity and blockchain technology.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/siphosenkosi803/NFT_Market_Place" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://nftmarketcommunity.netlify.app" target="_blank">
-                                <i class="fas fa-globe"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <img src="images/Vintage 3D Cinema Audience.jpeg" alt="Project 2">
-                    <div class="card-content">
-                        <h3>VR Experience Platform</h3>
-                        <p>Discover a new way to explore the world with this cutting-edge virtual reality platform that brings global destinations and live events right to your fingertips.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/siphosenkosi803/VR_Platform" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://vrtravelevents.netlify.app" target="_blank">
-                                <i class="fas fa-globe"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="images/BOOKSHOP.jpeg" alt="Project 3">
-                    <div class="card-content">
-                        <h3>Indie Book Shop Website</h3>
-                        <p>an online platform celebrating creativity through a curated selection of independent publications, art books, and design materials.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/siphosenkosi803/Indie_Book_Shop" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://indiebookshop.netlify.app" target="_blank">
-                                <i class="fas fa-globe"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="images/REMOTE.jpeg" alt="Project 4">
-                    <div class="card-content">
-                        <h3>Remote Collaboration and Productivity Platform</h3>
-                        <p>a dynamic platform designed to enhance the productivity of remote teams by offering a comprehensive suite of tools for time tracking, collaboration, and team engagement.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/siphosenkosi803/Remote_Collaboration_Platform" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://nomadremotecolab.netlify.app" target="_blank">
-                                <i class="fas fa-globe"></i>
-                            </a>
-                        </div>
-                    </div>
+                <!-- Second Certification -->
+                <div class="cert-card">
+                    <img src="images/72-virtual-assistant-certificate-siphosenkosi-mlotshwa.png" alt="Certification 2">
+                    <h3>Virtual Assistance Skills in the Digital Age</h3>
+                    <p>ALX Africa</p>
+                    <p>Date Achieved: November 2024</p>
+                    <a href="docs/72-virtual-assistant-certificate-siphosenkosi-mlotshwa.pdf" class="btn btn-primary" target="_blank">View Certificate</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    
-
-    <!--Shop section -->
-    <section class="section shop-section" id="shop">
-        <div class="container">
-            <h2 class="section-title">need a custom website?</h2> 
-
-    
-
-    <!-- Custom Web Design Section -->
-    <h3 class="section-subtitle"></h3>
-    <div class="pricing-grid">
-        <div class="pricing-card">
-            <h2>Basic</h2>
-            <h2 class="price">$149</h2>
-            <ul>
-                <li>5 Pages</li>
-                <li>Basic SEO</li>
-                <li>Mobile Responsive</li>
-                <li>Contact Form Integration</li>
-                <li>Social Media Links Integration</li>
-            </ul>
-            <a href="mailto:siphosenkosi.m@yahoo.com?subject=Web Design Order - Basic Plan&body=I'm interested in ordering the Basic Plan ($149) for web design services." class="btn btn-primary">PLACE ORDER</a>
-        </div>
-        
-        <div class="pricing-card">
-            <h2>Standard</h2>
-            <h2 class="price">$299</h2>
-            <ul>
-                <li>Up to 10 Pages</li>
-                <li>Advanced SEO Optimization</li>
-                <li>Mobile and Tablet Responsiveness</li>
-                <li>Google Analytics Integration</li>
-                <li>Custom Design Elements</li>
-            </ul>
-            <a href="mailto:siphosenkosi.m@yahoo.com?subject=Web Design Order - Standard Plan&body=I'm interested in ordering the Standard Plan ($299) for web design services." class="btn btn-primary">PLACE ORDER</a>
-        </div>
-
-        <div class="pricing-card">
-            <h2>Premium</h2>
-            <h2 class="price">$699</h2>
-            <ul>
-                <li>Unlimited Pages</li>
-                <li>Advanced SEO with Keyword Research</li>
-                <li>E-commerce Functionality (Up to 10 Products)</li>
-                <li>Speed Optimization & Performance Testing</li>
-                <li>Dedicated 30-Day Post-Launch Support</li>
-            </ul>
-            <a href="mailto:siphosenkosi.m@yahoo.com?subject=Web Design Order - Premium Plan&body=I'm interested in ordering the Premium Plan ($699) for web design services." class="btn btn-primary">PLACE ORDER</a>
-        </div>
-    </div> 
-</div>
-</section>   
-
-
-    <section class="section" id="blog">
-        <div class="container">
-            <h2 class="section-title">Latest Articles</h2>
-            <div class="grid grid-3">
-                <div class="card">
-                    <img src="images/Earth from Space Showing Global Connectivity.jpeg" alt="Web Design" class="blog-img">
-                    <div class="card-content">
-                        <span class="category"></span>
-                        <h3>Humanity's Future as Interplanetary and Interstellar Travelers</h3>
-                        <p></p>
-                        <a href="articles/interplanetary-future.html">Read More →</a>
-
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="images/Bioengineering Brain Concept.jpeg" alt="Web Design" class="blog-img">
-                    <div class="card-content">
-                        <span class="category"></span>
-                        <h3>AI and the Future of Global Stability: Can Machines Be Trusted to Maintain Peace?</h3>
-                        <p></p>
-                        <a href="articles/ai-global-stability.html">Read More →</a>
-
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="images/Futuristic VR Experience.jpeg" alt="Web Design" class="blog-img">
-                    <div class="card-content">
-                        <span class="category"></span>
-                        <h3>Building the OASIS: A Tech Breakdown of the Virtual World of the Future</h3>
-                        <p></p>
-                        <a href="articles/creating-the-oasis.html">Read More →</a>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    
-
+    <!-- Same footer as index.html -->
     <footer>
+        <!-- Your existing footer content -->
         <div class="container">
             <div class="footer-grid">
                 <div>
@@ -1028,7 +915,8 @@ const newStyles = `
                         <a href="https://github.com/siphosenkosi803"><i class="fab fa-github"></i></a>
                         <a href="https://instagram.com/1heavy0"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:siphosenkosi.m@yahoo.com"><i class="fas fa-envelope"></i></a>                    </div>
+                        <a href="mailto:siphosenkosi.m@yahoo.com"><i class="fas fa-envelope"></i></a>
+                    </div>
                     
                 </div>
                 
@@ -1037,13 +925,11 @@ const newStyles = `
         </div>
     </footer>
 
-    
-
-
-
+    <!-- Include your existing scripts -->
     <script>
-        // Wait for DOM to be fully loaded before running any code
-document.addEventListener('DOMContentLoaded', function() {
+        // Keep the necessary JavaScript (navbar, mobile menu, and modal functionality)
+        // Your existing JavaScript for modals and navigation
+        document.addEventListener('DOMContentLoaded', function() {
     // Get DOM elements
     const navbar = document.querySelector('.navbar');
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -1092,9 +978,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     }
 
-    
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// Smooth scroll for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
@@ -1134,6 +1019,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.sendPricingEmail = sendPricingEmail;
 });
 
-            </script>
+    </script>
 </body>
 </html>
