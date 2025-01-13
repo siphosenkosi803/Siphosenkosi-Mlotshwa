@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Keep all your existing head content (fonts, styles, etc.) -->
+     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('6YdWPrE_MXY30SAKk');
+        })();
+    </script>
+
+    <title>The Myth of Meaning: Albert Camus on Life, Rebellion, and Freedom - Siphosenkosi Mlotshwa</title>
+    <!-- Add your existing styles -->
+    <style>
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .article-content {
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin: 2rem 0 1rem 0;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /*font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;*/
+            font-family: 'IBM Plex Mono', monospace;
+            line-height: 1.0;
+            color: black;
+            background-color: white;
+        }
+
+        /* Grid background */
+        .grid-background {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: 
+                linear-gradient(to right, rgba(128, 128, 128, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(128, 128, 128, 0.05) 1px, transparent 1px);
+            background-size: 14px 24px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background-color: white;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, black, black);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4f46e5;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: black;
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .footer-content {
+        text-align: center;
+        }
+
+        .footer-content h3 {
+        margin-bottom: 1.5rem;
+    }
+
+        
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .social-links a:hover {
+            color: red;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links.active {
+                display: flex;
+                
+            }
+        }
+
+        .section {
+        padding-top: 0px; /* Remove the padding that was accounting for the navbar */
+    }
+
+    .article-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0; /* Remove the padding to let image go edge-to-edge */
+    }
+
+    .article-image {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+    .featured-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .article-header {
+        text-align: center;
+        margin: 2rem;
+    }
+
+    .article-content {
+    padding: 0 2rem; /* Add padding to the content area only */
+}
+
+@media (max-width: 768px) {
+    .article-header {
+        margin: 1rem;
+    }
+    
+    .article-content {
+        padding: 0 1rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="grid-background"></div>
+
+    <!-- Same navbar as index.html -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Siphosenkosi Mlotshwa</a>
+            <button class="mobile-menu-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"/>
+                </svg>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#work">Work</a>
+                <a href="index.html#shop">Shop</a>
+                <a href="blog.html">Blog</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </nav>
+    
+    
+
+    <section class="section">
+        <div class="article-container">
+            <div class="article-image">
+                <img src="img/camus.jpeg" alt="AI Brain" class="featured-image">
+            </div>
+            <div class="article-header">
+                <h1></h1>
+            </div>
+            <div class="article-content">
+                <!-- Article content goes here -->
+                <header>
+                    <h1>Confronting the Absurd: A Journey Through the Philosophy of Albert Camus</h1>
+                </header>
+        
+                <section>
+                    <p>Reality, an intricate tapestry of perceptions, becomes a perplexing enigma when one chooses to detach from societal norms. Before this liberation, we are groomed into a singular roadmap—an unwritten script that promises a fulfilling life. Yet the unsettling truth is that life appears devoid of inherent meaning; it’s a collective improvisation where everyone is making up the rules as they go. The journey, once initiated, seems like an aimless expedition into the unknown.</p>
+        
+                    <p>In the face of this existential maze, the awareness of mortality amplifies the dilemma. The ticking of the countdown clock becomes an incessant reminder, each moment slipping away, leaving the earthly existence feeling squandered. Mundanity permeates everything, and the search for purpose becomes an excruciating quest. Is there a singular purpose, or is dedicating a lifetime to one pursuit a rational endeavor? Questions swirl, challenging the very fabric of our perceived reality.</p>
+                </section>
+        
+                <section>
+                    <h2>The Absurd and the Myth of Sisyphus</h2>
+                    <p>Albert Camus, a luminary of existential philosophy, provides a lens through which we can scrutinize the absurdity of existence. He beckons us to ponder the arbitrariness of life and the challenge of finding meaning in a seemingly indifferent universe. Camus contends that life’s absurdity arises from the lack of external justification for our contingent existence. In his words:</p>
+                    <blockquote>
+                        <p>“That which is meaningless. Thus man’s existence is absurd because his contingency finds no external justification.”</p>
+                    </blockquote>
+        
+                    <p>In <em>The Myth of Sisyphus</em>, Camus introduces the absurd as the conflict between humanity’s relentless search for meaning and the silent indifference of the universe. He begins with a haunting question:</p>
+                    <blockquote>
+                        <p>“There is but one truly serious philosophical problem, and that is suicide.”</p>
+                    </blockquote>
+        
+                    <p>This radical inquiry frames the absurd as an unavoidable confrontation for anyone who seeks to understand their existence. Camus uses the Greek myth of Sisyphus as a metaphor for this condition. Sisyphus, condemned to push a boulder up a hill for eternity only to watch it roll back down, represents humanity’s endless struggle for meaning in a world that offers none.</p>
+        
+                    <p>Yet Camus defies despair, proclaiming:</p>
+                    <blockquote>
+                        <p>“One must imagine Sisyphus happy.”</p>
+                    </blockquote>
+        
+                    <p>The act of embracing the absurd and continuing the struggle, despite its futility, becomes a form of defiance. It is in this rebellion—this conscious choice to live without illusions—that we find freedom. Life’s lack of inherent meaning is no longer a void to be feared but a blank canvas on which to paint our own significance.</p>
+                </section>
+        
+                <section>
+                    <h2>Rebellion and The Rebel</h2>
+                    <p>Camus expands on the notion of rebellion in <em>The Rebel</em>, positioning it as an act of defiance against both the absurd and oppressive ideologies. Unlike passive resignation or nihilism, rebellion is a creative force:</p>
+                    <blockquote>
+                        <p>“I rebel—therefore we exist.”</p>
+                    </blockquote>
+        
+                    <p>For Camus, rebellion is not about rejecting life but about affirming it on one’s own terms. It is a refusal to accept false promises of meaning offered by religion, ideology, or societal norms. Instead, rebellion demands authenticity—a recognition that life’s uncertainties are not weaknesses but opportunities for individual and collective freedom.</p>
+                </section>
+        
+                <section>
+                    <h2>The Stranger and Authentic Existence</h2>
+                    <p>Camus’ novel <em>The Stranger</em> brings his philosophy into the realm of fiction. Meursault, the protagonist, is an ordinary man who lives detached from societal conventions. His refusal to conform—his indifference to societal expectations—marks him as an outsider.</p>
+        
+                    <p>When faced with his imminent death, Meursault finds a startling clarity:</p>
+                    <blockquote>
+                        <p>“I opened myself to the gentle indifference of the world.”</p>
+                    </blockquote>
+        
+                    <p>This acceptance of life’s arbitrariness and his own mortality epitomizes the authentic existence Camus advocates. Meursault’s journey illustrates that rejecting illusions of meaning allows one to live fully, unshackled by the expectations of others.</p>
+                </section>
+        
+                <section>
+                    <h2>Freedom Through Embracing the Absurd</h2>
+                    <p>Camus’ works collectively form a compass for navigating the complexities of existence. His philosophy demands a rejection of false certainties—whether they come from societal norms, ideological systems, or religious doctrines. By embracing the absurd, we liberate ourselves from the need to justify our existence and gain the freedom to create meaning on our own terms.</p>
+                    <blockquote>
+                        <p>“What counts is not the best living but the most living.”</p>
+                    </blockquote>
+        
+                    <p>In a world that offers no ultimate answers, this “most living” comes from authenticity, creativity, and the courage to confront life’s uncertainties.</p>
+                </section>
+        
+                <section>
+                    <h2>Embrace the Absurd, Defy the Void</h2>
+                    <p>Camus leaves us not with a roadmap but with a challenge—to live authentically in a world that remains enigmatic. His works remind us that life’s lack of inherent meaning is not a void to be feared but an opportunity to create.</p>
+                    <blockquote>
+                        <p>“In the depth of winter, I finally learned that within me there lay an invincible summer.”</p>
+                    </blockquote>
+        
+                    <p>This invincible summer is the spirit of rebellion, the flame of life that endures despite the absurd. Camus invites us to confront the absurd head-on, to rebel against its meaninglessness, and to find freedom in the act of creating our own significance. Life may not offer easy answers, but it demands that we engage with the questions—fully, courageously, and without compromise.</p>
+                </section>    
+            </div>
+        </div>
+    </section>
+
+    <!-- Same footer -->
+    <footer>
+        <!-- Your existing footer content -->
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3></h3>
+                    <p></p>
+                    <div class="social-links">
+
+                        <a href="https://github.com/siphosenkosi803"><i class="fab fa-github"></i></a>
+                        <a href="https://instagram.com/1heavy0"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:siphosenkosi.m@yahoo.com"><i class="fas fa-envelope"></i></a>                    </div>
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include your existing scripts -->
+    <script>
+       // Wait for DOM to be fully loaded before running any code
+document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements
+    const navbar = document.querySelector('.navbar');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Navigation scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    mobileMenuBtn.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent event bubbling
+        navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            navLinks.classList.remove('active');
+        }
+    });
+
+    // Modal Functions
+    function openResumeModal() {
+        document.getElementById('resumeModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeResumeModal() {
+        document.getElementById('resumeModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    function openCertModal() {
+        document.getElementById('certModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCertModal() {
+        document.getElementById('certModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+
+    // Close modals when clicking outside
+    window.addEventListener('click', (e) => {
+        const modals = document.querySelectorAll('.modal, .doc-modal, .blog-modal');
+        modals.forEach(modal => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    });
+
+    
+
+    // Make functions globally available
+    window.openResumeModal = openResumeModal;
+    window.closeResumeModal = closeResumeModal;
+    window.openCertModal = openCertModal;
+    window.closeCertModal = closeCertModal;
+    window.openBlogModal = openBlogModal;
+    window.closeBlogModal = closeBlogModal;
+    window.openPricingModal = openPricingModal;
+    window.closePricingModal = closePricingModal;
+    window.sendEmail = sendEmail;
+    window.sendPricingEmail = sendPricingEmail;
+});
+    </script>
+</body>
+</html>

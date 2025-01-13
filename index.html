@@ -111,13 +111,93 @@
             width: 100%;
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
+        /* Keep your existing .navbar and .nav-container styles */
+
+/* Replace the old .mobile-menu-btn styles */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1000;
+}
+
+.hamburger {
+    width: 24px;
+    height: 20px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger .line {
+    display: block;
+    background: #000;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger .line:nth-child(1) {
+    top: 0;
+}
+
+.hamburger .line:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger .line:nth-child(3) {
+    bottom: 0;
+}
+
+/* Animation classes */
+.mobile-menu-btn.active .hamburger .line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-btn.active .hamburger .line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active .hamburger .line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Update your existing media query styles */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 80px 2rem 2rem;
+        transform: translateX(100%);
+        opacity: 0;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1.1rem;
+    }
+}
 
         /* Hero Section */
         .hero {
@@ -830,9 +910,11 @@ const newStyles = `
         <div class="nav-container">
             <a href="#" class="logo">Siphosenkosi Mlotshwa</a>
             <button class="mobile-menu-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 12h18M3 6h18M3 18h18"/>
-                </svg>
+                <div class="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
             </button>
             <div class="nav-links">
                 <a href="index.html">Home</a>
