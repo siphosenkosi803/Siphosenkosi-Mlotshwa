@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Keep all your existing head content (fonts, styles, etc.) -->
+     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('6YdWPrE_MXY30SAKk');
+        })();
+    </script>
+
+    <title>The Golden Record: Humanity’s Cosmic Mixtape - Siphosenkosi Mlotshwa</title>
+    <!-- Add your existing styles -->
+    <style>
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .article-content {
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin: 2rem 0 1rem 0;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /*font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;*/
+            font-family: 'IBM Plex Mono', monospace;
+            line-height: 1.0;
+            color: black;
+            background-color: white;
+        }
+
+        /* Grid background */
+        .grid-background {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: 
+                linear-gradient(to right, rgba(128, 128, 128, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(128, 128, 128, 0.05) 1px, transparent 1px);
+            background-size: 14px 24px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background-color: white;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, black, black);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4f46e5;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: black;
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .footer-content {
+        text-align: center;
+        }
+
+        .footer-content h3 {
+        margin-bottom: 1.5rem;
+    }
+
+        
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .social-links a:hover {
+            color: red;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links.active {
+                display: flex;
+                
+            }
+        }
+
+        .section {
+        padding-top: 0px; /* Remove the padding that was accounting for the navbar */
+    }
+
+    .article-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0; /* Remove the padding to let image go edge-to-edge */
+    }
+
+    .article-image {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+    .featured-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .article-header {
+        text-align: center;
+        margin: 2rem;
+    }
+
+    .article-content {
+    padding: 0 2rem; /* Add padding to the content area only */
+}
+
+@media (max-width: 768px) {
+    .article-header {
+        margin: 1rem;
+    }
+    
+    .article-content {
+        padding: 0 1rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="grid-background"></div>
+
+    <!-- Same navbar as index.html -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Siphosenkosi Mlotshwa</a>
+            <button class="mobile-menu-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"/>
+                </svg>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#work">Work</a>
+                <a href="index.html#shop">Shop</a>
+                <a href="blog.html">Blog</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </nav>
+    
+    
+
+    <section class="section">
+        <div class="article-container">
+            <div class="article-image">
+                <img src="img/golden record.jpg" alt="the golden record" class="featured-image">
+            </div>
+            <div class="article-header">
+                <h1></h1>
+            </div>
+            <div class="article-content">
+                <!-- Article content goes here -->
+                <header>
+                    <h1>The Golden Record: Humanity’s Cosmic Mixtape (and Our Attempt to Impress the Neighbors)</h1>
+                    <p></p>
+                </header>
+                <main>
+                    <section>
+                        <p>Imagine the year is 1977. Humanity is still marveling at the moon landing, disco fever is spreading like wildfire, and someone at NASA decides, “Hey, let’s send an interstellar love letter into the cosmos.” And so, the Voyager Golden Record was born—a 12-inch gold-plated copper disk that screams (politely, in 55 languages), “Hello, universe! It’s us, Earth. Call us sometime.”</p>
+                        <p>This wasn’t just a mixtape—it was The Mixtape, humanity’s magnum opus, curated for an audience that might not even have ears, let alone a Spotify account. So, what exactly is on this shiny artifact of ambition, optimism, and mild desperation?</p>
+                    </section>
+            
+                    <section>
+                        <h2>Gold: The Ultimate Cosmic Flex</h2>
+                        <p>Why gold? Because gold says, “We’re fancy,” but also, “We thought this through.” It’s durable, corrosion-resistant, and has the kind of aesthetic flair that makes aliens go, “Ooh, shiny!” The Golden Record is designed to last a billion years, far outliving humanity’s current obsession with planned obsolescence. If nothing else, it’ll be the universe’s most expensive paperweight.</p>
+                    </section>
+            
+                    <section>
+                        <h2>Contents: Humanity’s Greatest Hits</h2>
+                        <h3>1. Greetings in 55 Languages</h3>
+                        <p>From “Hello” to “Namaste,” the record includes greetings from around the globe. This is humanity at its most optimistic: assuming aliens have language, care about pleasantries, and won’t be put off by our inability to pronounce their names correctly.</p>
+            
+                        <h3>2. Sounds of Earth</h3>
+                        <p>What better way to say, “Welcome to our planet,” than with recordings of earthquakes, thunder, and volcanoes? It’s like inviting a new neighbor over and starting with, “Oh, by the way, our plumbing sometimes explodes.” The record also includes animal noises (a cow, a dog, and yes, a chicken—finally answering which came first) and human sounds like laughter and heartbeats. Snoring didn’t make the cut. We have to draw the line somewhere.</p>
+            
+                        <h3>3. Music</h3>
+                        <p>Here’s where things get spicy. The Golden Record features a global playlist spanning Beethoven to Chuck Berry. That’s right—aliens’ first exposure to human culture might be <em>Johnny B. Goode</em>. And let’s not forget indigenous music from around the world, proving that humans can make melodies out of anything, from flutes to hollowed-out logs.</p>
+            
+                        <h3>4. Images</h3>
+                        <p>A collection of 116 photos captures Earth’s biodiversity, scientific achievements, and humans in action (smiling, eating, waving—classic Earthling moves). What’s missing? Anything unpleasant. War, disease, and bad hair days didn’t make the cut. Essentially, it’s Earth’s Instagram highlight reel, pre-filtered for extraterrestrial judgment.</p>
+                    </section>
+            
+                    <section>
+                        <h2>Instructions for Use: IKEA, But Make It Galactic</h2>
+                        <p>The record comes with a cartridge and a needle, along with instructions engraved in symbolic language. It’s part Rosetta Stone, part IKEA manual, and 100% a gamble that aliens won’t just toss it out in frustration.</p>
+                    </section>
+            
+                    <section>
+                        <h2>Jimmy Carter’s Cosmic Memo</h2>
+                        <blockquote>
+                            <p>“This is a present from a small, distant world... We are attempting to survive our time so we may live into yours.”</p>
+                        </blockquote>
+                        <p>Translation: <em>“Please don’t annihilate us. Also, if you like this mixtape, we have more where that came from.”</em></p>
+                    </section>
+            
+                    <section>
+                        <h2>Questions for the Ages</h2>
+                        <h3>Will Anyone Find It?</h3>
+                        <p>The chances are... slim. The Voyager probes are essentially bottles in an ocean so vast it makes the Pacific look like a kiddie pool. But if someone—or something—does find it, we’ll have our first cosmic pen pal.</p>
+            
+                        <h3>Will They Understand It?</h3>
+                        <p>If aliens figured out interstellar travel but never got around to vinyl, we might be in trouble. Imagine handing a caveman an iPhone. Now imagine that caveman has tentacles and an advanced grasp of astrophysics.</p>
+            
+                        <h3>Is This the Best Representation of Earth?</h3>
+                        <p>Too late now! This gold-plated testament to humanity is already speeding through space at 35,000 mph. Whether it’s seen as profound or as a shiny frisbee, we’ve carved “Humanity was here” into the void.</p>
+                    </section>
+            
+                    <section>
+                        <h2>Legacy: Humanity’s Boldest Gamble</h2>
+                        <p>The Golden Record is, above all, a declaration of hope. It says, “We existed. We created. We dreamed big enough to believe someone might find this and care.” It’s the ultimate act of cosmic graffiti, a billion-year-old time capsule that proves humans aren’t just ants on a rock—we’re ants with aspirations.</p>
+                        <p>So, the next time you’re curating a playlist or struggling to write the perfect text, remember: we sent Chuck Berry to space. Somewhere out there, eons from now, a being we can’t even imagine might press play, hear those first riffs of <em>Johnny B. Goode</em>, and think, “These Earthlings? They rock.”</p>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Same footer -->
+    <footer>
+        <!-- Your existing footer content -->
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3></h3>
+                    <p></p>
+                    <div class="social-links">
+
+                        <a href="https://github.com/siphosenkosi803"><i class="fab fa-github"></i></a>
+                        <a href="https://instagram.com/1heavy0"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:siphosenkosi.m@yahoo.com"><i class="fas fa-envelope"></i></a>                    </div>
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include your existing scripts -->
+    <script>
+       // Wait for DOM to be fully loaded before running any code
+document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements
+    const navbar = document.querySelector('.navbar');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Navigation scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    mobileMenuBtn.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent event bubbling
+        navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            navLinks.classList.remove('active');
+        }
+    });
+
+    // Modal Functions
+    function openResumeModal() {
+        document.getElementById('resumeModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeResumeModal() {
+        document.getElementById('resumeModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    function openCertModal() {
+        document.getElementById('certModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCertModal() {
+        document.getElementById('certModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+
+    // Close modals when clicking outside
+    window.addEventListener('click', (e) => {
+        const modals = document.querySelectorAll('.modal, .doc-modal, .blog-modal');
+        modals.forEach(modal => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    });
+
+    
+
+    // Make functions globally available
+    window.openResumeModal = openResumeModal;
+    window.closeResumeModal = closeResumeModal;
+    window.openCertModal = openCertModal;
+    window.closeCertModal = closeCertModal;
+    window.openBlogModal = openBlogModal;
+    window.closeBlogModal = closeBlogModal;
+    window.openPricingModal = openPricingModal;
+    window.closePricingModal = closePricingModal;
+    window.sendEmail = sendEmail;
+    window.sendPricingEmail = sendPricingEmail;
+});
+    </script>
+</body>
+</html>
