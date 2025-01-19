@@ -205,16 +205,51 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 6rem 2rem 2rem;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero-content {
             text-align: center;
-            max-width: 800px;
+            width: 100%;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
         }
+
+        .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2; /* Adjusted line height for better spacing */
+    padding-top: 2rem; /* Added top padding to prevent cutoff */
+    margin-bottom: -1;
+}
+
+        .hero-image {
+            max-width: 400px; /* Using max-width instead of fixed width */
+            width: 100%; /* Allows image to be responsive */
+            height: auto; /* Maintains aspect ratio */
+            margin-top: -0.5rem;
+        }
+
+/* Make it responsive */
+@media (max-width: 768px) {
+    .hero-image {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image {
+        max-width: 300px;
+    }
+}
+
+
 
         .hero-blur {
             position: absolute;
@@ -282,13 +317,14 @@
             background: white;
             border-radius: 1rem;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
         }
 
         .card img {
@@ -299,7 +335,73 @@
 
         .card-content {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
+
+        .card-content h3 {
+            margin-bottom: 1rem;
+        }
+
+
+
+        .card-content p {
+            flex-grow: 1;
+            margin-bottom: 0;
+        }
+
+        .project-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            margin-top: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.card-link:hover {
+    color: inherit;
+}
+
+
+
+
+.project-link {
+    color: #4f46e5;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Add this to remove underlines */
+}
+
+.project-link i {
+    display: inline-block;
+    width: auto; /* Remove fixed width */
+    height: auto; /* Remove fixed height */
+}
+
+.project-link:hover {
+    color: #4338ca;
+    transform: translateY(-2px);
+}
+
+/* Ensure consistent icon size */
+.project-links i {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 
         /* Sections */
         .section {
@@ -931,79 +1033,59 @@ const newStyles = `
         
         <div class="hero-blur"></div>
         <div class="hero-content">
-            <h1>Frontend<br><span class="gradient-text">Developer & Virtual Assistant</span></h1>
-            <h3>Empowering businesses with impactful websites, applications, and seamless administrative solutions.</h3>
-            <div class="hero-buttons">
-                <a href="#work" class="btn btn-primary">VIEW MY WORK</a>
-                
-            </div>
+            <h1>Frontend Web <br><span class="gradient-text"> & App Developer</span></h1>
+            <img src="images/VR_LOGO_1-removebg-preview.png" alt="Profile Image" class="hero-image">
+            <h3></h3>
+            
         </div>
     </section>
 
     <section class="section" id="work">
         <div class="container">
-            <h2 class="section-title">Frontend Web Design Work</h2>
+            <h2 class="section-title">Web Design Work</h2>
             <div class="grid grid-2">
+                <!-- VR Experience Platform Card -->
                 <div class="card">
-                    <img src="images/NFT.jpeg" alt="Project 1">
-                    <div class="card-content">
-                        <h3>NFT Marketplace & Community Platform</h3>
-                        <p>With curated collections, artist spotlights, and a beginner-friendly NFT guide, this platform bridges the gap between creativity and blockchain technology.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/siphosenkosi803/NFT_Market_Place" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://nftmarketcommunity.netlify.app" target="_blank">
-                                <i class="fas fa-globe"></i>
-                            </a>
+                    <a href="https://vrtravelevents.netlify.app" target="_blank" class="card-link">
+                        <img src="images/Vintage 3D Cinema Audience.jpeg" alt="Project 2">
+                        <div class="card-content">
+                            <h3>VR Experience Platform</h3>
+                            <p>Discover a new way to explore the world with this cutting-edge virtual reality platform that brings global destinations and live events right to your fingertips.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                
+            
+                <!-- Indie Book Shop Card -->
                 <div class="card">
-                    <img src="images/Vintage 3D Cinema Audience.jpeg" alt="Project 2">
-                    <div class="card-content">
-                        <h3>VR Experience Platform</h3>
-                        <p>Discover a new way to explore the world with this cutting-edge virtual reality platform that brings global destinations and live events right to your fingertips.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/siphosenkosi803/VR_Platform" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://vrtravelevents.netlify.app" target="_blank">
-                                <i class="fas fa-globe"></i>
-                            </a>
+                    <a href="https://indiebookshop.netlify.app" target="_blank" class="card-link">
+                        <img src="images/pexels-cottonbro-4855477.jpg" alt="Project 3">
+                        <div class="card-content">
+                            <h3>Indie Book Shop Website</h3>
+                            <p>an online platform celebrating creativity through a curated selection of independent publications, art books, and design materials.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
+            
+                <!-- Remote Collaboration Platform Card -->
                 <div class="card">
-                    <img src="images/BOOKSHOP.jpeg" alt="Project 3">
-                    <div class="card-content">
-                        <h3>Indie Book Shop Website</h3>
-                        <p>an online platform celebrating creativity through a curated selection of independent publications, art books, and design materials.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/siphosenkosi803/Indie_Book_Shop" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://indiebookshop.netlify.app" target="_blank">
-                                <i class="fas fa-globe"></i>
-                            </a>
+                    <a href="https://nomadremotecolab.netlify.app" target="_blank" class="card-link">
+                        <img src="images/REMOTE.jpeg" alt="Project 4">
+                        <div class="card-content">
+                            <h3>Remote Collaboration and Productivity Platform</h3>
+                            <p>a dynamic platform designed to enhance the productivity of remote teams by offering a comprehensive suite of tools for time tracking, collaboration, and team engagement.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
+            
+                <!-- NFT Marketplace Card -->
                 <div class="card">
-                    <img src="images/REMOTE.jpeg" alt="Project 4">
-                    <div class="card-content">
-                        <h3>Remote Collaboration and Productivity Platform</h3>
-                        <p>a dynamic platform designed to enhance the productivity of remote teams by offering a comprehensive suite of tools for time tracking, collaboration, and team engagement.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/siphosenkosi803/Remote_Collaboration_Platform" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://nomadremotecolab.netlify.app" target="_blank">
-                                <i class="fas fa-globe"></i>
-                            </a>
+                    <a href="https://nftmarketcommunity.netlify.app" target="_blank" class="card-link">
+                        <img src="images/NFT.jpeg" alt="Project 1">
+                        <div class="card-content">
+                            <h3>NFT Marketplace & Community Platform</h3>
+                            <p>With curated collections, artist spotlights, and a beginner-friendly NFT guide, this platform bridges the gap between creativity and blockchain technology.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1064,47 +1146,42 @@ const newStyles = `
 </section>   
 
 
-    <section class="section" id="blog">
-        <div class="container">
-            <h2 class="section-title">Latest Articles</h2>
-            <div class="grid grid-3">
-
-                <div class="card">
-                    <img src="images/camus.jpeg" alt="Alber Camus reading a newspaper" class="blog-img">
+<section class="section" id="blog">
+    <div class="container">
+        <h2 class="section-title">Latest Articles</h2>
+        <div class="grid grid-3">
+            <div class="card">
+                <a href="parker-probe.html" class="card-link">
+                    <img src="img/Solar_Orbiter_and_Parker_Solar_Probe_pillars.jpg" alt="parker probe orbiter" class="blog-img">
                     <div class="card-content">
-                        <span class="category"></span>
-                        <h3>The Myth of Meaning: Albert Camus on Life, Rebellion, and Freedom</h3>
+                        <h3>Decoding the Sun's Secrets: How the Parker Solar Probe is Listening to Our Star</h3>
                         <p></p>
-                        <a href="myth-of-meaning.html">Read More →</a>
-
                     </div>
-                </div>
+                </a>
+            </div>
 
-                <div class="card">
+            <div class="card">
+                <a href="ai-global-stability.html" class="card-link">
                     <img src="images/Bioengineering Brain Concept.jpeg" alt="Web Design" class="blog-img">
                     <div class="card-content">
-                        <span class="category"></span>
                         <h3>AI and the Future of Global Stability: Can Machines Be Trusted to Maintain Peace?</h3>
                         <p></p>
-                        <a href="ai-global-stability.html">Read More →</a>
-
                     </div>
-                </div>
+                </a>
+            </div>
 
-                <div class="card">
+            <div class="card">
+                <a href="the-golden-record.html" class="card-link">
                     <img src="images/golden record.jpg" alt="Web Design" class="blog-img">
                     <div class="card-content">
-                        <span class="category"></span>
-                        <h3>The Voyager Golden Record: Humanity’s Bold Message to the Cosmos</h3>
+                        <h3>The Voyager Golden Record: Humanity's Bold Message to the Cosmos</h3>
                         <p></p>
-                        <a href="the-golden-record.html">Read More →</a>
-
                     </div>
-                </div>
-                
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     
 
