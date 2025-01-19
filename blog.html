@@ -197,17 +197,32 @@
 
         /* Cards */
         .card {
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+    text-decoration: none !important; /* Force no underline */
+    color: inherit;
+    display: block;
         }
 
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            text-decoration: none !important;
         }
+
+        .card h3 {
+    color: black;
+    text-decoration: none !important;
+}
+
+.card-content h3 {
+    text-decoration: none !important;
+}
+
+.card * {
+    text-decoration: none !important; /* Ensure no text decoration on any child elements */
+}
+
+
 
         .card img {
             width: 100%;
@@ -835,7 +850,7 @@ const newStyles = `
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="index.html#work">Work</a>
-                <a href="index.html#shop">Shop</a>
+                <a href="shop.html">Shop</a>
                 <a href="blog.html">Blog</a>
                 <a href="about.html">About</a>
             </div>
@@ -846,74 +861,53 @@ const newStyles = `
         <div class="container">
             <h2 class="section-title">All Articles</h2>
             <div class="grid grid-3">
-
-                <!-- Article  -->
-                <article class="card">
+                <!-- Article 1 -->
+                <a href="parker-probe.html" class="card">
                     <img src="img/Solar_Orbiter_and_Parker_Solar_Probe_pillars.jpg" alt="Space Exploration" class="blog-img">
                     <div class="card-content">
-                        <h3><a href="parker-probe.html">Decoding the Sun’s Secrets: How the Parker Solar Probe is Listening to Our Star</a></h3>
-                        <p></p>
+                        <h3>Decoding the Sun's Secrets: How the Parker Solar Probe is Listening to Our Star</h3>
                     </div>
-                </article>
+                </a>
                 
-                <!-- Article  -->
-                <article class="card">
+                <!-- Article 2 -->
+                <a href="myth-of-meaning.html" class="card">
                     <img src="images/camus.jpeg" alt="Space Exploration" class="blog-img">
                     <div class="card-content">
-                        <h3><a href="myth-of-meaning.html">The Myth of Meaning: Albert Camus on Life, Rebellion, and Freedom</a></h3>
-                        <p></p>
+                        <h3>The Myth of Meaning: Albert Camus on Life, Rebellion, and Freedom</h3>
                     </div>
-                </article>
-
-                <!-- Article  -->
-                <article class="card">
+                </a>
+            
+                <!-- Article 3 -->
+                <a href="the-real-reason-introverts-dont-fit-in.html" class="card">
                     <img src="images/Solitary Contemplation in Modern Minimalism.jpeg" alt="Introversion" class="blog-img">
                     <div class="card-content">
-                        <h3><a href="the-real-reason-introverts-dont-fit-in.html">The Real Reason Introverts Don’t 'Fit In': Society’s Failure to Accept Their Nature</a></h3>
-                        <p></p>
+                        <h3>The Real Reason Introverts Don't 'Fit In': Society's Failure to Accept Their Nature</h3>
                     </div>
-                </article>
-
-                
-
-                <!-- Article  -->
-                <article class="card">
-                    <img src="images/Bioengineering Brain Concept.jpeg"  alt="AI and Global Stability" class="blog-img">
+                </a>
+            
+                <!-- Article 4 -->
+                <a href="ai-global-stability.html" class="card">
+                    <img src="images/Bioengineering Brain Concept.jpeg" alt="AI and Global Stability" class="blog-img">
                     <div class="card-content">
-                        <h3><a href="ai-global-stability.html">AI and the Future of Global Stability</a></h3>
-                        <p></p>
+                        <h3>AI and the Future of Global Stability</h3>
                     </div>
-                </article>
-
-                <!-- Article  -->
-                <article class="card">
+                </a>
+            
+                <!-- Article 5 -->
+                <a href="the-golden-record.html" class="card">
                     <img src="images/golden record.jpg" alt="the golden disc" class="blog-img">
                     <div class="card-content">
-                        <h3><a href="the-golden-record.html">The Voyager Golden Record: Humanity’s Bold Message to the Cosmos</a></h3>
-                        <p></p>
+                        <h3>The Voyager Golden Record: Humanity's Bold Message to the Cosmos</h3>
                     </div>
-                </article>
-
-                <!-- Article  -->
-                <article class="card">
+                </a>
+            
+                <!-- Article 6 -->
+                <a href="creating-the-oasis.html" class="card">
                     <img src="images/Futuristic VR Experience.jpeg" alt="VR Experience" class="blog-img">
                     <div class="card-content">
-                        <h3><a href="creating-the-oasis.html">Building the OASIS: A Tech Breakdown</a></h3>
-                        <p></p>
+                        <h3>Building the OASIS: A Tech Breakdown</h3>
                     </div>
-                </article>
-
-                
-
-                
-
-                
-                
-
-
-
-
-                
+                </a>
             </div>
         </div>
     </section>

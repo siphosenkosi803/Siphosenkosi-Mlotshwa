@@ -9,21 +9,15 @@
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init('6YdWPrE_MXY30SAKk');
-        })();
-    </script>
-
-
-    <title>Siphosenkosi Mlotshwa</title>
+    <title>Shop - Siphosenkosi Mlotshwa</title>
+    <!-- Use the same styles from your index.html -->
     <style>
-        /* Reset and base styles */
+        /* Copy all your existing styles here */
+        /* Only showing relevant new/modified styles for brevity */
+
         * {
             margin: 0;
             padding: 0;
@@ -988,21 +982,27 @@ const newStyles = `
     display: none;
     text-align: center;
 }
+        
+        .shop-hero {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            background: #f8f9fa;
+            text-align: center;
+        }
 
+        .shop-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
 
-
-
-
-
-
-
-
-
-
-
-</style>
-
-
+        .shop-hero p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #4b5563;
+        }
     </style>
 </head>
 <body>
@@ -1010,7 +1010,7 @@ const newStyles = `
     
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Siphosenkosi Mlotshwa</a>
+            <a href="index.html" class="logo">Siphosenkosi Mlotshwa</a>
             <button class="mobile-menu-btn">
                 <div class="hamburger">
                     <span class="line"></span>
@@ -1020,237 +1020,114 @@ const newStyles = `
             </button>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="#work">Work</a>
+                <a href="index.html#work">Work</a>
                 <a href="shop.html">Shop</a>
                 <a href="blog.html">Blog</a>
                 <a href="about.html">About</a>
-                
             </div>
         </div>
     </nav>
 
-    <section class="hero" id="home">
-        
-        <div class="hero-blur"></div>
-        <div class="hero-content">
-            <h1>Frontend Web <br><span class="gradient-text"> & App Developer</span></h1>
-            <img src="images/VR_LOGO_1-removebg-preview.png" alt="Profile Image" class="hero-image">
-            <h3></h3>
-            
-        </div>
-    </section>
-
-    <section class="section" id="work">
+    <!-- New hero section for shop page -->
+    <section class="shop-hero">
         <div class="container">
-            <h3 class="section-title">Frontend Web Design Work</h3>
-            <div class="grid grid-2">
-                <!-- VR Experience Platform Card -->
-                <div class="card">
-                    <a href="https://vrtravelevents.netlify.app" target="_blank" class="card-link">
-                        <img src="images/Vintage 3D Cinema Audience.jpeg" alt="Project 2">
-                        <div class="card-content">
-                            <h3>VR Experience Platform</h3>
-                            <p>Discover a new way to explore the world with this cutting-edge virtual reality platform that brings global destinations and live events right to your fingertips.</p>
-                        </div>
-                    </a>
+            <h1>Custom Website Solutions</h1>
+            <h4>Choose from our carefully crafted packages to bring your web presence to life</h4>
+        </div>
+    </section>
+
+    <!-- Moved shop section -->
+    <section class="section shop-section">
+        <div class="container">
+            <h2 class="section-title">Available Packages</h2>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h2>Basic</h2>
+                    <h2 class="price">$149</h2>
+                    <ul>
+                        <li>5 Pages</li>
+                        <li>Basic SEO</li>
+                        <li>Mobile Responsive</li>
+                        <li>Contact Form Integration</li>
+                        <li>Social Media Links Integration</li>
+                    </ul>
+                    <a href="mailto:siphosenkosi.m@yahoo.com?subject=Web Design Order - Basic Plan&body=I'm interested in ordering the Basic Plan ($149) for web design services." class="btn btn-primary">PLACE ORDER</a>
                 </div>
-            
-                <!-- Indie Book Shop Card -->
-                <div class="card">
-                    <a href="https://indiebookshop.netlify.app" target="_blank" class="card-link">
-                        <img src="images/pexels-cottonbro-4855477.jpg" alt="Project 3">
-                        <div class="card-content">
-                            <h3>Indie Book Shop Website</h3>
-                            <p>an online platform celebrating creativity through a curated selection of independent publications, art books, and design materials.</p>
-                        </div>
-                    </a>
+                
+                <div class="pricing-card">
+                    <h2>Standard</h2>
+                    <h2 class="price">$299</h2>
+                    <ul>
+                        <li>Up to 10 Pages</li>
+                        <li>Advanced SEO Optimization</li>
+                        <li>Mobile and Tablet Responsiveness</li>
+                        <li>Google Analytics Integration</li>
+                        <li>Custom Design Elements</li>
+                    </ul>
+                    <a href="mailto:siphosenkosi.m@yahoo.com?subject=Web Design Order - Standard Plan&body=I'm interested in ordering the Standard Plan ($299) for web design services." class="btn btn-primary">PLACE ORDER</a>
                 </div>
-            
-                <!-- Remote Collaboration Platform Card -->
-                <div class="card">
-                    <a href="https://nomadremotecolab.netlify.app" target="_blank" class="card-link">
-                        <img src="images/REMOTE.jpeg" alt="Project 4">
-                        <div class="card-content">
-                            <h3>Remote Collaboration and Productivity Platform</h3>
-                            <p>a dynamic platform designed to enhance the productivity of remote teams by offering a comprehensive suite of tools for time tracking, collaboration, and team engagement.</p>
-                        </div>
-                    </a>
-                </div>
-            
-                <!-- NFT Marketplace Card -->
-                <div class="card">
-                    <a href="https://nftmarketcommunity.netlify.app" target="_blank" class="card-link">
-                        <img src="images/NFT.jpeg" alt="Project 1">
-                        <div class="card-content">
-                            <h3>NFT Marketplace & Community Platform</h3>
-                            <p>With curated collections, artist spotlights, and a beginner-friendly NFT guide, this platform bridges the gap between creativity and blockchain technology.</p>
-                        </div>
-                    </a>
+
+                <div class="pricing-card">
+                    <h2>Premium</h2>
+                    <h2 class="price">$699</h2>
+                    <ul>
+                        <li>Unlimited Pages</li>
+                        <li>Advanced SEO with Keyword Research</li>
+                        <li>E-commerce Functionality (Up to 10 Products)</li>
+                        <li>Speed Optimization & Performance Testing</li>
+                        <li>Dedicated 30-Day Post-Launch Support</li>
+                    </ul>
+                    <a href="mailto:siphosenkosi.m@yahoo.com?subject=Web Design Order - Premium Plan&body=I'm interested in ordering the Premium Plan ($699) for web design services." class="btn btn-primary">PLACE ORDER</a>
                 </div>
             </div>
         </div>
     </section>
-
-    
-
-    
-
-<section class="section" id="blog">
-    <div class="container">
-        <h2 class="section-title">Latest Articles</h2>
-        <div class="grid grid-3">
-            <div class="card">
-                <a href="parker-probe.html" class="card-link">
-                    <img src="img/Solar_Orbiter_and_Parker_Solar_Probe_pillars.jpg" alt="parker probe orbiter" class="blog-img">
-                    <div class="card-content">
-                        <h3>Decoding the Sun's Secrets: How the Parker Solar Probe is Listening to Our Star</h3>
-                        <p></p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="card">
-                <a href="ai-global-stability.html" class="card-link">
-                    <img src="images/Bioengineering Brain Concept.jpeg" alt="Web Design" class="blog-img">
-                    <div class="card-content">
-                        <h3>AI and the Future of Global Stability: Can Machines Be Trusted to Maintain Peace?</h3>
-                        <p></p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="card">
-                <a href="the-golden-record.html" class="card-link">
-                    <img src="images/golden record.jpg" alt="Web Design" class="blog-img">
-                    <div class="card-content">
-                        <h3>The Voyager Golden Record: Humanity's Bold Message to the Cosmos</h3>
-                        <p></p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-    
 
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h3></h3>
-                    <p></p>
                     <div class="social-links">
-
                         <a href="https://github.com/siphosenkosi803"><i class="fab fa-github"></i></a>
                         <a href="https://instagram.com/1heavy0"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:siphosenkosi.m@yahoo.com"><i class="fas fa-envelope"></i></a>                    </div>
-                    
+                        <a href="mailto:siphosenkosi.m@yahoo.com"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
-                
-                
             </div>
         </div>
     </footer>
 
-    
-
-
-
     <script>
-        // Wait for DOM to be fully loaded before running any code
-document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
-    const navbar = document.querySelector('.navbar');
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+        // Copy your existing JavaScript here
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
 
-    // Navigation scroll effect
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+            // Navigation scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
 
-    // Mobile menu toggle
-    mobileMenuBtn.addEventListener('click', function(e) {
-        e.stopPropagation(); // Prevent event bubbling
-        navLinks.classList.toggle('active');
-    });
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+            });
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            navLinks.classList.remove('active');
-        }
-    });
-
-    // Modal Functions
-    function openResumeModal() {
-        document.getElementById('resumeModal').style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeResumeModal() {
-        document.getElementById('resumeModal').style.display = 'none';
-        document.body.style.overflow = '';
-    }
-
-    function openCertModal() {
-        document.getElementById('certModal').style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeCertModal() {
-        document.getElementById('certModal').style.display = 'none';
-        document.body.style.overflow = '';
-    }
-
-    
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Close mobile menu if open
-                navLinks.classList.remove('active');
-            }
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
         });
-    });
-
-    // Close modals when clicking outside
-    window.addEventListener('click', (e) => {
-        const modals = document.querySelectorAll('.modal, .doc-modal, .blog-modal');
-        modals.forEach(modal => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        });
-    });
-
-    
-
-    // Make functions globally available
-    window.openResumeModal = openResumeModal;
-    window.closeResumeModal = closeResumeModal;
-    window.openCertModal = openCertModal;
-    window.closeCertModal = closeCertModal;
-    window.openBlogModal = openBlogModal;
-    window.closeBlogModal = closeBlogModal;
-    window.openPricingModal = openPricingModal;
-    window.closePricingModal = closePricingModal;
-    window.sendEmail = sendEmail;
-    window.sendPricingEmail = sendPricingEmail;
-});
-
-            </script>
+    </script>
 </body>
 </html>
