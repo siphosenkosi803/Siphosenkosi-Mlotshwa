@@ -78,13 +78,14 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
-            background-color: white;
+            background-color: black;
             transition: all 0.3s ease;
             padding: 1rem 0;
+            top: 0;
         }
 
         .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.95);
+            background: black;
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
@@ -103,7 +104,7 @@
             font-weight: 700;
             background: linear-gradient(135deg, black, black);
             -webkit-background-clip: text;
-            color: transparent;
+            color: white;
             text-decoration: none;
         }
 
@@ -114,7 +115,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: black;
+            color: white;
             position: relative;
             padding-bottom: 0.25rem;
         }
@@ -136,10 +137,11 @@
 
         .mobile-menu-btn {
             display: none;
-            background: none;
+            background: black;
             border: none;
             cursor: pointer;
             padding: 0.5rem;
+            color: white;
         }
 
         /* Footer */
@@ -186,13 +188,14 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: white;
+                background: black;
                 padding: 1rem;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
 
             .mobile-menu-btn {
                 display: block;
+                color: white;
             }
 
             .nav-links.active {
