@@ -35,8 +35,8 @@
             font-family: 'IBM Plex Mono', monospace;
            
             line-height: 1.6;
-            color: black;
-            background-color: white;
+            color: white;
+            background-color: black;
         }
 
         /* Grid background */
@@ -208,6 +208,7 @@
             padding: 6rem 2rem 2rem;
             position: relative;
             overflow: visible;
+            background-color: black;
         }
 
         .hero-content {
@@ -259,11 +260,11 @@
             z-index: -1;
         }
 
-        .hero h1 {
+        .hero h4 {
             font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 0.8;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 0.5;
         }
 
         .gradient-text {
@@ -274,7 +275,7 @@
 
         .hero p {
             font-size: clamp(1.1rem, 2vw, 1.5rem);
-            color: #4b5563;
+            color: white;
             margin-bottom: 2rem;
         }
 
@@ -314,7 +315,7 @@
 
         /* Cards */
         .card {
-            background: white;
+            background: black;
             border-radius: 1rem;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -349,6 +350,7 @@
         .card-content p {
             flex-grow: 1;
             margin-bottom: 0;
+            
         }
 
         .project-links {
@@ -406,6 +408,8 @@
         /* Sections */
         .section {
             padding: 6rem 2rem;
+            background: black;
+
         }
 
         .section-title {
@@ -1033,7 +1037,7 @@ const newStyles = `
         
         <div class="hero-blur"></div>
         <div class="hero-content">
-            <h1>FRONTEND WEB <br><span class="gradient-text"> & APP DEVELOPER</span></h1> 
+            <h4>WEB & APP DEVELOPER</h4> 
             <img src="images/VR_LOGO_1-removebg-preview.png" alt="Profile Image" class="hero-image">
             <h3></h3>
             
@@ -1042,7 +1046,7 @@ const newStyles = `
 
     <section class="section" id="work">
         <div class="container">
-            <h4 class="section-title">WEB DESIGN</h4>
+            <h6 class="section-title">FRONTEND WEB DESIGN</h6>
             <div class="grid grid-2">
                 <!-- VR Experience Platform Card -->
                 <div class="card">
@@ -1061,7 +1065,7 @@ const newStyles = `
                         <img src="images/pexels-cottonbro-4855477.jpg" alt="Project 3">
                         <div class="card-content">
                             <h3>Indie Book Shop Website</h3>
-                            <p>an online platform celebrating creativity through a curated selection of independent publications, art books, and design materials.</p>
+                            <p>An online platform celebrating creativity through a curated selection of independent publications, art books, and design materials.</p>
                         </div>
                     </a>
                 </div>
