@@ -163,39 +163,92 @@
 
 /* Update your existing media query styles */
 @media (max-width: 768px) {
-    .mobile-menu-btn {
-        display: block;
-
-
-    }
-
     .nav-links {
         position: fixed;
         top: 0;
-        right: 0;
+        left: 0;
+        width: 100%;
         height: 100vh;
-        width: 250px;
         background: black;
-        backdrop-filter: blur(10px);
-        padding: 80px 2rem 2rem;
-        transform: translateX(100%);
-        opacity: 0;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
     }
 
     .nav-links.active {
-        transform: translateX(0);
-        opacity: 1;
+        transform: translateY(0);
     }
 
     .nav-links a {
+        font-size: 2rem;
+        margin: 1rem 0;
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: greenyellow;
+    }
+
+    .mobile-menu-btn {
         display: block;
-        padding: 1rem 0;
-        font-size: 1.1rem;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .hamburger {
+        width: 30px;
+        height: 20px;
+        position: relative;
+        transition: 0.5s ease-in-out;
+    }
+
+    .hamburger .line {
+        display: block;
+        background: white;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        transition: 0.5s ease-in-out;
+    }
+
+    .hamburger .line:nth-child(1) { top: 0; }
+    .hamburger .line:nth-child(2) { top: 50%; transform: translateY(-50%); }
+    .hamburger .line:nth-child(3) { bottom: 0; }
+
+    /* Hamburger animation */
+    .mobile-menu-btn.active .hamburger .line:nth-child(1) {
+        transform: rotate(45deg);
+        top: 50%;
+    }
+
+    .mobile-menu-btn.active .hamburger .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-btn.active .hamburger .line:nth-child(3) {
+        transform: rotate(-45deg);
+        bottom: 40%;
+    }
+
+    /* Add styles for the menu logo */
+    .menu-logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 3rem;
     }
 }
-
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -525,25 +578,72 @@
         /* Mobile Styles */
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 0;
                 left: 0;
-                right: 0;
+                width: 100%;
+                height: 100vh;
                 background: black;
-                padding: 1rem;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-
-            .mobile-menu-btn {
-                display: block;
-                color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 998;
             }
 
             .nav-links.active {
-                display: flex;
-                
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                font-size: 2rem;
+                margin: 1rem 0;
+                color: white;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: greenyellow;
+            }
+
+            .mobile-menu-btn {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        color: white;
+    }
+
+    .hamburger {
+        width: 30px;
+        height: 20px;
+        position: relative;
+        transition: 0.5s ease-in-out;
+    }
+
+    .hamburger .line {
+        display: block;
+        background: white;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        transition: 0.5s ease-in-out;
+        color: white;
+    }
+
+            .logo {
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 1001;
             }
         }
         .profile-img {

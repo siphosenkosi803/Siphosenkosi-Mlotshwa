@@ -356,25 +356,72 @@
         /* Mobile Styles */
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 0;
                 left: 0;
-                right: 0;
+                width: 100%;
+                height: 100vh;
                 background: black;
-                padding: 1rem;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-
-            .mobile-menu-btn {
-                display: block;
-                color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 998;
             }
 
             .nav-links.active {
-                display: flex;
-                
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                font-size: 2rem;
+                margin: 1rem 0;
+                color: white;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: greenyellow;
+            }
+
+            .mobile-menu-btn {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        color: white;
+    }
+
+    .hamburger {
+        width: 30px;
+        height: 20px;
+        position: relative;
+        transition: 0.5s ease-in-out;
+    }
+
+    .hamburger .line {
+        display: block;
+        background: white;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        transition: 0.5s ease-in-out;
+        color: white;
+    }
+
+            .logo {
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 1001;
             }
         }
         .profile-img {

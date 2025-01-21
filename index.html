@@ -120,12 +120,12 @@
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    z-index: 1000;
+    z-index: 1001;
     color: white;
 }
 
 .hamburger {
-    width: 24px;
+    width: 30px;
     height: 20px;
     position: relative;
     transition: all 0.3s ease-in-out;
@@ -169,38 +169,75 @@
 
 /* Update your existing media query styles */
 @media (max-width: 768px) {
-    .mobile-menu-btn {
-        display: block;
-        background: black;
-    }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: black;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 998;
+            }
 
-    .nav-links {
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                font-size: 2rem;
+                margin: 1rem 0;
+                color: white;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: greenyellow;
+            }
+
+            .mobile-menu-btn {
+        display: block;
         position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 250px;
-        background: black
-        backdrop-filter: blur(10px);
-        padding: 80px 2rem 2rem;
-        transform: translateX(100%);
-        opacity: 0;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    }
-
-    .nav-links.active {
-        transform: translateX(0);
-        opacity: 1;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 1rem 0;
-        font-size: 1.1rem;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
         color: white;
     }
-}
+
+    .hamburger {
+        width: 30px;
+        height: 20px;
+        position: relative;
+        transition: 0.5s ease-in-out;
+    }
+
+    .hamburger .line {
+        display: block;
+        background: white;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        transition: 0.5s ease-in-out;
+        color: white;
+    }
+
+            .logo {
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 1001;
+            }
+        }
 
         /* Hero Section */
         .hero {
