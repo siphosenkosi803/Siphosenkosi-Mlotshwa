@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -77,13 +79,21 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, black, black);
-            -webkit-background-clip: text;
-            color: white;
-            text-decoration: none;
-        }
+    font-family: 'Caveat', cursive;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px
+    object-fit: cover;
+}
 
         .nav-links {
             display: flex;
@@ -1055,7 +1065,10 @@ const newStyles = `
     
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Siphosenkosi Mlotshwa</a>
+            <a href="#" class="logo">
+                <img src="images/VR_LOGO_1-removebg-preview.png" alt="Logo">
+                Siphosenkosi Mlotshwa
+            </a>
             <button class="mobile-menu-btn">
                 <div class="hamburger">
                     <span class="line"></span>
@@ -1078,16 +1091,16 @@ const newStyles = `
         
         <div class="hero-blur"></div>
         <div class="hero-content">
-            <p>DIGITAL EXPERIENCE ARCHITECT</p> 
+            <p></p> 
             <img src="images/VR_LOGO_1-removebg-preview.png" alt="Profile Image" class="hero-image">
-            <h3></h3>
+            <h3>They say dreams are as real for as long as they last, couldn't we say the same thing about life? </h3>
             
         </div>
     </section>
 
     <section class="section" id="work">
         <div class="container">
-            <h6 class="section-title">FRONTEND WEB DESIGN</h6>
+            <h6 class="section-title">FRONTEND WEB DESIGN WORK</h6>
             <h3></h3>
             <div class="grid grid-3">
                 
