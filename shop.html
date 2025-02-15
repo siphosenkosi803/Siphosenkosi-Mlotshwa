@@ -1163,7 +1163,6 @@ const newStyles = `
 
 /* T-shirt Item Container */
 .tshirt-card {
-    z-index: 1; /* Add this */
     position: relative;
     background: white; /* White background for t-shirt area */
     transition: transform 0.3s ease;
@@ -1180,30 +1179,23 @@ const newStyles = `
     background: white;
     overflow: hidden;
     width: 100%;
-    display: flex; /* Add this */
-    align-items: center; /* Add this */
-    justify-content: center; /* Add this */
 }
 
 /* T-shirt Images */
 .tshirt-image {
-    max-width: 100%; /* Change this from width: 100% */
-    max-height: 100%; /* Add this */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     transition: opacity 0.3s ease;
     opacity: 0;
     background: white;
-    position: absolute;
-    top: 0;
-    left: 0;rgb(107, 68, 68)
-    right: 0;
-    bottom: 0;
-    margin: auto; /* Add this */
 }
 
 .tshirt-image.active {
     opacity: 1;
-    z-index: 2; /* Add this */
 }
 
 /* View Controls */
@@ -1281,18 +1273,8 @@ const newStyles = `
         padding: 0 1rem;
     }
 
-    .tshirt-card {
-        max-width: 95%; /* Add this to ensure cards aren't too wide */
-    }
-
     .tshirt-image-container {
         aspect-ratio: 4/5;
-        max-height: 70vh; /* Add this to limit height on small screens */
-    }
-
-    .tshirt-image.active {
-        opacity: 1;
-        display: block; /* Add this to ensure visibility */
     }
 
     .section-title {
@@ -1415,42 +1397,39 @@ const newStyles = `
             <h6 class="section-title">APPAREL</h6>
             
             <div class="tshirt-grid">
-                    
                 <!-- T-shirt Card 1 -->
-<div class="tshirt-card">
-    <div class="tshirt-image-container">
-        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18019927/what-would-dostoevssky-do" target="_blank">
-            <img src="images/Front__dostoevsky.png" alt="T-shirt 1 Front" class="tshirt-image front active">
-            <img src="images/Back__dostoevsky.png" alt="T-shirt 1 Back" class="tshirt-image back">
-        </a>
-        <div class="view-controls">
-            <button class="view-toggle-btn">View Back</button>
-        </div>
-    </div>
-    <div class="tshirt-info">
-        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18019927/what-would-dostoevssky-do" target="_blank" class="price-button">
-            $34
-        </a>
-    </div>
-</div>
+                <div class="tshirt-card">
+                    <div class="tshirt-image-container">
+                        <img src="images/Front__dostoevsky.png" alt="T-shirt 1 Front" class="tshirt-image front active">
+                        <img src="images/Back__dostoevsky.png" alt="T-shirt 1 Back" class="tshirt-image back">
+                        <div class="view-controls">
+                            <button class="view-toggle-btn">View Back</button>
+                        </div>
+                    </div>
+                    <div class="tshirt-info">
+                        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18019927/what-would-dostoevssky-do" target="_blank" class="price-button">
+                            $34
+                        </a>
+                    </div>
+                </div>
 
-<!-- T-shirt Card Two -->
-<div class="tshirt-card">
-    <div class="tshirt-image-container">
-        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18021001/vultures-vulures-vultures" target="_blank">
-            <img src="images/Front_vulture.png" alt="T-shirt 1 Front" class="tshirt-image front active">
-            <img src="images/Back_VULTURE.png" alt="T-shirt 1 Back" class="tshirt-image back">
-        </a>
-        <div class="view-controls">
-            <button class="view-toggle-btn">View Back</button>
-        </div>
-    </div>
-    <div class="tshirt-info">
-        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18021001/vultures-vulures-vultures" target="_blank" class="price-button">
-            $34
-        </a>
-    </div>
-</div>
+                <!-- T-shirt Card Two -->
+                <div class="tshirt-card">
+                    <div class="tshirt-image-container">
+                        <img src="images/Front_vulture.png" alt="T-shirt 1 Front" class="tshirt-image front active">
+                        <img src="images/Back_VULTURE.png" alt="T-shirt 1 Back" class="tshirt-image back">
+                        <div class="view-controls">
+                            <button class="view-toggle-btn">View Back</button>
+                        </div>
+                    </div>
+                    <div class="tshirt-info">
+                        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18021001/vultures-vulures-vultures" target="_blank" class="price-button">
+                            $34
+                        </a>
+                    </div>
+                </div>
+    
+                
 
             </div>
         </div>
@@ -1522,51 +1501,6 @@ const newStyles = `
             }
         });
     }); 
-
-    document.addEventListener('DOMContentLoaded', function() {
-    // Debug image loading
-    const images = document.querySelectorAll('.tshirt-image');
-    images.forEach(img => {
-        img.addEventListener('error', function() {
-            console.error('Failed to load image:', this.src);
-            this.style.display = 'none';
-        });
-        
-        img.addEventListener('load', function() {
-            console.log('Successfully loaded image:', this.src);
-        });
-    });
-});
-
-document.querySelectorAll('.tshirt-card').forEach(card => {
-    const frontImage = card.querySelector('.front');
-    const backImage = card.querySelector('.back');
-    const toggleBtn = card.querySelector('.view-toggle-btn');
-    let showingFront = true;
-
-    // Initialize - make sure front is visible
-    frontImage.style.display = 'block';
-    backImage.style.display = 'none';
-
-    toggleBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        showingFront = !showingFront;
-        
-        if (showingFront) {
-            frontImage.style.display = 'block';
-            backImage.style.display = 'none';
-            frontImage.classList.add('active');
-            backImage.classList.remove('active');
-            toggleBtn.textContent = 'View Back';
-        } else {
-            frontImage.style.display = 'none';
-            backImage.style.display = 'block';
-            frontImage.classList.remove('active');
-            backImage.classList.add('active');
-            toggleBtn.textContent = 'View Front';
-        }
-    });
-});
 
     </script>
 </body>
