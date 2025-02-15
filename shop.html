@@ -1201,16 +1201,14 @@ const newStyles = `
         /* IMPROVED VIEW CONTROLS */
         .view-controls {
             position: absolute;
-            bottom: 20px; /* Increased spacing */
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            justify-content: flex-end; /* Better alignment */
-            opacity: 1;
-            z-index: 10; /* Higher z-index */
-            padding: 0 15px; /* Added padding */
-            width: 100%; /* Full width */
+    bottom: 20px;
+    left: 0; /* Changed from left: 50% */
+    width: 100%; /* Ensure full width */
+    display: flex;
+    justify-content: center; /* Center alignment */
+    transform: none; /* Remove previous transform */
+    padding: 0 15px;
+    z-index: 10;
         }
 
         .view-toggle-btn {
@@ -1259,6 +1257,10 @@ const newStyles = `
 
         /* UPDATED MOBILE STYLES */
         @media (max-width: 768px) {
+
+            .view-controls {
+                justify-content: center; /* Ensure center alignment on mobile
+
             .tshirt-grid {
                 grid-template-columns: 1fr; /* Single column */
                 gap: 2rem; /* Reduced gap */
