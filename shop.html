@@ -366,7 +366,7 @@
         }
 
         .btn-primary:hover {
-            background: whitesmoke;
+            background: red;
             transform: translateY(-2px);
         }
 
@@ -1129,6 +1129,151 @@ const newStyles = `
             margin: 0 auto;
             color: #4b5563;
         }
+
+        .tshirt-grid {
+            display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Significantly increased from 350px */
+    gap: 3rem; /* Increased from 2.5rem */
+    margin-top: 2rem;
+    max-width: 1800px; /* Increased from 1400px for larger layout */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
+}
+
+.tshirt-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    max-width: 600px; /* Increased from 300px */
+    margin: 0 auto;
+    
+}
+
+    .tshirt-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .tshirt-image-container {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: #f8f9fa;
+    overflow: hidden;
+    max-height: 750px; /* Significantly increased from 500px */
+    min-height: 600px; /* Added minimum height to ensure large enough display */
+}
+
+    .tshirt-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+    }
+
+    .tshirt-image.active {
+        opacity: 1;
+    }
+
+    .view-controls {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .tshirt-image-container:hover .view-controls {
+        opacity: 1;
+    }
+
+    .view-toggle-btn {
+        background: white;
+        color: black;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .view-toggle-btn:hover {
+        background: greenyellow;
+    }
+
+    .tshirt-info {
+        padding: 1.9rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: black;
+    }
+
+    .price-button {
+    background: greenyellow;
+    color: black;
+    text-decoration: none;
+    padding: 1.25rem 3rem; /* Increased from 0.75rem 2rem */
+    border-radius: 9999px;
+    font-weight: bold;
+    font-size: 1.5rem; /* Increased from 1.1rem */
+    transition: all 0.3s ease;
+}
+
+    .price-button:hover {
+        background: red;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 1200px) {
+        .tshirt-grid {
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        }
+
+        .tshirt-card {
+            max-width: 550px;
+    }
+
+    @media (max-width: 768px) {
+        .tshirt-grid {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        padding: 0 1.5rem;
+        }
+        
+        .tshirt-card {
+            max-width: 500px;
+        }
+
+        .tshirt-image-container {
+        max-height: 500px; /* Increased for better mobile display */
+    }
+    }
+
+    @media (max-width: 480px) {
+    .tshirt-grid {
+        padding: 0 1rem;
+    }
+    
+    .tshirt-card {
+        max-width: 100%;
+    }
+    
+    .tshirt-image-container {
+        min-height: 400px;
+    }
+    
+    .price-button {
+        padding: 1rem 2.5rem;
+        font-size: 1.25rem;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -1173,7 +1318,7 @@ const newStyles = `
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h2>BASIC</h2>
-                    <h2 class="price">$149</h2>
+                    <h2 class="price">$249</h2>
                     <ul>
                         <li>5 Pages</li>
                         <li>Basic SEO</li>
@@ -1186,7 +1331,7 @@ const newStyles = `
                 
                 <div class="pricing-card">
                     <h2>STANDARD</h2>
-                    <h2 class="price">$299</h2>
+                    <h2 class="price">$499</h2>
                     <ul>
                         <li>Up to 10 Pages</li>
                         <li>Advanced SEO Optimization</li>
@@ -1199,7 +1344,7 @@ const newStyles = `
 
                 <div class="pricing-card">
                     <h2>PREMIUM</h2>
-                    <h2 class="price">$699</h2>
+                    <h2 class="price">$899</h2>
                     <ul>
                         <li>Unlimited Pages</li>
                         <li>Advanced SEO with Keyword Research</li>
@@ -1209,6 +1354,49 @@ const newStyles = `
                     </ul>
                     <a href="mailto:siphosenkosi.m@yahoo.com?subject=Web Design Order - Premium Plan&body=I'm interested in ordering the Premium Plan ($699) for web design services." class="btn btn-primary">PLACE ORDER</a>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section shop-section">
+        <div class="container">
+            <h6 class="section-title">APPAREL</h6>
+            
+            <div class="tshirt-grid">
+                <!-- T-shirt Card 1 -->
+                <div class="tshirt-card">
+                    <div class="tshirt-image-container">
+                        <img src="images/Front__dostoevsky.png" alt="T-shirt 1 Front" class="tshirt-image front active">
+                        <img src="images/Back__dostoevsky.png" alt="T-shirt 1 Back" class="tshirt-image back">
+                        <div class="view-controls">
+                            <button class="view-toggle-btn">View Back</button>
+                        </div>
+                    </div>
+                    <div class="tshirt-info">
+                        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18019927/what-would-dostoevssky-do" target="_blank" class="price-button">
+                            $34
+                        </a>
+                    </div>
+                </div>
+
+                <!-- T-shirt Card Two -->
+                <div class="tshirt-card">
+                    <div class="tshirt-image-container">
+                        <img src="images/Front_vulture.png" alt="T-shirt 1 Front" class="tshirt-image front active">
+                        <img src="images/Back_VULTURE.png" alt="T-shirt 1 Back" class="tshirt-image back">
+                        <div class="view-controls">
+                            <button class="view-toggle-btn">View Back</button>
+                        </div>
+                    </div>
+                    <div class="tshirt-info">
+                        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18021001/vultures-vulures-vultures" target="_blank" class="price-button">
+                            $34
+                        </a>
+                    </div>
+                </div>
+    
+                
+
             </div>
         </div>
     </section>
@@ -1257,6 +1445,29 @@ const newStyles = `
                 }
             });
         });
+
+        document.querySelectorAll('.tshirt-card').forEach(card => {
+        const frontImage = card.querySelector('.front');
+        const backImage = card.querySelector('.back');
+        const toggleBtn = card.querySelector('.view-toggle-btn');
+        let showingFront = true;
+
+        toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent link navigation when clicking button
+            showingFront = !showingFront;
+            
+            if (showingFront) {
+                frontImage.classList.add('active');
+                backImage.classList.remove('active');
+                toggleBtn.textContent = 'View Back';
+            } else {
+                frontImage.classList.remove('active');
+                backImage.classList.add('active');
+                toggleBtn.textContent = 'View Front';
+            }
+        });
+    }); 
+
     </script>
 </body>
 </html>
