@@ -1130,150 +1130,184 @@ const newStyles = `
             color: #4b5563;
         }
 
-        .tshirt-grid {
-            display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Significantly increased from 350px */
-    gap: 3rem; /* Increased from 2.5rem */
+        /* Remove old card-based styles */
+/* Shop Section Container - keeping it black */
+.shop-section {
+    padding: 6rem 2rem;
+    background: black;
+}
+
+.container {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: left;
+    color: white; /* Keeping white text for black background */
+}
+
+/* T-shirt Grid Layout */
+.tshirt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
     margin-top: 2rem;
-    max-width: 1800px; /* Increased from 1400px for larger layout */
     margin-left: auto;
     margin-right: auto;
     padding: 0 2rem;
 }
 
+/* T-shirt Item Container */
 .tshirt-card {
-    background: white;
-    border-radius: 1rem;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    max-width: 600px; /* Increased from 300px */
-    margin: 0 auto;
-    
-}
-
-    .tshirt-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .tshirt-image-container {
     position: relative;
-    aspect-ratio: 4/5;
-    background: #f8f9fa;
+    background: white; /* White background for t-shirt area */
+    transition: transform 0.3s ease;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 1rem; /* Optional: adds slight rounding to the white background */
     overflow: hidden;
-    max-height: 750px; /* Significantly increased from 500px */
-    min-height: 600px; /* Added minimum height to ensure large enough display */
 }
 
-    .tshirt-image {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: opacity 0.3s ease;
-        opacity: 0;
-    }
+/* Image Container */
+.tshirt-image-container {
+    position: relative;
+    aspect-ratio: 1;
+    background: white;
+    overflow: hidden;
+    width: 100%;
+}
 
-    .tshirt-image.active {
-        opacity: 1;
-    }
+/* T-shirt Images */
+.tshirt-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    background: white;
+}
 
-    .view-controls {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(0, 0, 0, 0.3);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
+.tshirt-image.active {
+    opacity: 1;
+}
 
-    .tshirt-image-container:hover .view-controls {
-        opacity: 1;
-    }
+/* View Controls */
+.view-controls {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
 
-    .view-toggle-btn {
-        background: white;
-        color: black;
-        border: none;
-        padding: 0.75rem 1.5rem;
-        border-radius: 9999px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-    }
+.view-toggle-btn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+}
 
-    .view-toggle-btn:hover {
-        background: greenyellow;
-    }
+.view-toggle-btn:hover {
+    background: greenyellow;
+    color: black;
+}
 
-    .tshirt-info {
-        padding: 1.9rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: black;
-    }
+/* Price Button Container */
+.tshirt-info {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
 
-    .price-button {
+/* Price Button */
+.price-button {
     background: greenyellow;
     color: black;
     text-decoration: none;
-    padding: 1.25rem 3rem; /* Increased from 0.75rem 2rem */
+    padding: 1rem 2rem;
     border-radius: 9999px;
     font-weight: bold;
-    font-size: 1.5rem; /* Increased from 1.1rem */
+    font-size: 1.25rem;
     transition: all 0.3s ease;
+    font-family: 'IBM Plex Mono', monospace;
+    display: inline-block;
 }
 
-    .price-button:hover {
-        background: red;
-        transform: translateY(-2px);
-    }
+.price-button:hover {
+    background: red;
+    color: black;
+    transform: translateY(-2px);
+}
 
-    @media (max-width: 1200px) {
-        .tshirt-grid {
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-        }
-
-        .tshirt-card {
-            max-width: 550px;
-    }
-
-    @media (max-width: 768px) {
-        .tshirt-grid {
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-        padding: 0 1.5rem;
-        }
-        
-        .tshirt-card {
-            max-width: 500px;
-        }
-
-        .tshirt-image-container {
-        max-height: 500px; /* Increased for better mobile display */
-    }
-    }
-
-    @media (max-width: 480px) {
+/* Responsive Design */
+@media (max-width: 1200px) {
     .tshirt-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .tshirt-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
         padding: 0 1rem;
     }
-    
-    .tshirt-card {
-        max-width: 100%;
-    }
-    
+
     .tshirt-image-container {
-        min-height: 400px;
+        aspect-ratio: 4/5;
     }
-    
+
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
     .price-button {
-        padding: 1rem 2.5rem;
-        font-size: 1.25rem;
+        padding: 0.875rem 1.75rem;
+        font-size: 1.125rem;
     }
 }
 
+@media (max-width: 480px) {
+    .shop-section {
+        padding: 4rem 1rem;
+    }
+
+    .tshirt-grid {
+        gap: 2rem;
+        padding: 0;
+    }
+
+    .view-toggle-btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+    }
+
+    .price-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -1363,39 +1397,42 @@ const newStyles = `
             <h6 class="section-title">APPAREL</h6>
             
             <div class="tshirt-grid">
+                    
                 <!-- T-shirt Card 1 -->
-                <div class="tshirt-card">
-                    <div class="tshirt-image-container">
-                        <img src="images/Front__dostoevsky.png" alt="T-shirt 1 Front" class="tshirt-image front active">
-                        <img src="images/Back__dostoevsky.png" alt="T-shirt 1 Back" class="tshirt-image back">
-                        <div class="view-controls">
-                            <button class="view-toggle-btn">View Back</button>
-                        </div>
-                    </div>
-                    <div class="tshirt-info">
-                        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18019927/what-would-dostoevssky-do" target="_blank" class="price-button">
-                            $34
-                        </a>
-                    </div>
-                </div>
+<div class="tshirt-card">
+    <div class="tshirt-image-container">
+        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18019927/what-would-dostoevssky-do" target="_blank">
+            <img src="images/Front__dostoevsky.png" alt="T-shirt 1 Front" class="tshirt-image front active">
+            <img src="images/Back__dostoevsky.png" alt="T-shirt 1 Back" class="tshirt-image back">
+        </a>
+        <div class="view-controls">
+            <button class="view-toggle-btn">View Back</button>
+        </div>
+    </div>
+    <div class="tshirt-info">
+        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18019927/what-would-dostoevssky-do" target="_blank" class="price-button">
+            $34
+        </a>
+    </div>
+</div>
 
-                <!-- T-shirt Card Two -->
-                <div class="tshirt-card">
-                    <div class="tshirt-image-container">
-                        <img src="images/Front_vulture.png" alt="T-shirt 1 Front" class="tshirt-image front active">
-                        <img src="images/Back_VULTURE.png" alt="T-shirt 1 Back" class="tshirt-image back">
-                        <div class="view-controls">
-                            <button class="view-toggle-btn">View Back</button>
-                        </div>
-                    </div>
-                    <div class="tshirt-info">
-                        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18021001/vultures-vulures-vultures" target="_blank" class="price-button">
-                            $34
-                        </a>
-                    </div>
-                </div>
-    
-                
+<!-- T-shirt Card Two -->
+<div class="tshirt-card">
+    <div class="tshirt-image-container">
+        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18021001/vultures-vulures-vultures" target="_blank">
+            <img src="images/Front_vulture.png" alt="T-shirt 1 Front" class="tshirt-image front active">
+            <img src="images/Back_VULTURE.png" alt="T-shirt 1 Back" class="tshirt-image back">
+        </a>
+        <div class="view-controls">
+            <button class="view-toggle-btn">View Back</button>
+        </div>
+    </div>
+    <div class="tshirt-info">
+        <a href="https://siphosenkosi-mlotshwa.printify.me/product/18021001/vultures-vulures-vultures" target="_blank" class="price-button">
+            $34
+        </a>
+    </div>
+</div>
 
             </div>
         </div>
