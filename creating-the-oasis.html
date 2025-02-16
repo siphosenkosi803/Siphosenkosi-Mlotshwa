@@ -321,6 +321,26 @@
         margin: 2rem;
     }
 
+    .article-meta {
+    font-size: 0.9rem;
+    color: #aaa;
+    text-align: center;
+    margin-top: 1rem;      /* Space between header and meta info */
+    margin-bottom: 2rem;   /* Space between meta info and article content */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.article-author {
+    font-weight: 500;
+}
+
+.article-date {
+    font-style: italic;
+}
+
     .article-content {
     padding: 0 2rem; /* Add padding to the content area only */
 }
@@ -334,6 +354,8 @@
         padding: 0 1rem;
     }
 }
+
+
 
     </style>
 </head>
@@ -373,6 +395,10 @@
             </div>
             <div class="article-header">
                 <h1>Building the OASIS: A Tech Breakdown</h1>
+                <div class="article-meta">
+                    <span class="article-author">By Siphosenkosi Mlotshwa</span>
+                    <span class="article-date">Published: January 04, 2025</span>
+                </div>
             </div>
             <div class="article-content">
                 <!-- Article content goes here -->

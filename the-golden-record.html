@@ -322,6 +322,26 @@
         margin: 2rem;
     }
 
+    .article-meta {
+    font-size: 0.9rem;
+    color: #aaa;
+    text-align: center;
+    margin-top: 1rem;      /* Space between header and meta info */
+    margin-bottom: 2rem;   /* Space between meta info and article content */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.article-author {
+    font-weight: 500;
+}
+
+.article-date {
+    font-style: italic;
+}
+
     .article-content {
     padding: 0 2rem; /* Add padding to the content area only */
 }
@@ -379,6 +399,10 @@
                 <!-- Article content goes here -->
                 <header>
                     <h1>The Voyager Golden Record: Humanity’s Bold Message to the Cosmos</h1>
+                    <div class="article-meta">
+                    <span class="article-author">By Siphosenkosi Mlotshwa</span>
+                    <span class="article-date">Published: January 07, 2025</span>
+                </div>
                     <p><em>In 1977, NASA launched an ambitious message into space. This is its story.</em></p>
                 </header>
                 

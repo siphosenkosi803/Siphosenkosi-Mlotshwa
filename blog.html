@@ -913,7 +913,33 @@ const newStyles = `
     text-align: center;
 }
 
+.blog-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 0.8rem;
+    display: flex;
+    gap: 1rem;
+    line-height: 1.4;
+}
 
+.blog-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.blog-meta i {
+    font-size: 0.8rem;
+    color: greenyellow;
+}
+
+@media (max-width: 768px) {
+    .blog-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
 
 
 
@@ -967,6 +993,13 @@ const newStyles = `
                     <img src="images/quantum.jpeg" alt="Space Exploration" class="blog-img">
                     <div class="card-content">
                         <h3>Google's Willow Quantum Chip: Bridging Realities or Redefining Them?</h3>
+                        <div class="blog-meta">
+                            
+                            <span>
+                                <i class="fas fa-calendar-alt"></i>
+                                February 16, 2025
+                            </span>
+                        </div>
                     </div>
                 </a>
 
@@ -975,6 +1008,13 @@ const newStyles = `
                     <img src="img/Solar_Orbiter_and_Parker_Solar_Probe_pillars.jpg" alt="Space Exploration" class="blog-img">
                     <div class="card-content">
                         <h3>Decoding the Sun's Secrets: How the Parker Solar Probe is Listening to Our Star</h3>
+                        <div class="blog-meta">
+                            
+                            <span>
+                                <i class="fas fa-calendar-alt"></i>
+                                February 04, 2025
+                            </span>
+                        </div>
                     </div>
                 </a>
                 
@@ -983,6 +1023,13 @@ const newStyles = `
                     <img src="images/camus.jpeg" alt="Space Exploration" class="blog-img">
                     <div class="card-content">
                         <h3>The Myth of Meaning: Albert Camus on Life, Rebellion, and Freedom</h3>
+                        <div class="blog-meta">
+                            
+                            <span>
+                                <i class="fas fa-calendar-alt"></i>
+                                January 13, 2025
+                            </span>
+                        </div>
                     </div>
                 </a>
             
@@ -991,6 +1038,13 @@ const newStyles = `
                     <img src="images/Solitary Contemplation in Modern Minimalism.jpeg" alt="Introversion" class="blog-img">
                     <div class="card-content">
                         <h3>The Real Reason Introverts Don't 'Fit In': Society's Failure to Accept Their Nature</h3>
+                        <div class="blog-meta">
+                            
+                            <span>
+                                <i class="fas fa-calendar-alt"></i>
+                                January 12, 2025
+                            </span>
+                        </div>
                     </div>
                 </a>
             
@@ -999,6 +1053,13 @@ const newStyles = `
                     <img src="images/Bioengineering Brain Concept.jpeg" alt="AI and Global Stability" class="blog-img">
                     <div class="card-content">
                         <h3>AI and the Future of Global Stability</h3>
+                        <div class="blog-meta">
+                            
+                            <span>
+                                <i class="fas fa-calendar-alt"></i>
+                                January 10, 2025
+                            </span>
+                        </div>
                     </div>
                 </a>
             
@@ -1007,6 +1068,13 @@ const newStyles = `
                     <img src="images/golden record.jpg" alt="the golden disc" class="blog-img">
                     <div class="card-content">
                         <h3>The Voyager Golden Record: Humanity's Bold Message to the Cosmos</h3>
+                        <div class="blog-meta">
+                            
+                            <span>
+                                <i class="fas fa-calendar-alt"></i>
+                                January 07, 2025
+                            </span>
+                        </div>
                     </div>
                 </a>
             
@@ -1015,6 +1083,13 @@ const newStyles = `
                     <img src="images/Futuristic VR Experience.jpeg" alt="VR Experience" class="blog-img">
                     <div class="card-content">
                         <h3>Building the OASIS: A Tech Breakdown</h3>
+                        <div class="blog-meta">
+                            
+                            <span>
+                                <i class="fas fa-calendar-alt"></i>
+                                January 04, 2025
+                            </span>
+                        </div>
                     </div>
                 </a>
             </div>
