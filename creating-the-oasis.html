@@ -355,6 +355,43 @@
     }
 }
 
+.article-image img {
+            max-width: 60%; /* Adjust this value to control the image size */
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center the image */
+        }
+
+        /* Ensure content starts below fixed navbar */
+.section {
+    padding-top: 80px; /* Match navbar height */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .section {
+        padding-top: 60px; /* Smaller padding for mobile */
+    }
+    
+    .article-image {
+        margin-top: 2rem; /* Add space between navbar and image */
+    }
+    
+    /* Ensure navbar stays on top of everything */
+    .navbar {
+        z-index: 1000;
+    }
+    
+    .logo img {
+        width: 40px; /* Make mobile logo smaller */
+        height: 40px;
+    }
+}
+
+.article-container {
+    padding: 0 1rem; /* Add horizontal padding */
+}
+
 
 
     </style>

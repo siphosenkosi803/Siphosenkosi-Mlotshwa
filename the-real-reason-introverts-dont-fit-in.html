@@ -31,6 +31,7 @@
             margin: 0 auto;
             padding: 2rem;
         }
+        
 
         .logo {
     font-family: 'Caveat', cursive;
@@ -96,18 +97,30 @@
         .navbar {
             position: fixed;
             width: 100%;
-            z-index: 1000;
-            background-color: black;
-            transition: all 0.3s ease;
+            background-color: black !important;
+            z-index: 10000;
             padding: 1rem 0;
             top: 0;
         }
 
         .navbar.scrolled {
-            background: black;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: black !important; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
+
+        body {
+    padding-top: 80px; /* Match navbar height */
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Adjusted for mobile navbar height */
+    }
+    
+    .navbar {
+        padding: 0.5rem 0; /* Tighter padding on mobile */
+    }
+}
 
         .nav-container {
             max-width: 1200px;
@@ -354,6 +367,43 @@
     .article-content {
         padding: 0 1rem;
     }
+}
+
+.article-image img {
+            max-width: 60%; /* Adjust this value to control the image size */
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center the image */
+        }
+
+        /* Ensure content starts below fixed navbar */
+.section {
+    padding-top: 80px; /* Match navbar height */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .section {
+        padding-top: 60px; /* Smaller padding for mobile */
+    }
+    
+    .article-image {
+        margin-top: 2rem; /* Add space between navbar and image */
+    }
+    
+    /* Ensure navbar stays on top of everything */
+    .navbar {
+        z-index: 1000;
+    }
+    
+    .logo img {
+        width: 40px; /* Make mobile logo smaller */
+        height: 40px;
+    }
+}
+
+.article-container {
+    padding: 0 1rem; /* Add horizontal padding */
 }
 
     </style>
