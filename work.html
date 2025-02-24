@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="images/ico_logo.ico">
-    <!-- Keep all your existing head content (fonts, styles, etc.) -->
-     <!-- Font Awesome -->
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- EmailJS -->
@@ -21,9 +22,233 @@
             emailjs.init('6YdWPrE_MXY30SAKk');
         })();
     </script>
-    <title>Blog - Siphosenkosi Mlotshwa</title>
-    <!-- Add your existing styles -->
+
+
+    <title>Siphosenkosi Mlotshwa</title>
     <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /*font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;*/
+            font-family: 'IBM Plex Mono', monospace;
+           
+            line-height: 1.6;
+            color: white;
+            background-color: black;
+        }
+
+        /* Grid background */
+        .grid-background {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: 
+                linear-gradient(to right, rgba(128, 128, 128, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(128, 128, 128, 0.05) 1px, transparent 1px);
+            background-size: 14px 24px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background-color: black;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            background: black
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px
+    object-fit: cover;
+}
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: greenyellow;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Keep your existing .navbar and .nav-container styles */
+
+/* Replace the old .mobile-menu-btn styles */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    color: white;
+}
+
+.hamburger {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger .line {
+    display: block;
+    background: white;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger .line:nth-child(1) {
+    top: 0;
+}
+
+.hamburger .line:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger .line:nth-child(3) {
+    bottom: 0;
+}
+
+/* Animation classes */
+.mobile-menu-btn.active .hamburger .line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-btn.active .hamburger .line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active .hamburger .line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Update your existing media query styles */
+@media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: black;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 998;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                font-size: 2rem;
+                margin: 1rem 0;
+                color: white;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: greenyellow;
+            }
+
+            .mobile-menu-btn {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        color: white;
+    }
+
+    .hamburger {
+        width: 30px;
+        height: 20px;
+        position: relative;
+        transition: 0.5s ease-in-out;
+    }
+
+    .hamburger .line {
+        display: block;
+        background: white;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        transition: 0.5s ease-in-out;
+        color: white;
+    }
+
+            .logo {
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 1001;
+            }
+        }
 
         /* Hero Section */
         .hero {
@@ -105,162 +330,6 @@
             margin-bottom: 2rem;
         }
 
-
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .logo {
-    font-family: 'Caveat', cursive;
-    font-size: 1.7rem;
-    font-weight: 900;
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.logo img {
-    width: 60px;
-    height: 60px
-    object-fit: cover;
-}
-
-        body {
-            /*font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;*/
-            font-family: 'IBM Plex Mono', monospace;
-            line-height: 1.0;
-            color: white;
-            background-color: black;
-        }
-
-        /* Grid background */
-        .grid-background {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background-image: 
-                linear-gradient(to right, rgba(128, 128, 128, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(128, 128, 128, 0.05) 1px, transparent 1px);
-            background-size: 14px 24px;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            background-color: black;
-            transition: all 0.3s ease;
-            padding: 1rem 0;
-        }
-
-        .navbar.scrolled {
-            background: black
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            
-            background: linear-gradient(135deg, black, black);
-            -webkit-background-clip: text;
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            position: relative;
-            padding-bottom: 0.25rem;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: greenyellow;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            position: relative;
-        }
-
-        .hero-blur {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 241, 242, 0.3), rgba(240, 253, 250, 0.3));
-            filter: blur(100px);
-            z-index: -1;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 0.8;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, black, black);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            color: #4b5563;
-            margin-bottom: 2rem;
-        }
-
         /* Buttons */
         .btn {
             display: inline-flex;
@@ -276,12 +345,12 @@
         }
 
         .btn-primary {
-            background: #4f46e5;
-            color: white;
+            background: greenyellow;
+            color: black;
         }
 
         .btn-primary:hover {
-            background: #4338ca;
+            background: red;
             transform: translateY(-2px);
         }
 
@@ -297,46 +366,118 @@
 
         /* Cards */
         .card {
-            cursor: pointer;
-    text-decoration: none !important; /* Force no underline */
-    color: inherit;
-    display: block;
+            background: black;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            text-decoration: none !important;
+            cursor: pointer;
         }
-
-        .card h3 {
-    color: white;
-    text-decoration: none !important;
-}
-
-.card-content h3 {
-    text-decoration: none !important;
-}
-
-.card * {
-    text-decoration: none !important; /* Ensure no text decoration on any child elements */
-}
-
-
 
         .card img {
             width: 100%;
-            height: 200px;
+            height: 300px;
             object-fit: cover;
         }
 
+        .tech-stack {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.tech-badge {
+    background: black;
+    color: greenyellow;
+    border: 1px solid greenyellow;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
         .card-content {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
+
+        .card-content h3 {
+            margin-bottom: 1rem;
+        }
+
+
+
+        .card-content p {
+            flex-grow: 1;
+            margin-bottom: 0;
+            
+        }
+
+        .project-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            margin-top: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.card-link:hover {
+    color: inherit;
+}
+
+
+
+
+.project-link {
+    color: #4f46e5;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Add this to remove underlines */
+}
+
+.project-link i {
+    display: inline-block;
+    width: auto; /* Remove fixed width */
+    height: auto; /* Remove fixed height */
+}
+
+.project-link:hover {
+    color: #4338ca;
+    transform: translateY(-2px);
+}
+
+/* Ensure consistent icon size */
+.project-links i {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 
         /* Sections */
         .section {
             padding: 6rem 2rem;
+            background: black;
+
         }
 
         .section-title {
@@ -456,99 +597,24 @@
         /* Mobile Styles */
         @media (max-width: 768px) {
             .nav-links {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: black;
-                display: flex;
+                display: none;
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transform: translateY(-100%);
-                transition: transform 0.3s ease-in-out;
-                z-index: 998;
-            }
-
-            .nav-links.active {
-                transform: translateY(0);
-            }
-
-            .nav-links a {
-                font-size: 2rem;
-                margin: 1rem 0;
-                color: white;
-                text-decoration: none;
-                transition: color 0.3s ease;
-            }
-
-            .nav-links a:hover {
-                color: greenyellow;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: black;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
 
             .mobile-menu-btn {
-        display: block;
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        z-index: 1000;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0.5rem;
-        color: white;
-    }
+                display: block;
+            }
 
-    .hamburger {
-    width: 30px;
-    height: 20px;
-    position: relative;
-    transition: all 0.3s ease-in-out;
-}
-
-.hamburger .line {
-    display: block;
-    background: white;
-    width: 100%;
-    height: 2px;
-    position: absolute;
-    left: 0;
-    transition: all 0.3s ease-in-out;
-}
-
-.hamburger .line:nth-child(1) {
-    top: 0;
-}
-
-.hamburger .line:nth-child(2) {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.hamburger .line:nth-child(3) {
-    bottom: 0;
-}
-
-/* Animation classes */
-.mobile-menu-btn.active .hamburger .line:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-
-.mobile-menu-btn.active .hamburger .line:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu-btn.active .hamburger .line:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-}
-
-
-            .logo {
-                position: fixed;
-                top: 1rem;
-                left: 1rem;
-                z-index: 1001;
+            .nav-links.active {
+                display: flex;
+                
             }
         }
         .profile-img {
@@ -675,7 +741,7 @@
 
         .shop-section {
     padding: 6rem 2rem;
-    background: #f8f9fa;
+    background: black;
 }
 
 .product-grid {
@@ -767,7 +833,7 @@
 }
 
 .pricing-card {
-    background: yellow;
+    background: black;
     border-radius: 1rem;
     padding: 2rem;
     text-align: left;
@@ -792,7 +858,7 @@
     content: "✓";
     position: absolute;
     left: 0;
-    color: black;
+    color: white;
 }
 
 .pricing-card .btn {
@@ -1031,6 +1097,9 @@ const newStyles = `
 
 
 
+
+
+
 </style>
 
 
@@ -1039,10 +1108,9 @@ const newStyles = `
 <body>
     <div class="grid-background"></div>
     
-    <!-- Same navbar as index.html -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
+            <a href="#" class="logo">
                 <img src="images/VR_LOGO_1-removebg-preview.png" alt="Logo">
                 Siphosenkosi Mlotshwa
             </a>
@@ -1052,159 +1120,88 @@ const newStyles = `
                     <span class="line"></span>
                     <span class="line"></span>
                 </div>
-                
             </button>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="work.html">Work</a>
                 <a href="shop.html">Shop</a>
                 <a href="about.html">About</a>
+                
             </div>
         </div>
     </nav>
 
-    <section class="hero" id="home">
-        
-        <div class="hero-blur"></div>
-        <div class="hero-content">
-            <p></p> 
-            <img src="images/VR_LOGO_1-removebg-preview.png" alt="Profile Image" class="hero-image">
-            <h3>“Any sufficiently advanced technology is indistinguishable from magic.”</h3>
-            
-        </div>
-    </section>
+    
 
-    <section class="section">
+    <section class="section" id="work">
         <div class="container">
-            <h2 class="section-title"></h2>
-                
+            <h6 class="section-title">FRONTEND WEB DESIGN WORK</h6>
+            <h3></h3>
             <div class="grid grid-3">
+                
+            
+                <!-- Indie Book Shop Card -->
+                <div class="card">
+                    <a href="https://indiebookshop.netlify.app" target="_blank" class="card-link">
+                        <img src="images/pexels-cottonbro-4855477.jpg" alt="Project 3">
+                        <div class="card-content">
+                            <h3>Indie Book Shop</h3>
+                            <p>An online platform celebrating creativity through a curated selection of independent publications, art books, and design materials.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">HTML</span>
+                                <span class="tech-badge">CSS</span>
+                                <span class="tech-badge">JavaScript</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- VR Experience Platform Card -->
+                <div class="card">
+                    <a href="https://vrtravelevents.netlify.app" target="_blank" class="card-link">
+                        <img src="images/Vintage 3D Cinema Audience.jpeg" alt="Project 2">
+                        <div class="card-content">
+                            <h3>VR Travel & Events</h3>
+                            <p>Discover a new way to explore the world with this cutting-edge virtual reality platform that brings global destinations and live events right to your fingertips.</p>
+                            
+                        </div>
+                    </a>
+                </div>
+            
+                
+            
+                <!-- NFT Marketplace Card -->
+                <div class="card">
+                    <a href="https://nftmarketcommunity.netlify.app" target="_blank" class="card-link">
+                        <img src="images/NFT.jpeg" alt="Project 1">
+                        <div class="card-content">
+                            <h3>NFT Marketplace & Community</h3>
+                            <p>With curated collections, artist spotlights, and a beginner-friendly NFT guide, this platform is at the intersection between creativity and blockchain technology.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">HTML</span>
+                                <span class="tech-badge">CSS</span>
+                                <span class="tech-badge">JavaScript</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
 
                 
-                <a href="majorana.html" class="card">
-                    <img src="images/majorana1_1260x708_v2-1024x575.jpg" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>Microsoft’s Majorana 1 Chip: The Future of Quantum Computing?</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                February 24, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
 
-                <a href="willow-quantum-chip.html" class="card">
-                    <img src="images/quantum.jpeg" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>Google's Willow Quantum Chip: Bridging Realities or Redefining Them?</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                February 16, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Article 1 -->
-                <a href="parker-probe.html" class="card">
-                    <img src="img/Solar_Orbiter_and_Parker_Solar_Probe_pillars.jpg" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>Decoding the Sun's Secrets: How the Parker Solar Probe is Listening to Our Star</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                February 04, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-                
-                <!-- Article 2 -->
-                <!--<a href="myth-of-meaning.html" class="card">
-                    <img src="images/camus.jpeg" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>The Myth of Meaning: Albert Camus on Life, Rebellion, and Freedom</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                January 13, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a> -->
-            
-                <!-- Article 3 -->
-                <!--<a href="the-real-reason-introverts-dont-fit-in.html" class="card">
-                    <img src="images/Solitary Contemplation in Modern Minimalism.jpeg" alt="Introversion" class="blog-img">
-                    <div class="card-content">
-                        <h3>The Real Reason  Introverts Don't 'Fit In': Society's Failure to Accept Their Nature</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                January 12, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a> -->
-            
-                <!-- Article 4 -->
-                <a href="ai-global-stability.html" class="card">
-                    <img src="images/Bioengineering Brain Concept.jpeg" alt="AI and Global Stability" class="blog-img">
-                    <div class="card-content">
-                        <h3>AI and the Future of Global Stability</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                January 10, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-            
-                <!-- Article 5 -->
-                <a href="the-golden-record.html" class="card">
-                    <img src="images/golden record.jpg" alt="the golden disc" class="blog-img">
-                    <div class="card-content">
-                        <h3>The Voyager Golden Record: Humanity's Bold Message to the Cosmos</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                January 07, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-            
-                <!-- Article 6 -->
-                <a href="creating-the-oasis.html" class="card">
-                    <img src="images/Futuristic VR Experience.jpeg" alt="VR Experience" class="blog-img">
-                    <div class="card-content">
-                        <h3>Building the OASIS: A Tech Breakdown</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                January 04, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
             </div>
         </div>
     </section>
 
-    <!-- Same footer as index.html -->
+    
+    
+    
+
+    
+
+
+    
+
     <footer>
-        <!-- Your existing footer content -->
         <div class="container">
             <div class="footer-grid">
                 <div>
@@ -1224,36 +1221,103 @@ const newStyles = `
         </div>
     </footer>
 
-    <!-- Include your existing scripts -->
+    
+
+
+
     <script>
-        // Keep only the necessary JavaScript (navbar and mobile menu functionality)
-        document.addEventListener('DOMContentLoaded', function() {
-            const navbar = document.querySelector('.navbar');
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navLinks = document.querySelector('.nav-links');
+        // Wait for DOM to be fully loaded before running any code
+document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements
+    const navbar = document.querySelector('.navbar');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
 
-            // Navigation scroll effect
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
+    // Navigation scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 
-            // Mobile menu toggle
-            mobileMenuBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                navLinks.classList.toggle('active');
-            });
+    // Mobile menu toggle
+    mobileMenuBtn.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent event bubbling
+        navLinks.classList.toggle('active');
+    });
 
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                }
-            });
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            navLinks.classList.remove('active');
+        }
+    });
+
+    // Modal Functions
+    function openResumeModal() {
+        document.getElementById('resumeModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeResumeModal() {
+        document.getElementById('resumeModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    function openCertModal() {
+        document.getElementById('certModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCertModal() {
+        document.getElementById('certModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+            }
         });
-    </script>
+    });
+
+    // Close modals when clicking outside
+    window.addEventListener('click', (e) => {
+        const modals = document.querySelectorAll('.modal, .doc-modal, .blog-modal');
+        modals.forEach(modal => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    });
+
+    
+
+    // Make functions globally available
+    window.openResumeModal = openResumeModal;
+    window.closeResumeModal = closeResumeModal;
+    window.openCertModal = openCertModal;
+    window.closeCertModal = closeCertModal;
+    window.openBlogModal = openBlogModal;
+    window.closeBlogModal = closeBlogModal;
+    window.openPricingModal = openPricingModal;
+    window.closePricingModal = closePricingModal;
+    window.sendEmail = sendEmail;
+    window.sendPricingEmail = sendPricingEmail;
+});
+
+            </script>
 </body>
 </html>
