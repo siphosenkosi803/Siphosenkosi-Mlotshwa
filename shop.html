@@ -1286,7 +1286,39 @@ const newStyles = `
                 padding: 0.75rem 1.5rem;
                 font-size: 1rem;
             }
-        }    </style>
+        }    
+        
+        @media (max-width: 768px) {
+    /* Reset the fixed positioning of the logo on mobile */
+    .logo {
+        position: static; /* Keep it in the normal flow */
+        /* Or if needed within navbar: */
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+    
+    /* Adjust navbar height for mobile if needed */
+    .navbar {
+        height: auto;
+        min-height: 60px;
+    }
+    
+    .nav-container {
+        height: auto;
+        min-height: 60px;
+        padding: 0.5rem 1rem; /* Slightly reduced padding */
+    }
+    
+    /* Ensure hamburger button stays within navbar */
+    .mobile-menu-btn {
+        position: relative; /* Position it relative to the nav-container */
+        top: auto;
+        right: auto;
+    }
+}
+
+        </style>
 </head>
 <body>
     <div class="grid-background"></div>

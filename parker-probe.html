@@ -407,6 +407,36 @@
     margin: 2rem 0; /* Optional: Adjust spacing as needed */
 }
 
+@media (max-width: 768px) {
+    /* Reset the fixed positioning of the logo on mobile */
+    .logo {
+        position: static; /* Keep it in the normal flow */
+        /* Or if needed within navbar: */
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+    
+    /* Adjust navbar height for mobile if needed */
+    .navbar {
+        height: auto;
+        min-height: 60px;
+    }
+    
+    .nav-container {
+        height: auto;
+        min-height: 60px;
+        padding: 0.5rem 1rem; /* Slightly reduced padding */
+    }
+    
+    /* Ensure hamburger button stays within navbar */
+    .mobile-menu-btn {
+        position: relative; /* Position it relative to the nav-container */
+        top: auto;
+        right: auto;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -453,104 +483,23 @@
                     </div>
                 </header>
                 <main>
-                    <section id="introduction">
-                        <h2>The Eternal Fascination with the Sun</h2>
-                        <p>
-                            For millennia, the Sun has been at the center of human curiosity, worship, and scientific inquiry. Its radiant light fuels life on Earth, yet its true nature remains shrouded in mystery.
-                        </p>
-                        <p>
-                            The Sun’s behavior is as enigmatic as it is essential—why is its outer atmosphere hotter than its surface? How does it propel a constant stream of charged particles across the solar system? And what dangers lie in the storms it sends toward Earth?
-                        </p>
-                        <p>
-                            In 2018, NASA embarked on an unprecedented mission to answer these questions. The <strong>Parker Solar Probe</strong>, the first spacecraft to “touch the Sun,” is delving into our star’s fiery outer atmosphere to decode its secrets. Through its innovative design and scientific instruments, humanity is now listening to the Sun's electromagnetic symphony, gaining insights that could reshape our understanding of the universe.
-                        </p>
-                    </section>
-                    <section id="importance-of-the-sun">
-                        <h2>Why the Sun Matters</h2>
+                    <body>
                         <article>
-                            <h3>Space Weather: The Sun’s Influence on Earth</h3>
-                            <p>
-                                The Sun’s solar wind, a stream of charged particles, can wreak havoc on Earth’s magnetic field. Solar storms, caused by eruptions like coronal mass ejections (CMEs), have the potential to:
-                            </p>
-                            <ul>
-                                <li>Disrupt satellite communications.</li>
-                                <li>Cause power grid failures.</li>
-                                <li>Endanger astronauts on space missions.</li>
-                            </ul>
-                            <p>
-                                Understanding and predicting these events is critical to safeguarding our technology-dependent civilization.
-                            </p>
+                            <h1>The Parker Solar Probe: Humanity's Bold Mission to the Sun</h1>
+                            
+                            <p>For millennia, the Sun has captivated our collective imagination. Its brilliant light not only sustains life on Earth but also embodies an eternal enigma that has inspired human wonder from ancient rituals to modern scientific endeavors. Despite its omnipresence and the crucial role it plays in our lives, the Sun remains shrouded in mystery—especially when one considers that its outer atmosphere, or corona, reaches temperatures of nearly two million degrees Celsius, far outstripping the roughly 5,500°C found on its surface. Even more intriguing is the constant stream of charged particles, known as the solar wind, which the Sun sends cascading through space and which has the power to affect everything from satellite communications to the stability of power grids on Earth.</p>
+                            
+                            <p>In 2018, NASA launched the Parker Solar Probe, a mission that represents one of the most daring and technologically advanced forays into our solar system. Named in honor of the pioneering astrophysicist Eugene Parker, the probe was engineered to be humanity’s first emissary into the searing environment of the Sun’s corona. To survive where temperatures exceed 1,377°C, the spacecraft is shielded by an 8-foot-diameter carbon-composite Thermal Protection System, a marvel of modern engineering that keeps its sensitive instruments at a steady 30°C. This innovative design allows the probe to brave conditions once thought insurmountable, underscoring the incredible achievement of sending a spacecraft so close to our star.</p>
+                            
+                            <p>The Parker Solar Probe carries a suite of sophisticated instruments, each designed to capture a different facet of the Sun’s behavior. One set of sensors meticulously records the fluctuating electric and magnetic fields, revealing dynamic phenomena such as magnetic switchbacks—sudden, dramatic reversals in the Sun’s magnetic field that hint at the underlying forces driving the solar wind. Meanwhile, high-resolution imaging cameras capture breathtaking views of the corona, exposing its turbulent structure and ever-changing forms. Other instruments are dedicated to counting and analyzing the particles that comprise the solar wind, measuring their speeds and energies as they burst forth from the Sun, while additional detectors focus on the energetic particles propelled by solar storms. These instruments together provide a comprehensive picture of the Sun’s multifaceted behavior, turning raw data into insights that challenge our long-standing theories about solar physics.</p>
+                            
+                            <p>Each orbit of the Parker Solar Probe brings it ever closer to the Sun, with planned trajectories that will eventually see it come within a mere 3.83 million miles of the solar surface. Traveling at record-breaking speeds of up to 430,000 miles per hour, the probe has become the fastest human-made object in history. Its path through the Sun’s atmosphere is not only a testament to our engineering prowess but also an expedition into the very heart of stellar phenomena. As the probe plunges into the solar furnace, its instruments capture a symphony of electromagnetic waves and particle vibrations—data that scientists have transformed into audible soundscapes. These recordings allow us to "hear" the Sun in a way that encapsulates the roaring energy of magnetic switchbacks, the gentle hum of plasma oscillations, and the rhythmic pulses of the solar wind turbulence.</p>
+                            
+                            <p>The groundbreaking discoveries emerging from the Parker Solar Probe are already reshaping our understanding of the solar environment. Observations have begun to unravel the mechanisms behind the acceleration of the solar wind, challenge established views of magnetic field dynamics, and even reveal a dust-free zone where the Sun’s intense radiation vaporizes interplanetary dust. Such insights have far-reaching implications: by deepening our understanding of the Sun’s behavior, we are better equipped to predict solar storms and mitigate the potential disruptions they may cause to our technology-dependent society.</p>
+                            
+                            <p>The journey of the Parker Solar Probe is a powerful narrative of human ingenuity and perseverance. Venturing into an environment once deemed too extreme to explore, this mission demonstrates that through relentless innovation and a spirit of inquiry, we can transcend the boundaries of our known world. As the probe continues its trailblazing voyage into the Sun’s enigmatic corona, it not only expands the horizons of our scientific knowledge but also reaffirms the boundless potential of human exploration. This monumental achievement reminds us that even the most formidable mysteries of the universe can be approached with courage and creativity, opening new chapters in our understanding of both the cosmos and ourselves.</p>
                         </article>
-                        <article>
-                            <h3>The Solar Mysteries</h3>
-                            <p>
-                                Despite its importance, some of the Sun’s most fundamental processes remain unresolved:
-                            </p>
-                            <ol>
-                                <li><strong>Why is the corona so hot?</strong> The Sun’s outer atmosphere, or corona, reaches temperatures of up to <strong>2 million degrees Celsius</strong>, far hotter than the 5,500°C surface below.</li>
-                                <li><strong>How is the solar wind accelerated?</strong> The solar wind, which travels at speeds of up to 500 kilometers per second, defies conventional understanding of particle dynamics.</li>
-                                <li><strong>What happens near the Sun’s surface?</strong> The region close to the Sun is a dynamic, chaotic zone that holds the answers to many of these questions.</li>
-                            </ol>
-                        </article>
-                    </section>
-                    <section id="parker-probe">
-                        <h2>The Parker Solar Probe: Engineering a Sun-Seeker</h2>
-                        <article>
-                            <h3>A Bold Design</h3>
-                            <p>
-                                To survive the Sun’s extreme environment, the Parker Solar Probe represents the pinnacle of modern engineering:
-                            </p>
-                            <ul>
-                                <li><strong>Thermal Protection System (TPS):</strong> A heat shield made of carbon-composite foam protects the spacecraft’s instruments from temperatures exceeding <strong>1,377°C</strong>, keeping them at a manageable <strong>30°C</strong>.</li>
-                                <li><strong>Autonomous Navigation:</strong> The probe’s systems constantly adjust its orientation to ensure the shield remains between the Sun and the sensitive equipment.</li>
-                                <li><strong>Scientific Instruments:</strong> Four instrument suites measure magnetic fields, solar wind particles, and plasma waves:
-                                    <ul>
-                                        <li><strong>FIELDS:</strong> Measures electric and magnetic fields.</li>
-                                        <li><strong>WISPR:</strong> Captures images of the corona.</li>
-                                        <li><strong>SWEAP:</strong> Counts particles in the solar wind.</li>
-                                        <li><strong>ISʘIS:</strong> Studies energetic particles.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </article>
-                        <article>
-                            <h3>A Record-Breaking Mission</h3>
-                            <p>
-                                The Parker Solar Probe’s journey is unprecedented. With each orbit, it ventures closer to the Sun, ultimately reaching within <strong>3.83 million miles</strong> of the solar surface. Traveling at speeds of up to <strong>430,000 miles per hour</strong>, it is the fastest human-made object in history.
-                            </p>
-                        </article>
-                    </section>
-                    <section id="sun-sounds">
-                        <h2>The Symphony of the Sun: Translating Electromagnetic Waves</h2>
-                        <p>
-                            Space is silent, but the Sun is not. As the Parker Solar Probe travels through the Sun’s atmosphere, it records electromagnetic waves and particle vibrations. Scientists have transformed these signals into audible soundscapes that reveal:
-                        </p>
-                        <ul>
-                            <li><strong>Magnetic "Switchbacks":</strong> Sudden reversals in the Sun’s magnetic field, heard as bursts of sound.</li>
-                            <li><strong>Plasma Oscillations:</strong> The hum of charged particles moving through space.</li>
-                            <li><strong>Solar Wind Turbulence:</strong> Pulsating waves that mimic a cosmic heartbeat.</li>
-                        </ul>
-                        <p>
-                            These “sounds” provide valuable data about the Sun’s inner workings, offering a unique perspective on its dynamic processes.
-                        </p>
-                    </section>
-                    <section id="discoveries">
-                        <h2>Key Discoveries and Their Implications</h2>
-                        <ol>
-                            <li><strong>Magnetic Switchbacks:</strong> Chaotic magnetic reversals near the Sun challenge previous theories about the solar wind’s origins.</li>
-                            <li><strong>The Dust-Free Zone:</strong> The discovery of intense radiation vaporizing interplanetary dust sheds new light on the Sun’s environment.</li>
-                            <li><strong>Coronal Heating Insights:</strong> Early data from the probe provides clues about how energy transfers to the Sun’s outer atmosphere.</li>
-                        </ol>
-                    </section>
-                    <section id="conclusion">
-                        <h2>A Testament to Human Ingenuity</h2>
-                        <p>
-                            The Parker Solar Probe is more than a spacecraft; it is a bold statement of what humanity can achieve. By venturing closer to the Sun than ever before, it is unlocking secrets that have eluded scientists for centuries.
-                        </p>
-                        <p>
-                            As the probe continues its journey, it reminds us that the greatest mysteries of the universe are not beyond our reach. Through determination, innovation, and a touch of poetic imagination, we are learning to listen to the Sun—and, in doing so, understanding ourselves.
-                        </p>
-                    </section>
+                    </body>
                 </main>
                 </div>
         </div>
