@@ -14,6 +14,10 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap" rel="stylesheet"> <!-- Using Dosis instead of "Doto" as Doto is not on Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+
     
     <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -40,6 +44,91 @@
             line-height: 1.6;
             color: white;
             background-color: black;
+        }
+
+        .foliohaus-title {
+            font-family: 'Allison', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .aethera-title {
+            font-family: 'Dosis', sans-serif; /* Using Dosis instead of "Doto" */
+            font-size: 2rem;
+            text-transform: lowercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+        }
+        
+        .mintwave-title {
+            font-family: 'Aldrich', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+        
+        /* Enhanced tech stack section */
+        .section-tech-stack {
+            margin-bottom: 3rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(172, 255, 47, 0.1);
+            border: 1px solid greenyellow;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-item:hover {
+            background: rgba(172, 255, 47, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .tech-item i {
+            color: greenyellow;
+            font-size: 1.2rem;
+        }
+        
+        .tech-item span {
+            font-weight: 500;
+        }
+        
+        /* Project card improvements */
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .tech-stack {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .tech-badge {
+            background: black;
+            color: greenyellow;
+            border: 1px solid greenyellow;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-badge:hover {
+            background: greenyellow;
+            color: black;
         }
 
         /* Grid background */
@@ -1164,16 +1253,30 @@ const newStyles = `
     <section class="section" id="work">
         <div class="container">
             <h6 class="section-title">FRONTEND WEB DESIGN WORK</h6>
-            <h3></h3>
+            <!-- Tech Stack Section -->
+            <div class="section-tech-stack">
+                <div class="tech-item">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+
+
             <div class="grid grid-3">
-                
-            
                 <!-- Indie Book Shop Card -->
                 <div class="card">
                     <a href="https://indiebookshop.netlify.app" target="_blank" class="card-link">
                         <img src="images/pexels-cottonbro-4855477.jpg" alt="Project 3">
                         <div class="card-content">
-                            <h3>Indie Book Shop</h3>
+                            <h3 class="foliohaus-title">foliohaus</h3>
                             <p>An online platform celebrating creativity through a curated selection of independent publications, art books, and design materials.</p>
                             <div class="tech-stack">
                                 <span class="tech-badge">HTML</span>
@@ -1189,9 +1292,13 @@ const newStyles = `
                     <a href="https://vrtravelevents.netlify.app" target="_blank" class="card-link">
                         <img src="images/Vintage 3D Cinema Audience.jpeg" alt="Project 2">
                         <div class="card-content">
-                            <h3>VR Travel & Events</h3>
-                            <p>Discover a new way to explore the world with this cutting-edge virtual reality platform that brings global destinations and live events right to your fingertips.</p>
-                            
+                            <h3 class="aethera-title">aethera</h3>
+                            <p>VR Travel & Events. Discover a new way to explore the world with this cutting-edge virtual reality platform that brings global destinations and live events right to your fingertips.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">HTML</span>
+                                <span class="tech-badge">CSS</span>
+                                <span class="tech-badge">JavaScript</span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -1203,8 +1310,8 @@ const newStyles = `
                     <a href="https://nftmarketcommunity.netlify.app" target="_blank" class="card-link">
                         <img src="images/NFT.jpeg" alt="Project 1">
                         <div class="card-content">
-                            <h3>NFT Marketplace & Community</h3>
-                            <p>With curated collections, artist spotlights, and a beginner-friendly NFT guide, this platform is at the intersection between creativity and blockchain technology.</p>
+                            <h3 class="mintwave-title">mintwave</h3>
+                            <p>NFT Marketplace & Community. With curated collections, artist spotlights, and a beginner-friendly NFT guide, this platform is at the intersection between creativity and blockchain technology.</p>
                             <div class="tech-stack">
                                 <span class="tech-badge">HTML</span>
                                 <span class="tech-badge">CSS</span>
