@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="images/ico_logo.ico">
     <!-- Keep all your existing head content (fonts, styles, etc.) -->
-     <!-- Font Awesome -->
+     
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- Google Fonts -->
@@ -21,96 +22,16 @@
             emailjs.init('6YdWPrE_MXY30SAKk');
         })();
     </script>
-    <title>Siphosenkosi Mlotshwa</title>
+
+<title>siphosenkosi.online</title>
+<meta name="description" content="">
+  
     <!-- Add your existing styles -->
     <style>
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 6rem 2rem 2rem;
-            position: relative;
-            overflow: visible;
-            background-color: black;
-        }
-
-        .hero-content {
-            text-align: center;
-            width: 100%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    line-height: 1.2; /* Adjusted line height for better spacing */
-    padding-top: 2rem; /* Added top padding to prevent cutoff */
-    margin-bottom: -1;
-}
-
-        .hero-image {
-            max-width: 500px; /* Using max-width instead of fixed width */
-            width: 100%; /* Allows image to be responsive */
-            height: auto; /* Maintains aspect ratio */
-            margin-top: -0.5rem;
-        }
-
-/* Make it responsive */
-@media (max-width: 768px) {
-    .hero-image {
-        max-width: 400px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-image {
-        max-width: 300px;
-    }
-}
-
-
-
-        .hero-blur {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 241, 242, 0.3), rgba(240, 253, 250, 0.3));
-            filter: blur(100px);
-            z-index: -1;
-        }
-
-        .hero h5 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            line-height: 1.5;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, black, black);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            color: white;
-            margin-bottom: 2rem;
-        }
-
-
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
         .logo {
@@ -126,9 +47,17 @@
 
 .logo img {
     width: 60px;
-    height: 60px
+    height: 60px;
     object-fit: cover;
 }
+
+        
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             /*font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;*/
@@ -157,10 +86,11 @@
             background-color: black;
             transition: all 0.3s ease;
             padding: 1rem 0;
+            top: 0;
         }
 
         .navbar.scrolled {
-            background: black
+            background: black;
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
@@ -215,242 +145,42 @@
             border: none;
             cursor: pointer;
             padding: 0.5rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            position: relative;
-        }
-
-        .hero-blur {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 241, 242, 0.3), rgba(240, 253, 250, 0.3));
-            filter: blur(100px);
-            z-index: -1;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 0.8;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, black, black);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            color: #4b5563;
-            margin-bottom: 2rem;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            font-family: 'IBM Plex Mono', monospace;
-            cursor: pointer;
-            border: none; /* Add this to ensure consistency */
-        }
-
-        .btn-primary {
-            background: #4f46e5;
             color: white;
         }
 
-        .btn-primary:hover {
-            background: #4338ca;
-            transform: translateY(-2px);
+        /* Footer */
+        footer {
+            background: black;
+            color: white;
+            padding: 4rem 2rem;
         }
 
-        .btn-outline {
-            border: 2px solid #4f46e5;
-            color: #4f46e5;
+        .footer-content {
+        text-align: center;
         }
 
-        .btn-outline:hover {
-            background: rgba(79, 70, 229, 0.1);
-            transform: translateY(-2px);
-        }
+        .footer-content h3 {
+        margin-bottom: 1.5rem;
+    }
 
-        /* Cards */
-        .card {
-            cursor: pointer;
-    text-decoration: none !important; /* Force no underline */
-    color: inherit;
-    display: block;
-        }
+        
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            text-decoration: none !important;
-        }
-
-        .card h3 {
-    color: white;
-    text-decoration: none !important;
-}
-
-.card-content h3 {
-    text-decoration: none !important;
-}
-
-.card * {
-    text-decoration: none !important; /* Ensure no text decoration on any child elements */
-}
-
-
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        /* Sections */
-        .section {
-            padding: 6rem 2rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            text-align: left;
-        }
-
-        .section-subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .product-grid {
-            margin-bottom: 4rem;
-        }
-
-        .pricing-grid {
-            margin-top: 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .grid {
-            display: grid;
+        .social-links {
+            display: flex;
+            justify-content: center;
             gap: 2rem;
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1001;
-        }
-
-        .modal-content {
-            position: relative;
-            background-color: white;
-            margin: 15% auto;
-            padding: 2rem;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .close-modal {
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 0.5rem;
-            font-family: inherit;
-        }
-
-        .contact-form button {
-            background: #4f46e5;
+        .social-links a {
             color: white;
-            padding: 0.75rem;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: background 0.3s ease;
+            text-decoration: none;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+            font-size: 1.5rem;
         }
 
-        .contact-form button:hover {
-            background: #4338ca;
-        }
-
-        /* Additional styles for buttons */
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        /* Blog card image styles */
-        .blog-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        @media (min-width: 768px) {
-            .grid-2 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .grid-3 {
-                grid-template-columns: repeat(3, 1fr);
-            }
+        .social-links a:hover {
+            color: greenyellow;
         }
 
         /* Mobile Styles */
@@ -543,7 +273,6 @@
     transform: translateY(-9px) rotate(-45deg);
 }
 
-
             .logo {
                 position: fixed;
                 top: 1rem;
@@ -551,477 +280,55 @@
                 z-index: 1001;
             }
         }
-        .profile-img {
-    display: block;
-    margin: 0 auto 1.5rem; /* Centers the image */
-    width: 180px; /* Sets a fixed size */
-    height: 180px;
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover; /* Ensures the image fills the circle */
-    border: 2px solid #4f46e5; /* Optional: Add a border */
-}
 
-
-        /* Footer */
-        footer {
-            background: black;
-            color: white;
-            padding: 4rem 2rem;
-        }
-
-        .footer-content {
-        text-align: center;
-        }
-
-        .footer-content h3 {
-        margin-bottom: 1.5rem;
+        .section {
+        padding-top: 0px; /* Remove the padding that was accounting for the navbar */
     }
 
-        
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem;
-            transition: color 0.3s ease;
-            font-size: 1.5rem;
-        }
-
-        .social-links a:hover {
-            color: greenyellow;
-        }
-
-        /* Styles for resume and certification modals */
-        .doc-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1001;
-            overflow-y: auto;
-        }
-
-        .doc-modal-content {
-            position: relative;
-            background-color: white;
-            margin: 5% auto;
-            padding: 2rem;
-            width: 90%;
-            max-width: 800px;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .cert-card {
-            background: #f8f9fa;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .cert-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .cert-card img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 1rem;
-            border-radius: 0.5rem;
-        }
-
-        .cert-card h3 {
-            margin: 1rem 0;
-        }
-
-        .cert-card p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .cert-card .btn {
-            margin-top: 1rem;
-        }
-
-        .resume-content {
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 1rem;
-        }
-
-        .resume-content iframe {
-            width: 100%;
-            height: 80vh;
-            border: none;
-        }
-
-        .shop-section {
-    padding: 6rem 2rem;
-    background: #f8f9fa;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.product-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 1rem;
-    background: white;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.product-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    transition: transform 0.5s ease, filter 0.5s ease;
-}
-
-.product-info {
-    padding: 1.5rem;
-    text-align: center;
-}
-
-/* Cool hover effect for product images */
-.product-card:hover img {
-    transform: scale(1.05);
-    filter: brightness(0.9);
-}
-
-/* Ensure proper mobile display */
+    
 @media (max-width: 768px) {
-    .product-card img {
-        height: 250px; /* Slightly smaller height on mobile */
-        width: 100%;
-        object-fit: cover;
+    .article-header {
+        margin: 1rem;
     }
     
-    .product-grid {
-        grid-template-columns: 1fr; /* Single column on mobile */
+    .article-content {
         padding: 0 1rem;
     }
 }
 
-.about-contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin: 1rem 0;
+.article-image img {
+            max-width: 60%; /* Adjust this value to control the image size */
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center the image */
+        }
+
+        /* Ensure content starts below fixed navbar */
+.section {
+    padding-top: 80px; /* Match navbar height */
 }
 
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #4b5563;
-}
-
-.contact-item i {
-    color: #4f46e5;
-    width: 20px;
-}
-
-.price-button {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: #4f46e5;
-    color: white;
-    text-decoration: none;
-    border-radius: 0.5rem;
-    transition: background 0.3s ease;
-}
-
-.price-button:hover {
-    background: #4338ca;
-}
-
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.pricing-card {
-    background: yellow;
-    border-radius: 1rem;
-    padding: 2rem;
-    text-align: left;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    min-height: 400px; /* Ensure consistent height */
-    position: relative;
-}
-
-.pricing-card h2 {
-    margin-bottom: 1rem;
-}
-
-.pricing-card li {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.pricing-card li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: black;
-}
-
-.pricing-card .btn {
-    width: 100%;
-    position: relative;
-    bottom: 0;
-    text-align: center;
-}
-
-.pricing-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 2rem 0;
-    flex-grow: 1; /* Allow list to take up available space */
-}
-
-.blog-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
-
-.blog-modal-content {
-    position: relative;
-    background: white;
-    margin: 5% auto;
-    padding: 2rem;
-    width: 90%;
-    max-width: 800px;
-    border-radius: 1rem;
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-.project-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.project-links a {
-    color: #4f46e5;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-}
-
-.project-links a:hover {
-    color: #4338ca;
-}
-
-.contact-section {
-    padding: 6rem 2rem;
-    background: #f8f9fa;
-}
-
-.contact-form-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.contact-form-container input,
-.contact-form-container textarea {
-    width: 100%;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.contact-form-container textarea {
-    min-height: 150px;  /* Makes the message box bigger */
-}
-
-.contact-form-container button {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-}
-
-/* Add responsive styles for pricing grid */
+/* Mobile adjustments */
 @media (max-width: 768px) {
-    .pricing-grid {
-        grid-template-columns: 1fr;
+    .section {
+        padding-top: 60px; /* Smaller padding for mobile */
+    }
+    
+    .article-image {
+        margin-top: 2rem; /* Add space between navbar and image */
+    }
+    
+    /* Ensure navbar stays on top of everything */
+    .navbar {
+        z-index: 1000;
+    }
+    
+    .logo img {
+        width: 40px; /* Make mobile logo smaller */
+        height: 40px;
     }
 }
 
-#pricingModal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1001;
-}
-
-#pricingForm {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-#pricingForm input,
-#pricingForm textarea {
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-    font-family: inherit;
-}
-
-.success-message {
-    background-color: #4CAF50;
-    color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-    display: none;
-}
-
-.error-message {
-    background-color: #f44336;
-    color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-    display: none;
-}
-
-const newStyles = `
-<style>
-.article-meta {
-    display: flex;
-    gap: 1rem;
-    color: #666;
-    margin-bottom: 2rem;
-}
-
-.article-content {
-    line-height: 1.8;
-}
-
-.article-content h2 {
-    margin: 2rem 0 1rem 0;
-}
-
-.article-content p {
-    margin-bottom: 1rem;
-}
-
-.article-content img {
-    max-width: 100%;
-    height: auto;
-    margin: 2rem 0;
-    border-radius: 0.5rem;
-}
-
-/* Update the blog modal styles */
-.blog-modal-content {
-    padding: 3rem;
-}
-
-.blog-modal-content h1 {
-    margin-bottom: 1rem;
-}
-
-.pricing-card .btn {
-    width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: auto;
-}
-
-.success-message {
-    background-color: #4CAF50;
-    color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-    display: none;
-    text-align: center;
-}
-
-.error-message {
-    background-color: #f44336;
-    color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-    display: none;
-    text-align: center;
-}
-
-.blog-meta {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.9rem;
-    color: #888;
-    margin-top: 0.8rem;
-    display: flex;
-    gap: 1rem;
-    line-height: 1.4;
-}
-
-.blog-meta span {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.blog-meta i {
-    font-size: 0.8rem;
-    color: greenyellow;
-}
-
-@media (max-width: 768px) {
-    .blog-meta {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-}
 
 
 @media (max-width: 768px) {
@@ -1054,19 +361,288 @@ const newStyles = `
     }
 }
 
+/* Cosmic Grid Animation */
+.grid-background {
+            animation: gridScroll 100s linear infinite;
+        }
+
+        @keyframes gridScroll {
+            from { background-position: 0 0; }
+            to { background-position: 0 -1000px; }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: calc(100vh - 100px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        /* Glitch Effects */
+        @keyframes textGlitch {
+            0% { clip-path: inset(0 0 0 0); }
+            20% { clip-path: inset(10% 0 30% 0); }
+            40% { clip-path: inset(40% 0 10% 0); }
+            60% { clip-path: inset(20% 0 30% 0); }
+            80% { clip-path: inset(10% 0 20% 0); }
+            100% { clip-path: inset(0 0 0 0); }
+        }
+
+        .glitch-hover:hover {
+            animation: textGlitch 0.4s steps(2);
+            opacity: 0.8;
+        }
+
+        /* Feature Block */
+        .current-feature {
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        /* Feature image - NEW */
+        .feature-image {
+            max-width: 60%;
+            margin: 2rem auto;
+            display: block;
+        }
+
+        /* Sections Grid */
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 4rem 2rem;
+        }
+
+        .grid-item {
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            transition: all 0.3s ease;
+            display: block;
+            text-decoration: none;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Add overlay to grid items for better text visibility */
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover::before {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .grid-item h3, .grid-item p {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Specific background images for each grid item */
+        .magazine-grid {
+            background-image: url('images/Olive\ Green\ Texture.jpeg');
+        }
+
+        .journal-grid {
+            background-image: url('images/Olive\ Green\ Texture.jpeg');
+        }
+
+        .projects-grid {
+            background-image: url('images/Olive\ Green\ Texture.jpeg');
+        }
+
+        .grid-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Community Callout */
+        .community-callout {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .sections-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .feature-image {
+                max-width: 90%;
+            }
+        }
+
+        /* Add these styles to your existing CSS */
+.current-feature {
+    padding: 6rem 2rem; /* Increased padding */
+    text-align: center;
+}
+
+.current-feature h2 {
+    font-size: 3.0rem; /* Increased from 2.5rem */
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.current-feature h3 {
+    font-size: 2.0rem; /* Increased subtitle size */
+    margin-bottom: 3rem;
+    line-height: 1.2;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.current-feature p {
+    font-size: 2.0rem; /* Increased subtitle size */
+    margin-bottom: 3rem;
+    line-height: 1.2;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Enhanced CTA button */
+.cta-button {
+    color: #fff !important; /* Force white text */
+    padding: 1.5rem 3rem; /* Larger button */
+    font-size: 1.2rem;
+    border: 2px solid #fff; /* Thicker border */
+    transition: all 0.3s ease;
+    position: relative;
+    background: linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.1) 50%);
+    background-size: 300% 100%;
+    background-position: right bottom;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    color: #fff !important; /* Maintain white on hover */
+    background-position: left top;
+    transform: scale(1.05); /* Subtle scale effect */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .current-feature {
+        padding: 4rem 1rem;
+    }
+    
+    .current-feature h2 {
+        font-size: 2rem;
+    }
+    
+    .current-feature h3 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .cta-button {
+        padding: 1.2rem 2.5rem;
+        font-size: 1rem;
+    }
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: 
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url('images/Colorful\ Gradient\ Texture.jpeg') center/cover no-repeat;
+    /* Update the path to match your file structure */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, 
+            transparent 48%, 
+            rgba(255,255,255,0.05) 50%,
+            transparent 52%),
+        repeating-linear-gradient(
+            45deg,
+            rgba(0,0,0,0.1) 0px,
+            rgba(0,0,0,0.1) 2px,
+            transparent 2px,
+            transparent 4px
+        );
+    mix-blend-mode: overlay;
+    animation: scanlines 20s linear infinite;
+}
+
+@keyframes scanlines {
+    from { background-position: 0 0; }
+    to { background-position: 0 100vh; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
 
 
+.grid-item:hover::before {
+    opacity: 0.4;
+}
 
+.grid-item h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
 
-
-</style>
-
+.grid-item p {
+    position: relative;
+    z-index: 2;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.4;
+    max-width: 80%;
+}
 
     </style>
 </head>
 <body>
     <div class="grid-background"></div>
-    
+
     <!-- Same navbar as index.html -->
     <nav class="navbar">
         <div class="nav-container">
@@ -1080,412 +656,72 @@ const newStyles = `
                     <span class="line"></span>
                     <span class="line"></span>
                 </div>
-                
             </button>
             <div class="nav-links">
-                <a href="index.html">JOURNAL</a>
+                <a href="journal.html">JOURNAL</a>
                 <a href="magazine.html">MAGAZINE</a>
-                <a href="work.html">WORK</a>
+                <a href="work.html">PROJECTS</a>
                 <a href="shop.html">SHOP</a>
                 <a href="about.html">ABOUT</a>
             </div>
         </div>
     </nav>
-
-    <!--<section class="hero" id="home">
+    
+    <section class="hero section">
+    <div class="hero-content">
+        <h1>Welcome to the edge of the system</h1>
+        <p>A digital archive for outsiders, thinkers, misfits, and culture hackers. Exploring the systems that shape us, the codes that bind us,
+            and the art that sets us free.</p>
         
-        <div class="hero-blur"></div>
-        <div class="hero-content">
-            <p></p> 
-            <img src="images/VR_LOGO_1-removebg-preview.png" alt="Profile Image" class="hero-image">
-            <h3></h3>
-            
-        </div>
-    </section>  -->
+    </div>
+</section>
 
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title"></h2>
-            
-            <div class="grid grid-3">
+    
 
-                
-                <a href="master-illusion.html" class="card">
-                    <img src="images/hello_f-removebg-preview.png" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>How Identity is a Self-Generating Prison</h3>
-                        
-                        
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 22, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
+    <section class="current-feature section">
+        <h3></h3>
+        <img src="images/pirate_radio.png" alt="Ghost Signal" class="feature-image">
+        <p>
 
-                <a href="neuroscience-of-psychedelics.html" class="card">
-                    <img src="images/Colorful_Light_Trails-removebg-preview.png" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>How Psychedelics Dissolve Reality and Rewire the Mind </h3>
-                        
-                        
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 20, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="psychedelics-and-nature-of-reality.html" class="card">
-                    <img src="images/Mushroom_on_White_Background-removebg-preview.png" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>Do Psychedelics Reveal or Fabricate the Truth?</h3>
-                        
-                        
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 20, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="glitch-effect.html" class="card">
-                    <img src="images/Futuristic_Alleyway_Scene-removebg-preview.png" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>The Glitch Effect</h3>
-                        
-                        
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 20, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-                
-                
-                <a href="reality-as-an-algorithm.html" class="card">
-                    <img src="images/Vintage_Computer_Monitor_with_Green_Text-removebg-preview (1).png" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>Reality as an Algorithm</h3>
-                        
-                        
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 19, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="self-erasing-program.html" class="card">
-                    <img src="images/Obscured_Identity-removebg-preview.png" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>The Self-Erasing Program</h3>
-                        
-                        
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 19, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="last-illusion.html" class="card">
-                    <img src="images/Urban_Minimalist_Scene-removebg-preview.png" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>What If There Is No Ultimate Truth?</h3>
-                        
-                        
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 18, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                
-                
-
-                <a href="dissolution-of-self.html" class="card">
-                    <img src="images/Dramatic_Woman_Portrait-removebg-preview.png" class="blog-img">
-                    <div class="card-content">
-                        <h3>Beyond the Shell</h3>
-                        <h3>Part 1: The Dissolution of Self</h3>
-                        
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 16, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="ai-human-consciousness.html" class="card">
-                    <img src="images/Meditative_Humanoid_Robot-removebg-preview.png" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>Beyond the Shell</h3> 
-                        <h3>Part 2: The Convergence of AI and Human Consciousness</h3>
-                        
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 16, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="post-humanity.html" class="card">
-                    <img src="images/p3Futuristic_Fashion-removebg-preview.png" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>Beyond the Shell</h3> 
-                        <h3>Part 3: Post-Humanity and the Evolution Beyond Individual Consciousness </h3>
-                        
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 16, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="edge-of-forever.html" class="card">
-                    <img src="images/Futuristic Digital Tunnel.jpeg" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>Are We Trapped in an Endless Loop of Reality?</h3>
-                        
-                        
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 18, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <!--<a href="religious-tolerance.html" class="card">
-                    <img src="images/Serene Contemplation.jpeg" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>Are We All Looking at the Same Truth from Different Angles?</h3>
-                        
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 14, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a> -->
-
-                <a href="digital-after-life.html" class="card">
-                    <img src="images/Cloud-Headed Man.jpeg" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>Can Consciousness Be Uploaded?</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 13, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="levels-of-lucidity.html" class="card">
-                    <img src="images/Digital Triptych_ Serenity Amidst the Matrix.jpeg" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>Reality as a Game Engine</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 12, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-                
-                <!--<a href="satellite-communication.html" class="card">
-                    <img src="images/leo.jpg" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>The Future of Satellite Communication Systems</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 12, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a> -->
-
-                <a href="alien-information-theory.html" class="card">
-                    <img src="images/Futuristic Glass Star.jpeg" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>Is Reality a Computational Grid?</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                March 09, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-                
-            <!--<a href="majorana.html" class="card">
-                    <img src="images/majorana1_1260x708_v2-1024x575-removebg-preview.png" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>The Future of Quantum Computing?</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                February 24, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="willow-quantum-chip.html" class="card">
-                    <img src="images/Googles-Quantum-Computing-Chip-1-removebg-preview (1).png" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>Willow Quantum Chip: Bridging Realities or Redefining Them?</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                February 16, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a> -->
-
-                <!-- Article 1 -->
-                <!--<a href="parker-probe.html" class="card">
-                    <img src="img/Solar_Orbiter_and_Parker_Solar_Probe_pillars.jpg" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>How the Parker Solar Probe is Listening to Our Star</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                February 04, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a> -->
-                
-                
-            
-                <!-- Article 4 -->
-                <a href="ai-global-stability.html" class="card">
-                    <img src="images/Futuristic_Portrait-removebg-preview.png" alt="AI and Global Stability" class="blog-img">
-                    <div class="card-content">
-                        <h3>AI and the Future of Global Stability</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                January 10, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>
-            
-                <!-- Article 5 -->
-            <!--<a href="the-golden-record.html" class="card">
-                    <img src="images/golden record.jpg" alt="the golden disc" class="blog-img">
-                    <div class="card-content">
-                        <h3>Humanity's Bold Message to the Cosmos</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                January 07, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a> -->
-            
-                <!-- Article 6 -->
-                <!--<a href="creating-the-oasis.html" class="card">
-                    <img src="images/halliday.jpg" alt="VR Experience" class="blog-img">
-                    <div class="card-content">
-                        <h3>Building the OASIS</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                January 04, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a> -->
-
-                <!-- Article 2 -->
-                <!--<a href="myth-of-meaning.html" class="card">
-                    <img src="images/Contemplative Silhouette.jpeg" alt="Space Exploration" class="blog-img">
-                    <div class="card-content">
-                        <h3>The Myth of Meaning</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                January 13, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a> --> 
-            
-                <!-- Article 3 -->
-                <!--<a href="the-real-reason-introverts-dont-fit-in.html" class="card">
-                    <img src="images/Contemplative Walk.jpeg" alt="Introversion" class="blog-img">
-                    <div class="card-content">
-                        <h3>The Real Reason Introverts Don't Fit In</h3>
-                        <div class="blog-meta">
-                            
-                            <span>
-                                <i class="fas fa-calendar-alt"></i>
-                                January 12, 2025
-                            </span>
-                        </div>
-                    </div>
-                </a>-->
-
-            </div>
-        </div>
+            Back when culture was raw and illegal,
+            kids built stations in basements and rooftops.
+            No likes, no sponsors — just static, bass, and revolution.
+            They jacked the airwaves.
+            They hacked the signal.
+            And if you know where to listen…
+            they still are.</p>
+        
+        <!-- Added feature image -->
+        
+        
+        <a href="pirate-radio.html" class="cta-button glitch-hover">Read</a>
     </section>
 
-    <!-- Same footer as index.html -->
+    <section class="sections-grid section">
+        <!-- Magazine grid item with link -->
+        <a href="magazine.html" class="grid-item magazine-grid glitch-hover">
+            <h3>Magazine</h3>
+            <p>Interviews and profiles from the edges of culture</p>
+        </a>
+        
+        <!-- Journal grid item with link -->
+        <a href="journal.html" class="grid-item journal-grid glitch-hover">
+            <h3>Journal</h3>
+            <p>Mind-bending explorations of consciousness, tech, and the infrastructure of reality</p>
+        </a>
+        
+        <!-- Projects grid item with link -->
+        <a href="work.html" class="grid-item projects-grid glitch-hover">
+            <h3>Projects</h3>
+            <p>Experimental digital spaces and design experiments</p>
+        </a>
+    </section>
+
+    
+
+    
+
+    <!-- Same footer -->
     <footer>
         <!-- Your existing footer content -->
         <div class="container">
@@ -1509,12 +745,12 @@ const newStyles = `
 
     <!-- Include your existing scripts -->
     <script>
-        // Keep only the necessary JavaScript (navbar and mobile menu functionality)
         document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
             const navbar = document.querySelector('.navbar');
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const navLinks = document.querySelector('.nav-links');
-
+        
             // Navigation scroll effect
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
@@ -1523,20 +759,106 @@ const newStyles = `
                     navbar.classList.remove('scrolled');
                 }
             });
-
+        
             // Mobile menu toggle
             mobileMenuBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 navLinks.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
             });
-
+        
             // Close mobile menu when clicking outside
             document.addEventListener('click', function(e) {
                 if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                     navLinks.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
                 }
             });
+        
+            // Modal Functions
+            const modalFunctions = {
+                openResumeModal: function() {
+                    const modal = document.getElementById('resumeModal');
+                    if (modal) {
+                        modal.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    }
+                },
+                closeResumeModal: function() {
+                    const modal = document.getElementById('resumeModal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = '';
+                    }
+                },
+                openCertModal: function() {
+                    const modal = document.getElementById('certModal');
+                    if (modal) {
+                        modal.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    }
+                },
+                closeCertModal: function() {
+                    const modal = document.getElementById('certModal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = '';
+                    }
+                }
+            };
+        
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.classList.remove('active');
+                    }
+                });
+            });
+        
+            // Close modals
+            window.addEventListener('click', (e) => {
+                const modals = document.querySelectorAll('.modal, .doc-modal, .blog-modal');
+                modals.forEach(modal => {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+        
+            // Glitch effects
+            document.querySelectorAll('.glitch-hover').forEach(item => {
+                item.addEventListener('mouseover', () => {
+                    item.style.animation = 'textGlitch 0.4s steps(2)';
+                });
+                
+                item.addEventListener('animationend', () => {
+                    item.style.animation = '';
+                });
+            });
+        
+            // Cosmic grid animation
+            window.addEventListener('scroll', () => {
+                const gridBg = document.querySelector('.grid-background');
+                if (gridBg) {
+                    const yPos = -window.scrollY * 0.5;
+                    gridBg.style.backgroundPosition = `0 ${yPos}px`;
+                }
+            });
+        
+            // Expose functions to global scope
+            Object.entries(modalFunctions).forEach(([name, fn]) => {
+                window[name] = fn;
+            });
         });
-    </script>
-</body>
+        
+        // Define these if they're used elsewhere
+        const sendEmail = () => { /* implementation */ };
+        const sendPricingEmail = () => { /* implementation */ };
+        </script></body>
 </html>
