@@ -638,6 +638,144 @@
     max-width: 80%;
 }
 
+/* NEW: Now Tuning Into Section Styles */
+.now-tuning {
+    padding: 6rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.tuning-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.4s ease;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.tuning-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    border-color: rgba(255,255,255,0.3);
+}
+
+.tuning-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    filter: brightness(0.9) contrast(1.1);
+    transition: all 0.4s ease;
+}
+
+.tuning-card:hover .tuning-image {
+    filter: brightness(1) contrast(1.2);
+}
+
+.tuning-content {
+    padding: 2.5rem;
+    text-align: left;
+    position: relative;
+}
+
+.tuning-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            -45deg,
+            rgba(0,0,0,0.1) 0px,
+            rgba(0,0,0,0.1) 1px,
+            transparent 1px,
+            transparent 10px
+        );
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.tuning-label {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.tuning-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: greenyellow;
+    text-transform: uppercase;
+}
+
+.tuning-subtitle {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.tuning-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.tuning-quote {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-style: italic;
+    border-left: 3px solid greenyellow;
+    padding-left: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Responsive adjustments for tuning card */
+@media (max-width: 768px) {
+    .now-tuning {
+        padding: 4rem 1rem;
+    }
+    
+    .tuning-image {
+        height: 250px;
+    }
+    
+    .tuning-content {
+        padding: 1.5rem;
+    }
+    
+    .tuning-title {
+        font-size: 1.4rem;
+    }
+    
+    .tuning-subtitle {
+        font-size: 1rem;
+    }
+    
+    .tuning-text {
+        font-size: 0.9rem;
+    }
+    
+    .tuning-quote {
+        font-size: 1rem;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -675,7 +813,21 @@
     </div>
 </section>
 
-    
+
+
+<section class="now-tuning section">
+    <a href="worldwideboyz.html" class="tuning-card glitch-hover">
+        <img src="images/cosmicavi.jpg" alt="Neural Networks and Cosmic Conspiracies" class="tuning-image">
+        <div class="tuning-content">
+            <span class="tuning-label">NOW TUNING INTO:</span>
+            <h2 class="tuning-title">@cosmicweb_is_mine</h2>
+            <h3 class="tuning-subtitle">Japan's Glitch Prophet Rewrites Reality</h3>
+            <p class="tuning-text">In a collision of Okinawan mysticism and cyberpunk rebellion, @cosmicweb_is_mine dissects the hidden codes binding street culture, ancestral spirits, and the digital void. This raw transmission unravels the Yuta grandmother who taught him to see gods in glitches, the philosophy that "breaking systems" begins with hacking your daily routine, and Japan's underground reimagined as a neural network of otaku energy. At its core pulses the <em>WORLD WIDE BOYZ</em> manifesto — a <em>Matrix</em>-esque declaration of autonomy in an algorithmic age.</p>
+            <p class="tuning-quote">"This universe belongs to you. Crash the algorithm."</p>
+        </div>
+    </a>
+</section>
+        
 
     <section class="current-feature section">
         <h3></h3>
@@ -696,6 +848,7 @@
         <a href="pirate-radio.html" class="cta-button glitch-hover">Read</a>
     </section>
 
+    
     <section class="sections-grid section">
         <!-- Magazine grid item with link -->
         <a href="magazine.html" class="grid-item magazine-grid glitch-hover">
@@ -706,7 +859,7 @@
         <!-- Journal grid item with link -->
         <a href="journal.html" class="grid-item journal-grid glitch-hover">
             <h3>CODE</h3>
-            <p>Hacking consciousness, simulation theory and the hidden infrastructure of reality itself.</p>
+            <p>An intimate journal. Hacking consciousness, simulation theory and the hidden infrastructure of reality itself.</p>
         </a>
         
         <!-- Projects grid item with link -->
@@ -715,9 +868,6 @@
             <p>Experimental software, rogue prototypes and algorithmic experiments. The Lab is where raw ideas mutate, break systems, and test what digital space can become outside the rules of commercial tech. </p>
         </a>
     </section>
-
-    
-
     
 
     <!-- Same footer -->
