@@ -373,6 +373,7 @@
 
         /* Hero Section */
         .hero {
+            position: relative;
             height: calc(100vh - 100px);
             display: flex;
             align-items: center;
@@ -381,6 +382,44 @@
             text-align: center;
             padding: 2rem;
             margin-top: 80px;
+            overflow: hidden; /* Ensure video doesn't spill outside */
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire section */
+            z-index: -2; /* Behind text */
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6); /* Dark overlay for text visibility */
+            z-index: -1; /* Between video and text */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1; /* Above video and overlay */
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Enhance text visibility */
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .video-background {
+                /* Some mobile browsers have issues with fixed video backgrounds */
+                /* This ensures it works cross-browser on mobile */
+                position: absolute;
+                height: 100%;
+            }
         }
 
         .hero h1 {
@@ -577,47 +616,6 @@
     }
 }
 
-.hero {
-    position: relative;
-    overflow: hidden;
-    background: 
-        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-        url('images/Colorful\ Gradient\ Texture.jpeg') center/cover no-repeat;
-    /* Update the path to match your file structure */
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(45deg, 
-            transparent 48%, 
-            rgba(255,255,255,0.05) 50%,
-            transparent 52%),
-        repeating-linear-gradient(
-            45deg,
-            rgba(0,0,0,0.1) 0px,
-            rgba(0,0,0,0.1) 2px,
-            transparent 2px,
-            transparent 4px
-        );
-    mix-blend-mode: overlay;
-    animation: scanlines 20s linear infinite;
-}
-
-@keyframes scanlines {
-    from { background-position: 0 0; }
-    to { background-position: 0 100vh; }
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
 
 
 .grid-item:hover::before {
@@ -776,6 +774,335 @@
     }
 }
 
+.transmission-section {
+  position: relative;
+  background: #000;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 5rem 2rem;
+  overflow: hidden;
+}
+
+.glitch-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)),
+    url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.signal-header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 3rem;
+  z-index: 2;
+}
+
+.signal-tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  color: #00ff9d;
+  background: rgba(0,255,157,0.1);
+  padding: 0.3rem 0.8rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.glitch-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 3rem;
+  color: #f0f0f0;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  color: #ff00ff;
+  z-index: -1;
+  animation: glitch-1 4s infinite alternate-reverse;
+}
+
+.glitch-text::after {
+  color: #00ff9d;
+  z-index: -2;
+  animation: glitch-2 4s infinite alternate;
+}
+
+.subtitle {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 400;
+}
+
+.static-flicker {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  margin: 2rem 0;
+  animation: static 3s infinite;
+}
+
+.manifesto-quote {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  padding: 2rem;
+  border-left: 1px solid rgba(255,255,255,0.1);
+}
+
+.manifesto-quote p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+}
+
+.quote-glitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, transparent 45%, rgba(255,0,255,0.05) 50%, transparent 55%),
+    linear-gradient(0deg, transparent 45%, rgba(0,255,157,0.05) 50%, transparent 55%);
+  z-index: 1;
+  animation: glitch-bg 8s infinite;
+}
+
+.transmission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.data-node {
+  position: relative;
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.data-node:hover {
+  background: rgba(255,255,255,0.02);
+  border-color: rgba(0,255,157,0.3);
+}
+
+.node-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00ff9d;
+}
+
+.data-node h4 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #f0f0f0;
+}
+
+.data-node p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.7);
+}
+
+.manifesto-excerpt {
+  max-width: 600px;
+  margin: 3rem auto;
+  text-align: center;
+  position: relative;
+}
+
+.glitch-typing {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: #f0f0f0;
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-typing::after {
+  content: '|';
+  animation: blink 1s infinite;
+}
+
+.cyber-button {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 3rem auto 0;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 1px solid #00ff9d;
+  color: #00ff9d;
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cyber-button:hover {
+  background: rgba(0,255,157,0.1);
+  text-shadow: 0 0 8px rgba(0,255,157,0.5);
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,255,157,0.1), transparent);
+  transition: all 0.6s ease;
+}
+
+.cyber-button:hover::before {
+  left: 100%;
+}
+
+/* Animations */
+@keyframes glitch-1 {
+  0% { transform: translate(0); }
+  20% { transform: translate(-5px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(5px, 1px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-2 {
+  0% { transform: translate(0); }
+  20% { transform: translate(3px, -3px); }
+  40% { transform: translate(-2px, 4px); }
+  60% { transform: translate(1px, -1px); }
+  80% { transform: translate(-4px, 2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes static {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+@keyframes glitch-bg {
+  0% { background-position: 0 0; }
+  20% { background-position: -5px 5px; }
+  40% { background-position: 5px -5px; }
+  60% { background-position: -5px -5px; }
+  80% { background-position: 5px 5px; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .glitch-text {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.4rem;
+  }
+  
+  .manifesto-quote p {
+    font-size: 1.2rem;
+  }
+  
+  .glitch-typing {
+    font-size: 1.4rem;
+  }
+}
+
+.transmission-image {
+    position: relative;
+    max-width: 1000px;
+    margin: 2rem auto;
+    border: 1px solid rgba(255,255,255,0.1);
+    overflow: hidden;
+}
+
+.glitch-img {
+    width: 100%;
+    height: 580px;
+    object-fit: cover;
+    
+    position: relative;
+    z-index: 1;
+}
+
+.image-glitch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, 
+            transparent 48%, 
+            rgba(255,0,255,0.05) 50%,
+            transparent 52%),
+        linear-gradient(-45deg, 
+            transparent 48%, 
+            rgba(0,255,157,0.05) 50%,
+            transparent 52%);
+    animation: image-glitch 4s infinite;
+    z-index: 2;
+    mix-blend-mode: overlay;
+}
+
+@keyframes image-glitch {
+    0% { background-position: 0 0; }
+    20% { background-position: -5px 5px; }
+    40% { background-position: 5px -5px; }
+    60% { background-position: -5px -5px; }
+    80% { background-position: 5px 5px; }
+    100% { background-position: 0 0; }
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+    .glitch-img {
+        height: 250px;
+    }
+}
+
+.cyber-button.loading .button-text:after {
+    content: '...';
+    animation: loadingDots 1s infinite;
+}
+
+@keyframes loadingDots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
     </style>
 </head>
 <body>
@@ -805,15 +1132,79 @@
     </nav>
     
     <section class="hero section">
-    <div class="hero-content">
-        <h1></h1>
-        <p>A digital magazine for outsiders, thinkers, misfits, and culture hackers. Exploring the systems that shape us, the codes that bind us,
-            and the art that sets us free.</p>
+        <!-- Add video background -->
+        <video class="video-background" autoplay muted loop playsinline>
+            <source src="images/radical_edd.mp4" type="video/mp4">
+            <!-- Add fallback formats if needed -->
+            <!-- <source src="videos/your-background-video.webm" type="video/webm"> -->
+            <!-- Your browser does not support the video tag. -->
+        </video>
         
+        <!-- Add overlay to improve text visibility -->
+        <div class="video-overlay"></div>
+        
+        <div class="hero-content">
+            <h1></h1>
+            <p>A digital zine for outsiders, thinkers, misfits, and culture hackers. Exploring the systems that shape us, the codes that bind us, and the art that sets us free.</p>
+        </div>
+    </section>
+
+<section class="transmission-section">
+    <div class="glitch-overlay"></div>
+    
+    <div class="transmission-container">
+      <div class="signal-header">
+        <span class="signal-tag">ENCRYPTED TRANSMISSION</span>
+        <h2 class="glitch-text" data-text="THE MISFIT MANIFESTO">THE MISFIT MANIFESTO</h2>
+        <h3 class="subtitle">with Batsheva Dueck</h3>
+      </div>
+
+      <div class="transmission-image">
+        <div class="image-glitch"></div>
+        <img src="images/batsheva/nerdbed.JPG" alt="Batsheva Dueck transmission visual" class="glitch-img">
     </div>
-</section>
+      
+      <div class="transmission-content">
+        <div class="static-flicker"></div>
+        
+        <blockquote class="manifesto-quote">
+          <div class="quote-glitch"></div>
+          <p>Batsheva Dueck isn’t just part of the culture — she bends it, reroutes it, and codes new exits into the simulation. Her digital presence isn’t performance, it’s prophecy. A Jewish rebel tracing ancestral echoes through YouTube dispatches and pixelated cityscapes, she dissects modern identity not to explain it, but to unmask it. In a world hooked on curated rebellion and algorithm-approved individuality, Batsheva is a rupture — unbranded, unrepentant, unforgettable. This isn’t content. It’s intervention.
 
-
+            </p>
+        </blockquote>
+        
+        <!--<div class="transmission-grid">
+          <div class="data-node">
+            <div class="node-icon">⏣</div>
+            <h4>Identity Beyond Packaging</h4>
+            <p>When selfhood becomes a commodity, how do we remain undigitized?</p>
+          </div>
+          
+          <div class="data-node">
+            <div class="node-icon">⟁</div>
+            <h4>Sacred Rebellion</h4>
+            <p>The spiritual act of refusing copied paradigms</p>
+          </div>
+          
+          <div class="data-node">
+            <div class="node-icon">⌗</div>
+            <h4>Exile as Power</h4>
+            <p>Cultural non-binary as evolutionary advantage</p>
+          </div>
+        </div> -->
+        
+        <div class="manifesto-excerpt">
+          <p class="glitch-typing">"So go look in the mirror. Confess your love. Eat a pickle. And tune in to something strange, sacred, and real."</p>
+        </div>
+      </div>
+      
+      <button class="cyber-button">
+        <span class="button-text">DECRYPT FULL TRANSMISSION</span>
+        <span class="button-icon">⏵</span>
+      </button>
+    </div>
+  </section>
 
 <section class="now-tuning section">
     <a href="worldwideboyz.html" class="tuning-card glitch-hover">
@@ -841,6 +1232,8 @@
             They hacked the signal.
             And if you know where to listen…
             they still are.</p>
+
+            <!--<img src="images/978711660.jpg" alt="Ghost Signal" class="feature-image"> -->
         
         <!-- Added feature image -->
         
@@ -1009,5 +1402,89 @@
         // Define these if they're used elsewhere
         const sendEmail = () => { /* implementation */ };
         const sendPricingEmail = () => { /* implementation */ };
+
+        document.addEventListener('DOMContentLoaded', () => {
+  // Typewriter effect for manifesto excerpt
+  const manifestoText = "'So go look in the mirror. Confess your love. Eat a pickle. And tune in to something strange, sacred, and real.'";
+  const typingElement = document.querySelector('.glitch-typing');
+  
+  if (typingElement) {
+    typingElement.textContent = '';
+    let i = 0;
+    const typingInterval = setInterval(() => {
+      if (i < manifestoText.length) {
+        typingElement.textContent += manifestoText.charAt(i);
+        i++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 50);
+  }
+
+  // Data node hover effects
+  const dataNodes = document.querySelectorAll('.data-node');
+  
+  dataNodes.forEach(node => {
+    node.addEventListener('mousemove', (e) => {
+      const rect = node.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      node.style.setProperty('--mouse-x', `${x}px`);
+      node.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+
+  // Button hover glitch
+  const cyberButton = document.querySelector('.cyber-button');
+  
+  if (cyberButton) {
+    cyberButton.addEventListener('mouseenter', () => {
+      cyberButton.style.boxShadow = '0 0 15px rgba(0, 255, 157, 0.5)';
+    });
+    
+    cyberButton.addEventListener('mouseleave', () => {
+      cyberButton.style.boxShadow = 'none';
+    });
+  }
+
+  const glitchImage = document.querySelector('.transmission-image');
+
+if (glitchImage) {
+    glitchImage.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth * 50;
+        const y = e.clientY / window.innerHeight * 50;
+        glitchImage.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    
+    glitchImage.addEventListener('mouseleave', () => {
+        glitchImage.style.transform = 'translate(0)';
+    });
+}
+
+document.querySelector('.cyber-button').addEventListener('click', function() {
+    // Replace '/article-path' with your actual article URL
+    window.location.href = 'batsheva-dueck.html'; 
+});
+
+document.querySelector('.cyber-button').addEventListener('click', function(e) {
+    e.preventDefault();
+    const button = e.currentTarget;
+    
+    // Add loading state
+    button.classList.add('loading');
+    button.style.pointerEvents = 'none';
+    
+    // Replace with your actual article path
+    const articleUrl = 'batsheva-dueck.html'; 
+    
+    setTimeout(() => {
+        window.location.href = articleUrl;
+    }, 800); // Simulated delay for decrypt effect
+});
+});
+
+
+
         </script></body>
 </html>

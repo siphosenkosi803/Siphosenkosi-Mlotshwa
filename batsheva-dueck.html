@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/ico_logo.ico">
+    <!-- Keep all your existing head content (fonts, styles, etc.) -->
+     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('6YdWPrE_MXY30SAKk');
+        })();
+    </script>
+
+<title>Embrace Your Misfit: A Manifesto in Conversation with Batsheva Dueck</title>
+<meta name="description" content="">
+
+    <!-- Add your existing styles -->
+    <style>
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .logo {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative; /* Use relative positioning within navbar */
+    height: 100%; /* Ensure it takes appropriate height */
+
+}
+
+.logo img {
+    width: 40px; /* Slightly smaller size */
+    height: 40px;
+    object-fit: contain; /* Ensure image displays properly */
+    vertical-align: middle; /* Align vertically */
+}
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .article-content {
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            margin: 2rem 0 1rem 0;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /*font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;*/
+            font-family: 'IBM Plex Mono', monospace;
+            line-height: 1.0;
+            color: white;
+            background-color: black;
+        }
+
+        /* Grid background */
+        .grid-background {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: 
+                linear-gradient(to right, rgba(128, 128, 128, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(128, 128, 128, 0.05) 1px, transparent 1px);
+            background-size: 14px 24px;
+        }
+
+        /* Navigation */
+        /* Navigation */
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background-color: black;
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+    top: 0;
+    /* Add border to prevent any potential transparency */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled {
+    background-color: black; /* Keep it solid black when scrolled */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Add shadow for visual cue */
+}
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px; /* Set explicit height */
+            position: relative; /* For positioning context */
+
+        }
+
+        .logo {
+            
+            background: linear-gradient(135deg, black, black);
+            -webkit-background-clip: text;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: greenyellow;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: black;
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .footer-content {
+        text-align: center;
+        }
+
+        .footer-content h3 {
+        margin-bottom: 1.5rem;
+    }
+
+        
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .social-links a:hover {
+            color: greenyellow;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: black;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 999;
+            }
+
+            .logo {
+                position: static; /* Keep it in the normal flow */
+                /* Or if needed within navbar: */
+                position: relative;
+                top: auto;
+                left: auto;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                font-size: 2rem;
+                margin: 1rem 0;
+                color: white;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: greenyellow;
+            }
+
+            .mobile-menu-btn {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1001;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        color: white;
+    }
+
+    .hamburger {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger .line {
+    display: block;
+    background: white;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger .line:nth-child(1) {
+    top: 0;
+}
+
+.hamburger .line:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger .line:nth-child(3) {
+    bottom: 0;
+}
+
+/* Animation classes */
+.mobile-menu-btn.active .hamburger .line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-btn.active .hamburger .line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active .hamburger .line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+            .logo {
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 1001;
+            }
+        }
+        .section {
+            padding-top: 80px; /* Match navbar height plus some padding */
+        background: black;
+
+
+    }
+
+    .article-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0; /* Remove the padding to let image go edge-to-edge */
+    }
+
+    .article-image {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+    .featured-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .article-header {
+        text-align: center;
+        margin: 2rem;
+    }
+
+    .article-meta {
+    font-size: 0.9rem;
+    color: #aaa;
+    text-align: center;
+    margin-top: 1rem;      /* Space between header and meta info */
+    margin-bottom: 2rem;   /* Space between meta info and article content */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.article-author {
+    font-weight: 500;
+}
+
+.article-date {
+    font-style: italic;
+}
+
+    .article-content {
+    padding: 0 2rem; /* Add padding to the content area only */
+}
+
+@media (max-width: 768px) {
+    .article-header {
+        margin: 1rem;
+    }
+    
+    .article-content {
+        padding: 0 1rem;
+    }
+}
+
+.article-image img {
+            max-width: 60%; /* Adjust this value to control the image size */
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center the image */
+        }
+
+        /* Ensure content starts below fixed navbar */
+.section {
+    padding-top: 80px; /* Match navbar height */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .section {
+        padding-top: 60px; /* Smaller padding for mobile */
+    }
+    
+    .article-image {
+        margin-top: 2rem; /* Add space between navbar and image */
+    }
+    
+    /* Ensure navbar stays on top of everything */
+    .navbar {
+        z-index: 1000;
+    }
+    
+    .logo img {
+        width: 40px; /* Make mobile logo smaller */
+        height: 40px;
+    }
+}
+
+.article-container {
+    padding: 0 1rem; /* Add horizontal padding */
+}
+
+.article-content h1 {
+    text-align: center;
+    width: 100%;
+    margin: 2rem 0; /* Optional: Adjust spacing as needed */
+}
+
+@media (max-width: 768px) {
+    /* Reset the fixed positioning of the logo on mobile */
+    .logo {
+        position: static; /* Keep it in the normal flow */
+        /* Or if needed within navbar: */
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+    
+    /* Adjust navbar height for mobile if needed */
+    .navbar {
+        height: auto;
+        min-height: 60px;
+    }
+    
+    .nav-container {
+        height: auto;
+        min-height: 60px;
+        padding: 0.5rem 1rem; /* Slightly reduced padding */
+    }
+    
+    /* Ensure hamburger button stays within navbar */
+    .mobile-menu-btn {
+        position: relative; /* Position it relative to the nav-container */
+        top: auto;
+        right: auto;
+    }
+}
+
+/* Interview specific styles */
+.article-intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+.interview-question {
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: greenyellow;
+}
+
+.interview-answer {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.article-content h1.article-title {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.language-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: black;
+    color: greenyellow;
+    border: 1px solid greenyellow;
+    border-radius: 3px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.language-button:hover {
+    background-color: greenyellow;
+    color: black;
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+<body>
+    <div class="grid-background"></div>
+
+    <!-- Same navbar as index.html -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/VR_LOGO_1-removebg-preview.png" alt="Logo">
+                siphosenkosi
+            </a>
+            <button class="mobile-menu-btn">
+                <div class="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+            </button>
+            <div class="nav-links">
+                <a href="magazine.html">FEED</a>
+                <a href="journal.html">CODE</a>
+                <a href="work.html">LAB</a>
+                <a href="about.html">ABOUT</a>
+            </div>
+        </div>
+    </nav>
+    
+    
+
+    <section class="section">
+        <div class="article-container">
+            <div class="article-image">
+                <img src="images/batsheva/nerdbed.JPG" alt="AI Brain" class="featured-image">
+            </div>
+            <div class="article-header">
+                <h1>Embrace Your Misfit: A Manifesto in Conversation with Batsheva Dueck</h1>
+                
+                
+                <div class="article-meta">
+                    <span class="article-author">By Siphosenkosi Mlotshwa</span>
+                    <span class="article-date">Published: April 26, 2025</span>
+                    
+                </div>
+            </div>
+
+            
+
+            <div class="article-content">
+                <!-- Article content goes here -->
+                <p class="article-intro">
+                    What happens when someone refuses to be optimized, categorized, or subdued by the systems that surround them? What if identity is not a fixed point, but a recursive rebellion — an ongoing negotiation between ancestry and autonomy, belief and glitch, soul and screen?
+
+In this deep-dive interview, Batsheva Dueck — digital nomad, Jewish storyteller, cultural dissenter — speaks with disarming clarity about displacement, ideology, alienation, internet illusions, and the strange sacredness of being misunderstood. Her words are not just reflections; they are resistance code. A living draft of the Misfit Manifesto.
+
+From cities that hum with haunted frequency to subcultures policed by aesthetic algorithms, from Orthodox roots to media rebellion, Batsheva navigates the terrain between soul and simulation with humor, grace, and an unshakable sense of inner compass.
+                </p>
+
+                <div class="article-image">
+                        <img src="images/batsheva/leanin.JPG" alt="" class="featured-image">
+                    </div> 
+
+                    <h3>THE INTERVIEW:</h3>
+                
+                <p class="interview-question">Do you believe some people are born outside of systems — or are we all conditioned into a false sense of belonging we secretly resent?</p>
+                
+                <p class="interview-answer">@batshevadueck: I think all of us are born outside of systems. We are all unique, and there is no human that is a clone of another. I actually believe we all crave belonging, and so look for systems or groups in which our unique set of characteristics may mesh well. I think it only becomes toxic once those systems develop rigid rules that exclude other people, and make those who haven’t found their family yet feel like they belong no where. But we all belong somewhere, and that doesn’t take away from how different we all are, in the best way.
+
+                    </p>
+
+
+                <p class="interview-question">If identity is a construct we inherit and remix, what parts of your inherited self have you deliberately uninstalled? What code do you refuse to run?</p>
+                
+                <p class="interview-answer">@batshevadueck: The code I refuse to run is that of a cultural algorithm that tells me that I must deny a part of my identity in order to belong somewhere. In the Orthodox Jewish world where I come from, that might mean toning down my YouTube / social media escapades on my dating profile, in order to sound more ‘normal’. In College that might have meant arguing with my media professor that I can, in fact, make it as a mainstream content creator just the way I am. Without toning down ANY part of my cultural identity.</p>
+
+
+                <p class="interview-question">The internet promised to liberate misfits. Has it? Or has it simply created new, invisible prisons dressed up as “communities”?</p>
+                
+                <p class="interview-answer">@batshevadueck: Do you think the internet promised to liberate misfits? I don’t think it ever did such a thing. I think all the ‘cores’ that have erupted from TikTok like a fungus are a double edged sword. On the one hand, it’s introduced younger people to a swath of media, fashion and culture that they may never have come across otherwise. On the other hand, have you noticed that everyone is now reading the same thing, wearing the same thing, and increasingly…thinking the same thing? It’s like all the ‘book girlies’ are reading the same Mhairi McFarlane novel on their same Ikea Billy white bookshelf, and I can’t seem to discover a fresh new read anywhere on this internet. The internet is still one giant echo chamber in my opinion, all the ‘cores’ have simply divided said chamber into smaller sub-rooms.</p>
+
+
+                <p class="interview-question">When you walk through cities like Berlin, Tokyo, or New York — do you sense different frequencies of alienation? How does one city’s digital ghost differ from another’s?</p>
+                
+                <p class="interview-answer">@batshevadueck: Ooooh I love this question. Every city has its own unique frequency. Los Angeles feels like a perfect day that’s decaying, and full of anger. That’s why punk rock and Doc Martens just look so good against its dusty yellow backdrop. Tokyo feels like an aging exotic dancer — all glittery lights from far away, but you can see the lines and despair etched into the atmosphere the closer you get. That’s why I think their fashion subcultures like to play with Kawaii and darkness. Berlin feels like a city who’s trying to move on from her secrets. Some parts are just too pretty, just too new, making you wonder what was there before. Other parts still feel raw, like the wound hasn’t closed yet. The Kreuzbrug neighborhood felt that way for me. A lot of graffiti and expression on those walls.</p>
+
+                    
+                
+                <p class="interview-question">If the concept of ‘home’ is more about where you aren’t misunderstood than where you belong — have you found it yet? Or is it something you build moment by moment?</p>
+                
+                <p class="interview-answer">@batshevadueck: I like that idea - that home is where they understand you. I think I’ve finally found that, thank G-d. I have an amazing host family in Boston that roots for my journey, every step of the way. My friends in my neighborhood as well, are phenomenal. They are Orthodox Jewish women who are creative and driven, and are there for me in a way I struggled to find for many years of my life. I also have creator friends who aren’t Jewish who see me and my story and believe in me wholeheartedly. When I think of these friends I honestly want to cry, wondering what I did to deserve such humans. It took so long to find them though. I first had to come into my own, accept myself for who I was, and only then did I finally start attracting people who resonated with who I truly am, and not the identity I had put on to impress other people.</p>
+
+
+                <p class="interview-question">In your videos, there’s a sense of documenting the residue of places, like digital fossils. What do you think future misfits will misinterpret about our era?</p>
+                
+                <p class="interview-answer">@batshevadueck: I think they’ll misinterpret how much we really cared about humanity. I think History will look back on this time as a time of darkness, division, and an inability to listen to our neighbor. But underneath that, I hope they realize that this is a society that’s slowly changing, slowly trying to become better people, even if we are doing it in such a misguided way currently. We’ll learn. We always do.</p>
+
+
+                <p class="interview-question">Is being a misfit a choice, a glitch, or a form of encrypted rebellion passed down through cultural DNA? </p>
+                
+                <p class="interview-answer">@batshevadueck: I think they can be all three. When you come into your identity fully, you become a misfit by choice, as you realize no one will ever be exactly like you — and that’s a good thing. When you slip away from society, usually through a paused mental health, I wouldn’t call it a glitch, but that is a part of being a misfit that needs care and healing. We want everyone to recover from this kind of misfit (read: alienation). And the last one? Being Jewish for me feels EXACTLY like encrypted rebellion. Think of all the Jewish coded media that plays to this — Superman, Alice Hoffman’s ‘Practical magic’, Bob Dylan’s ‘Neighborhood Bully’. These all play to that encrypted rebellion I think we all collectively feel. I cannot speak for any other cultural identity but I can imagine that you may get similar feelings among many cultural groups.</p>
+
+
+                <p class="interview-question">How does your Jewish experience in America function as a double displacement — one ancestral, one cultural, one personal? </p>
+                
+                <p class="interview-answer">@batshevadueck: This is a difficult question, and one I’m not sure I want to get into fully in this format. My history is etched into the many many countries I’ve traversed throughout millennia. I’m American, and I speak Yeshivish, which is a mixture of English, Yiddish and Hebrew. My grandmother is from Syria, and speaks Judeo-Arabic, a mixture of Hebrew and Arabic. My Great Grandmother’s last name was Laniado, a Spanish-Jewish last name, even though she was from Syria. She spoke Ladino, which is a mixture of Hebrew and Spanish. Wherever I live, I know that my roots stem from the country whose language keeps showing up in every creole I stumble into. That is both alienating, and comforting.</p>
+
+
+                <p class="interview-question">If we stripped away language, nation, family, labels — what sensory or instinctual part of you would still remain intact, and what would that self look like?</p>
+                
+                <p class="interview-answer">@batshevadueck: I think you would simply see my soul.</p>
+
+
+                <p class="interview-question">Have you ever felt that even in so-called outsider spaces, there’s an invisible algorithm policing what counts as “cool rebellion” and what’s too far?</p>
+                
+                <p class="interview-answer">@batshevadueck: Yes. A lot of our culture and counter culture today is driven by ideas. I think we’re allowed to rebel in any way we want to today, except when it comes to  our ideas. Ironically, such a policing of thought always leads to rebellion.</p>
+
+
+                <p class="interview-question">What’s one idea, question, or taboo you’ve held back from exploring publicly — and why? </p>
+                
+                <p class="interview-answer">@batshevadueck: There is one idea that I am excited to explore very publicly, but I need to build up my new channel that I pivoted to this year first. I’m not going to tell you what it is, because it’s not the time nor place. I’m going to slip it into my channel in a way that’s fun and natural. It’s going to be an adventure that should G-d willing be a lot of fun to make.</p>
+
+
+                <p class="interview-question">If you could permanently delete one inherited belief from the collective Western consciousness, what would it be — and what would you replace it with?</p>
+                
+                <p class="interview-answer">@batshevadueck: This idea that we have to save everyone from themselves. I think I would replace it with humility and a willingness to listen. As much as so many of us post on our stories that we’re ‘Listening and Learning’, I don’t think we are. I think there’s still so much ego in a lot of conversations that we have with each other. We’re so sure we’re right, and we refuse to engage our narratives with things that make us uncomfortable. We might be ‘listening’ to perspectives that affirm our narratives, but I’d like to see more people engage in conversations that are hard. I want them to be quiet, and listen. I want them to ask questions. Though I do believe there are people out there who are making this happen. Among my friend group, this is definitely happening.</p>
+
+
+                <p class="interview-question">Is loneliness an inevitable side effect of choosing to live without a mask, or is it an illusion programmed into the system to discourage nonconformity?</p>
+                
+                <p class="interview-answer">@batshevadueck: I think loneliness is a risk you take when you live without a mask, but it isn’t permanent. Once you live your truth long enough, people who resonate with you will be drawn to you — because as I said earlier, we all crave belonging. I actually think living your truth is the best way to find family. But choosing to ‘come out’ so to speak can cost you people who never fully understood you, and that can feel lonely until you find your groove again.</p>
+
+
+                <p class="interview-question">What do you think is the misfit’s true role in the social ecosystem? Are we meant to disrupt, observe, or leave breadcrumbs for the next generation?</p>
+                
+                <p class="interview-answer">@batshevadueck: If you truly embrace your misfit, then you’re meant to lead and inspire in some way. That can simply mean being the most wonderful parent to your children, or a teacher that pushes their students to think beyond their limits. But it can also mean inventing something no one ever thought of, wearing something no one ever thought to wear, or publicly saying something so many of us have been bursting to say out loud. This is how you shift the culture.</p>
+
+
+                <p class="interview-question">You document cities, spaces, identities — but have you ever encountered a place so alien, digital or physical, that it made you question whether human life is a simulation?</p>
+                
+                <p class="interview-answer">@batshevadueck: Lol. Online. The instagram comments section can be repulsive. I often wonder if those are really human beings, or a few sickos decided to send bots out to depress the populace. Either way, I think we as a society are aware of this, and those around me at least, are making sure to change this.</p>
+
+
+                <p class="interview-question">If the Misfit Manifesto was encoded into a piece of subversive software, what command would run first when it booted up? 
+
+                </p>
+                
+                <p class="interview-answer">@batshevadueck: Go look in the mirror, and confess your love. And then go eat a pickle.</p>
+
+
+                <p class="interview-question">How does humor, absurdity, or satire protect you from the psychic weight of living outside consensus reality? Or does it blur the line between rebellion and entertainment?
+
+                </p>
+                
+                <p class="interview-answer">@batshevadueck: Humor is the ONLY way I deal with things. It lets you look at a world that’s gone insane, realize you are the last sane person standing, and allows you to laugh about it. Laughter makes everything better. Have you ever compiled a list of your favorite haters — people who have wronged your people in the most heinous way, and then tier ranked who looks most like a horse? It’s great fun.</p>
+
+
+                <p class="interview-question">When did you last feel like you completely disappeared — not physically, but ideologically, existentially — in a good way?
+
+                </p>
+                
+                <p class="interview-answer">@batshevadueck: When I pray to G-d. I feel less corporeal and more in touch with my spiritual essence — which isn’t physical.</p>
+
+
+                <p class="interview-question">Do you think humans were ever meant to belong to groups, or is the herd instinct a glitch that’s outlived its evolutionary usefulness?
+
+                </p>
+                
+                <p class="interview-answer">@batshevadueck: Yes. We are meant to live in groups. Family is good. Community is what we should strive for. I don’t think any of us can successfully function alone. The trick however, is to embrace everyone’s unique role within the group, not strive to be the same person.</p>
+
+
+                <p class="interview-question">If all systems collapsed tomorrow — language, nations, economies, media — what surviving fragment of your worldview would you want scrawled on a wall in the ruins?</p>
+                
+                <p class="interview-answer">@batshevadueck: The Torah. I mean, I’m a religious Jew hehe. Destruction to me, always precedes healing. If I was standing among this wreckage I’d simply look around for signs of G-d putting up little shoots among the cracks. There’s a shorts creator I love that animates such a concept. He has this comic about the end of the world, and all the different people banding together to survive, and help the world heal. I’d simply just see G-d scrawled on every wall.</p>
+                
+                    <div class="article-image">
+                        <img src="images/batsheva/misfitlogo.png" alt="" class="featured-image">
+                    </div>
+
+                    <!--<div class="article-image">
+                        <img src="images/wwb_apparel.png" alt="" class="featured-image">
+                    </div> -->
+
+                
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Same footer -->
+    <footer>
+        <!-- Your existing footer content -->
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3></h3>
+                    <p></p>
+                    <div class="social-links">
+
+                        <a href="https://github.com/siphosenkosi803"><i class="fab fa-github"></i></a>
+                        <a href="https://instagram.com/1heavy0"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:siphosenkosi.m@yahoo.com"><i class="fas fa-envelope"></i></a>                    </div>
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include your existing scripts -->
+    <script>
+       // Wait for DOM to be fully loaded before running any code
+document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements
+    const navbar = document.querySelector('.navbar');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Navigation scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    mobileMenuBtn.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent event bubbling
+        navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            navLinks.classList.remove('active');
+        }
+    });
+
+    // Modal Functions
+    function openResumeModal() {
+        document.getElementById('resumeModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeResumeModal() {
+        document.getElementById('resumeModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    function openCertModal() {
+        document.getElementById('certModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCertModal() {
+        document.getElementById('certModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+
+    // Close modals when clicking outside
+    window.addEventListener('click', (e) => {
+        const modals = document.querySelectorAll('.modal, .doc-modal, .blog-modal');
+        modals.forEach(modal => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    });
+
+    
+
+    // Make functions globally available
+    window.openResumeModal = openResumeModal;
+    window.closeResumeModal = closeResumeModal;
+    window.openCertModal = openCertModal;
+    window.closeCertModal = closeCertModal;
+    window.openBlogModal = openBlogModal;
+    window.closeBlogModal = closeBlogModal;
+    window.openPricingModal = openPricingModal;
+    window.closePricingModal = closePricingModal;
+    window.sendEmail = sendEmail;
+    window.sendPricingEmail = sendPricingEmail;
+});
+    </script>
+</body>
+</html>
