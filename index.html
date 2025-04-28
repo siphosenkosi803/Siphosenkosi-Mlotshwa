@@ -131,7 +131,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: greenyellow;
+            background: #00ff9d;
             transition: width 0.3s ease;
         }
 
@@ -180,7 +180,7 @@
         }
 
         .social-links a:hover {
-            color: greenyellow;
+            color: #00ff9d;
         }
 
         /* Mobile Styles */
@@ -214,7 +214,7 @@
             }
 
             .nav-links a:hover {
-                color: greenyellow;
+                color: #00ff9d;
             }
 
             .mobile-menu-btn {
@@ -637,53 +637,16 @@
 }
 
 /* NEW: Now Tuning Into Section Styles */
-.now-tuning {
+.intercepted-frequencies {
     padding: 6rem 2rem;
     text-align: center;
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.tuning-card {
-    max-width: 900px;
-    margin: 0 auto;
-    background: rgba(20, 20, 20, 0.8);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: all 0.4s ease;
-    text-decoration: none;
-    color: white;
-    display: block;
-}
-
-.tuning-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-    border-color: rgba(255,255,255,0.3);
-}
-
-.tuning-image {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    filter: brightness(0.9) contrast(1.1);
-    transition: all 0.4s ease;
-}
-
-.tuning-card:hover .tuning-image {
-    filter: brightness(1) contrast(1.2);
-}
-
-.tuning-content {
-    padding: 2.5rem;
-    text-align: left;
     position: relative;
+    overflow: hidden;
 }
 
-.tuning-content::before {
+.intercepted-frequencies::before {
     content: '';
     position: absolute;
     top: 0;
@@ -692,87 +655,237 @@
     height: 100%;
     background: 
         repeating-linear-gradient(
-            -45deg,
-            rgba(0,0,0,0.1) 0px,
-            rgba(0,0,0,0.1) 1px,
-            transparent 1px,
-            transparent 10px
+            to bottom,
+            rgba(0,255,157,0.01) 0px,
+            rgba(0,255,157,0.02) 1px,
+            transparent 2px,
+            transparent 4px
         );
-    opacity: 0.3;
-    z-index: -1;
+    pointer-events: none;
+    z-index: 1;
+    animation: crtScan 8s linear infinite;
 }
 
-.tuning-label {
-    display: inline-block;
-    font-size: 0.9rem;
+.signal-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(0,255,157,0.3);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px rgba(0,255,157,0.2);
+    position: relative;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.signal-container:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6), 0 0 25px rgba(0,255,157,0.3);
+    transform: translateY(-5px) scale(1.01);
+}
+
+.signal-header {
+    padding: 0.5rem 1rem;
+    background: rgba(0,255,157,0.15);
+    border-bottom: 1px solid rgba(0,255,157,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.signal-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 0.5rem;
-    letter-spacing: 1px;
+    color: #00ff9d;
 }
 
-.tuning-title {
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background: #00ff9d;
+    border-radius: 50%;
+    animation: blink 2s infinite;
+}
+
+.signal-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.control-button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.control-button.red {
+    background: #ff4d4d;
+}
+
+.control-button.yellow {
+    background: #ffcc00;
+}
+
+.control-button.green {
+    background: #00ff9d;
+}
+
+.signal-image {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    filter: brightness(0.85) contrast(1.2) saturate(1.1);
+    position: relative;
+    z-index: 1;
+}
+
+.signal-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, rgba(0,255,157,0.1) 50%, transparent 50%),
+        linear-gradient(rgba(0,255,157,0.1) 50%, transparent 50%);
+    background-size: 4px 4px;
+    z-index: 2;
+    opacity: 0.3;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+.signal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+        repeating-linear-gradient(transparent, transparent 2px, rgba(0,0,0,0.05) 3px, rgba(0,0,0,0.05) 3px);
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.5;
+    animation: scanline 6s linear infinite;
+}
+
+.signal-content {
+    padding: 2.5rem;
+    text-align: left;
+    position: relative;
+}
+
+.signal-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: rgba(0,255,157,0.1);
+    color: rgba(0,255,157,0.8);
+    padding: 0.3rem 0.6rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    border-left: 2px solid #00ff9d;
+}
+
+.signal-title {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     line-height: 1.3;
     font-weight: 700;
-    color: greenyellow;
+    color: #00ff9d;
     text-transform: uppercase;
 }
 
-.tuning-subtitle {
+.signal-subtitle {
     font-size: 1.2rem;
     font-style: italic;
     margin-bottom: 1.5rem;
     opacity: 0.9;
 }
 
-.tuning-text {
+.signal-text {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
 
-.tuning-quote {
+.decrypting {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    color: rgba(0,255,157,0.8);
+}
+
+.decrypting::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+.signal-quote {
     font-size: 1.2rem;
     line-height: 1.4;
     font-style: italic;
-    border-left: 3px solid greenyellow;
+    border-left: 3px solid #00ff9d;
     padding-left: 1rem;
     margin-top: 1.5rem;
 }
 
-/* Responsive adjustments for tuning card */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes scanline {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes crtScan {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
 @media (max-width: 768px) {
-    .now-tuning {
+    .intercepted-frequencies {
         padding: 4rem 1rem;
     }
     
-    .tuning-image {
+    .signal-image {
         height: 250px;
     }
     
-    .tuning-content {
+    .signal-content {
         padding: 1.5rem;
     }
     
-    .tuning-title {
+    .signal-title {
         font-size: 1.4rem;
     }
     
-    .tuning-subtitle {
+    .signal-subtitle {
         font-size: 1rem;
     }
     
-    .tuning-text {
+    .signal-text {
         font-size: 0.9rem;
     }
     
-    .tuning-quote {
+    .signal-quote {
         font-size: 1rem;
     }
 }
+
 
 .transmission-section {
   position: relative;
@@ -1103,6 +1216,313 @@
     60%, 100% { content: '...'; }
 }
 
+.community-vault {
+    background: black;
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.vault-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at center, transparent, rgba(0,0,0,0.9)),
+        repeating-linear-gradient(45deg, rgba(0,255,157,0.01) 0px, rgba(0,255,157,0.01) 1px, transparent 1px, transparent 10px);
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.vault-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.vault-header {
+    margin-bottom: 2rem;
+}
+
+.vault-icon {
+    font-size: 2rem;
+    color: #00ff9d;
+    margin-bottom: 1rem;
+}
+
+.vault-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: white;
+}
+
+.vault-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.submit-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: transparent;
+    color: #00ff9d;
+    border: 1px solid #00ff9d;
+    padding: 1rem 2rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-button:hover {
+    background: rgba(0,255,157,0.1);
+    box-shadow: 0 0 15px rgba(0,255,157,0.3);
+}
+
+.submit-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0,255,157,0.2), transparent);
+    transition: all 0.6s ease;
+}
+
+.submit-button:hover::before {
+    left: 100%;
+}
+
+@media (max-width: 768px) {
+    .community-vault {
+        padding: 3rem 1rem;
+    }
+    
+    .vault-title {
+        font-size: 1.5rem;
+    }
+    
+    .vault-subtitle {
+        font-size: 1rem;
+    }
+    
+    .submit-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+.transmission-image {
+    position: relative;
+    max-width: 800px; /* Adjusted from 1000px */
+    margin: 4rem auto;
+    border: none;
+    overflow: visible;
+}
+
+.monitor-frame {
+    position: relative;
+    background: #111;
+    border-radius: 10px;
+    padding: 25px 25px 45px;
+    box-shadow: 
+        0 0 0 1px #333,
+        0 0 0 5px #000,
+        0 5px 20px rgba(0,0,0,0.7),
+        0 15px 40px rgba(0,0,0,0.8);
+    transform: perspective(800px) rotateX(5deg);
+}
+
+.monitor-screen {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #333;
+    border-bottom-width: 4px;
+    border-radius: 4px;
+    background: #000;
+}
+
+.monitor-scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(
+            to bottom,
+            transparent 50%,
+            rgba(0, 0, 0, 0.3) 50%
+        );
+    background-size: 100% 4px;
+    z-index: 3;
+    pointer-events: none;
+    animation: scanlines 10s linear infinite;
+}
+
+.monitor-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 
+        inset 0 0 80px rgba(0, 255, 157, 0.15),
+        inset 0 0 30px rgba(0, 255, 157, 0.1);
+    z-index: 2;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.monitor-reflection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.01) 60%,
+        transparent 100%
+    );
+    transform: skewX(-5deg);
+    z-index: 4;
+    pointer-events: none;
+    border-radius: 4px 4px 0 0;
+}
+
+.monitor-bezel {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    align-items: center;
+}
+
+.monitor-brand {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #444;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.monitor-led {
+    width: 10px;
+    height: 10px;
+    background: #00ff9d;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ff9d;
+    animation: blink 2s infinite alternate;
+}
+
+.image-glitch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, 
+            transparent 48%, 
+            rgba(255,0,255,0.05) 50%,
+            transparent 52%),
+        linear-gradient(-45deg, 
+            transparent 48%, 
+            rgba(0,255,157,0.08) 50%,
+            transparent 52%);
+    animation: image-glitch 4s infinite;
+    z-index: 2;
+    mix-blend-mode: overlay;
+}
+
+.glitch-img {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    max-height: 500px;
+    object-fit: cover;
+    filter: 
+        brightness(0.9) 
+        contrast(1.3) 
+        saturate(0.8)
+        hue-rotate(-5deg);
+    position: relative;
+    z-index: 1;
+    image-rendering: pixelated;
+}
+
+/* Additional animations */
+@keyframes scanlines {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
+/* Enhance existing animations */
+@keyframes image-glitch {
+    0% { opacity: 0.85; background-position: 0 0; }
+    20% { opacity: 0.9; background-position: -5px 5px; }
+    40% { opacity: 0.85; background-position: 5px -5px; }
+    60% { opacity: 0.9; background-position: -5px -5px; }
+    62% { opacity: 0.4; } /* Quick flash */
+    64% { opacity: 0.85; }
+    80% { opacity: 0.9; background-position: 5px 5px; }
+    100% { opacity: 0.85; background-position: 0 0; }
+}
+
+/* Random flicker effect */
+@keyframes crt-flicker {
+    0% { opacity: 1; }
+    3% { opacity: 0.8; }
+    5% { opacity: 1; }
+    30% { opacity: 1; }
+    35% { opacity: 0.9; }
+    40% { opacity: 1; }
+    90% { opacity: 1; }
+    95% { opacity: 0.9; }
+    100% { opacity: 1; }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .transmission-image {
+        max-width: 90%;
+    }
+    
+    .monitor-frame {
+        padding: 15px 15px 35px;
+    }
+    
+    .glitch-img {
+        min-height: 200px;
+    }
+    
+    .monitor-bezel {
+        bottom: 5px;
+        padding: 0 15px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -1160,8 +1580,19 @@
       </div>
 
       <div class="transmission-image">
-        <div class="image-glitch"></div>
-        <img src="images/batsheva/nerdbed.JPG" alt="Batsheva Dueck transmission visual" class="glitch-img">
+        <div class="monitor-frame">
+            <div class="monitor-screen">
+                <div class="monitor-scanline"></div>
+                <div class="monitor-glow"></div>
+                <div class="image-glitch"></div>
+                <img src="images/batsheva/nerdbed.JPG" alt="Batsheva Dueck transmission visual" class="glitch-img">
+                <div class="monitor-reflection"></div>
+            </div>
+            <div class="monitor-bezel">
+                <div class="monitor-brand">TERMINAL-X</div>
+                <div class="monitor-led"></div>
+            </div>
+        </div>
     </div>
       
       <div class="transmission-content">
@@ -1206,15 +1637,32 @@
     </div>
   </section>
 
-<section class="now-tuning section">
-    <a href="worldwideboyz.html" class="tuning-card glitch-hover">
-        <img src="images/cosmicavi.jpg" alt="Neural Networks and Cosmic Conspiracies" class="tuning-image">
-        <div class="tuning-content">
-            <span class="tuning-label">NOW TUNING INTO:</span>
-            <h2 class="tuning-title">@cosmicweb_is_mine</h2>
-            <h3 class="tuning-subtitle">Japan's Glitch Prophet Rewrites Reality</h3>
-            <p class="tuning-text">In a collision of Okinawan mysticism and cyberpunk rebellion, @cosmicweb_is_mine dissects the hidden codes binding street culture, ancestral spirits, and the digital void. This raw transmission unravels the Yuta grandmother who taught him to see gods in glitches, the philosophy that "breaking systems" begins with hacking your daily routine, and Japan's underground reimagined as a neural network of otaku energy. At its core pulses the <em>WORLD WIDE BOYZ</em> manifesto — a <em>Matrix</em>-esque declaration of autonomy in an algorithmic age.</p>
-            <p class="tuning-quote">"This universe belongs to you. Crash the algorithm."</p>
+  <section class="intercepted-frequencies section">
+    <a href="worldwideboyz.html" class="signal-container">
+        <div class="signal-header">
+            <div class="signal-status">
+                <span class="status-dot"></span>
+                <span>SIGNAL LOCKED</span>
+            </div>
+            <div class="signal-controls">
+                <div class="control-button red"></div>
+                <div class="control-button yellow"></div>
+                <div class="control-button green"></div>
+            </div>
+        </div>
+        
+        <div class="signal-image-container">
+            <div class="signal-overlay"></div>
+            <img src="images/cosmicavi.jpg" alt="@cosmicweb_is_mine" class="signal-image">
+        </div>
+        
+        <div class="signal-content">
+            <span class="signal-tag">INTERCEPTED FREQUENCY</span>
+            <h2 class="signal-title">@cosmicweb_is_mine</h2>
+            <h3 class="signal-subtitle">Japan's Glitch Prophet Rewrites Reality</h3>
+            <span class="decrypting">DECRYPTING CULTURAL DNA...</span>
+            <p class="signal-text">In a collision of Okinawan mysticism and cyberpunk rebellion, @cosmicweb_is_mine dissects the hidden codes binding street culture, ancestral spirits, and the digital void. This raw transmission unravels the Yuta grandmother who taught him to see gods in glitches, the philosophy that "breaking systems" begins with hacking your daily routine, and Japan's underground reimagined as a neural network of otaku energy. At its core pulses the <em>WORLD WIDE BOYZ</em> manifesto — a <em>Matrix</em>-esque declaration of autonomy in an algorithmic age.</p>
+            <p class="signal-quote">"This universe belongs to you. Crash the algorithm."</p>
         </div>
     </a>
 </section>
@@ -1238,7 +1686,7 @@
         <!-- Added feature image -->
         
         
-        <a href="pirate-radio.html" class="cta-button glitch-hover">Read</a>
+        <a href="pirate-radio.html" class="cta-button glitch-hover">Learn More</a>
     </section>
 
     
@@ -1260,6 +1708,21 @@
             <h3>LAB</h3>
             <p>Experimental software, rogue prototypes and algorithmic experiments. The Lab is where raw ideas mutate, break systems, and test what digital space can become outside the rules of commercial tech. </p>
         </a>
+    </section>
+
+    <section class="community-vault">
+        <div class="vault-background"></div>
+        <div class="vault-container">
+            <div class="vault-header">
+                <div class="vault-icon">⚚</div>
+                <h2 class="vault-title">COMMUNITY VAULT</h2>
+                <p class="vault-subtitle">Join the underground network. Submit your signals, experiments, and forbidden knowledge to the collective archive.</p>
+            </div>
+            <a href="mailto:siphosenkosi.m@yahoo.com" class="submit-button">
+                <span>Submit a Signal</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
     </section>
     
 
@@ -1481,6 +1944,68 @@ document.querySelector('.cyber-button').addEventListener('click', function(e) {
     setTimeout(() => {
         window.location.href = articleUrl;
     }, 800); // Simulated delay for decrypt effect
+});
+document.addEventListener('DOMContentLoaded', () => {
+    // CRT flicker effect for signal container
+    const signalContainer = document.querySelector('.signal-container');
+    if (signalContainer) {
+        setInterval(() => {
+            if (Math.random() > 0.97) {
+                signalContainer.style.opacity = '0.8';
+                setTimeout(() => {
+                    signalContainer.style.opacity = '1';
+                }, 100);
+            }
+        }, 1000);
+    }
+    
+    // Typing effect for decrypting text
+    const decryptingText = document.querySelector('.decrypting');
+    if (decryptingText) {
+        const decryptMessages = [
+            "DECRYPTING CULTURAL DNA...",
+            "ANALYZING PATTERN MATRIX...",
+            "PARSING SUBCULTURE NODES...",
+            "AUTHENTICATING SIGNAL..."
+        ];
+        
+        let currentIndex = 0;
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % decryptMessages.length;
+            decryptingText.textContent = decryptMessages[currentIndex];
+        }, 3000);
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const monitorScreen = document.querySelector('.monitor-screen');
+    if (monitorScreen) {
+        // Random screen flicker effect
+        setInterval(() => {
+            if (Math.random() > 0.97) {
+                monitorScreen.style.opacity = Math.random() * 0.3 + 0.7;
+                monitorScreen.style.filter = `brightness(${Math.random() * 0.4 + 0.8})`;
+                
+                setTimeout(() => {
+                    monitorScreen.style.opacity = '1';
+                    monitorScreen.style.filter = 'brightness(1)';
+                }, 100);
+            }
+        }, 2000);
+        
+        // Random horizontal glitch
+        setInterval(() => {
+            if (Math.random() > 0.95) {
+                const img = monitorScreen.querySelector('.glitch-img');
+                const offset = Math.floor(Math.random() * 10) - 5;
+                img.style.transform = `translateX(${offset}px)`;
+                
+                setTimeout(() => {
+                    img.style.transform = 'translateX(0)';
+                }, 50 + Math.random() * 100);
+            }
+        }, 3000);
+    }
 });
 });
 
