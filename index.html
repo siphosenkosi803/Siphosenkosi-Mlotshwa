@@ -686,7 +686,7 @@
     transform: translateY(-5px) scale(1.01);
 }
 
-.signal-header {
+.signal-card-header {
     padding: 0.5rem 1rem;
     background: rgba(0,255,157,0.15);
     border-bottom: 1px solid rgba(0,255,157,0.3);
@@ -694,6 +694,29 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.signal-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 3rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.signal-header .signal-tag {
+    margin: 0 auto 0.5rem; /* Center the tag and add space below */
+}
+
+.signal-header .glitch-text {
+    margin: 0.5rem 0; /* Add space above and below */
+}
+
+.signal-header .subtitle {
+    margin: 0.5rem 0 0; /* Add space above */
+}
+
 
 .signal-status {
     display: flex;
@@ -1605,25 +1628,7 @@
             </p>
         </blockquote>
         
-        <!--<div class="transmission-grid">
-          <div class="data-node">
-            <div class="node-icon">⏣</div>
-            <h4>Identity Beyond Packaging</h4>
-            <p>When selfhood becomes a commodity, how do we remain undigitized?</p>
-          </div>
-          
-          <div class="data-node">
-            <div class="node-icon">⟁</div>
-            <h4>Sacred Rebellion</h4>
-            <p>The spiritual act of refusing copied paradigms</p>
-          </div>
-          
-          <div class="data-node">
-            <div class="node-icon">⌗</div>
-            <h4>Exile as Power</h4>
-            <p>Cultural non-binary as evolutionary advantage</p>
-          </div>
-        </div> -->
+        
         
         <div class="manifesto-excerpt">
             <p class="glitch-typing">"Go look in the mirror, and confess your love. And then go eat a pickle"</p>
@@ -1639,7 +1644,7 @@
 
   <section class="intercepted-frequencies section">
     <a href="worldwideboyz.html" class="signal-container">
-        <div class="signal-header">
+        <div class="signal-card-header">
             <div class="signal-status">
                 <span class="status-dot"></span>
                 <span>SIGNAL LOCKED</span>
