@@ -11,6 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
@@ -24,6 +25,199 @@
     <title>About - Siphosenkosi Mlotshwa</title>
     <!-- Add your existing styles -->
     <style>
+        /* Base Cyberpunk Styles */
+        :root {
+            --neon-green: #0f0;
+            --matrix-green: #00ff41;
+            --glitch-pink: #ff00c1;
+            --terminal-bg: #000;
+        }
+
+        body {
+            background: var(--terminal-bg);
+            color: var(--neon-green);
+            font-family: 'IBM Plex Mono', monospace;
+            line-height: 1.4;
+            text-shadow: 0 0 5px rgba(15, 255, 15, 0.3);
+            overflow-x: hidden;
+        }
+
+        /* CRT Effects */
+        .crt-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(0, 255, 0, 0.1) 0px,
+                    rgba(0, 255, 0, 0.1) 1px,
+                    transparent 1px,
+                    transparent 2px
+                );
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: overlay;
+        }
+
+        .scanlines {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scanlines::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(0, 255, 0, 0.1) 1%,
+                transparent 2%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Glitch Effects */
+        @keyframes glitch {
+            0% { clip-path: inset(10% 0 89% 0); }
+            15% { clip-path: inset(5% 0 30% 0); }
+            30% { clip-path: inset(80% 0 1% 0); }
+            45% { clip-path: inset(10% 0 30% 0); }
+            60% { clip-path: inset(40% 0 1% 0); }
+            75% { clip-path: inset(5% 0 30% 0); }
+            100% { clip-path: inset(80% 0 1% 0); }
+        }
+
+        .glitch-text {
+            position: relative;
+            animation: glitch 3s infinite alternate;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--glitch-pink);
+            animation: glitch 3s infinite alternate;
+        }
+
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: 2px 0 var(--matrix-green);
+            animation: glitch 2s infinite alternate;
+        }
+
+        /* Terminal Style */
+        .terminal-frame {
+            border: 3px solid var(--neon-green);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+            position: relative;
+        }
+
+        .terminal-frame::before {
+            content: "> USER PROFILE LOADING...";
+            position: absolute;
+            top: -1.8rem;
+            left: -3px;
+            background: var(--terminal-bg);
+            color: var(--neon-green);
+            padding: 0 1rem;
+            font-size: 0.8rem;
+            border: 3px solid var(--neon-green);
+            font-family: 'VT323', monospace;
+        }
+
+        .profile-img {
+    border: 3px solid var(--neon-green);
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+    /* REMOVED FILTERS */
+    position: relative;
+    margin: 2rem auto;
+}
+
+.profile-img::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        transparent 48%,
+        rgba(0, 255, 0, 0.1) 50%,
+        transparent 52%
+    );
+    background-size: 5px 5px;
+    mix-blend-mode: screen; /* Changed to preserve color */
+}
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'VT323', monospace;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--matrix-green);
+            margin: 1.5rem 0;
+        }
+
+        p {
+            position: relative;
+            border-left: 3px solid var(--neon-green);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        /* Matrix Rain Background */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Terminal Prompt */
+        .terminal-prompt {
+            font-family: 'VT323', monospace;
+            color: var(--neon-green);
+            padding: 1rem;
+            border: 2px solid var(--neon-green);
+            margin: 1rem 0;
+        }
+
+        .terminal-prompt::after {
+            content: "_";
+            animation: cursor-blink 1s infinite;
+        }
+
+        @keyframes cursor-blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
         /* Reset and base styles */
         * {
             margin: 0;
@@ -964,7 +1158,8 @@ const newStyles = `
     </style>
 </head>
 <body>
-    <div class="grid-background"></div>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="crt-overlay"></div>
     
     <!-- Same navbar as index.html -->
     <nav class="navbar">
@@ -981,6 +1176,7 @@ const newStyles = `
                 </div>
             </button>
             <div class="nav-links">
+                <a href="index.html">FEED</a>
                 <a href="magazine.html">ARCHIVE</a>
                 <a href="journal.html">JOURNAL</a>
                 <a href="work.html">LAB</a>
@@ -989,86 +1185,64 @@ const newStyles = `
         </div>
     </nav>
 
-    <section class="section">
+
+    <section class="section scanlines">
         <div class="container">
-            <h2 class="section-title"></h2>
-            <div class="about-content">
+            <div class="terminal-frame">
+                <div class="terminal-prompt">> INITIALIZING USER PROFILE...</div>
+                
+                <pre class="ascii-art">
+  
+                </pre>
+
                 <img src="images/AVI.jpg" alt="Profile" class="profile-img">
-                <div class="about-text">
-                    <h3></h3>
+                
+                <div class="about-content">
+                    <h1 class="glitch-text" data-text="Siphosenkosi Mlotshwa">Siphosenkosi Mlotshwa</h1>
                     
-                    <h1>Siphosenkosi Mlotshwa</h1>
-
-  <p>Welcome to the frequency.</p>
-
-  <p>I’m Siphosenkosi Mlotshwa — a coder, culture drifter, digital zine architect, and rogue philosopher moving between realities.
-  This platform isn’t a brand. It’s an organism. A living archive, a dérive through the edges of culture, technology, identity, and the architecture of the unreal.</p>
-
-  <p>I built this as a space for the unplaceable — for misfits, glitch prophets, culture hackers, and digital nomads navigating the cracks between worlds.
-  A place where subcultures, systems theory, psychogeography, and glitch art collide with streetwear, underground zines, and digital consciousness experiments.</p>
-
-  <p>I grew up decoding systems — studying software engineering and design, while quietly dismantling the myths of identity and reality behind the screen.
-  What started as blog posts and creative experiments mutated into this ever-evolving digital organism.</p>
-
-  <p>I believe we’ve been here before.<br>
-  I believe we are trapped in feedback loops.<br>
-  And I believe hacking culture and consciousness is how we wake up.</p>
-
-  <p>This isn’t just about content. It’s about signal.
-  It’s about finding the weird, the overlooked, the revolutionary, the haunted.
-  It’s about carving out space for voices and aesthetics that refuse to be domesticated by algorithms.</p>
-
-  <p>Whether it’s glitch-heavy streetwear collectives in Tokyo, indie designers from London, cyberpunk philosophers, or psychedelic coders mapping the edges of simulated consciousness —
-  <strong>this is where we gather.</strong></p>
-
-  <p>The only rule here is to stay awake.<br>
-  To keep stepping sideways.<br>
-  To question everything we’re handed.<br>
-  And to document the fragments.</p>
-
-                </div> 
+                    <div class="terminal-prompt">> LOADING BIOGRAPHY...</div>
+                    
+                    <p>[SYSTEM]: Welcome to the frequency.</p>
+                    
+                    <p>[USER]: I’m Siphosenkosi Mlotshwa — a coder, culture drifter, digital zine architect, and rogue philosopher moving between realities.
+                        This platform isn’t a brand. It’s an organism. A living archive, a dérive through the edges of culture, technology, identity, and the architecture of the unreal.
+                      
+                        I built this as a space for the unplaceable — for misfits, glitch prophets, culture hackers, and digital nomads navigating the cracks between worlds.
+                        A place where subcultures, systems theory, psychogeography, and glitch art collide with streetwear, underground zines, and digital consciousness experiments.
+                      
+                        I grew up decoding systems — studying software engineering and design, while quietly dismantling the myths of identity and reality behind the screen.
+                        What started as blog posts and creative experiments mutated into this ever-evolving digital organism.
+                      
+                        I believe we’ve been here before.
+                        I believe we are trapped in feedback loops.
+                        And I believe hacking culture and consciousness is how we wake up.
+                      
+                        This isn’t just about content. It’s about signal.
+                        It’s about finding the weird, the overlooked, the revolutionary, the haunted.
+                        It’s about carving out space for voices and aesthetics that refuse to be domesticated by algorithms.
+                      
+                        Whether it’s glitch-heavy streetwear collectives in Tokyo, indie designers from London, cyberpunk philosophers, or psychedelic coders mapping the edges of simulated consciousness —
+                        this is where we gather.
+                      
+                        The only rule here is to stay awake.
+                        To keep stepping sideways.
+                        To question everything we’re handed.
+                        And to document the fragments.</p>
+                    
+                    
+                    
+                    <div class="terminal-prompt">> PROFILE LOAD COMPLETE</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Keep the resume and certification modals -->
-    <div id="resumeModal" class="doc-modal">
-        <!-- Your existing resume modal content -->
-        <div class="doc-modal-content">
-            <span class="close-modal" onclick="closeResumeModal()">&times;</span>
-            <h2>Professional Resume</h2>
-            <div class="resume-content">
-                <iframe src="docs/siphosenkosi_mlotshwa_resume.pdf"></iframe>
-            </div>
-        </div>
-    </div>
 
-    <div id="certModal" class="doc-modal">
-        <!-- Your existing certification modal content -->
-        <div class="doc-modal-content">
-            <span class="close-modal" onclick="closeCertModal()">&times;</span>
-            <h2>Professional Certifications</h2>
-            <div class="cert-grid">
-                <!-- First Certification -->
-                <div class="cert-card">
-                    <img src="images/engineering_certification.png" alt="Certification 1">
-                    <h3>Software Engineering</h3>
-                    <p>Holberton School</p>
-                    <p>Date Achieved: November 2023</p>
-                    <a href="docs/engineering_certification.pdf" class="btn btn-primary" target="_blank">View Certificate</a>
-                </div>
-                
-                <!-- Second Certification -->
-                <div class="cert-card">
-                    <img src="images/72-virtual-assistant-certificate-siphosenkosi-mlotshwa.png" alt="Certification 2">
-                    <h3>Virtual Assistance Skills in the Digital Age</h3>
-                    <p>ALX Africa</p>
-                    <p>Date Achieved: November 2024</p>
-                    <a href="docs/72-virtual-assistant-certificate-siphosenkosi-mlotshwa.pdf" class="btn btn-primary" target="_blank">View Certificate</a>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
+
+    
+    
 
     <!-- Same footer as index.html -->
     <footer>
@@ -1095,6 +1269,61 @@ const newStyles = `
 
     <!-- Include your existing scripts -->
     <script>
+
+
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+        const drops = [];
+        const fontSize = 14;
+        const columns = canvas.width/fontSize;
+
+        for(let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+
+                if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 50);
+
+        // Terminal Typing Effect
+        const prompts = document.querySelectorAll('.terminal-prompt');
+        prompts.forEach(prompt => {
+            const text = prompt.textContent;
+            prompt.textContent = '';
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    prompt.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            typeWriter();
+        });
+
         // Keep the necessary JavaScript (navbar, mobile menu, and modal functionality)
         // Your existing JavaScript for modals and navigation
         document.addEventListener('DOMContentLoaded', function() {

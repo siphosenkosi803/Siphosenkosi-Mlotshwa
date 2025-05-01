@@ -1546,6 +1546,483 @@
     }
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: black;
+    padding: 2rem;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #ccfaff;
+  }
+
+  /* Stand-alone section container */
+.faisa-section-container {
+  width: 100%;
+  max-width: 100%;
+  background: #050708;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate; /* Creates a new stacking context */
+}
+
+/* Background effects for the section */
+.faisa-section-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(47, 249, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(47, 249, 255, 0.03) 0%, transparent 40%);
+  z-index: -1;
+}
+
+/* Grid circuit lines in the background */
+.faisa-section-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(to right, rgba(47, 249, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(47, 249, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+}
+
+/* Content wrapper to center and constrain width */
+.faisa-content-wrapper {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Section title */
+.faisa-section-title {
+  color: #53fcfc;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 10px rgba(47, 249, 255, 0.5);
+}
+
+/* Inner shadow at the top and bottom of the section */
+.section-edge-shadow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.section-edge-shadow.top {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(5, 7, 8, 0.8) 0%, transparent 100%);
+}
+
+.section-edge-shadow.bottom {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(5, 7, 8, 0.8) 0%, transparent 100%);
+}
+
+/* Main component styles */
+.faisaweb-card {
+  background: #0d0d0d;
+  border: 1px solid #2ff9ff33;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 0 20px #2ff9ff22;
+  color: #ccfaff;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 600px;
+}
+
+.faisaweb-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 28px #2ff9ff44;
+}
+
+.faisaweb-card-header {
+  margin-bottom: 1.2rem;
+}
+
+.faisaweb-id-text h3 {
+  margin: 0;
+  color: #53fcfc;
+  font-size: 2.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.faisaweb-id-text p {
+  margin: 0.3rem 0 0;
+  font-size: 1.15rem;
+  color: #53fcfc;
+}
+
+.faisaweb-card-content pre {
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background: transparent;
+  color: #ccfaff;
+  padding: 0;
+  margin: 0;
+}
+
+.terminal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Enhanced dystopian space monitor styling */
+.faisaweb-display {
+  width: 100%;
+  border: 2px solid #2ff9ff;
+  border-radius: 4px;
+  padding: 1rem;
+  background: #000;
+  box-shadow: 0 0 15px #2ff9ff33, 
+              inset 0 0 10px #2ff9ff22;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  /* Add monitor-like structure */
+  border-top: 4px solid #13686a;
+  border-left: 4px solid #13686a;
+  border-bottom: 4px solid #092e2f;
+  border-right: 4px solid #092e2f;
+}
+
+/* Monitor screen overlay effect */
+.faisaweb-display::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(
+      to bottom,
+      rgba(47, 249, 255, 0.03) 0%, 
+      rgba(47, 249, 255, 0) 5%
+    ),
+    repeating-linear-gradient(
+      transparent 0px,
+      rgba(0, 0, 0, 0.3) 1px,
+      rgba(0, 0, 0, 0.3) 2px,
+      transparent 3px
+    );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Add digital noise overlay */
+.faisaweb-display::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c4zIArAAAAA3RSTlMAf4C/aSLgAAABmUlEQVR4AWLmXUNQxSAQRdqoMAYG6/435bP6PMJu6vw3E/CzZLKwQ8BE5Y7KgYrK9QqBvWXaFZW+ZfpJd+3PZH76MBJ+MWo5if5eqnb+B8gzTJZNiCwbFxlWLjKsXGTYuEgmXIoMK0pSEEKCEBKEkiCEJCWUSSglKaEsSXEFQAEAlAGgDADKAFAGAHgADYCi1AOUelAU2YOi1AOUelAUlQdFUXlQFJUHRVF5UBQ5D4qS8qAocg+KovKgKCoPipLyoCiqJRRlXUJRUiUURVtCUeQlJKRKUBTZEooi9QBAnYHioTYiQGMCCk+HgMLTIaDwdAgoPB0CCk+HgMLTIaDwdAgoPB0CCk+HgMLTISw8HcLC0yEsPB3CwtMhLDwdwsLTISw8HcLC0yGgeCjKK7zTAfC7N38duMfjPgmgPZxXe7g3dUn3Rh/JvfGnLu/J3Rd/6PoO7Y3d/7nL+p/3pYVcWqilxVxasKVFXVropUVf2gCWNomlzWRpc1naVHfxlg9++dNtTvQvCGvW0geK9gUAAAAASUVORK5CYII=");
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 3;
+  animation: noise 0.5s infinite alternate-reverse;
+}
+
+@keyframes noise {
+  0% { opacity: 0.04; }
+  100% { opacity: 0.07; }
+}
+
+/* Add monitor interface elements */
+.faisaweb-display-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: #092e2f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  z-index: 3;
+}
+
+.monitor-title {
+  color: #2ff9ff;
+  font-size: 0.7rem;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.monitor-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.monitor-button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ff9ff;
+}
+
+.monitor-content {
+  padding-top: 24px;
+  position: relative;
+}
+
+/* Edge glow effect */
+.monitor-edge-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 15px #2ff9ff33;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.faisaweb-portrait {
+  width: 100%;
+  display: block;
+  filter: sepia(20%) hue-rotate(160deg) contrast(1.3) brightness(0.8) saturate(1.2);
+  border-radius: 2px;
+  position: relative;
+  z-index: 1;
+  /* Add scan line animation */
+  animation: scanLine 8s linear infinite;
+}
+
+@keyframes scanLine {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+/* Flicker effect */
+.faisaweb-display {
+  animation: flicker 4s infinite alternate-reverse;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  95% { opacity: 0.9; }
+  96% { opacity: 1; }
+  97% { opacity: 0.9; }
+  98% { opacity: 1; }
+  99% { opacity: 0.8; }
+}
+
+/* Monitor metrics indicators */
+.monitor-metrics {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  font-family: "Courier New", monospace;
+  font-size: 0.6rem;
+  color: #2ff9ff;
+  opacity: 0.7;
+  z-index: 4;
+  text-shadow: 0 0 5px #2ff9ffaa;
+}
+
+.terminal-text {
+  color: #ccfaff;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.faisaweb-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.35rem;
+  font-family: 'Courier New', monospace;
+  background: #2ff9ff11;
+  border: 1px solid #2ff9ff;
+  color: #2ff9ff;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.faisaweb-button:hover {
+  background: #2ff9ff22;
+  box-shadow: 0 0 10px #2ff9ff66;
+}
+
+.current-feature {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 4rem auto;
+}
+
+.cyber-display-card {
+    display: block;
+    position: relative;
+    background: #000000; /* Changed to black */
+    border: 1px solid #00ff9d33;
+    border-radius: 4px;
+    padding: 2rem;
+    text-decoration: none;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,255,157,0.1);
+    transition: all 0.3s ease;
+}
+
+.cyber-display-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px rgba(0,255,157,0.3),
+                inset 0 0 15px rgba(0,255,157,0.1);
+}
+
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        180deg,
+        rgba(0,0,0,0) 0%,
+        rgba(0,255,157,0.05) 50%,
+        rgba(0,0,0,0) 100%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 50px rgba(0,255,157,0.1);
+    pointer-events: none;
+}
+
+.cyber-display-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border: 1px solid #00ff9d33;
+    margin-bottom: 1.5rem;
+    filter: contrast(110%) saturate(120%) hue-rotate(-5deg);
+    position: relative;
+    z-index: 1;
+}
+
+.cyber-text-container {
+    position: relative;
+    padding: 1.5rem;
+    background: rgba(0,0,0,0.8); /* Changed to black with transparency */
+    border: 1px solid #00ff9d33;
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #00ff9d;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.led {
+    width: 10px;
+    height: 10px;
+    background: #00ff9d;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ff9d;
+    animation: blink 1.5s infinite;
+}
+
+.cyber-text {
+    color: #ffffff; /* Changed to white */
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-shadow: 0 0 5px rgba(0,255,157,0.3);
+    margin: 0;
+}
+
+.frequency {
+    color: red; /* Matrix green */
+}
+
+.decrypt-status {
+    margin-top: 1.5rem;
+    color: #00ff9d;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.blinking-cursor {
+    animation: blink 1s infinite;
+    color: #ff0000; /* Changed to red */
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Remove the old CTA button */
+.cta-button {
+    display: none;
+}
+
     </style>
 </head>
 <body>
@@ -1566,6 +2043,7 @@
                 </div>
             </button>
             <div class="nav-links">
+                
                 <a href="magazine.html">ARCHIVE</a>
                 <a href="journal.html">JOURNAL</a>
                 <a href="work.html">LAB</a>
@@ -1592,12 +2070,14 @@
         </div>
     </section>
 
+     
+
 <section class="transmission-section">
     <div class="glitch-overlay"></div>
     
     <div class="transmission-container">
       <div class="signal-header">
-        <span class="signal-tag">ENCRYPTED TRANSMISSION</span>
+        <!--<span class="signal-tag">ENCRYPTED TRANSMISSION</span> -->
         <h2 class="glitch-text" data-text="THE MISFIT MANIFESTO">THE MISFIT MANIFESTO</h2>
         <h3 class="subtitle">with Batsheva Dueck</h3>
       </div>
@@ -1642,6 +2122,8 @@
     </div>
   </section>
 
+
+
   <section class="intercepted-frequencies section">
     <a href="worldwideboyz.html" class="signal-container">
         <div class="signal-card-header">
@@ -1671,50 +2153,47 @@
         </div>
     </a>
 </section>
+
+<section class="current-feature section">
+    <a href="pirate-radio.html" class="cyber-display-card">
+        <div class="cyber-display-content">
+            <div class="scanlines"></div>
+            <div class="glow"></div>
+            <img src="images/Vibrant Soundwave Display.jpeg" alt="Ghost Signal" class="cyber-display-image">
+            <div class="cyber-text-container">
+                <div class="terminal-header">
+                    <span class="led"></span>
+                    <span class="frequency">FREQ: 98.7MHz</span>
+                </div>
+                <p class="cyber-text">
+                    
+                    
+                    "Back when culture was raw and illegal,
+                    kids built stations in basements and rooftops.
+                    No likes, no sponsors — just static, bass, and revolution.
+                    They jacked the airwaves.
+                    They hacked the signal.
+                    And if you know where to listen…
+                    they still are."
+                </p>
+                <div class="decrypt-status">
+                    <span class="blinking-cursor">_</span>
+                    connection terminated
+                </div>
+            </div>
+        </div>
+    </a>
+</section>
+
+
         
 
-    <section class="current-feature section">
-        <h3></h3>
-        <img src="images/pirate_radio.png" alt="Ghost Signal" class="feature-image">
-        <p>
 
-            Back when culture was raw and illegal,
-            kids built stations in basements and rooftops.
-            No likes, no sponsors — just static, bass, and revolution.
-            They jacked the airwaves.
-            They hacked the signal.
-            And if you know where to listen…
-            they still are.</p>
-
-            <!--<img src="images/978711660.jpg" alt="Ghost Signal" class="feature-image"> -->
-        
-        <!-- Added feature image -->
-        
-        
-        <a href="pirate-radio.html" class="cta-button glitch-hover">Learn More</a>
-    </section>
 
     
-    <section class="sections-grid section">
-        <!-- Magazine grid item with link -->
-        <a href="magazine.html" class="grid-item magazine-grid glitch-hover">
-            <h3>ARCHIVE</h3>
-            <p>Memory fragments, lost media and digital artifacts drifting through interviews, profiles, and subcultural signals from the uncharted edges of underground culture.</p>
-        </a>
-        
-        <!-- Journal grid item with link -->
-        <a href="journal.html" class="grid-item journal-grid glitch-hover">
-            <h3>JOURNAL</h3>
-            <p>An intimate journal. Hacking consciousness, simulation theory and the hidden infrastructure of reality itself.</p>
-        </a>
-        
-        <!-- Projects grid item with link -->
-        <a href="work.html" class="grid-item projects-grid glitch-hover">
-            <h3>LAB</h3>
-            <p>Experimental software, rogue prototypes and algorithmic experiments. The Lab is where raw ideas mutate, break systems, and test what digital space can become outside the rules of commercial tech. </p>
-        </a>
-    </section>
 
+    
+    
     <section class="community-vault">
         <div class="vault-background"></div>
         <div class="vault-container">
