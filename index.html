@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     
     <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -2314,6 +2315,88 @@ body {
   transform: rotate(135deg);
 }
 
+
+/* Transmission Teaser Styles */
+.teaser-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.terminal-card {
+    background-color: #101010;
+    border: 2px solid #00ff99;
+    box-shadow: 0 0 12px rgba(0, 255, 153, 0.2);
+    padding: 2rem;
+    position: relative;
+    animation: flicker 3s infinite alternate;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.terminal-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(180deg, rgba(0,255,153,0.03), rgba(0,255,153,0.01) 2px, transparent 4px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.terminal-card h2 {
+    color: #00ff99;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.terminal-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    color: #e2e2e2;
+}
+
+.highlight {
+    color: #38f7e6;
+}
+
+.redacted {
+    background: #00ff99;
+    color: #0a0a0a;
+    padding: 0 0.3rem;
+}
+
+.cta-glitch {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid #00ff99;
+    color: #00ff99;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.cta-glitch:hover {
+    background: #00ff99;
+    color: #0a0a0a;
+    box-shadow: 0 0 8px #00ff99;
+}
+
+@media (max-width: 768px) {
+    .terminal-card {
+        padding: 1.25rem;
+    }
+    
+    .terminal-card h2 {
+        font-size: 1rem;
+    }
+    
+    .terminal-card p {
+        font-size: 0.9rem;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -2358,6 +2441,20 @@ body {
         <div class="hero-content">
             <h1></h1>
             <p>A digital zine for outsiders, thinkers, misfits, and culture hackers. Exploring the systems that shape us, the codes that bind us, and the art that sets us free.</p>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="teaser-container">
+            <div class="terminal-card">
+                <h2>[TRANSMISSION INTERCEPTED]</h2>
+                <p>Signal traced between <span class="highlight">Tokyo</span> and <span class="highlight">Durban</span>.  
+                Dialogue fragments recovered.  
+                A manifesto emerged.</p>
+                <p>// CLASSIFIED FILE: CIVILIAN DISPATCH — <span class="redacted">THE UNGOVERNABLE</span></p>
+                <a href="classified-manifesto.html" class="cta-glitch">DECRYPT TRANSMISSION ⟶</a>
+            </div>
         </div>
     </section>
 
