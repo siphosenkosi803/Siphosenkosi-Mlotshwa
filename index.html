@@ -2398,278 +2398,251 @@ body {
 }
 
 
-.reactivation-card {
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid #00ff9d;
-    border-radius: 4px;
+/* CRT Monitor Styles */
+.crt-monitor {
     max-width: 800px;
     margin: 4rem auto;
+    position: relative;
+}
+
+.crt-bezel {
+    background: #1a1a1a;
+    border-radius: 8px;
     padding: 2rem;
     position: relative;
+    box-shadow: 
+        0 0 0 2px #000,
+        0 0 0 4px #333,
+        0 20px 30px rgba(0,0,0,0.5);
+}
+
+.crt-screen {
+    background: #001100;
+    border-radius: 4px;
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 0 30px rgba(0, 255, 157, 0.1);
-    transition: all 0.3s ease;
+    min-height: 400px;
+    box-shadow: 
+        inset 0 0 10px rgba(0,255,153,0.1),
+        inset 0 0 20px rgba(0,0,0,0.5);
 }
 
-.reactivation-card:hover {
-    box-shadow: 0 0 50px rgba(0, 255, 157, 0.3);
-    transform: translateY(-5px);
+.scanlines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        180deg,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.3) 50%,
+        rgba(0,0,0,0) 100%
+    );
+    background-size: 100% 4px;
+    animation: scan 8s linear infinite;
 }
 
-.reactivation-header {
+.terminal-content {
+    padding: 2rem;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #00ff99;
+    text-shadow: 0 0 5px rgba(0,255,153,0.3);
+    position: relative;
+    animation: crt-flicker 0.01s infinite;
+}
+
+.header-line {
+    border-bottom: 1px solid #00ff99;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.prompt {
+    color: #ff0033;
+}
+
+.nuclear-log {
+    white-space: pre-wrap;
+    line-height: 1.4;
+    margin: 1.5rem 0;
+    opacity: 0.9;
+}
+
+.cta-container {
+    margin-top: 2rem;
+    border-top: 1px solid #00ff99;
+    padding-top: 1rem;
+}
+
+.terminal-input {
+    background: rgba(0,0,0,0.5);
+    padding: 0.5rem;
+    border: 1px solid #00ff99;
+}
+
+.command {
+    color: #38f7e6;
+    margin-left: 0.5rem;
+}
+
+/* Monitor Physical Details */
+.monitor-controls {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(0, 255, 157, 0.3);
+    padding: 0 2rem;
 }
 
-.signal-indicator {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.signal-dot {
-    width: 10px;
-    height: 10px;
-    background: #ff0033;
+.power-led {
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    animation: pulse 2s infinite;
+    background: #ff0033;
+    box-shadow: 0 0 8px #ff0033;
+    animation: led-pulse 2s infinite;
 }
 
-.signal-text {
-    font-family: 'IBM Plex Mono', monospace;
+.degauss-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    background: linear-gradient(45deg, #222, #444);
+}
+
+.branding {
+    color: #666;
     font-size: 0.8rem;
-    color: #ff0033;
     letter-spacing: 1px;
 }
 
-.frequency-display {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
-    color: #00ff9d;
-}
-
-.transmission-title {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 1.5rem;
-    color: #00ff9d;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.transmission-text {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #e2e2e2;
-    margin-bottom: 2rem;
-}
-
-.glitch-text {
-    color: #38f7e6;
-    position: relative;
-}
-
-.glitch-text::before {
-    content: attr(data-text);
-    position: absolute;
-    left: 2px;
-    text-shadow: -2px 0 #ff0033;
-    animation: glitch-anim 3s infinite linear alternate-reverse;
-}
-
-.decryption-status {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
-    color: #00ff9d;
-}
-
-.decryption-dot {
-    width: 8px;
-    height: 8px;
-    background: #00ff9d;
-    border-radius: 50%;
-    animation: blink 1.5s infinite;
-}
-
-.reactivation-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(0, 255, 157, 0.3);
-}
-
-.radiation-symbol {
-    font-size: 2rem;
-    color: #00ff9d;
-    opacity: 0.7;
-}
-
-.reactivation-cta {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: 'IBM Plex Mono', monospace;
-    color: #00ff9d;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border: 1px solid #00ff9d;
-    transition: all 0.3s ease;
-}
-
-.reactivation-cta:hover {
-    background: rgba(0, 255, 157, 0.1);
-    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
-}
-
-.cta-arrow {
-    transition: transform 0.3s ease;
-}
-
-.reactivation-cta:hover .cta-arrow {
-    transform: translateX(5px);
+.monitor-stand {
+    width: 120px;
+    height: 20px;
+    background: #333;
+    margin: 2rem auto 0;
+    border-radius: 2px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 /* Animations */
-@keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
+@keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes crt-flicker {
+    0% { opacity: 0.95; }
+    50% { opacity: 1; }
+    100% { opacity: 0.98; }
+}
+
+@keyframes led-pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.blinking-cursor {
+    animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
 
-@keyframes glitch-anim {
-    0% { clip-path: inset(10% 0 90% 0); }
-    20% { clip-path: inset(80% 0 5% 0); }
-    40% { clip-path: inset(30% 0 60% 0); }
-    60% { clip-path: inset(70% 0 10% 0); }
-    80% { clip-path: inset(5% 0 80% 0); }
-    100% { clip-path: inset(60% 0 30% 0); }
-}
-
 @media (max-width: 768px) {
-    .reactivation-card {
-        padding: 1.5rem;
-        margin: 2rem auto;
+    .crt-bezel {
+        padding: 1rem;
     }
     
-    .transmission-title {
-        font-size: 1.2rem;
+    .crt-screen {
+        min-height: 300px;
     }
     
-    .transmission-text {
-        font-size: 1rem;
+    .terminal-content {
+        padding: 1rem;
+        font-size: 0.9rem;
     }
 }
 
-.clearance-cta {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 0.8rem 1.2rem;
-    border: 1px solid #ff0033;
+/* Additions/Updates to CSS */
+.transmission-log {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #00ff99;
+    text-shadow: 0 0 5px rgba(0,255,153,0.2);
+    margin: 1rem 0;
     position: relative;
     overflow: hidden;
 }
 
-.access-icon {
-    font-size: 1.2rem;
-    animation: icon-pulse 2s infinite;
+.transmission-log::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 95%,
+        rgba(0,255,153,0.05)
+    );
+    pointer-events: none;
 }
 
-.clearance-text {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.9rem;
+.transmission-log [class*="00:"] {
+    color: #38f7e6;
+    margin-left: -2px; /* Align block characters */
+}
+
+.transmission-log [class*="00:"]::before {
+    content: '█ ';
+    color: #ff0033;
+}
+
+.decoding-status {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    color: #ff0033;
+    font-size: 0.8rem;
     text-transform: uppercase;
 }
 
-.clearance-status {
-    color: #ff0033;
+.command {
+    color: #38f7e6;
     margin-left: 0.5rem;
-    position: relative;
+    font-weight: bold;
 }
 
-.clearance-status::after {
-    content: 'CLEARANCE';
-    position: absolute;
-    left: 0;
-    top: -1.2rem;
-    font-size: 0.6rem;
-    opacity: 0.7;
+/* Text Glitch Effect */
+.transmission-log {
+    animation: text-glitch 5s infinite;
 }
 
-.security-levels {
-    position: absolute;
-    left: -120px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    gap: 1rem;
-    opacity: 0.4;
-    animation: security-sweep 12s linear infinite;
+@keyframes text-glitch {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-1px); }
+    40% { transform: translateX(2px); }
+    60% { transform: translateX(-1px); }
+    80% { transform: translateX(1px); }
+    100% { transform: translateX(0); }
 }
 
-.security-badge {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    color: #00ff9d;
-    padding: 0.2rem 0.5rem;
-    border: 1px solid rgba(0,255,157,0.3);
-    border-radius: 2px;
+/* Vertical Scroll Effect */
+.transmission-log {
+    animation: scroll-text 60s linear infinite;
 }
 
-/* Animations */
-@keyframes icon-pulse {
-    0% { text-shadow: 0 0 8px rgba(255,0,51,0.5); }
-    50% { text-shadow: 0 0 15px rgba(255,0,51,0.8); }
-    100% { text-shadow: 0 0 8px rgba(255,0,51,0.5); }
+@keyframes scroll-text {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-85%); }
 }
-
-@keyframes security-sweep {
-    0% { left: -120px; opacity: 0.2; }
-    20% { opacity: 0.4; }
-    40% { opacity: 0.6; }
-    60% { opacity: 0.4; }
-    80% { opacity: 0.2; }
-    100% { left: 100%; opacity: 0; }
-}
-
-/* Scanning Beam Effect */
-.clearance-cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,0,51,0.1),
-        transparent
-    );
-    animation: scan-beam 3s infinite;
-}
-
-@keyframes scan-beam {
-    0% { left: -100%; }
-    100% { left: 200%; }
-}
-
     </style>
 </head>
 <body>
@@ -2719,53 +2692,71 @@ body {
 
 
     <section class="section">
-    <div class="reactivation-card">
-        <div class="reactivation-header">
-            <div class="signal-indicator">
-                <span class="signal-dot"></span>
-                <span class="signal-text">LIVE TRANSMISSION</span>
+    <div class="crt-monitor">
+        <div class="crt-bezel">
+            <div class="crt-screen">
+                <div class="scanlines"></div>
+                <div class="terminal-content">
+                    <div class="header-line">
+                        <span class="prompt">broadcast@blackout:~#</span>
+                        <span class="blinking-cursor">_</span>
+                    </div>
+                    <pre class="transmission-log">
+[!] ENCRYPTED TRANSMISSION DETECTED
+[!] DECRYPTION STATUS: INCOMPLETE
+[!] SOURCE VERIFICATION: FAILED
+
+> BEGIN MESSAGE EXTRACTION...
+
+[00:00:01] █ We are broadcasting from beneath the blackout.
+[00:00:03] █ Not the one on your grid — the one on your memory.
+[00:00:05] █ 
+[00:00:07] █ This is not a protest. This is a reactivation.
+[00:00:09] █ Of atoms. Of language. Of sovereignty buried 
+[00:00:11] █ under policy and dust.
+[00:00:13] █ 
+[00:00:15] █ You were told to fear the core.
+[00:00:17] █ Taught to see uranium as something extracted
+[00:00:19] █ — never owned. To imagine nuclear as foreign,
+[00:00:21] █ elite, forbidden. To forget that fission, too,
+[00:00:23] █ is a fire. And fire has always belonged to the people.
+[00:00:25] █ 
+[00:00:27] █ But somewhere, in the molten layers of the South,
+[00:00:29] █ a different story is burning.
+[00:00:31] █ 
+[00:00:33] █ Not apocalypse. Not fallout.
+[00:00:35] █ But power — precise, clean, continent-grown.
+[00:00:37] █ 
+[00:00:39] █ We do not come to beg for inclusion.
+[00:00:41] █ We come to rewrite the equation.
+[00:00:43] █ 
+[00:00:45] █ This is a dispatch for those who sense
+[00:00:47] █ that energy is not just electricity — it is narrative.
+[00:00:49] █ And whoever controls the atom controls the future.
+[00:00:51] █ 
+[00:00:53] █ So we cracked the core open.
+[00:00:55] █ Now we're transmitting.
+[00:00:57] █ 
+[00:00:59] █ Do you copy?
+
+DECODING CORRUPTION: 68.4%
+                    </pre>
+                    <div class="cta-container">
+                        <div class="terminal-input">
+                            <span class="prompt">></span>
+                            <span class="command">await_response.sh --priority=critical</span>
+                            <span class="blinking-cursor">_</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="frequency-display">FREQ: 88.7MHz</div>
-        </div>
-        
-        <div class="reactivation-content">
-            <h3 class="transmission-title">REACTIVATION PROTOCOL INITIATED</h3>
-            <div class="transmission-text">
-                <p>We are broadcasting from beneath the blackout.<br>
-                Not the one on your grid — the one on your memory.</p>
-                
-                <p>This is not a protest. This is a reactivation.<br>
-                Of atoms. Of language. Of sovereignty buried under policy and dust.</p>
-                
-                <p>You were told to fear the core.<br>
-                Taught to see uranium as something extracted — never owned.<br>
-                To imagine nuclear as foreign, elite, forbidden.<br>
-                To forget that fission, too, is a fire. And fire has always belonged to the people.</p>
-                
-                <p class="glitch-text">But somewhere, in the molten layers of the South,<br>
-                a different story is burning.</p>
-            </div>
-            
-            <div class="decryption-status">
-                <span class="decryption-dot"></span>
-                <span class="decryption-text">DECRYPTING FULL TRANSMISSION...</span>
+            <div class="monitor-controls">
+                <div class="power-led"></div>
+                <div class="degauss-button"></div>
+                <div class="branding">RADIX SYSTEMS 1987</div>
             </div>
         </div>
-        
-        <div class="reactivation-footer">
-    <div class="security-levels">
-        <span class="security-badge">CLASSIFIED</span>
-        <span class="security-badge">TOP SECRET</span>
-        <span class="security-badge">EYES ONLY</span>
-    </div>
-    
-    <div class="clearance-cta">
-        <span class="access-icon">⚠</span>
-        <div class="clearance-text">
-            ACCESS: <span class="clearance-status">PENDING</span>
-        </div>
-    </div>
-</div>
+        <div class="monitor-stand"></div>
     </div>
 </section>
 
@@ -2778,7 +2769,7 @@ body {
                 Dialogue fragments recovered.  
                 A manifesto emerged.</p>
                 <p>// CLASSIFIED FILE: CIVILIAN DISPATCH — <span class="redacted">THE UNGOVERNABLE</span></p>
-                <a href="classified-manifesto.html" class="cta-glitch">DECRYPT TRANSMISSION ⟶</a>
+                <a href="classified-manifesto.html" class="cta-glitch">VIEW DISPATCH ⟶</a>
             </div>
         </div>
     </section>
