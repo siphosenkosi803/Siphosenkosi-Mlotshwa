@@ -2643,7 +2643,133 @@ body {
     0% { transform: translateY(0); }
     100% { transform: translateY(-85%); }
 }
-    </style>
+
+/* Mobile Responsive Additions */
+@media (max-width: 768px) {
+    .crt-monitor {
+        max-width: 95%;
+        margin: 2rem auto;
+        transform: scale(0.98); /* Slightly shrink overall size */
+    }
+
+    .crt-bezel {
+        padding: 1rem;
+        box-shadow: 
+            0 0 0 1px #000,
+            0 0 0 2px #333,
+            0 10px 15px rgba(0,0,0,0.4);
+    }
+
+    .crt-screen {
+        min-height: 300px;
+        border-radius: 3px;
+    }
+
+    .terminal-content {
+        padding: 1rem;
+        font-size: 0.8rem;
+        animation: crt-flicker 0.01s infinite, text-glitch 5s infinite;
+    }
+
+    .transmission-log {
+        font-size: 1rem;
+        line-height: 1.5;
+        overflow-x: auto; /* Allow horizontal scroll for long lines */
+        white-space: pre; /* Prevent text wrapping */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .header-line {
+        font-size: 0.8rem;
+        padding-bottom: 0.3rem;
+    }
+
+    .prompt {
+        font-size: 0.7rem;
+    }
+
+    .blinking-cursor {
+        height: 0.8em;
+    }
+
+    .monitor-controls {
+        padding: 0 1rem;
+        bottom: -25px;
+    }
+
+    .branding {
+        font-size: 0.6rem;
+    }
+
+    .monitor-stand {
+        width: 80px;
+        height: 15px;
+        margin-top: 1.5rem;
+    }
+
+    .terminal-input {
+        font-size: 0.8rem;
+        padding: 0.3rem;
+    }
+
+    .command {
+        margin-left: 0.3rem;
+    }
+
+    /* Adjust animations for mobile performance */
+    .scanlines {
+        animation: scan 10s linear infinite;
+    }
+
+    @keyframes scroll-text {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-75%); }
+    }
+}
+
+@media (max-width: 480px) {
+    .transmission-log {
+        font-size: 0.7rem;
+        line-height: 1.6;
+    }
+
+    .terminal-content {
+        padding: 0.5rem;
+    }
+
+    .transmission-log [class*="00:"]::before {
+        margin-right: 0.2rem;
+    }
+
+    .cta-container {
+        margin-top: 1rem;
+        padding-top: 0.5rem;
+    }
+
+    .monitor-controls {
+        bottom: -20px;
+        padding: 0 0.8rem;
+    }
+
+    .power-led {
+        width: 8px;
+        height: 8px;
+    }
+
+    .degauss-button {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Prevent vertical scroll animation on mobile */
+@media (max-width: 768px) {
+    .transmission-log {
+        animation: none !important;
+        transform: none !important;
+    }
+}
+</style>
 </head>
 <body>
     <div class="grid-background"></div>
