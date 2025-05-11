@@ -1081,7 +1081,43 @@ const newStyles = `
     50% { opacity: 0; }
 }
 
+/* Section Headings */
+    .cyber-section-heading {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 1.8rem;
+        color: #00ff9d;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        position: relative;
+        padding-bottom: 1rem;
+        margin: 3rem 0 2rem;
+        text-align: center;
+    }
 
+    .cyber-section-heading::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #00ff9d, transparent);
+        animation: headingGlow 2s infinite;
+    }
+
+    @keyframes headingGlow {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+    }
+
+    .cyber-subheading {
+        font-family: 'Share Tech Mono', monospace;
+        color: rgba(255,255,255,0.7);
+        font-size: 1.1rem;
+        text-align: center;
+        margin-top: 0.5rem;
+    }
 
 
 </style>
@@ -1117,20 +1153,22 @@ const newStyles = `
         </div>
     </nav>
 
-    <section class="hero" id="home">
+   <!--  <section class="hero" id="home">
         <div class="hero-blur"></div>
         <div class="hero-content">
             <h1 style="color: white; text-transform: uppercase; margin-bottom: 2rem;">
-                Memory fragments, lost media and digital artifacts drifting through interviews, profiles, and subcultural signals from the uncharted edges of underground culture
+                
             </h1>
-            <!-- <img src="images/energy_grid-removebg-preview.png" alt="Abstract reality infrastructure visualization" class="hero-image"> -->
+            <img src="images/energy_grid-removebg-preview.png" alt="Abstract reality infrastructure visualization" class="hero-image"> 
         </div>
-    </section>
+    </section> -->
 
 
     <section class="section">
+        <h2 class="cyber-section-heading">INTERVIEWS</h2>
+    <p class="cyber-subheading">
         <div class="container">
-            <h2 class="section-title">INTERVIEWS</h2>
+            <h2 class="section-title"></h2>
             
             <div class="grid grid-3">
 
@@ -1194,8 +1232,10 @@ const newStyles = `
 
 
     <section class="section">
+        <h2 class="cyber-section-heading">ARCHIVE FRAGMENTS</h2>
+    <p class="cyber-subheading">
         <div class="container">
-            <h2 class="section-title">ARCHIVE FRAGMENTS</h2>
+            <h2 class="section-title"></h2>
             
             <div class="grid grid-3">
 

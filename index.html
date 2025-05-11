@@ -2932,6 +2932,45 @@ body {
     position: relative;
     overflow: visible;
 }
+
+/* Section Headings */
+    .cyber-section-heading {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 1.8rem;
+        color: #00ff9d;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        position: relative;
+        padding-bottom: 1rem;
+        margin: 3rem 0 2rem;
+        text-align: center;
+    }
+
+    .cyber-section-heading::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #00ff9d, transparent);
+        animation: headingGlow 2s infinite;
+    }
+
+    @keyframes headingGlow {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+    }
+
+    .cyber-subheading {
+        font-family: 'Share Tech Mono', monospace;
+        color: rgba(255,255,255,0.7);
+        font-size: 1.1rem;
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
 </style>
 </head>
 <body>
@@ -2980,6 +3019,8 @@ body {
     </section>
 
     <section class="section">
+        <h2 class="cyber-section-heading">//SYSTEM_INTRUSION DETECTED</h2>
+    <p class="cyber-subheading">MESSAGE CONTENTS: [REDACTED SCREAMS]</p>
         <div class="teaser-container">
             <div class="terminal-card">
                 <div class="glitch-container">
@@ -2998,6 +3039,8 @@ body {
 
 
     <section class="section">
+        <h2 class="cyber-section-heading">[WARNING] 451 UNAUTHORIZED THOUGHT PATTERNS</h2>
+    <p class="cyber-subheading">A Nuclear Future</p>
     <div class="crt-monitor">
         <div class="crt-bezel">
             <div class="crt-screen">
@@ -3068,7 +3111,8 @@ DECODING CORRUPTION: 68.4%
 
 
     
-
+    <h2 class="cyber-section-heading">STITCHED FREQUENCIES</h2>
+    <p class="cyber-subheading">*DIALING: 666-00FF9D-REZ# [PATCH LOST]*</p>
     <div class="arianne-card">
         <div class="scissors-icon scissors-top-left"></div>
         <div class="scissors-icon scissors-top-right"></div>
@@ -3115,12 +3159,16 @@ DECODING CORRUPTION: 68.4%
      
 
 <section class="transmission-section">
+    
+    <h2 class="cyber-section-heading"></h2>
+    <p class="cyber-subheading"></p>
     <div class="glitch-overlay"></div>
     
     <div class="transmission-container">
-      <div class="signal-header">
+      <div class="signal-header"><img src="images/batsheva/misfitlogo.png" alt="embrace_your_misfit_logo" class="signal-image">
+
         <!--<span class="signal-tag">ENCRYPTED TRANSMISSION</span> -->
-        <h2 class="glitch-text" data-text="THE MISFIT MANIFESTO">THE MISFIT MANIFESTO</h2>
+        <h2 class="glitch-text" data-text=""></h2>
         <h3 class="subtitle">with Batsheva Dueck</h3>
       </div>
 
@@ -3167,6 +3215,8 @@ DECODING CORRUPTION: 68.4%
 
 
   <section class="intercepted-frequencies section">
+    <h2 class="cyber-section-heading">GLITCH CANONIZATION</h2>
+    <p class="cyber-subheading"></p>
     <a href="worldwideboyz.html" class="signal-container">
         <div class="signal-card-header">
             <div class="signal-status">
@@ -3185,6 +3235,9 @@ DECODING CORRUPTION: 68.4%
             <img src="images/cosmicavi.jpg" alt="@cosmicweb_is_mine" class="signal-image">
         </div>
         
+
+
+
         <div class="signal-content">
             <span class="signal-tag">INTERCEPTED FREQUENCY</span>
             <h2 class="signal-title">@cosmicweb_is_mine</h2>
@@ -3197,6 +3250,8 @@ DECODING CORRUPTION: 68.4%
 </section>
 
 <section class="current-feature section">
+    <h2 class="cyber-section-heading"></h2>
+    <p class="cyber-subheading">PIRATED DREAMS v3.1.6</p>
     <a href="pirate-radio.html" class="cyber-display-card">
         <div class="cyber-display-content">
             
@@ -3238,8 +3293,9 @@ DECODING CORRUPTION: 68.4%
         <div class="vault-background"></div>
         <div class="vault-container">
             <div class="vault-header">
-                <div class="vault-icon"></div>
+                
                 <h2 class="vault-title">COMMUNITY VAULT</h2>
+                <div class="vault-icon"><i class="fas fa-lock-open"></i></div>
                 <p class="vault-subtitle">Join the network. Submit your signals, experiments, and forbidden knowledge to the collective archive.</p>
             </div>
             <a href="mailto:siphosenkosi.m@yahoo.com" class="submit-button">
