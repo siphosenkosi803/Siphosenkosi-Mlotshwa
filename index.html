@@ -1563,7 +1563,7 @@ body {
 .faisa-section-container {
   width: 100%;
   max-width: 100%;
-  background: #050708;
+  background: black;
   padding: 4rem 2rem;
   position: relative;
   overflow: hidden;
@@ -1647,13 +1647,13 @@ body {
 
 /* Main component styles */
 .faisaweb-card {
-  background: #0d0d0d;
-  border: 1px solid #2ff9ff33;
+  background: black;
+  border: 1px solid black;
   border-radius: 8px;
   padding: 1.5rem;
   margin: 2rem 0;
-  box-shadow: 0 0 20px #2ff9ff22;
-  color: #ccfaff;
+  box-shadow: 0 0 20px black;
+  color: black;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -1661,9 +1661,34 @@ body {
   max-width: 600px;
 }
 
-.faisaweb-card:hover {
+.clickable-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.clickable-card:hover {
   transform: scale(1.01);
   box-shadow: 0 0 28px #2ff9ff44;
+  text-decoration: none;
+}
+
+/* Update existing .faisaweb-card styles to target the anchor instead */
+a.faisaweb-card {
+  /* Move all existing .faisaweb-card styles here */
+  background: black;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 0 20px black;
+  color: #ccfaff;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
 }
 
 .faisaweb-card-header {
@@ -1672,7 +1697,7 @@ body {
 
 .faisaweb-id-text h3 {
   margin: 0;
-  color: #53fcfc;
+  color: #00ff9d;
   font-size: 2.1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -1681,15 +1706,15 @@ body {
 .faisaweb-id-text p {
   margin: 0.3rem 0 0;
   font-size: 1.15rem;
-  color: #53fcfc;
+  color: #00ff9d;
 }
 
 .faisaweb-card-content pre {
   white-space: pre-wrap;
   font-size: 0.95rem;
   line-height: 1.6;
-  background: transparent;
-  color: #ccfaff;
+  background: black;
+  color: #00ff9d;
   padding: 0;
   margin: 0;
 }
@@ -1706,20 +1731,20 @@ body {
 /* Enhanced dystopian space monitor styling */
 .faisaweb-display {
   width: 100%;
-  border: 2px solid #2ff9ff;
+  border: 2px solid #00ff99;
   border-radius: 4px;
   padding: 1rem;
   background: #000;
-  box-shadow: 0 0 15px #2ff9ff33, 
-              inset 0 0 10px #2ff9ff22;
+  box-shadow: 0 0 15px #00ff99, 
+              inset 0 0 10px #00ff99;
   margin-bottom: 1.5rem;
   position: relative;
   overflow: hidden;
   /* Add monitor-like structure */
-  border-top: 4px solid #13686a;
-  border-left: 4px solid #13686a;
-  border-bottom: 4px solid #092e2f;
-  border-right: 4px solid #092e2f;
+  border-top: 4px solid #00ff99;
+  border-left: 4px solid #00ff99;
+  border-bottom: 4px solid #00ff99;
+  border-right: 4px solid #00ff99;
 }
 
 /* Monitor screen overlay effect */
@@ -1754,7 +1779,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c4zIArAAAAA3RSTlMAf4C/aSLgAAABmUlEQVR4AWLmXUNQxSAQRdqoMAYG6/435bP6PMJu6vw3E/CzZLKwQ8BE5Y7KgYrK9QqBvWXaFZW+ZfpJd+3PZH76MBJ+MWo5if5eqnb+B8gzTJZNiCwbFxlWLjKsXGTYuEgmXIoMK0pSEEKCEBKEkiCEJCWUSSglKaEsSXEFQAEAlAGgDADKAFAGAHgADYCi1AOUelAU2YOi1AOUelAUlQdFUXlQFJUHRVF5UBQ5D4qS8qAocg+KovKgKCoPipLyoCiqJRRlXUJRUiUURVtCUeQlJKRKUBTZEooi9QBAnYHioTYiQGMCCk+HgMLTIaDwdAgoPB0CCk+HgMLTIaDwdAgoPB0CCk+HgMLTISw8HcLC0yEsPB3CwtMhLDwdwsLTISw8HcLC0yGgeCjKK7zTAfC7N38duMfjPgmgPZxXe7g3dUn3Rh/JvfGnLu/J3Rd/6PoO7Y3d/7nL+p/3pYVcWqilxVxasKVFXVropUVf2gCWNomlzWRpc1naVHfxlg9++dNtTvQvCGvW0geK9gUAAAAASUVORK5CYII=");
+  
   opacity: 0.05;
   mix-blend-mode: overlay;
   pointer-events: none;
@@ -1783,7 +1808,7 @@ body {
 }
 
 .monitor-title {
-  color: #2ff9ff;
+  color: #00ff99;
   font-size: 0.7rem;
   font-family: "Courier New", monospace;
   text-transform: uppercase;
@@ -1870,7 +1895,8 @@ body {
 }
 
 .terminal-text {
-  color: #ccfaff;
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 1.2rem;
   line-height: 1.6;
   text-align: left;
@@ -1885,8 +1911,8 @@ body {
   font-size: 1.35rem;
   font-family: 'Courier New', monospace;
   background: #2ff9ff11;
-  border: 1px solid #2ff9ff;
-  color: #2ff9ff;
+  border: 1px solid #00ff99;
+  color: #00ff99;
   border-radius: 4px;
   text-decoration: none;
   transition: background 0.3s, box-shadow 0.3s;
@@ -2042,7 +2068,7 @@ body {
   
   /* Create zigzag cut edge effect with clip-path */
   --notch-size: 15px;
-  --stitch-color: #706b63;
+  --stitch-color: #00ff9d;
   
   /* Adding box-shadow for depth */
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.05);
@@ -2154,7 +2180,7 @@ body {
   position: absolute;
   width: 80px;
   height: 80px;
-  background: #1d1b19;
+  background: #00ff9d;
   z-index: -1;
   opacity: 0.8;
 }
@@ -2213,7 +2239,7 @@ body {
 
   .arianne-text h2 {
     font-size: 2rem;
-    font-family: 'Courier New', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     margin-bottom: 1rem;
     letter-spacing: 1px;
     color: #fff;
@@ -2230,10 +2256,10 @@ body {
     margin-top: 2rem;
     padding: 0.75rem 1.5rem;
     background: transparent;
-    color: #ffdee9;
-    border: 2px solid #ffdee9;
+    color: #00ff9d;
+    border: 2px solid #00ff9d;
     text-decoration: none;
-    font-family: 'Courier New', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.95rem;
     letter-spacing: 1px;
     transition: all 0.3s ease;
@@ -3017,6 +3043,9 @@ body {
             <p>A digital zine for outsiders, thinkers, misfits, and culture hackers. Exploring the systems that shape us, the codes that bind us, and the art that sets us free.</p>
         </div>
     </section>
+
+
+
 
     
 
