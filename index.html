@@ -168,10 +168,13 @@
     z-index: 997;
     pointer-events: none;
 }
-
+.mobile-menu-btn {
+    display: none; /* Hide by default on all screens */
+}
         /* Mobile Styles */
         @media (max-width: 768px) {
             .mobile-menu-btn {
+                display: block; /* Only show on mobile */
     position: fixed;
     top: 1rem;
     right: 1rem;

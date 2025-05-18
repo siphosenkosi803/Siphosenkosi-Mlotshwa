@@ -3087,6 +3087,78 @@ a.faisaweb-card {
         margin-top: 0.5rem;
     }
 
+.neon-tendrils {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  filter: drop-shadow(0 0 5px #00ff9d33);
+}
+
+.tendril {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    transparent 20%,
+    #00ff9d 50%,
+    transparent 80%
+  );
+  transform: rotate(calc(var(--i) * 120deg));
+  animation: tendrilFlow 4s infinite linear;
+}
+
+@keyframes tendrilFlow {
+  0% { transform: rotate(calc(var(--i) * 120deg)) scaleY(0); }
+  50% { transform: rotate(calc(var(--i) * 120deg)) scaleY(1); }
+  100% { transform: rotate(calc(var(--i) * 120deg)) scaleY(0); }
+}
+
+.floating-symbols {
+  position: relative;
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+
+.symbol {
+  position: absolute;
+  font-size: 1.8rem;
+  animation: symbolFloat 8s infinite ease-in-out;
+  opacity: 0;
+}
+
+@keyframes symbolFloat {
+  0% { 
+    transform: translate(0,0) rotate(0deg);
+    opacity: 0;
+  }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { 
+    transform: translate(100px,-100px) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+.status-text {
+  position: absolute;
+  bottom: -2rem;
+  font-family: 'IBM Plex Mono';
+  text-shadow: 0 0 5px #00ff9d33;
+  animation: textGlitch 5s infinite;
+}
+
+.glyph-beam {
+  position: absolute;
+  width: 150%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #00ff9d 50%,
+    transparent 100%
+  );
+  filter: blur(10px);
+  animation: beamScan 6s infinite;
+}
 </style>
 </head>
 <body>
@@ -3134,7 +3206,21 @@ a.faisaweb-card {
     </section>
 
 
-
+<div class="cyber-glyph">
+  <div class="glyph-beam"></div>
+  <div class="neon-tendrils">
+    <div class="tendril" style="--i:1"></div>
+    <div class="tendril" style="--i:2"></div>
+    <div class="tendril" style="--i:3"></div>
+  </div>
+  <div class="floating-symbols">
+    <span class="symbol">⟁</span>
+    <span class="symbol">⍜</span>
+    <span class="symbol">⌗</span>
+    <span class="symbol">⍓</span>
+  </div>
+  
+</div>
 
     
 
@@ -3142,22 +3228,7 @@ a.faisaweb-card {
 
     
     
-    <section class="community-vault">
-        <div class="vault-background"></div>
-        <div class="vault-container">
-            <div class="vault-header">
-                
-                <h2 class="vault-title">COMMUNITY VAULT</h2>
-                <div class="vault-icon"><i class="fas fa-lock-open"></i></div>
-                <p class="vault-subtitle">Join the network. Submit your signals, experiments, and forbidden knowledge to the collective archive</p>
-            </div>
-            <a href="mailto:siphosenkosi.m@yahoo.com" class="submit-button">
-                <span>Submit a Signal</span>
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-    </section>
-    
+        
 
     <!-- Same footer -->
     <footer>
@@ -3183,286 +3254,225 @@ a.faisaweb-card {
 
     <!-- Include your existing scripts -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get DOM elements
-            const navbar = document.querySelector('.navbar');
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navLinks = document.querySelector('.nav-links');
         
-            // Navigation scroll effect
+document.addEventListener('DOMContentLoaded', function() {
+    // --- CORE INITIALIZATION --- //
+    const APP = {
+        // Shared State
+        phase: 0,
+        verificationProgress: 0,
+        isVerifying: false,
+
+        // DOM References
+        elements: {
+            navbar: document.querySelector('.navbar'),
+            mobileMenuBtn: document.querySelector('.mobile-menu-btn'),
+            navLinks: document.querySelector('.nav-links'),
+            cyberGlyph: document.querySelector('.cyber-glyph'),
+            statusText: document.querySelector('.status-text'),
+            floatingSymbols: document.querySelector('.floating-symbols')
+        },
+
+        // Three.js Context
+        three: {
+            scene: null,
+            camera: null,
+            renderer: null,
+            init: function() {
+                this.scene = new THREE.Scene();
+                this.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+                this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+                this.renderer.setSize(300, 300); // Reduced size for performance
+                if(this.elements.cyberGlyph) {
+                    this.elements.cyberGlyph.appendChild(this.renderer.domElement);
+                }
+            }
+        },
+
+        // --- EXISTING FUNCTIONALITY --- //
+        initExisting: function() {
+            // Navbar Scroll
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
+                    this.elements.navbar.classList.add('scrolled');
                 } else {
-                    navbar.classList.remove('scrolled');
+                    this.elements.navbar.classList.remove('scrolled');
                 }
             });
-        
-            // Mobile menu toggle
-            mobileMenuBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    const wasActive = navLinks.classList.contains('active');
-    
-    // Toggle classes
-    navLinks.classList.toggle('active');
-    mobileMenuBtn.classList.toggle('active');
-    document.body.classList.toggle('blur-active');
 
-    // Electric animation
-    const sparks = document.createElement('div');
-    sparks.style.cssText = `
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        width: 50px;
-        height: 50px;
-        border-radius: 5px;
-        box-shadow: 0 0 15px #00ff9d;
-        animation: electric 0.3s linear;
-        pointer-events: none;
-    `;
-    document.body.appendChild(sparks);
-    setTimeout(() => sparks.remove(), 300);
-});
-        
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                    mobileMenuBtn.classList.remove('active');
-                }
-            });
-        
-            // Modal Functions
-            const modalFunctions = {
-                openResumeModal: function() {
-                    const modal = document.getElementById('resumeModal');
-                    if (modal) {
-                        modal.style.display = 'block';
-                        document.body.style.overflow = 'hidden';
-                    }
-                },
-                closeResumeModal: function() {
-                    const modal = document.getElementById('resumeModal');
-                    if (modal) {
-                        modal.style.display = 'none';
-                        document.body.style.overflow = '';
-                    }
-                },
-                openCertModal: function() {
-                    const modal = document.getElementById('certModal');
-                    if (modal) {
-                        modal.style.display = 'block';
-                        document.body.style.overflow = 'hidden';
-                    }
-                },
-                closeCertModal: function() {
-                    const modal = document.getElementById('certModal');
-                    if (modal) {
-                        modal.style.display = 'none';
-                        document.body.style.overflow = '';
-                    }
-                }
-            };
-        
-            // Smooth scroll
+            // Mobile Menu
+            if(this.elements.mobileMenuBtn) {
+                this.elements.mobileMenuBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const wasActive = this.elements.navLinks.classList.contains('active');
+                    this.elements.navLinks.classList.toggle('active');
+                    this.elements.mobileMenuBtn.classList.toggle('active');
+                    document.body.classList.toggle('blur-active');
+                    
+                    // Sparks animation
+                    const sparks = document.createElement('div');
+                    sparks.style.cssText = `
+                        position: fixed;
+                        top: 1rem;
+                        right: 1rem;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 5px;
+                        box-shadow: 0 0 15px #00ff9d;
+                        animation: electric 0.3s linear;
+                        pointer-events: none;
+                    `;
+                    document.body.appendChild(sparks);
+                    setTimeout(() => sparks.remove(), 300);
+                });
+            }
+
+            // Smooth Scroll
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
                         target.scrollIntoView({ behavior: 'smooth' });
-                        navLinks.classList.remove('active');
-                        mobileMenuBtn.classList.remove('active');
+                        APP.elements.navLinks.classList.remove('active');
+                        APP.elements.mobileMenuBtn.classList.remove('active');
                     }
                 });
             });
-        
-            // Close modals
-            window.addEventListener('click', (e) => {
-                const modals = document.querySelectorAll('.modal, .doc-modal, .blog-modal');
-                modals.forEach(modal => {
-                    if (e.target === modal) {
-                        modal.style.display = 'none';
-                        document.body.style.overflow = '';
-                    }
+        },
+
+        // --- NEW CYBER GRAPHIC FEATURES --- //
+        initCyberGraphic: function() {
+            // Three.js Setup
+            this.three.init();
+
+            // Tendril Animation
+            const tendrils = document.querySelectorAll('.tendril');
+            const animateTendrils = (event) => {
+                tendrils.forEach((tendril, i) => {
+                    const rect = tendril.getBoundingClientRect();
+                    const centerX = rect.left + rect.width/2;
+                    const centerY = rect.top + rect.height/2;
+                    const deltaX = (event?.clientX || innerWidth/2) - centerX;
+                    const deltaY = (event?.clientY || innerHeight/2) - centerY;
+                    const distance = Math.sqrt(deltaX**2 + deltaY**2);
+                    const waveIntensity = Math.min(1 / (distance * 0.01), 2);
+                    
+                    tendril.style.transform = `
+                        rotate(${i * 120 + this.phase}deg) 
+                        scaleY(${Math.sin(this.phase + i * 2) * waveIntensity})
+                        skewX(${deltaX * 0.1}deg)
+                    `;
                 });
-            });
-        
-            // Glitch effects
-            document.querySelectorAll('.glitch-hover').forEach(item => {
-                item.addEventListener('mouseover', () => {
-                    item.style.animation = 'textGlitch 0.4s steps(2)';
-                });
+                this.phase += 0.02;
+            };
+
+            // Symbol Generation
+            const symbols = ['⌗', '⍜', '⟁', '⍓', '⌖', '⍣', '⍟'];
+            const spawnSymbol = () => {
+                const symbol = document.createElement('div');
+                symbol.className = 'symbol';
+                symbol.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                symbol.style.cssText = `
+                    --x: ${Math.random() * 200 - 100};
+                    --y: ${Math.random() * 200 - 100};
+                    --speed: ${Math.random() * 3 + 1};
+                    font-size: ${Math.random() * 1.5 + 1}rem;
+                `;
+                this.elements.floatingSymbols.appendChild(symbol);
+                setTimeout(() => symbol.remove(), 8000);
+            };
+
+            // Verification System
+            const runVerification = () => {
+                if(!this.isVerifying) return;
                 
-                item.addEventListener('animationend', () => {
-                    item.style.animation = '';
-                });
-            });
-        
-            // Cosmic grid animation
-            window.addEventListener('scroll', () => {
-                const gridBg = document.querySelector('.grid-background');
-                if (gridBg) {
-                    const yPos = -window.scrollY * 0.5;
-                    gridBg.style.backgroundPosition = `0 ${yPos}px`;
+                const glitchChars = ['█', '▓', '▒', '░', '≡', '⍰'];
+                const glitchText = Array.from({length: 20}, () => 
+                    glitchChars[Math.floor(Math.random() * glitchChars.length)]
+                ).join('');
+                
+                this.elements.statusText.textContent = `// ${glitchText}`;
+                
+                if(this.verificationProgress < 100) {
+                    this.verificationProgress += Math.random() * 3;
+                    setTimeout(runVerification, 100);
+                } else {
+                    this.elements.statusText.textContent = '// VERIFICATION_ACCEPTED';
+                    this.elements.statusText.style.textShadow = '0 0 10px #00ff9d';
+                    this.triggerParticleBurst();
                 }
-            });
-        
-            // Expose functions to global scope
-            Object.entries(modalFunctions).forEach(([name, fn]) => {
-                window[name] = fn;
-            });
-        });
-        
-        // Define these if they're used elsewhere
-        const sendEmail = () => { /* implementation */ };
-        const sendPricingEmail = () => { /* implementation */ };
+            };
 
-        document.addEventListener('DOMContentLoaded', () => {
-  // Typewriter effect for manifesto excerpt
-  const manifestoText = "'Go look in the mirror, and confess your love. And then go eat a pickle'";
-  const typingElement = document.querySelector('.glitch-typing');
-  
-  if (typingElement) {
-    typingElement.textContent = '';
-    let i = 0;
-    const typingInterval = setInterval(() => {
-      if (i < manifestoText.length) {
-        typingElement.textContent += manifestoText.charAt(i);
-        i++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 50);
-  }
-
-  // Data node hover effects
-  const dataNodes = document.querySelectorAll('.data-node');
-  
-  dataNodes.forEach(node => {
-    node.addEventListener('mousemove', (e) => {
-      const rect = node.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      node.style.setProperty('--mouse-x', `${x}px`);
-      node.style.setProperty('--mouse-y', `${y}px`);
-    });
-  });
-
-  // Button hover glitch
-  const cyberButton = document.querySelector('.cyber-button');
-  
-  if (cyberButton) {
-    cyberButton.addEventListener('mouseenter', () => {
-      cyberButton.style.boxShadow = '0 0 15px rgba(0, 255, 157, 0.5)';
-    });
-    
-    cyberButton.addEventListener('mouseleave', () => {
-      cyberButton.style.boxShadow = 'none';
-    });
-  }
-
-  const glitchImage = document.querySelector('.transmission-image');
-
-if (glitchImage) {
-    glitchImage.addEventListener('mousemove', (e) => {
-        const x = e.clientX / window.innerWidth * 50;
-        const y = e.clientY / window.innerHeight * 50;
-        glitchImage.style.transform = `translate(${x}px, ${y}px)`;
-    });
-    
-    glitchImage.addEventListener('mouseleave', () => {
-        glitchImage.style.transform = 'translate(0)';
-    });
-}
-
-document.querySelector('.cyber-button').addEventListener('click', function() {
-    // Replace '/article-path' with your actual article URL
-    window.location.href = 'batsheva-dueck.html'; 
-});
-
-document.querySelector('.cyber-button').addEventListener('click', function(e) {
-    e.preventDefault();
-    const button = e.currentTarget;
-    
-    // Add loading state
-    button.classList.add('loading');
-    button.style.pointerEvents = 'none';
-    
-    // Replace with your actual article path
-    const articleUrl = 'batsheva-dueck.html'; 
-    
-    setTimeout(() => {
-        window.location.href = articleUrl;
-    }, 800); // Simulated delay for decrypt effect
-});
-document.addEventListener('DOMContentLoaded', () => {
-    // CRT flicker effect for signal container
-    const signalContainer = document.querySelector('.signal-container');
-    if (signalContainer) {
-        setInterval(() => {
-            if (Math.random() > 0.97) {
-                signalContainer.style.opacity = '0.8';
-                setTimeout(() => {
-                    signalContainer.style.opacity = '1';
-                }, 100);
-            }
-        }, 1000);
-    }
-    
-    // Typing effect for decrypting text
-    const decryptingText = document.querySelector('.decrypting');
-    if (decryptingText) {
-        const decryptMessages = [
-            "DECRYPTING CULTURAL DNA...",
-            "ANALYZING PATTERN MATRIX...",
-            "PARSING SUBCULTURE NODES...",
-            "AUTHENTICATING SIGNAL..."
-        ];
-        
-        let currentIndex = 0;
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % decryptMessages.length;
-            decryptingText.textContent = decryptMessages[currentIndex];
-        }, 3000);
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const monitorScreen = document.querySelector('.monitor-screen');
-    if (monitorScreen) {
-        // Random screen flicker effect
-        setInterval(() => {
-            if (Math.random() > 0.97) {
-                monitorScreen.style.opacity = Math.random() * 0.3 + 0.7;
-                monitorScreen.style.filter = `brightness(${Math.random() * 0.4 + 0.8})`;
+            // Event Listeners
+            if(this.elements.cyberGlyph) {
+                this.elements.cyberGlyph.addEventListener('mouseenter', () => {
+                    this.isVerifying = true;
+                    this.verificationProgress = 0;
+                    runVerification();
+                });
                 
-                setTimeout(() => {
-                    monitorScreen.style.opacity = '1';
-                    monitorScreen.style.filter = 'brightness(1)';
-                }, 100);
+                this.elements.cyberGlyph.addEventListener('mouseleave', () => {
+                    this.isVerifying = false;
+                    this.elements.statusText.textContent = '// VERIFICATION_PENDING';
+                });
             }
-        }, 2000);
-        
-        // Random horizontal glitch
-        setInterval(() => {
-            if (Math.random() > 0.95) {
-                const img = monitorScreen.querySelector('.glitch-img');
-                const offset = Math.floor(Math.random() * 10) - 5;
-                img.style.transform = `translateX(${offset}px)`;
-                
-                setTimeout(() => {
-                    img.style.transform = 'translateX(0)';
-                }, 50 + Math.random() * 100);
+
+            // Start Systems
+            document.addEventListener('mousemove', _.throttle(animateTendrils, 32));
+            setInterval(spawnSymbol, 1500);
+        },
+
+        // --- SHARED SYSTEMS --- //
+        triggerParticleBurst: function() {
+            const particles = new THREE.Group();
+            const geometry = new THREE.SphereGeometry(0.1);
+            const material = new THREE.MeshBasicMaterial({color: 0x00ff9d});
+
+            for(let i = 0; i < 50; i++) {
+                const particle = new THREE.Mesh(geometry, material);
+                particle.position.set(
+                    Math.random() * 4 - 2,
+                    Math.random() * 4 - 2,
+                    Math.random() * 4 - 2
+                );
+                particles.add(particle);
             }
-        }, 3000);
+
+            this.three.scene.add(particles);
+            gsap.to(particles.position, {
+                y: 5,
+                duration: 2,
+                ease: 'power4.out',
+                onComplete: () => this.three.scene.remove(particles)
+            });
+        },
+
+        // --- ANIMATION LOOP --- //
+        animate: function() {
+            requestAnimationFrame(() => this.animate());
+            this.three.renderer.render(this.three.scene, this.three.camera);
+        }
+    };
+
+    // Initialize Everything
+    APP.initExisting();
+    APP.initCyberGraphic();
+    APP.animate();
+});
+
+// Audio Context Handler (Outside main scope)
+let audioContext;
+document.addEventListener('click', () => {
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
 });
-});
+</script>
 
-
-
-        </script></body>
+<!-- Dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+        </body>
 </html>
