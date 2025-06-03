@@ -3204,6 +3204,385 @@ a.faisaweb-card {
         margin-top: 0.5rem;
     }
 
+.cyber-display-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    border: 2px solid #00ff9d;
+    border-radius: 15px;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 0 30px rgba(0, 255, 157, 0.3),
+        inset 0 0 30px rgba(0, 255, 157, 0.1);
+    animation: card-flicker 4s infinite alternate;
+}
+
+/* Header Layout */
+.card-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    border-bottom: 1px solid rgba(0, 255, 157, 0.3);
+    background: linear-gradient(90deg, rgba(0, 255, 157, 0.05) 0%, transparent 100%);
+}
+
+/* Profile Section */
+/* Profile Section */
+.profile-section {
+    position: relative;
+}
+
+.profile-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid #00ff9d;
+    background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 0 20px rgba(0, 255, 157, 0.5),
+        inset 0 0 20px rgba(0, 255, 157, 0.1);
+}
+
+.profile-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: scan 3s infinite;
+}
+
+
+
+.profile-image:hover .profile-img {
+    filter: brightness(1) contrast(1.2) saturate(1);
+}
+
+.profile-image::after {
+    content: '⚛';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: #00ff9d;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-status {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #00ff9d;
+}
+
+.profile-img-matrix {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    filter: 
+        grayscale(0.3) 
+        sepia(0.3) 
+        hue-rotate(80deg) 
+        saturate(1.2) 
+        brightness(0.9);
+}
+
+/* Terminal Bio */
+.terminal-bio {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #00ff9d;
+    border-radius: 8px;
+    padding: 1.5rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    position: relative;
+}
+
+.terminal-bio::before {
+    content: '> CLASSIFIED PROFILE_';
+    display: block;
+    color: red;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    animation: type-cursor 1s infinite;
+}
+
+.bio-line {
+    margin: 0.5rem 0;
+    opacity: 0;
+    animation: terminal-reveal 0.5s forwards;
+}
+
+.bio-line:nth-child(2) { animation-delay: 0.2s; }
+.bio-line:nth-child(3) { animation-delay: 0.4s; }
+.bio-line:nth-child(4) { animation-delay: 0.6s; }
+.bio-line:nth-child(5) { animation-delay: 0.8s; }
+.bio-line:nth-child(6) { animation-delay: 1.0s; }
+
+.bio-highlight {
+    color: #00ff9d;
+    font-weight: 700;
+}
+
+.bio-warning {
+    color: #ff6b6b;
+}
+
+/* Content Container */
+.cyber-text-container {
+    padding: 2rem;
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0, 255, 157, 0.3);
+}
+
+.led {
+    width: 12px;
+    height: 12px;
+    background: #00ff9d;
+    border-radius: 50%;
+    
+    box-shadow: 0 0 10px #00ff9d;
+}
+
+.frequency {
+    font-size: 0.8rem;
+    color: whitesmoke;
+    opacity: 0.8;
+}
+
+/* Typography */
+.cyber-section-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00ff9d;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px #00ff9d;
+    animation: pulse-glow 2s infinite alternate;
+}
+
+.cyber-subheading {
+    text-align: center;
+    color: white;
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.signal-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #00ff9d;
+    text-transform: uppercase;
+    animation: glitch 2s infinite;
+}
+
+.cyber-text {
+    font-size: 1.1rem;
+    font-family: 'IBM Plex Mono', monospace;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+    opacity: 0.9;
+}
+
+.error-code {
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
+    color: #b87333;
+    animation: flicker 3s infinite alternate;
+}
+
+/* CTA Button */
+.cta-glitch {
+    display: inline-block;
+    background: linear-gradient(45deg, #00ff9d, #00cc7d);
+    color: #000;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-glitch::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: sweep 2s infinite;
+}
+
+.cta-glitch:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 157, 0.4);
+}
+
+.decrypt-status {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #b87333;
+    opacity: 0.7;
+}
+
+.blinking-cursor {
+    animation: blink 1s infinite;
+}
+
+/* Visual Effects */
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 157, 0.03) 2px,
+        rgba(0, 255, 157, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 255, 157, 0.1) 0%, transparent 70%);
+    animation: rotate 10s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Animations */
+@keyframes glitch {
+    0% { text-shadow: 1px 0 red, -1px 0 cyan; }
+    50% { text-shadow: -2px 0 magenta, 2px 0 green; }
+    100% { text-shadow: 1px 0 red, -1px 0 cyan; }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes pulse-glow {
+    0% { text-shadow: 0 0 20px #00ff9d; }
+    100% { text-shadow: 0 0 30px #00ff9d, 0 0 40px #00ff9d; }
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes card-flicker {
+    0%, 100% { 
+        border-color: #00ff9d;
+        box-shadow: 0 0 30px rgba(0, 255, 157, 0.3), inset 0 0 30px rgba(0, 255, 157, 0.1);
+    }
+    50% { 
+        border-color: #00cc7d;
+        box-shadow: 0 0 20px rgba(0, 255, 157, 0.2), inset 0 0 20px rgba(0, 255, 157, 0.05);
+    }
+}
+
+@keyframes scan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes sweep {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes terminal-reveal {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes type-cursor {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .profile-image {
+        margin: 0 auto;
+    }
+    
+    .signal-title {
+        font-size: 1.4rem;
+    }
+    
+    .cyber-section-heading {
+        font-size: 2rem;
+    }
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+
 </style>
 </head>
 <body>
@@ -3250,9 +3629,7 @@ a.faisaweb-card {
         </div>
     </section>
 
-
-
-<section class="current-feature section">
+    <section class="current-feature section">
     <h2 class="cyber-section-heading"></h2>
     <p class="cyber-subheading">PIRATED DREAMS v3.1.6</p>
     <a href="pirate-radio.html" class="cyber-display-card">
@@ -3282,6 +3659,69 @@ a.faisaweb-card {
         </div>
     </a>
 </section>
+
+<section class="section">
+    <h2 class="cyber-section-heading">NUCLEAR FUTURE</h2>
+    <p class="cyber-subheading">PRINCY MTHOMBENI ON ENERGY.JUSTICE</p>
+    
+    <div class="cyber-display-card">
+        <div class="scanlines"></div>
+        <div class="glow"></div>
+        
+        <div class="card-header">
+            <div class="profile-section">
+                <div class="profile-image">
+    <img src="images/princyface.png" alt="Nuclear Energy Advocate" class="profile-img">
+</div>
+                <div class="profile-status">
+                    <span class="status-indicator"></span>
+                    PRINCESS MTHOMBENI
+                </div>
+            </div>
+            
+            <div class="terminal-bio">
+                <div class="bio-line"><span class="bio-highlight">CODENAME:</span> NUCLEAR_GODDESS</div>
+                <div class="bio-line"><span class="bio-highlight">EXPERTISE:</span> Nuclear Energy | Policy Disruption</div>
+                <div class="bio-line"><span class="bio-highlight">LOCATION:</span> South Africa | Global Energy Grid</div>
+                <div class="bio-line"><span class="bio-highlight">MISSION:</span> Defeating Energy Apartheid</div>
+                <div class="bio-line"><span class="bio-warning">THREAT_LEVEL:</span> Narrative Disruptor</div>
+                <div class="bio-line"><span class="bio-highlight">STATUS:</span> Active</div>
+            </div>
+        </div>
+        
+        <div class="cyber-text-container">
+            <div class="terminal-header">
+                <span class="led"></span>
+                <span class="frequency">FREQ: 4.8Hz</span>
+            </div> 
+            
+            <h3 class="signal-title">⚛ NUCLEAR IS LIBERATION</h3>
+            
+            <p class="cyber-text">
+                600 million Africans offline while uranium fuels the future elsewhere. This isn't scarcity—it's systemic sabotage.
+
+She speaks with the precision of a reactor core: calm, contained, critical. Where others see megawatts, she sees liberation vectors. Where the world sees risk, she sees Africa's latent energy potential humming at 400 million terajoules.
+
+They call it nuclear physics—we call it emancipation engineering.
+
+A voice that splits atoms and narratives with equal precision. A voice that reprograms the power matrix from the inside. The future isn't waiting—it's fission-bright, already rewriting global energy architectures in real-time.
+            </p>
+            
+            <div class="error-code">[SOUTH.ENERGY.SOVEREIGNTY: UNLOCKING… DIGNITY.SCIENCE.RESISTANCE]</div>
+            
+            <a href="princy_nuclear_goddess.html" class="cta-glitch">
+                READ FULL DOSSIER
+            </a>
+            
+            <div class="decrypt-status">
+                <span class="blinking-cursor">_</span>
+                Access granted. Decryption key: "Power is not something you ask for. Power is something you build."
+            </div>
+        </div>
+    </div>
+</section>
+
+
     
 
 <section class="section">
