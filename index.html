@@ -3206,7 +3206,7 @@ a.faisaweb-card {
 
 .cyber-display-card {
     background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-    border: 2px solid #00ff9d;
+    border: 2px solid black;
     border-radius: 15px;
     padding: 0;
     position: relative;
@@ -3237,8 +3237,8 @@ a.faisaweb-card {
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    border: 3px solid #00ff9d;
-    background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+    /* REMOVED: border: 3px solid #00ff9d; */
+    background: black; /* CHANGED: from linear-gradient to black */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3259,8 +3259,6 @@ a.faisaweb-card {
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     animation: scan 3s infinite;
 }
-
-
 
 .profile-image:hover .profile-img {
     filter: brightness(1) contrast(1.2) saturate(1);
@@ -3301,10 +3299,10 @@ a.faisaweb-card {
         brightness(0.9);
 }
 
-/* Terminal Bio */
+/* Terminal Bio - BORDER KEPT AS REQUESTED */
 .terminal-bio {
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid #00ff9d;
+    background: black; /* CHANGED: from rgba(0, 0, 0, 0.8) to black */
+    border: 1px solid #00ff9d; /* KEPT: This is the only border we're keeping */
     border-radius: 8px;
     padding: 1.5rem;
     font-size: 0.85rem;
@@ -3353,16 +3351,15 @@ a.faisaweb-card {
     align-items: center;
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(0, 255, 157, 0.3);
+    /* REMOVED: border-bottom: 1px solid rgba(0, 255, 157, 0.3); */
 }
 
 .led {
     width: 12px;
     height: 12px;
-    background: #00ff9d;
+    background: black; /* CHANGED: from 'b' to black */
     border-radius: 50%;
-    
-    box-shadow: 0 0 10px #00ff9d;
+    box-shadow: 0 0 10px black;
 }
 
 .frequency {
@@ -3412,11 +3409,11 @@ a.faisaweb-card {
 .error-code {
     margin: 1.5rem 0;
     font-size: 0.85rem;
-    color: #b87333;
+    color: white;
     animation: flicker 3s infinite alternate;
 }
 
-/* CTA Button */
+/* CTA Button - UNCHANGED AS REQUESTED */
 .cta-glitch {
     display: inline-block;
     background: linear-gradient(45deg, #00ff9d, #00cc7d);
@@ -3452,7 +3449,7 @@ a.faisaweb-card {
 .decrypt-status {
     margin-top: 2rem;
     font-size: 0.9rem;
-    color: #b87333;
+    color: white;
     opacity: 0.7;
 }
 
@@ -3524,11 +3521,11 @@ a.faisaweb-card {
 
 @keyframes card-flicker {
     0%, 100% { 
-        border-color: #00ff9d;
+        /* REMOVED: border-color: #00ff9d; */
         box-shadow: 0 0 30px rgba(0, 255, 157, 0.3), inset 0 0 30px rgba(0, 255, 157, 0.1);
     }
     50% { 
-        border-color: #00cc7d;
+        /* REMOVED: border-color: #00cc7d; */
         box-shadow: 0 0 20px rgba(0, 255, 157, 0.2), inset 0 0 20px rgba(0, 255, 157, 0.05);
     }
 }
@@ -3582,6 +3579,18 @@ a.faisaweb-card {
     z-index: 2;
 }
 
+/* Additional styles to ensure all backgrounds are black */
+.cyber-display-card {
+    background: black;
+}
+
+.section {
+    background: black;
+}
+
+.card-header {
+    background: black;
+}
 
 </style>
 </head>
