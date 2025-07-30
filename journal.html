@@ -27,17 +27,23 @@
     <style>
 
         /* New unified journal heading style */
-        .journal-heading {
-            font-family: 'Barrio', cursive;
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            position: relative;
-            padding-bottom: 1rem;
-        }
+        
+            .journal-heading {
+    padding-top: 1.5rem; /* Add this */
+    /* existing styles below */
+    font-family: 'Barrio', cursive;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    z-index: 2; /* Add this */
+    position: relative; /* You already have this */
+}
+    position: relative;
+    padding-bottom: 1rem;
+}
 
         .journal-heading::after {
             content: '';
