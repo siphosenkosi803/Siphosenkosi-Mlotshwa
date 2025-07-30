@@ -1064,7 +1064,7 @@ const newStyles = `
 .blog-meta {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.9rem;
-    color: #888;
+    color: white;
     margin-top: 0.8rem;
     display: flex;
     gap: 1rem;
@@ -1079,7 +1079,7 @@ const newStyles = `
 
 .blog-meta i {
     font-size: 0.8rem;
-    color: #00ff9d;
+    color: white ;
 }
 
 @media (max-width: 768px) {
@@ -1122,7 +1122,7 @@ const newStyles = `
 
 .card {
     background-color: #000;
-    border: 1px solid #00ff9d;
+    border: 1px solid white;
     border-radius: 0;
     padding: 0;
     overflow: hidden;
@@ -1133,7 +1133,7 @@ const newStyles = `
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 255, 0.5);
 }
 
 .card::before {
@@ -1143,7 +1143,7 @@ const newStyles = `
     left: 0;
     right: 0;
     height: 30px;
-    background: linear-gradient(to right, #003b00, #00ff9d);
+    background: linear-gradient(to right, transparent, white, transparent);
     opacity: 0.3;
 }
 
@@ -1153,8 +1153,8 @@ const newStyles = `
     font-size: 1.2rem;
     padding: 1rem;
     margin: 0;
-    border-bottom: 1px solid #00ff9d;
-    background-color: rgba(0, 20, 0, 0.5);
+    border-bottom: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .blog-img {
@@ -1162,7 +1162,7 @@ const newStyles = `
     height: 200px;
     object-fit: cover;
     filter: grayscale(80%) contrast(120%) brightness(70%);
-    border-bottom: 1px solid #00ff9d;
+    border-bottom: 1px solid white;
 }
 
 .blog-meta {
@@ -1170,11 +1170,11 @@ const newStyles = `
     color: white;
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
-    background-color: rgba(0, 10, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .blog-meta i {
-    color: #00ff9d;
+    color: white;
 }
 
 /* Terminal cursor effect on hover */
@@ -1183,7 +1183,7 @@ const newStyles = `
     position: absolute;
     bottom: 10px;
     right: 15px;
-    color: #00ff9d;
+    color: white;
     animation: blink 1s step-end infinite;
 }
 
