@@ -28,6 +28,16 @@
 
     <!-- Add your existing styles -->
     <style>
+
+.mobile-menu-btn {
+    border: 1px solid white !important; /* Changed from rgba to solid white */
+}
+
+.mobile-menu-btn:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+
         .article-container {
             max-width: 800px;
             margin: 0 auto;
@@ -187,7 +197,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #00ff9d;
+    background: white;
     transition: width 0.3s ease;
 }
 
@@ -205,7 +215,7 @@
     right: 1rem;
     z-index: 1001;
     background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(0, 255, 157, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
     width: 50px;
     height: 50px;
@@ -221,14 +231,14 @@
     right: -5px;
     bottom: -5px;
     border-radius: 8px;
-    border: 1px solid #00ff9d;
+    border: 1px solid white;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .mobile-menu-btn:hover {
-    border-color: #00ff9d;
-    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+    border-color: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 .mobile-menu-btn:hover::before {
@@ -261,7 +271,7 @@
 
 .menu-x-line {
     position: absolute;
-    background: #00ff9d;
+    background: white;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -281,7 +291,7 @@
 
 .mobile-menu-btn.active {
     background: rgba(0, 0, 0, 0.5);
-    border-color: #00ff9d;
+    border-color: white;
     box-shadow: 0 0 25px rgba(0, 255, 157, 0.4);
 }
 
@@ -312,7 +322,7 @@
         align-items: flex-start;
         padding: 6rem 2rem;
         transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        border-left: 1px solid #00ff9d;
+        border-left: 1px solid white;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
         z-index: 998;
     }
@@ -383,7 +393,7 @@
         }
 
         .social-links a:hover {
-            color: #00ff9d;
+            color: grey;
         }
 
         
