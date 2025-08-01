@@ -23,6 +23,14 @@
         })();
     </script>
 
+.mobile-menu-btn {
+    border: 1px solid white !important; /* Changed from rgba to solid white */
+}
+
+.mobile-menu-btn:focus {
+    outline: none; /* Remove default focus outline */
+}
+
 <title>The Situationist Dérive — Drifting as Rebellion (1956)</title>
 <meta name="description" content="">
 
@@ -205,7 +213,7 @@
     right: 1rem;
     z-index: 1001;
     background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(0, 255, 157, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
     width: 50px;
     height: 50px;
@@ -221,7 +229,7 @@
     right: -5px;
     bottom: -5px;
     border-radius: 8px;
-    border: 1px solid #00ff9d;
+    border: 1px solid white;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -261,7 +269,7 @@
 
 .menu-x-line {
     position: absolute;
-    background: #00ff9d;
+    background: white;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -281,8 +289,8 @@
 
 .mobile-menu-btn.active {
     background: rgba(0, 0, 0, 0.5);
-    border-color: #00ff9d;
-    box-shadow: 0 0 25px rgba(0, 255, 157, 0.4);
+    border-color: white;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
 }
 
 .mobile-menu-btn.active .menu-x-line:nth-child(1) {
@@ -384,7 +392,7 @@
         }
 
         .social-links a:hover {
-            color: #00ff9d;
+            color: grey;
         }
 
         
