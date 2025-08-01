@@ -28,6 +28,16 @@
 
     <!-- Add your existing styles -->
     <style>
+
+.mobile-menu-btn {
+    border: 1px solid white !important; /* Changed from rgba to solid white */
+}
+
+.mobile-menu-btn:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+
 .mobile-menu-btn {
     border: 1px solid white !important; /* Changed from rgba to solid white */
 }
@@ -238,7 +248,7 @@
 
 .mobile-menu-btn:hover {
     border-color: white;
-    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 .mobile-menu-btn:hover::before {
@@ -255,7 +265,7 @@
     background: linear-gradient(
         to bottom,
         transparent 50%,
-        rgba(0, 255, 157, 0.1) 50%,
+        rgba(255, 255, 255, 0.1) 50%,
         transparent 51%
     );
     animation: scan 2s linear infinite;
