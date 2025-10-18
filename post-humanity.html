@@ -89,6 +89,13 @@
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: -0.5px;
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.3s;
+        }
+
+        .logo:hover {
+            color: var(--accent);
         }
 
         .nav-links {
@@ -135,6 +142,17 @@
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 1001;
+            outline: none !important;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-toggle:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .mobile-menu-toggle.active {
+            transform: rotate(90deg);
         }
 
         /* Article Hero Section */
@@ -366,16 +384,22 @@
         .social-links a {
             color: var(--gray-light);
             text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            padding: 0.8rem 1.5rem;
+            font-size: 1.5rem;
+            padding: 0.8rem;
             border: 1px solid var(--gray);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s;
         }
 
         .social-links a:hover {
             border-color: var(--accent);
             color: var(--accent);
+            transform: translateY(-5px);
         }
 
         /* Reading Progress Bar */
@@ -390,23 +414,161 @@
             transition: width 0.3s ease;
         }
 
+        /* Keep Reading Section */
+        .keep-reading {
+            margin: 6rem 0 4rem;
+            padding: 4rem 0;
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .keep-reading-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        .keep-reading-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .keep-reading-subtitle {
+            text-align: center;
+            color: var(--gray-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .article-recommendations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .recommendation-card {
+            display: block;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.1);
+        }
+
+        .recommendation-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .recommendation-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .recommendation-card:hover .recommendation-image img {
+            transform: scale(1.05);
+        }
+
+        .recommendation-content {
+            padding: 1.5rem;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .recommendation-content h4 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            color: var(--text);
+        }
+
+        .recommendation-content p {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more-link {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .recommendation-card:hover .read-more-link {
+            gap: 1rem;
+        }
+
+        .keep-reading-cta {
+            text-align: center;
+        }
+
+        .browse-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--accent);
+            color: var(--bg);
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-family: 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .browse-all-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .featured-image {
                 max-height: 400px;
             }
-        }
 
-        @media (max-width: 768px) {
-            nav {
-                padding: 1.5rem 2rem;
-            }
-
+            /* Mobile menu styles for tablets */
             .nav-links {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 70%;
+                width: 100%; /* Changed from 70% to 100% */
                 height: 100vh;
                 background: var(--bg);
                 flex-direction: column;
@@ -415,7 +577,7 @@
                 gap: 2rem;
                 transition: right 0.3s ease;
                 z-index: 1000;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+                /* Removed box-shadow property entirely */
             }
 
             .nav-links.active {
@@ -463,7 +625,20 @@
             }
         }
 
-        @media (max-width: 480px) {
+        /* Landscape orientation support */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .nav-links {
+                padding-top: 80px;
+                justify-content: flex-start;
+                overflow-y: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+
             .article-hero {
                 margin-top: 80px;
                 min-height: 50vh;
@@ -482,177 +657,31 @@
             }
         }
 
-        /* Keep Reading Section */
-.keep-reading {
-    margin: 6rem 0 4rem;
-    padding: 4rem 0;
-    border-top: 1px solid rgba(255, 107, 53, 0.2);
-    border-bottom: 1px solid rgba(255, 107, 53, 0.2);
-}
+        @media (max-width: 480px) {
+            .keep-reading-container {
+                padding: 0 2rem;
+            }
+            
+            .article-recommendations {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .keep-reading-title {
+                font-size: 1.5rem;
+            }
+        }
 
-.keep-reading-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 4rem;
-}
-
-.keep-reading-title {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 1rem;
-    color: var(--accent);
-}
-
-.keep-reading-subtitle {
-    text-align: center;
-    color: var(--gray-light);
-    margin-bottom: 3rem;
-    font-size: 1.1rem;
-}
-
-.article-recommendations {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.recommendation-card {
-    display: block;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.recommendation-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
-    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.1);
-}
-
-.recommendation-image {
-    width: 100%;
-    height: 180px;
-    overflow: hidden;
-}
-
-.recommendation-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.recommendation-card:hover .recommendation-image img {
-    transform: scale(1.05);
-}
-
-.recommendation-content {
-    padding: 1.5rem;
-}
-
-.category-tag {
-    display: inline-block;
-    background: rgba(255, 107, 53, 0.1);
-    color: var(--accent);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 1rem;
-}
-
-.recommendation-content h4 {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-    line-height: 1.4;
-    color: var(--text);
-}
-
-.recommendation-content p {
-    color: var(--gray-light);
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-}
-
-.read-more-link {
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: gap 0.3s ease;
-}
-
-.recommendation-card:hover .read-more-link {
-    gap: 1rem;
-}
-
-.keep-reading-cta {
-    text-align: center;
-}
-
-.browse-all-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    background: var(--accent);
-    color: var(--bg);
-    padding: 1.2rem 2.5rem;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    font-family: 'IBM Plex Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.browse-all-btn:hover {
-    background: var(--accent-light);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .keep-reading-container {
-        padding: 0 2rem;
-    }
-    
-    .article-recommendations {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .keep-reading-title {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .keep-reading {
-        margin: 4rem 0 3rem;
-        padding: 3rem 0;
-    }
-    
-    .keep-reading-container {
-        padding: 0 1.5rem;
-    }
-}
-
-
+        @media (max-width: 480px) {
+            .keep-reading {
+                margin: 4rem 0 3rem;
+                padding: 3rem 0;
+            }
+            
+            .keep-reading-container {
+                padding: 0 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -661,7 +690,7 @@
     <div class="reading-progress"></div>
 
     <nav>
-        <div class="logo">Siphosenkosi Mlotshwa</div>
+        <a href="index.html" class="logo">Siphosenkosi Mlotshwa</a>
         <button class="mobile-menu-toggle" id="mobileMenuToggle">
             <i class="fas fa-bars"></i>
         </button>
@@ -673,7 +702,6 @@
             <a href="contact.html">Contact</a>
         </div>
     </nav>
-
 
     <section class="article-hero">
         <div class="article-hero-content">
@@ -802,72 +830,76 @@
         </div>
 
         <!-- Keep Reading Section -->
-<section class="keep-reading">
-    <div class="keep-reading-container">
-        <h3 class="keep-reading-title">Continue Your Journey</h3>
-        <p class="keep-reading-subtitle">Dive deeper into the nature of reality and consciousness</p>
-        
-        <div class="article-recommendations">
-            <a href="ai-human-consciousness.html" class="recommendation-card">
-                <div class="recommendation-image">
-                    <img src="blog/AIhuman.jpg" alt="The Convergence of AI and Human Consciousness">
+        <section class="keep-reading">
+            <div class="keep-reading-container">
+                <h3 class="keep-reading-title">Continue Your Journey</h3>
+                <p class="keep-reading-subtitle">Dive deeper into the nature of reality and consciousness</p>
+                
+                <div class="article-recommendations">
+                    <a href="ai-human-consciousness.html" class="recommendation-card">
+                        <div class="recommendation-image">
+                            <img src="blog/AIhuman.jpg" alt="The Convergence of AI and Human Consciousness">
+                        </div>
+                        <div class="recommendation-content">
+                            <span class="category-tag">Consciousness</span>
+                            <h4>The Convergence of AI and Human Consciousness</h4>
+                            <p></p>
+                            <div class="read-more-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="dissolution-of-self.html" class="recommendation-card">
+                        <div class="recommendation-image">
+                            <img src="blog/whoAMi.jpg" alt="The Dissolution of Self">
+                        </div>
+                        <div class="recommendation-content">
+                            <span class="category-tag">Consciousness</span>
+                            <h4>The Dissolution of Self</h4>
+                            <p></p>
+                            <div class="read-more-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="digital-after-life.html" class="recommendation-card">
+                        <div class="recommendation-image">
+                            <img src="blog/upload.jpg" alt="Can Consciousness Be Uploaded?">
+                        </div>
+                        <div class="recommendation-content">
+                            <span class="category-tag">Identity</span>
+                            <h4>Can Consciousness Be Uploaded?</h4>
+                            <p></p>
+                            <div class="read-more-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="recommendation-content">
-                    <span class="category-tag">Consciousness</span>
-                    <h4>The Convergence of AI and Human Consciousness</h4>
-                    <p></p>
-                    <div class="read-more-link">
-                        Read More <i class="fas fa-arrow-right"></i>
-                    </div>
+                
+                <div class="keep-reading-cta">
+                    <a href="journal.html" class="browse-all-btn">
+                        <i class="fas fa-book-open"></i>
+                        Browse All Articles
+                    </a>
                 </div>
-            </a>
-            
-            <a href="dissolution-of-self.html" class="recommendation-card">
-                <div class="recommendation-image">
-                    <img src="blog/whoAMi.jpg" alt="The Dissolution of Self">
-                </div>
-                <div class="recommendation-content">
-                    <span class="category-tag">Consciousness</span>
-                    <h4>The Dissolution of Self</h4>
-                    <p></p>
-                    <div class="read-more-link">
-                        Read More <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="digital-after-life.html" class="recommendation-card">
-                <div class="recommendation-image">
-                    <img src="blog/upload.jpg" alt="Can Consciousness Be Uploaded?">
-                </div>
-                <div class="recommendation-content">
-                    <span class="category-tag">Identity</span>
-                    <h4>Can Consciousness Be Uploaded?</h4>
-                    <p></p>
-                    <div class="read-more-link">
-                        Read More <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-            </a>
-        </div>
-        
-        <div class="keep-reading-cta">
-            <a href="journal.html" class="browse-all-btn">
-                <i class="fas fa-book-open"></i>
-                Browse All Articles
-            </a>
-        </div>
-    </div>
-</section>
-
+            </div>
+        </section>
     </article>
 
     <footer>
-        <p>© 2025 Siphosenkosi Mlotshwa. All rights reserved.</p>
         <div class="social-links">
-            <a href="https://instagram.com/1heavy0">Instagram</a>
-            <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/">LinkedIn</a>
-            <a href="mailto:siphosenkosi.m@yahoo.com">Email</a>
+            <a href="https://instagram.com/1heavy0" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:siphosenkosi.m@yahoo.com" aria-label="Email">
+                <i class="far fa-envelope"></i>
+            </a>
         </div>
     </footer>
 
@@ -878,6 +910,8 @@
 
         mobileMenuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active'); // Add button animation
+            
             // Toggle between hamburger and close icon
             const icon = mobileMenuToggle.querySelector('i');
             if (navLinks.classList.contains('active')) {
@@ -893,6 +927,7 @@
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active'); // Remove button animation
                 const icon = mobileMenuToggle.querySelector('i');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
