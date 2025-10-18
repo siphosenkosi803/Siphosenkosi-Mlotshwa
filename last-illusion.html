@@ -89,6 +89,13 @@
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: -0.5px;
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--accent);
         }
 
         .nav-links {
@@ -135,6 +142,17 @@
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 1001;
+            outline: none !important;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-toggle:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .mobile-menu-toggle.active {
+            transform: rotate(90deg);
         }
 
         /* Article Hero Section */
@@ -366,16 +384,22 @@
         .social-links a {
             color: var(--gray-light);
             text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            padding: 0.8rem 1.5rem;
+            font-size: 1.5rem;
+            padding: 0.8rem;
             border: 1px solid var(--gray);
-            transition: all 0.3s;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
         }
 
         .social-links a:hover {
             border-color: var(--accent);
             color: var(--accent);
+            transform: translateY(-5px);
         }
 
         /* Reading Progress Bar */
@@ -388,98 +412,6 @@
             background: var(--accent);
             z-index: 1001;
             transition: width 0.3s ease;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .featured-image {
-                max-height: 400px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 1.5rem 2rem;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background: var(--bg);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 2rem;
-                transition: right 0.3s ease;
-                z-index: 1000;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .nav-links a {
-                font-size: 1.2rem;
-                padding: 1rem 0;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .article-hero {
-                padding: 0 2rem;
-                margin-top: 100px;
-                min-height: 60vh;
-            }
-
-            .article-content {
-                padding: 0 2rem 4rem;
-            }
-
-            .featured-image {
-                max-height: 300px;
-            }
-
-            .article-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .final-transmission {
-                padding: 2rem;
-            }
-
-            .cursor, .cursor-follower {
-                display: none;
-            }
-
-            * {
-                cursor: auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .article-hero {
-                margin-top: 80px;
-                min-height: 50vh;
-            }
-
-            .article-title {
-                font-size: 2rem;
-            }
-
-            .article-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .featured-image {
-                max-height: 250px;
-            }
         }
 
 /* Keep Reading Section */
@@ -625,7 +557,101 @@
     box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
 }
 
-/* Responsive */
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .featured-image {
+                max-height: 400px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .article-hero {
+                padding: 0 2rem;
+                margin-top: 100px;
+                min-height: 60vh;
+            }
+
+            .article-content {
+                padding: 0 2rem 4rem;
+            }
+
+            .featured-image {
+                max-height: 300px;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .final-transmission {
+                padding: 2rem;
+            }
+
+            .cursor, .cursor-follower {
+                display: none;
+            }
+
+            * {
+                cursor: auto;
+            }
+        }
+
+        /* Landscape orientation support */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .nav-links {
+                padding-top: 80px;
+                justify-content: flex-start;
+                overflow-y: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-hero {
+                margin-top: 80px;
+                min-height: 50vh;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .featured-image {
+                max-height: 250px;
+            }
+        }
+
+/* Responsive for Keep Reading Section */
 @media (max-width: 768px) {
     .keep-reading-container {
         padding: 0 2rem;
@@ -660,7 +686,7 @@
     <div class="reading-progress"></div>
 
     <nav>
-        <div class="logo">Siphosenkosi Mlotshwa</div>
+        <a href="index.html" class="logo">Siphosenkosi Mlotshwa</a>
         <button class="mobile-menu-toggle" id="mobileMenuToggle">
             <i class="fas fa-bars"></i>
         </button>
@@ -910,11 +936,16 @@
     </article>
 
     <footer>
-        <p>© 2025 Siphosenkosi Mlotshwa. All rights reserved.</p>
         <div class="social-links">
-            <a href="https://instagram.com/1heavy0">Instagram</a>
-            <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/">LinkedIn</a>
-            <a href="mailto:siphosenkosi.m@yahoo.com">Email</a>
+            <a href="https://instagram.com/1heavy0" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:siphosenkosi.m@yahoo.com" aria-label="Email">
+                <i class="far fa-envelope"></i>
+            </a>
         </div>
     </footer>
 
@@ -925,6 +956,8 @@
 
         mobileMenuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+            
             // Toggle between hamburger and close icon
             const icon = mobileMenuToggle.querySelector('i');
             if (navLinks.classList.contains('active')) {
@@ -940,6 +973,7 @@
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
                 const icon = mobileMenuToggle.querySelector('i');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
