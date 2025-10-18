@@ -7,9 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -33,34 +30,9 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
-        }
-
-        /* Cursor */
-        * {
-            cursor: none;
-        }
-
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.2s ease;
-            mix-blend-mode: difference;
-        }
-
-        .cursor-follower {
-            width: 8px;
-            height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: transform 0.15s ease;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Navigation */
@@ -130,273 +102,116 @@
             z-index: 1001;
         }
 
-        /* Contact Hero Section */
-        .contact-hero {
-            min-height: 60vh;
+        /* Main Content */
+        .contact-container {
+            flex: 1;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            position: relative;
-            padding: 0 4rem;
+            align-items: center;
+            padding: 0 2rem;
             margin-top: 100px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
             text-align: center;
         }
 
-        .contact-hero-content {
-            max-width: 800px;
-            width: 100%;
+        .contact-header {
+            margin-bottom: 4rem;
         }
 
-        .contact-hero h1 {
+        .contact-header h1 {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
             font-weight: 700;
         }
 
-        .contact-hero p {
-            font-size: 1.3rem;
+        .contact-header p {
+            font-size: 1.2rem;
             color: var(--gray-light);
             max-width: 600px;
             margin: 0 auto;
-            line-height: 1.8;
         }
 
-        /* Contact Grid Section */
-        .contact-grid {
-            padding: 6rem 4rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .contact-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        /* Contact Methods */
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
             gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 3rem 2.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
-            transition: left 0.6s ease;
+            max-width: 500px;
+            margin-bottom: 4rem;
         }
 
-        .contact-card:hover::before {
-            left: 100%;
+        .contact-method {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            text-align: center;
         }
 
-        .contact-card:hover {
-            transform: translateY(-10px);
+        .contact-method:hover {
             border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.1);
         }
 
-        .contact-icon {
-            width: 80px;
-            height: 80px;
+        .method-icon {
+            width: 60px;
+            height: 60px;
             background: rgba(255, 107, 53, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 2rem;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--accent);
+            margin-bottom: 1.5rem;
             transition: all 0.3s ease;
         }
 
-        .contact-card:hover .contact-icon {
+        .contact-method:hover .method-icon {
             background: var(--accent);
             color: var(--bg);
             transform: scale(1.1);
         }
 
-        .contact-card h3 {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .method-text h3 {
+            font-size: 1.3rem;
             font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-align: center;
         }
 
-        .contact-card p {
+        .method-text p {
+            font-size: 0.95rem;
             color: var(--gray-light);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
+            margin-bottom: 1rem;
+            text-align: center;
         }
 
-        .contact-link {
-            display: inline-flex;
+        .method-cta {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
-        .contact-link:hover {
-            color: var(--accent-light);
+        .contact-method:hover .method-cta {
             transform: translateX(5px);
-        }
-
-        /* Social Hub */
-        .social-hub {
-            padding: 6rem 4rem;
-            background: #0f0f0f;
-            text-align: center;
-        }
-
-        .social-hub-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--gray-light);
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .social-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 2.5rem 2rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .social-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent);
-            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.2);
-        }
-
-        .social-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-            transition: all 0.3s ease;
-        }
-
-        .social-card:hover .social-icon {
-            transform: scale(1.2);
-        }
-
-        .social-card h4 {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .social-card p {
-            color: var(--gray-light);
-            font-size: 0.95rem;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 8rem 4rem;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
-        }
-
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .cta-title {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-
-        .cta-description {
-            font-size: 1.2rem;
-            color: var(--gray-light);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn {
-            padding: 1.2rem 3rem;
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: all 0.3s;
-            border: none;
-            font-size: 1rem;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            font-family: 'IBM Plex Mono', monospace;
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: var(--bg);
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--accent-light);
-            transition: left 0.3s;
-            z-index: -1;
-        }
-
-        .btn-primary:hover::before {
-            left: 0;
         }
 
         /* Footer */
@@ -408,37 +223,7 @@
             font-size: 0.9rem;
         }
 
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            color: var(--gray-light);
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            padding: 0.8rem 1.5rem;
-            border: 1px solid var(--gray);
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-
         /* Responsive */
-        @media (max-width: 1024px) {
-            .contact-cards {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-        }
-
         @media (max-width: 768px) {
             nav {
                 padding: 1.5rem 2rem;
@@ -473,65 +258,51 @@
                 display: block;
             }
 
-            .contact-hero {
-                padding: 0 2rem;
-                margin-top: 100px;
-                min-height: 50vh;
+            .contact-container {
+                padding: 0 1.5rem;
+                margin-top: 80px;
             }
 
-            .contact-grid, .social-hub, .cta-section {
-                padding: 4rem 2rem;
+            .contact-header {
+                margin-bottom: 3rem;
             }
 
-            .social-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-
-            .cursor, .cursor-follower {
-                display: none;
-            }
-
-            * {
-                cursor: auto;
+            .contact-methods {
+                gap: 1.5rem;
+                margin-bottom: 3rem;
             }
         }
 
         @media (max-width: 480px) {
-            .contact-hero {
-                margin-top: 80px;
-                min-height: 40vh;
-            }
-
-            .contact-hero h1 {
+            .contact-header h1 {
                 font-size: 2rem;
             }
 
-            .contact-hero p {
+            .contact-header p {
                 font-size: 1.1rem;
             }
 
-            .contact-grid, .social-hub, .cta-section {
-                padding: 3rem 1.5rem;
+            .contact-method {
+                padding: 1.5rem;
             }
 
-            .contact-cards {
-                grid-template-columns: 1fr;
+            .method-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
             }
 
-            .contact-card {
-                padding: 2rem 1.5rem;
+            .method-text h3 {
+                font-size: 1.2rem;
             }
 
-            .social-grid {
-                grid-template-columns: 1fr;
+            .method-text p {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
     <nav>
         <div class="logo">Siphosenkosi Mlotshwa</div>
         <button class="mobile-menu-toggle" id="mobileMenuToggle">
@@ -546,102 +317,69 @@
         </div>
     </nav>
 
-    <section class="contact-hero">
-        <div class="contact-hero-content">
-            <h1></h1>
-            <p>Interested in collaboration, conversation about consciousness, technology, or just want to share thoughts on reality simulations? I'm always open to meaningful dialogue.</p>
+    <main class="contact-container">
+        <div class="contact-header">
+            <h1>Get in Touch</h1>
+            <p>Open to collaborations, projects, and conversations.</p>
         </div>
-    </section>
 
-    <section class="contact-grid">
-        <div class="contact-cards">
-            <div class="contact-card">
-                <div class="contact-icon">
+        <div class="contact-methods">
+            <a href="mailto:siphosenkosi.m@yahoo.com" class="contact-method">
+                <div class="method-icon">
                     <i class="fas fa-envelope"></i>
                 </div>
-                <h3>Email</h3>
-                <p>For direct conversations, project discussions, or philosophical exchanges</p>
-                <a href="mailto:siphosenkosi.m@yahoo.com" class="contact-link">
-                    Send Email <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-map-marker-alt"></i>
+                <div class="method-text">
+                    <h3>Email</h3>
+                    <p>For project inquiries and collaborations</p>
                 </div>
-                <h3>Location</h3>
-                <p>Based in South Africa, exploring global consciousness through digital realms</p>
-                <span class="contact-link">
-                    South Africa <i class="fas fa-globe"></i>
-                </span>
-            </div>
-
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-clock"></i>
+                <div class="method-cta">
+                    Send Message <i class="fas fa-arrow-right"></i>
                 </div>
-                <h3>Response Time</h3>
-                <p>I typically respond within 24-48 hours, depending on the depth of inquiry</p>
-                <span class="contact-link">
-                    24-48 Hours <i class="fas fa-hourglass-half"></i>
-                </span>
-            </div>
-        </div>
-    </section>
+            </a>
 
-    <section class="social-hub">
-        <div class="social-hub-container">
-            <h2 class="section-title">Digital Presence</h2>
-            <p class="section-subtitle">Follow my journey through different platforms where I share thoughts, experiments, and moments of clarity</p>
-            
-            <div class="social-grid">
-                <a href="https://instagram.com/1heavy0" class="social-card">
-                    <div class="social-icon">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <h4>Instagram</h4>
-                    <p>Visual thoughts & creative moments</p>
-                </a>
+            <a href="https://instagram.com/1heavy0" class="contact-method">
+                <div class="method-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="method-text">
+                    <h3>Instagram</h3>
+                    <p>Visual thoughts and creative moments</p>
+                </div>
+                <div class="method-cta">
+                    Follow <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
 
-                <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/" class="social-card">
-                    <div class="social-icon">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                    <h4>LinkedIn</h4>
-                    <p>Professional journey & technical work</p>
-                </a>
+            <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/" class="contact-method">
+                <div class="method-icon">
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <div class="method-text">
+                    <h3>LinkedIn</h3>
+                    <p>Professional work and connections</p>
+                </div>
+                <div class="method-cta">
+                    Connect <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
 
-                <a href="https://www.threads.com/@1heavy0" class="social-card">
-                    <div class="social-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h4>Threads</h4>
-                    <p>Conversations & extended thoughts</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2 class="cta-title">Ready to Explore Consciousness Together?</h2>
-            <p class="cta-description">Whether you're interested in reality simulations, consciousness exploration, or just want to discuss the architecture of existence, I'm here for the conversation.</p>
-            <a href="mailto:siphosenkosi.m@yahoo.com" class="btn btn-primary">
-                <i class="fas fa-paper-plane"></i>
-                Start a Conversation
+            <a href="https://www.threads.com/@1heavy0" class="contact-method">
+                <div class="method-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="method-text">
+                    <h3>Threads</h3>
+                    <p>Conversations and extended thoughts</p>
+                </div>
+                <div class="method-cta">
+                    Join Conversation <i class="fas fa-arrow-right"></i>
+                </div>
             </a>
         </div>
-    </section>
+    </main>
 
     <footer>
         <p>© 2025 Siphosenkosi Mlotshwa. All rights reserved.</p>
-
-        <div class="social-links">
-            <a href="https://instagram.com/1heavy0">Instagram</a>
-            <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/">LinkedIn</a>
-            <a href="mailto:siphosenkosi.m@yahoo.com">Email</a>
-        </div>
     </footer>
 
     <script>
@@ -670,64 +408,6 @@
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             });
-        });
-
-        // Custom cursor
-        const cursor = document.querySelector('.cursor');
-        const follower = document.querySelector('.cursor-follower');
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            
-            setTimeout(() => {
-                follower.style.left = e.clientX + 'px';
-                follower.style.top = e.clientY + 'px';
-            }, 100);
-        });
-
-        // Hover effects
-        const hoverElements = document.querySelectorAll('a, .btn, .contact-card, .social-card');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(1.5)';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'scale(1)';
-            });
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.contact-card, .social-card, .cta-content').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            observer.observe(el);
         });
     </script>
 </body>
