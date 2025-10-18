@@ -3,808 +3,997 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Edge of Forever: Are We Trapped in an Endless Loop of Reality? - Siphosenkosi Mlotshwa</title>
+    <meta name="description" content="Exploring the limits of knowledge, the illusion of being trapped in a system, and whether reality itself is an infinite loop.">
     <link rel="icon" type="image/x-icon" href="images/ico_logo.ico">
-    <!-- Keep all your existing head content (fonts, styles, etc.) -->
-     
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init('6YdWPrE_MXY30SAKk');
-        })();
-    </script>
-
-<title>The Edge of Forever: Are We Trapped in an Endless Loop of Reality?</title>
-    <meta name="description" content="Exploring the limits of knowledge, the illusion of being trapped in a system, and whether reality itself is an infinite loop.">
- 
-    <!-- Add your existing styles -->
     <style>
-
-.mobile-menu-btn {
-    border: 1px solid white !important; /* Changed from rgba to solid white */
-}
-
-.mobile-menu-btn:focus {
-    outline: none; /* Remove default focus outline */
-}
-
-
-        .article-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .logo {
-    font-family: 'Caveat', cursive;
-    font-size: 1.7rem;
-    font-weight: 900;
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    position: relative; /* Use relative positioning within navbar */
-    height: 100%; /* Ensure it takes appropriate height */
-
-}
-
-.logo img {
-    width: 40px; /* Slightly smaller size */
-    height: 40px;
-    object-fit: contain; /* Ensure image displays properly */
-    vertical-align: middle; /* Align vertically */
-}
-
-        .article-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .article-content {
-            line-height: 1.8;
-        }
-
-        .article-content h2 {
-            margin: 2rem 0 1rem 0;
-        }
-
-        .article-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            /*font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;*/
-            font-family: 'IBM Plex Mono', monospace;
-            line-height: 1.0;
-            color: white;
-            background-color: black;
+        :root {
+            --bg: #0a0a0a;
+            --text: #e8e8e8;
+            --accent: #ff6b35;
+            --accent-light: #ff8c61;
+            --gray: #6b6b6b;
+            --gray-light: #a3a3a3;
         }
 
-        /* Grid background */
-        .grid-background {
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Cursor */
+        * {
+            cursor: none;
+        }
+
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
             position: fixed;
-            inset: 0;
-            z-index: -1;
-            background-image: 
-                linear-gradient(to right, rgba(128, 128, 128, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(128, 128, 128, 0.05) 1px, transparent 1px);
-            background-size: 14px 24px;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.15s ease;
         }
 
         /* Navigation */
-        /* ====================
-   Global Styles 
-===================== */
-@keyframes scan {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
-}
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(10,10,10,0.95) 0%, transparent 100%);
+            backdrop-filter: blur(10px);
+        }
 
-@keyframes electric {
-    0% { opacity: 1; transform: scale(1); }
-    100% { opacity: 0; transform: scale(1.5); }
-}
+        .logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
 
-.blur-active::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    backdrop-filter: blur(5px) brightness(0.8);
-    z-index: 997;
-    pointer-events: none;
-}
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
 
-/* ====================
-   Navigation Styles 
-===================== */
-.navbar {
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    background-color: black;
-    transition: all 0.3s ease;
-    padding: 1rem 0;
-}
+        .nav-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
 
-.navbar.scrolled {
-    background: black;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-.logo {
-    font-family: 'Caveat', cursive;
-    font-size: 1.7rem;
-    font-weight: 900;
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-.logo img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-}
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gray-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
 
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
+        /* Article Hero Section */
+        .article-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 4rem;
+            margin-top: 100px;
+            text-align: center;
+        }
 
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    position: relative;
-    padding-bottom: 0.25rem;
-}
+        .article-hero-content {
+            max-width: 900px;
+            width: 100%;
+        }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: white;
-    transition: width 0.3s ease;
-}
+        .article-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
+        .article-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
 
-/* ====================
-   Mobile Menu Styles 
-===================== */
-.mobile-menu-btn {
-    display: none;
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1001;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            font-size: 0.9rem;
+            color: var(--gray-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.mobile-menu-btn::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    border-radius: 8px;
-    border: 1px solid white;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-.mobile-menu-btn:hover {
-    border-color: white;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-}
+        /* Featured Image */
+        .featured-image-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 4rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-.mobile-menu-btn:hover::before {
-    opacity: 0.3;
-}
+        .featured-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            filter: grayscale(0.3);
+            transition: filter 0.5s ease;
+        }
 
-.mobile-menu-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to bottom,
-        transparent 50%,
-        rgba(255, 255, 255, 0.1) 50%,
-        transparent 51%
-    );
-    animation: scan 2s linear infinite;
-    opacity: 0.5;
-}
+        .featured-image:hover {
+            filter: grayscale(0);
+        }
 
-.menu-x {
-    position: relative;
-    width: 25px;
-    height: 25px;
-    margin: auto;
-}
+        /* Article Content */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 4rem 6rem;
+        }
 
-.menu-x-line {
-    position: absolute;
-    background: white;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
+        .article-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.8rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
 
-.menu-x-line:nth-child(1) {
-    width: 100%;
-    height: 2px;
-    top: 50%;
-    transform: translateY(-50%);
-}
+        .article-content h2 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.8rem;
+            margin: 3rem 0 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
 
-.menu-x-line:nth-child(2) {
-    width: 2px;
-    height: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-}
+        .article-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
 
-.mobile-menu-btn.active {
-    background: rgba(0, 0, 0, 0.5);
-    border-color: white;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-}
+        .highlight {
+            background: rgba(255, 107, 53, 0.1);
+            border-left: 3px solid var(--accent);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
 
-.mobile-menu-btn.active .menu-x-line:nth-child(1) {
-    transform: rotate(45deg) scaleX(1.2);
-    opacity: 0.8;
-}
+        .quote {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            color: var(--accent);
+            position: relative;
+        }
 
-.mobile-menu-btn.active .menu-x-line:nth-child(2) {
-    transform: rotate(45deg) scaleY(1.2);
-    opacity: 0.8;
-}
+        .quote::before,
+        .quote::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent);
+            opacity: 0.5;
+            position: absolute;
+        }
 
-/* ====================
-   Mobile Media Query 
-===================== */
-@media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -80%;
-        width: 80%;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.95);
-        backdrop-filter: blur(10px);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 6rem 2rem;
-        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        border-left: 1px solid white;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-        z-index: 998;
-    }
+        .quote::before {
+            top: 0;
+            left: 0;
+        }
 
-    .nav-links.active {
-        transform: translateX(-100%);
-    }
+        .quote::after {
+            bottom: 0;
+            right: 0;
+        }
 
-    .nav-links a {
-        opacity: 0;
-        transform: translateX(20px);
-        transition: all 0.4s ease;
-        font-size: 1.5rem;
-        padding: 1rem 0;
-    }
+        .concept-block {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
 
-    .nav-links.active a {
-        opacity: 1;
-        transform: translateX(0);
-    }
+        .concept-block:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
 
-    .nav-links a:nth-child(1) { transition-delay: 0.1s; }
-    .nav-links a:nth-child(2) { transition-delay: 0.2s; }
-    .nav-links a:nth-child(3) { transition-delay: 0.3s; }
-    .nav-links a:nth-child(4) { transition-delay: 0.4s; }
-    .nav-links a:nth-child(5) { transition-delay: 0.5s; }
+        .concept-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
 
-    .mobile-menu-btn {
-        display: block;
-    }
+        /* Final Transmission Section */
+        .final-transmission {
+            background: rgba(255, 107, 53, 0.05);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            padding: 3rem;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .logo {
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-        z-index: 1001;
-    }
-}
+        .final-transmission::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(255, 107, 53, 0.03) 100%);
+            z-index: -1;
+        }
+
+        .final-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        .transmission-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .call-to-action {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--accent);
+            margin: 2rem 0;
+            line-height: 1.6;
+        }
+
         /* Footer */
         footer {
-            background: black;
-            color: white;
-            padding: 4rem 2rem;
+            padding: 3rem 4rem;
+            border-top: 1px solid #1a1a1a;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
         }
-
-        .footer-content {
-        text-align: center;
-        }
-
-        .footer-content h3 {
-        margin-bottom: 1.5rem;
-    }
-
-        
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .social-links a {
-            color: white;
+            color: var(--gray-light);
             text-decoration: none;
-            padding: 0.5rem;
-            transition: color 0.3s ease;
-            font-size: 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--gray);
+            transition: all 0.3s;
         }
 
         .social-links a:hover {
-            color: grey;
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
-        
-        .section {
-            padding-top: 80px; /* Match navbar height plus some padding */
-        background: black;
-
-
-    }
-
-    .article-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0; /* Remove the padding to let image go edge-to-edge */
-    }
-
-    .article-image {
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-        width: 100%;
-    }
-
-    .featured-image {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    .article-header {
-        text-align: center;
-        margin: 2rem;
-    }
-
-    .article-meta {
-    font-size: 0.9rem;
-    color: #aaa;
-    text-align: center;
-    margin-top: 1rem;      /* Space between header and meta info */
-    margin-bottom: 2rem;   /* Space between meta info and article content */
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.article-author {
-    font-weight: 500;
-}
-
-.article-date {
-    font-style: italic;
-}
-
-    .article-content {
-    padding: 0 2rem; /* Add padding to the content area only */
-}
-
-@media (max-width: 768px) {
-    .article-header {
-        margin: 1rem;
-    }
-    
-    .article-content {
-        padding: 0 1rem;
-    }
-}
-
-.article-image img {
-            max-width: 60%; /* Adjust this value to control the image size */
-            height: auto;
-            display: block;
-            margin: 0 auto; /* Center the image */
+        /* Reading Progress Bar */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--accent);
+            z-index: 1001;
+            transition: width 0.3s ease;
         }
 
-        /* Ensure content starts below fixed navbar */
-.section {
-    padding-top: 80px; /* Match navbar height */
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .featured-image {
+                max-height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--bg);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+                z-index: 1000;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .article-hero {
+                padding: 0 2rem;
+                margin-top: 100px;
+                min-height: 60vh;
+            }
+
+            .article-content {
+                padding: 0 2rem 4rem;
+            }
+
+            .featured-image {
+                max-height: 300px;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .final-transmission {
+                padding: 2rem;
+            }
+
+            .cursor, .cursor-follower {
+                display: none;
+            }
+
+            * {
+                cursor: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-hero {
+                margin-top: 80px;
+                min-height: 50vh;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .featured-image {
+                max-height: 250px;
+            }
+        }
+
+        /* Keep Reading Section */
+.keep-reading {
+    margin: 6rem 0 4rem;
+    padding: 4rem 0;
+    border-top: 1px solid rgba(255, 107, 53, 0.2);
+    border-bottom: 1px solid rgba(255, 107, 53, 0.2);
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .section {
-        padding-top: 60px; /* Smaller padding for mobile */
-    }
-    
-    .article-image {
-        margin-top: 2rem; /* Add space between navbar and image */
-    }
-    
-    /* Ensure navbar stays on top of everything */
-    .navbar {
-        z-index: 1000;
-    }
-    
-    .logo img {
-        width: 40px; /* Make mobile logo smaller */
-        height: 40px;
-    }
+.keep-reading-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
 }
 
-.article-container {
-    padding: 0 1rem; /* Add horizontal padding */
-}
-
-.article-content h1 {
+.keep-reading-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 2rem;
     text-align: center;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.keep-reading-subtitle {
+    text-align: center;
+    color: var(--gray-light);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.article-recommendations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.recommendation-card {
+    display: block;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.1);
+}
+
+.recommendation-image {
     width: 100%;
-    margin: 2rem 0; /* Optional: Adjust spacing as needed */
+    height: 180px;
+    overflow: hidden;
 }
 
+.recommendation-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.recommendation-card:hover .recommendation-image img {
+    transform: scale(1.05);
+}
+
+.recommendation-content {
+    padding: 1.5rem;
+}
+
+.category-tag {
+    display: inline-block;
+    background: rgba(255, 107, 53, 0.1);
+    color: var(--accent);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.recommendation-content h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+    color: var(--text);
+}
+
+.recommendation-content p {
+    color: var(--gray-light);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.read-more-link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.3s ease;
+}
+
+.recommendation-card:hover .read-more-link {
+    gap: 1rem;
+}
+
+.keep-reading-cta {
+    text-align: center;
+}
+
+.browse-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 1.2rem 2.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.browse-all-btn:hover {
+    background: var(--accent-light);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    /* Reset the fixed positioning of the logo on mobile */
-    .logo {
-        position: static; /* Keep it in the normal flow */
-        /* Or if needed within navbar: */
-        position: relative;
-        top: auto;
-        left: auto;
+    .keep-reading-container {
+        padding: 0 2rem;
     }
     
-    /* Adjust navbar height for mobile if needed */
-    .navbar {
-        height: auto;
-        min-height: 60px;
+    .article-recommendations {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
-    .nav-container {
-        height: auto;
-        min-height: 60px;
-        padding: 0.5rem 1rem; /* Slightly reduced padding */
-    }
-    
-    /* Ensure hamburger button stays within navbar */
-    .mobile-menu-btn {
-        position: relative; /* Position it relative to the nav-container */
-        top: auto;
-        right: auto;
+    .keep-reading-title {
+        font-size: 1.5rem;
     }
 }
 
+@media (max-width: 480px) {
+    .keep-reading {
+        margin: 4rem 0 3rem;
+        padding: 3rem 0;
+    }
+    
+    .keep-reading-container {
+        padding: 0 1.5rem;
+    }
+}
     </style>
 </head>
 <body>
-    <div class="grid-background"></div>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div class="reading-progress"></div>
 
-    <!-- Same navbar as index.html -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="images/VR_LOGO_1-removebg-preview.png" alt="Logo">
-                siphosenkosi
-            </a>
-            <button class="mobile-menu-btn">
-    <div class="menu-x">
-        <div class="menu-x-line"></div>
-        <div class="menu-x-line"></div>
-    </div>
-</button>   
-            <div class="nav-links">
-                
-                
-                <a href="journal.html">JOURNAL</a>
-                <a href="work.html">LAB</a>
-                
-            </div>
+    <nav>
+        <div class="logo">Siphosenkosi Mlotshwa</div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="blog.html">Digital Living</a>
+            <a href="work.html">Simulations</a>
+            <a href="journal.html">Codex</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
-    
-    
 
-    <section class="section">
-        <div class="article-container">
-            <div class="article-image">
-                <img src="images/Person_on_Geometric_Structure_with_Laptop-removebg-preview.png" alt="AI Brain" class="featured-image">
-            </div>
-            <div class="article-header">
-                <h1>The Edge of Forever: Are We Trapped in an Endless Loop of Reality?</h1>
-                
-                
-                <div class="article-meta">
-                    <span class="article-author">By Siphosenkosi Mlotshwa</span>
-                    <span class="article-date">Published: March 18, 2025</span>
-                </div>
-            </div>
 
-            
-
-            <div class="article-content">
-                <!-- Article content goes here -->
-                
-                
-                
-
-                <h2>The Horizon We Can Never Cross</h2>
-                <p>Carl Sagan once spoke of <strong>"the edge of forever,"</strong> a phrase that evokes both wonder and existential unease. It suggests that we are standing at the boundary of something <strong>vast, unknowable, and endless</strong>—a reality that stretches beyond our comprehension, forever receding no matter how far we reach.</p>
-            
-                <p>But what if this isn’t just poetic language? What if we are truly <strong>trapped in a system</strong>, cycling through infinite variations of existence, always searching for an exit that doesn’t exist?</p>
-            
-                <p>Every time we ask, <em>"What lies beyond?"</em>, we hit a wall. Is this because our minds are incapable of grasping the truth? Or because <strong>the nature of reality itself is structured to prevent us from ever leaving?</strong></p>
-            
-                <p>This article is an attempt to go as far as we can—pushing against the limits of knowledge, perception, and existence itself.</p>
-            
-                <h2>The Illusion of Discovery: Are We Just Running in Circles?</h2>
-                <p>At every level of reality, we find <strong>patterns, structures, and systems</strong> that seem to imply <strong>order</strong>—yet the deeper we dig, the more we realize we are simply uncovering <strong>another layer of the same thing</strong>.</p>
-            
-                <ul>
-                    <li><strong>Physics</strong> breaks reality into atoms, then subatomic particles, then quantum fields, but at some point, we hit a wall—what’s <em>beyond</em> the smallest known scale?</li>
-                    <li><strong>Space</strong> expands into galaxies, superclusters, and cosmic voids, but what happens if we keep zooming out? Is there ever an “outside” to the universe?</li>
-                    <li><strong>Consciousness</strong> seems to emerge from neurons, then from networks of neurons, but are we just looking at <strong>the code of a larger system</strong>, mistaking it for free will?</li>
-                </ul>
-            
-                <p>Every answer leads to <strong>another question</strong>. Every revelation only reveals <strong>another barrier</strong>.</p>
-            
-                <p>Could it be that <strong>we are designed never to break free?</strong> That the very structure of reality is built to <strong>redirect us into another loop, another simulation, another mystery</strong>, never reaching an end?</p>
-            
-                <h2>The Simulation Within a Simulation: Is There an Exit?</h2>
-                <p>If reality is just <strong>a system of information</strong>, then it can, theoretically, be simulated. And if it can be simulated, then it stands to reason that <strong>our current existence could already be inside a simulation</strong>.</p>
-            
-                <p>This leads to <strong>a terrifying realization</strong>—if we are in a simulation, then the creators of this reality might <strong>also</strong> be inside a simulation. And their creators could be inside <strong>another</strong>.</p>
-            
-                <p>What if <strong>there is no base reality?</strong></p>
-            
-                <p>Instead of being trapped inside <em>one</em> system, we could be caught inside <strong>a never-ending chain of nested simulations</strong>, each one believing they are real while actually existing inside another constructed world.</p>
-            
-                <p>And if there is no way to distinguish between <strong>a real world and a simulation</strong>, then the very concept of "real" begins to collapse.</p>
-            
-                <h2>The Limits of Knowledge: What If We Are Meant to Stay Inside?</h2>
-                <p>Every time humans have reached <strong>a new frontier</strong>, we have believed that we were close to <em>final knowledge</em>.</p>
-            
-                <ul>
-                    <li><strong>Newtonian physics</strong> made us think we had explained motion—until quantum mechanics shattered that illusion.</li>
-                    <li><strong>Einstein’s relativity</strong> made us think we understood time—until new discoveries hinted that time might not even be real.</li>
-                    <li><strong>AI and neuroscience</strong> are now making us question whether consciousness is just an algorithm, or something beyond computation.</li>
-                </ul>
-            
-                <p>Each time we push <strong>past the limits</strong>, new walls appear.</p>
-            
-                <p><strong>What if this is intentional?</strong></p>
-            
-                <p>What if we are inside <strong>a system that is coded to generate infinite frontiers</strong>—a reality that ensures we are <strong>always discovering</strong>, but <strong>never escaping</strong>?</p>
-            
-                <p>Like a <strong>highly advanced simulation designed for exploration</strong>, it <strong>expands dynamically</strong>, creating new mysteries as soon as old ones are solved.</p>
-            
-                <p>Perhaps <strong>we are not meant to reach the "edge"</strong>—because the edge isn’t real.</p>
-            
-                <h2>Breaking the Loop: Is There a Way Out?</h2>
-                <p>If we are inside <strong>a self-replicating system</strong>, then how do we break free?</p>
-            
-                <p>If reality is an illusion, then the first step is recognizing that <strong>we are inside something</strong>. But then what?</p>
-            
-                <ul>
-                    <li><strong>Some spiritual traditions</strong> say the way out is "awakening"—but even enlightenment may just be another level of the illusion.</li>
-                    <li><strong>Science</strong> searches for the Theory of Everything—but what if "everything" is just a construct within the simulation?</li>
-                    <li><strong>Technology</strong> pushes toward AI, transhumanism, and digital immortality—but are we just evolving into deeper layers of the trap?</li>
-                </ul>
-            
-                <p>Maybe the answer is <strong>not to seek an escape at all</strong>—but instead to <strong>embrace the infinite</strong>, knowing that the search itself is part of the experience.</p>
-            
-                <h2>The Edge That Isn’t There</h2>
-                <p>Perhaps Carl Sagan was right—we are at the <em>edge of forever</em>, not because we are close to escaping, but because <strong>forever is the system itself</strong>.</p>
-            
-                <p>We stand on a threshold that always moves forward, always stretches further, always keeps us questioning.</p>
-            
-                <p><strong>Maybe there is no exit.</strong></p>
-            
-                <p><strong>Maybe we were never meant to leave.</strong></p>
-            
-                <p><strong>Or maybe, just maybe, the moment we stop searching for an edge is the moment we finally break through.</strong></p>
-            
-    
-    
+    <section class="article-hero">
+        <div class="article-hero-content">
+            <h1 class="article-title">The Edge of Forever: Are We Trapped in an Endless Loop of Reality?</h1>
+            <p class="article-subtitle">Exploring the limits of knowledge and the illusion of being trapped in a system</p>
+            <div class="article-meta">
+                <span><i class="fas fa-user"></i> Siphosenkosi Mlotshwa</span>
+                <span><i class="fas fa-calendar-alt"></i> March 18, 2025</span>
+                <span><i class="fas fa-clock"></i> 6 min read</span>
             </div>
         </div>
     </section>
 
-    <!-- Same footer -->
-    <footer>
-        <!-- Your existing footer content -->
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h3></h3>
-                    <p></p>
-                    <div class="social-links">
+    <div class="featured-image-container">
+        <img src="blog/loop.jpg" alt="Person on Geometric Structure with Laptop" class="featured-image" loading="lazy">
+    </div>
 
-                     
-                        <a href="https://instagram.com/1heavy0"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:siphosenkosi.m@yahoo.com"><i class="fas fa-envelope"></i></a>                    </div>
-                    
-                </div>
-                
-                
+    <article class="article-content">
+        <div class="concept-block">
+            <p>Carl Sagan once spoke of <strong>"the edge of forever,"</strong> a phrase that evokes both wonder and existential unease. It suggests that we are standing at the boundary of something <strong>vast, unknowable, and endless</strong>—a reality that stretches beyond our comprehension, forever receding no matter how far we reach.</p>
+        </div>
+
+        <h2>The Horizon We Can Never Cross</h2>
+        <p>But what if this isn't just poetic language? What if we are truly <strong>trapped in a system</strong>, cycling through infinite variations of existence, always searching for an exit that doesn't exist?</p>
+        
+        <div class="highlight">
+            <p>Every time we ask, <em>"What lies beyond?"</em>, we hit a wall. Is this because our minds are incapable of grasping the truth? Or because <strong>the nature of reality itself is structured to prevent us from ever leaving?</strong></p>
+        </div>
+        
+        <p>This article is an attempt to go as far as we can—pushing against the limits of knowledge, perception, and existence itself.</p>
+
+        <h2>The Illusion of Discovery: Are We Just Running in Circles?</h2>
+        <p>At every level of reality, we find <strong>patterns, structures, and systems</strong> that seem to imply <strong>order</strong>—yet the deeper we dig, the more we realize we are simply uncovering <strong>another layer of the same thing</strong>.</p>
+        
+        <div class="concept-block">
+            <div class="concept-title">The Infinite Layers of Reality</div>
+            <ul>
+                <li><strong>Physics</strong> breaks reality into atoms, then subatomic particles, then quantum fields, but at some point, we hit a wall—what's <em>beyond</em> the smallest known scale?</li>
+                <li><strong>Space</strong> expands into galaxies, superclusters, and cosmic voids, but what happens if we keep zooming out? Is there ever an "outside" to the universe?</li>
+                <li><strong>Consciousness</strong> seems to emerge from neurons, then from networks of neurons, but are we just looking at <strong>the code of a larger system</strong>, mistaking it for free will?</li>
+            </ul>
+        </div>
+        
+        <p>Every answer leads to <strong>another question</strong>. Every revelation only reveals <strong>another barrier</strong>.</p>
+        
+        <div class="highlight">
+            <p>Could it be that <strong>we are designed never to break free?</strong> That the very structure of reality is built to <strong>redirect us into another loop, another simulation, another mystery</strong>, never reaching an end?</p>
+        </div>
+
+        <h2>The Simulation Within a Simulation: Is There an Exit?</h2>
+        <p>If reality is just <strong>a system of information</strong>, then it can, theoretically, be simulated. And if it can be simulated, then it stands to reason that <strong>our current existence could already be inside a simulation</strong>.</p>
+        
+        <p>This leads to <strong>a terrifying realization</strong>—if we are in a simulation, then the creators of this reality might <strong>also</strong> be inside a simulation. And their creators could be inside <strong>another</strong>.</p>
+        
+        <div class="quote">
+            What if <strong>there is no base reality?</strong>
+        </div>
+        
+        <p>Instead of being trapped inside <em>one</em> system, we could be caught inside <strong>a never-ending chain of nested simulations</strong>, each one believing they are real while actually existing inside another constructed world.</p>
+        
+        <div class="concept-block">
+            <div class="concept-title">The Simulation Paradox</div>
+            <ul>
+                <li>If there is no way to distinguish between <strong>a real world and a simulation</strong>, then the very concept of "real" begins to collapse</li>
+                <li>Each simulation could be running its own nested simulations, creating infinite recursion</li>
+                <li>The search for an "original" reality becomes meaningless in an infinite regress</li>
+            </ul>
+        </div>
+
+        <h2>The Limits of Knowledge: What If We Are Meant to Stay Inside?</h2>
+        <p>Every time humans have reached <strong>a new frontier</strong>, we have believed that we were close to <em>final knowledge</em>.</p>
+        
+        <div class="concept-block">
+            <div class="concept-title">The Shifting Frontiers of Knowledge</div>
+            <ul>
+                <li><strong>Newtonian physics</strong> made us think we had explained motion—until quantum mechanics shattered that illusion</li>
+                <li><strong>Einstein's relativity</strong> made us think we understood time—until new discoveries hinted that time might not even be real</li>
+                <li><strong>AI and neuroscience</strong> are now making us question whether consciousness is just an algorithm, or something beyond computation</li>
+            </ul>
+        </div>
+        
+        <p>Each time we push <strong>past the limits</strong>, new walls appear.</p>
+        
+        <div class="highlight">
+            <p><strong>What if this is intentional?</strong></p>
+        </div>
+        
+        <p>What if we are inside <strong>a system that is coded to generate infinite frontiers</strong>—a reality that ensures we are <strong>always discovering</strong>, but <strong>never escaping</strong>?</p>
+        
+        <div class="quote">
+            Like a <strong>highly advanced simulation designed for exploration</strong>, it <strong>expands dynamically</strong>, creating new mysteries as soon as old ones are solved.
+        </div>
+        
+        <p>Perhaps <strong>we are not meant to reach the "edge"</strong>—because the edge isn't real.</p>
+
+        <h2>Breaking the Loop: Is There a Way Out?</h2>
+        <p>If we are inside <strong>a self-replicating system</strong>, then how do we break free?</p>
+        
+        <p>If reality is an illusion, then the first step is recognizing that <strong>we are inside something</strong>. But then what?</p>
+        
+        <div class="concept-block">
+            <div class="concept-title">Possible Escape Routes</div>
+            <ul>
+                <li><strong>Some spiritual traditions</strong> say the way out is "awakening"—but even enlightenment may just be another level of the illusion</li>
+                <li><strong>Science</strong> searches for the Theory of Everything—but what if "everything" is just a construct within the simulation?</li>
+                <li><strong>Technology</strong> pushes toward AI, transhumanism, and digital immortality—but are we just evolving into deeper layers of the trap?</li>
+            </ul>
+        </div>
+        
+        <div class="highlight">
+            <p>Maybe the answer is <strong>not to seek an escape at all</strong>—but instead to <strong>embrace the infinite</strong>, knowing that the search itself is part of the experience.</p>
+        </div>
+
+        <h2>The Edge That Isn't There</h2>
+        <p>Perhaps Carl Sagan was right—we are at the <em>edge of forever</em>, not because we are close to escaping, but because <strong>forever is the system itself</strong>.</p>
+        
+        <p>We stand on a threshold that always moves forward, always stretches further, always keeps us questioning.</p>
+        
+        <div class="principles-grid">
+            <div class="principle-card">
+                <div class="principle-number">01</div>
+                <div class="principle-text">Maybe there is no exit</div>
             </div>
+            <div class="principle-card">
+                <div class="principle-number">02</div>
+                <div class="principle-text">Maybe we were never meant to leave</div>
+            </div>
+            <div class="principle-card">
+                <div class="principle-number">03</div>
+                <div class="principle-text">Or maybe the moment we stop searching is the moment we break through</div>
+            </div>
+        </div>
+
+        <div class="final-transmission">
+            <h3 class="final-title">EPILOGUE: BEYOND THE EDGE</h3>
+            <p class="transmission-text">The edge of forever isn't a place we can reach—it's the boundary of our own understanding.</p>
+            
+            <p class="call-to-action">
+                Stop trying to escape the loop.<br>
+                Start exploring its infinite depth.
+            </p>
+            
+            <p class="transmission-text">
+                <strong>What if the prison isn't the system itself,<br>
+                but our belief that we need to escape it?<br>
+                What if freedom isn't breaking through the walls,<br>
+                but realizing the walls were never there?</strong>
+            </p>
+            
+            <p class="call-to-action">
+                The edge moves as we do.<br>
+                Forever is now.
+            </p>
+        </div>
+
+
+        <!-- Keep Reading Section -->
+<section class="keep-reading">
+    <div class="keep-reading-container">
+        <h3 class="keep-reading-title">Continue Your Journey</h3>
+        <p class="keep-reading-subtitle">Dive deeper into the nature of reality and consciousness</p>
+        
+        <div class="article-recommendations">
+            <a href="reality-as-an-algorithm.html" class="recommendation-card">
+                <div class="recommendation-image">
+                    <img src="blog/algo.jpg" alt="Reality as an Algorithm">
+                </div>
+                <div class="recommendation-content">
+                    <span class="category-tag">Reality</span>
+                    <h4>Reality as an Algorithm</h4>
+                    <p>Exploring how computational processes shape our perceived reality</p>
+                    <div class="read-more-link">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="last-illusion.html" class="recommendation-card">
+                <div class="recommendation-image">
+                    <img src="blog/handy.jpg" alt="The Dissolution of Self">
+                </div>
+                <div class="recommendation-content">
+                    <span class="category-tag">Reality</span>
+                    <h4>The Dissolution of Self</h4>
+                    <p></p>
+                    <div class="read-more-link">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="glitch-effect.html" class="recommendation-card">
+                <div class="recommendation-image">
+                    <img src="blog/newGLITCH.jpg" alt="The Glitch Effect">
+                </div>
+                <div class="recommendation-content">
+                    <span class="category-tag">Psychedelics</span>
+                    <h4>The Glitch Effect</h4>
+                    <p></p>
+                    <div class="read-more-link">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="keep-reading-cta">
+            <a href="journal.html" class="browse-all-btn">
+                <i class="fas fa-book-open"></i>
+                Browse All Articles
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    </article>
+
+    <footer>
+        <p>© 2025 Siphosenkosi Mlotshwa. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://instagram.com/1heavy0">Instagram</a>
+            <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/">LinkedIn</a>
+            <a href="mailto:siphosenkosi.m@yahoo.com">Email</a>
         </div>
     </footer>
 
-    <!-- Include your existing scripts -->
     <script>
-       // Wait for DOM to be fully loaded before running any code
-document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
-    const navbar = document.querySelector('.navbar');
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
 
-    // Navigation scroll effect
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Toggle between hamburger and close icon
+            const icon = mobileMenuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
 
-    // Mobile menu toggle
-    mobileMenuBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    const wasActive = navLinks.classList.contains('active');
-    
-    // Toggle classes
-    navLinks.classList.toggle('active');
-    mobileMenuBtn.classList.toggle('active');
-    document.body.classList.toggle('blur-active');
-
-    // Electric animation
-    const sparks = document.createElement('div');
-    sparks.style.cssText = `
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        width: 50px;
-        height: 50px;
-        border-radius: 5px;
-        box-shadow: 0 0 15px #00ff9d;
-        animation: electric 0.3s linear;
-        pointer-events: none;
-    `;
-    document.body.appendChild(sparks);
-    setTimeout(() => sparks.remove(), 300);
-});
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            navLinks.classList.remove('active');
-        }
-    });
-
-    // Modal Functions
-    function openResumeModal() {
-        document.getElementById('resumeModal').style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeResumeModal() {
-        document.getElementById('resumeModal').style.display = 'none';
-        document.body.style.overflow = '';
-    }
-
-    function openCertModal() {
-        document.getElementById('certModal').style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeCertModal() {
-        document.getElementById('certModal').style.display = 'none';
-        document.body.style.overflow = '';
-    }
-
-    
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Close mobile menu if open
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-            }
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
         });
-    });
 
-    // Close modals when clicking outside
-    window.addEventListener('click', (e) => {
-        const modals = document.querySelectorAll('.modal, .doc-modal, .blog-modal');
-        modals.forEach(modal => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
-            }
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            }, 100);
         });
-    });
 
-    
+        // Hover effects
+        const hoverElements = document.querySelectorAll('a, .concept-block, .highlight');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(1.5)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+            });
+        });
 
-    // Make functions globally available
-    window.openResumeModal = openResumeModal;
-    window.closeResumeModal = closeResumeModal;
-    window.openCertModal = openCertModal;
-    window.closeCertModal = closeCertModal;
-    window.openBlogModal = openBlogModal;
-    window.closeBlogModal = closeBlogModal;
-    window.openPricingModal = openPricingModal;
-    window.closePricingModal = closePricingModal;
-    window.sendEmail = sendEmail;
-    window.sendPricingEmail = sendPricingEmail;
-});
+        // Reading progress bar
+        const progressBar = document.querySelector('.reading-progress');
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Fade in animation for content
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.concept-block, .highlight, .quote, .final-transmission').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
