@@ -111,7 +111,7 @@
             align-items: center;
             padding: 0 2rem;
             margin-top: 100px;
-            max-width: 800px;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
             text-align: center;
@@ -135,27 +135,34 @@
             margin: 0 auto;
         }
 
+        /* Contact Layout */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            width: 100%;
+            margin-bottom: 4rem;
+        }
+
         /* Contact Methods */
         .contact-methods {
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            width: 100%;
-            max-width: 500px;
-            margin-bottom: 4rem;
+            text-align: left;
         }
 
         .contact-method {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             padding: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             text-decoration: none;
             color: inherit;
             transition: all 0.3s ease;
-            text-align: center;
+            height: 100%;
         }
 
         .contact-method:hover {
@@ -165,14 +172,14 @@
         }
 
         .method-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: rgba(255, 107, 53, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--accent);
             margin-bottom: 1.5rem;
             transition: all 0.3s ease;
@@ -188,14 +195,14 @@
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            text-align: center;
+            text-align: left;
         }
 
         .method-text p {
             font-size: 0.95rem;
             color: var(--gray-light);
             margin-bottom: 1rem;
-            text-align: center;
+            text-align: left;
         }
 
         .method-cta {
@@ -208,10 +215,127 @@
             align-items: center;
             gap: 0.5rem;
             transition: transform 0.3s ease;
+            margin-top: auto;
         }
 
         .contact-method:hover .method-cta {
             transform: translateX(5px);
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: left;
+        }
+
+        .contact-form-container h2 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-light);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #2a2a2a;
+            color: var(--text);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border-radius: 6px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 107, 53, 0.05);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            border: none;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            border-radius: 6px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-light);
+            transition: left 0.3s;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .form-status {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 6px;
+            display: none;
+            text-align: center;
+        }
+
+        .form-status.success {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            color: #4CAF50;
+            display: block;
+        }
+
+        .form-status.error {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+            color: #f44336;
+            display: block;
         }
 
         /* Footer */
@@ -224,6 +348,12 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .contact-layout {
+                gap: 3rem;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 padding: 1.5rem 2rem;
@@ -267,9 +397,18 @@
                 margin-bottom: 3rem;
             }
 
-            .contact-methods {
-                gap: 1.5rem;
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
                 margin-bottom: 3rem;
+            }
+
+            .contact-methods {
+                order: 2;
+            }
+
+            .contact-form-container {
+                order: 1;
             }
         }
 
@@ -282,14 +421,14 @@
                 font-size: 1.1rem;
             }
 
-            .contact-method {
+            .contact-method, .contact-form-container {
                 padding: 1.5rem;
             }
 
             .method-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
             }
 
             .method-text h3 {
@@ -320,61 +459,117 @@
     <main class="contact-container">
         <div class="contact-header">
             <h1>Get in Touch</h1>
-            <p>Open to collaborations, projects, and conversations.</p>
+            <p>Open to collaborations, projects, and conversations about technology, design, and consciousness.</p>
         </div>
 
-        <div class="contact-methods">
-            <a href="mailto:siphosenkosi.m@yahoo.com" class="contact-method">
-                <div class="method-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <div class="method-text">
-                    <h3>Email</h3>
-                    <p>For project inquiries and collaborations</p>
-                </div>
-                <div class="method-cta">
-                    Send Message <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
+        <div class="contact-layout">
+            <div class="contact-methods">
+                <a href="mailto:siphosenkosi.m@yahoo.com" class="contact-method">
+                    <div class="method-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="method-text">
+                        <h3>Email</h3>
+                        <p>For project inquiries and collaborations</p>
+                    </div>
+                    <div class="method-cta">
+                        Send Message <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
 
-            <a href="https://instagram.com/1heavy0" class="contact-method">
-                <div class="method-icon">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <div class="method-text">
-                    <h3>Instagram</h3>
-                    <p>Visual thoughts and creative moments</p>
-                </div>
-                <div class="method-cta">
-                    Follow <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
+                <a href="https://instagram.com/1heavy0" class="contact-method">
+                    <div class="method-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="method-text">
+                        <h3>Instagram</h3>
+                        <p>Visual thoughts and creative moments</p>
+                    </div>
+                    <div class="method-cta">
+                        Follow <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
 
-            <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/" class="contact-method">
-                <div class="method-icon">
-                    <i class="fab fa-linkedin"></i>
-                </div>
-                <div class="method-text">
-                    <h3>LinkedIn</h3>
-                    <p>Professional work and connections</p>
-                </div>
-                <div class="method-cta">
-                    Connect <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
+                <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/" class="contact-method">
+                    <div class="method-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="method-text">
+                        <h3>LinkedIn</h3>
+                        <p>Professional work and connections</p>
+                    </div>
+                    <div class="method-cta">
+                        Connect <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
 
-            <a href="https://www.threads.com/@1heavy0" class="contact-method">
-                <div class="method-icon">
-                    <i class="fas fa-comments"></i>
-                </div>
-                <div class="method-text">
-                    <h3>Threads</h3>
-                    <p>Conversations and extended thoughts</p>
-                </div>
-                <div class="method-cta">
-                    Join Conversation <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
+                <a href="https://www.threads.com/@1heavy0" class="contact-method">
+                    <div class="method-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="method-text">
+                        <h3>Threads</h3>
+                        <p>Conversations and extended thoughts</p>
+                    </div>
+                    <div class="method-cta">
+                        Join Conversation <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="contact-form-container">
+                <h2>Send a Message</h2>
+                <!-- Netlify Forms Configuration -->
+                <form 
+                    class="contact-form" 
+                    id="contactForm" 
+                    name="contact" 
+                    method="POST" 
+                    netlify
+                    netlify-honeypot="bot-field"
+                    data-netlify="true"
+                >
+                    <!-- Hidden honeypot field for spam protection -->
+                    <input type="hidden" name="form-name" value="contact" />
+                    <p class="hidden">
+                        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                    </p>
+                    
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" class="form-control" required>
+                            <option value="" disabled selected>Select a subject</option>
+                            <option value="collaboration">Project Collaboration</option>
+                            <option value="web-design">Web/App Design</option>
+                            <option value="brand-work">Brand Collaboration</option>
+                            <option value="consultation">Consultation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control" required placeholder="Tell me about your project or idea..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                    
+                    <div class="form-status" id="formStatus"></div>
+                </form>
+            </div>
         </div>
     </main>
 
@@ -408,6 +603,97 @@
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             });
+        });
+
+        // Netlify Forms handling
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        
+        // Hide the honeypot field
+        const hiddenField = document.querySelector('.hidden');
+        if (hiddenField) {
+            hiddenField.style.display = 'none';
+        }
+
+        // Handle form submission with Netlify
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !email || !subject || !message) {
+                showStatus('Please fill in all fields.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Netlify will handle the form submission automatically
+                // We're just adding a success message for better UX
+                const response = await fetch('/', {
+                    method: 'POST',
+                    body: new URLSearchParams(new FormData(contactForm)).toString(),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                });
+                
+                if (response.ok) {
+                    showStatus('Thank you for your message! I\'ll get back to you soon.', 'success');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                showStatus('There was an error sending your message. Please try again or email me directly.', 'error');
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+        
+        function showStatus(message, type) {
+            formStatus.textContent = message;
+            formStatus.className = 'form-status ' + type;
+            
+            // Hide status after 5 seconds
+            setTimeout(() => {
+                formStatus.style.display = 'none';
+            }, 5000);
+        }
+
+        // Add some subtle animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe form and contact methods for animation
+        document.querySelectorAll('.contact-method, .contact-form-container').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
