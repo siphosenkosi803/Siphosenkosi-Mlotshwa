@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Privacy as Cognitive Freedom - Siphosenkosi Mlotshwa</title>
+    <meta name="description" content="Exploring privacy as mental real estate - the quiet room where thought learns to breathe">
+    <link rel="icon" type="image/x-icon" href="images/ico_logo.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --text: #e8e8e8;
+            --accent: #ff6b35;
+            --accent-light: #ff8c61;
+            --gray: #6b6b6b;
+            --gray-light: #a3a3a3;
+        }
+
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Cursor */
+        * {
+            cursor: none;
+        }
+
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.15s ease;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(10,10,10,0.95) 0%, transparent 100%);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gray-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Article Hero Section */
+        .article-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 4rem;
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .article-hero-content {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .article-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .article-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            font-size: 0.9rem;
+            color: var(--gray-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Featured Image */
+        .featured-image-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            filter: grayscale(0.3);
+            transition: filter 0.5s ease;
+        }
+
+        .featured-image:hover {
+            filter: grayscale(0);
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 4rem 6rem;
+        }
+
+        .article-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.8rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .article-content h2 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.8rem;
+            margin: 3rem 0 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .article-content h3 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.4rem;
+            margin: 2.5rem 0 1rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .highlight {
+            background: rgba(255, 107, 53, 0.1);
+            border-left: 3px solid var(--accent);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .quote {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            color: var(--accent);
+            position: relative;
+        }
+
+        .quote::before,
+        .quote::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent);
+            opacity: 0.5;
+            position: absolute;
+        }
+
+        .quote::before {
+            top: 0;
+            left: 0;
+        }
+
+        .quote::after {
+            bottom: 0;
+            right: 0;
+        }
+
+        .concept-block {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .concept-block:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .concept-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .concept-block ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .concept-block li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        /* Final Transmission Section */
+        .final-transmission {
+            background: rgba(255, 107, 53, 0.05);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            padding: 3rem;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-transmission::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(255, 107, 53, 0.03) 100%);
+            z-index: -1;
+        }
+
+        .final-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        .transmission-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .call-to-action {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--accent);
+            margin: 2rem 0;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 4rem;
+            border-top: 1px solid #1a1a1a;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--gray);
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Reading Progress Bar */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--accent);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        /* Keep Reading Section */
+        .keep-reading {
+            margin: 6rem 0 4rem;
+            padding: 4rem 0;
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .keep-reading-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        .keep-reading-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .keep-reading-subtitle {
+            text-align: center;
+            color: var(--gray-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .article-recommendations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .recommendation-card {
+            display: block;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.1);
+        }
+
+        .recommendation-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .recommendation-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .recommendation-card:hover .recommendation-image img {
+            transform: scale(1.05);
+        }
+
+        .recommendation-content {
+            padding: 1.5rem;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .recommendation-content h4 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            color: var(--text);
+        }
+
+        .recommendation-content p {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more-link {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .recommendation-card:hover .read-more-link {
+            gap: 1rem;
+        }
+
+        .keep-reading-cta {
+            text-align: center;
+        }
+
+        .browse-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--accent);
+            color: var(--bg);
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-family: 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .browse-all-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .featured-image {
+                max-height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--bg);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+                z-index: 1000;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .article-hero {
+                padding: 0 2rem;
+                margin-top: 100px;
+                min-height: 60vh;
+            }
+
+            .article-content {
+                padding: 0 2rem 4rem;
+            }
+
+            .featured-image {
+                max-height: 300px;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .final-transmission {
+                padding: 2rem;
+            }
+
+            .cursor, .cursor-follower {
+                display: none;
+            }
+
+            * {
+                cursor: auto;
+            }
+
+            .keep-reading-container {
+                padding: 0 2rem;
+            }
+            
+            .article-recommendations {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .keep-reading-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-hero {
+                margin-top: 80px;
+                min-height: 50vh;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .featured-image {
+                max-height: 250px;
+            }
+
+            .keep-reading {
+                margin: 4rem 0 3rem;
+                padding: 3rem 0;
+            }
+            
+            .keep-reading-container {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div class="reading-progress"></div>
+
+    <nav>
+        <div class="logo">Siphosenkosi Mlotshwa</div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="blog.html">Digital Living</a>
+            <a href="work.html">Simulations</a>
+            <a href="journal.html">Codex</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <section class="article-hero">
+        <div class="article-hero-content">
+            <h1 class="article-title">Digital Privacy as Cognitive Freedom</h1>
+            <p class="article-subtitle">Exploring privacy as mental real estate - the quiet room where thought learns to breathe</p>
+            <div class="article-meta">
+                <span><i class="fas fa-user"></i> Siphosenkosi Mlotshwa</span>
+                <span><i class="fas fa-calendar-alt"></i> October 16, 2025</span>
+                <span><i class="fas fa-clock"></i> 7 min read</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="featured-image-container">
+        <img src="blog/privacy.jpg" alt="Digital Privacy" class="featured-image" loading="lazy">
+    </div>
+
+    <article class="article-content">
+        <div class="quote">
+            <p>"Privacy is not secrecy. It is spaciousness — the quiet room where thought learns to breathe."</p>
+        </div>
+
+        <h2>The Unseen Cost of Exposure</h2>
+        <p>Every day, we exchange fragments of ourselves for connection. A click here, a scroll there — small offerings to the collective hum of the network. Yet in this continuous gesture of sharing, something dissolves: the quiet interior of thought, the capacity to know where we end and the world begins.</p>
+        
+        <p>Privacy is often spoken of in terms of security — passwords, encryption, firewalls. But beneath that architecture lies something more subtle, more human: the right to mental solitude.</p>
+        
+        <p>In the same way a home shelters the body, digital privacy shelters the mind. It creates boundaries where reflection can occur — unobserved, unoptimized, unscored.</p>
+
+        <h2>The Fracturing of Attention</h2>
+        <p>Our minds now exist across countless open tabs — half here, half elsewhere. The algorithmic gaze follows not just what we do, but how we think, shaping curiosity into predictable loops.</p>
+        
+        <div class="concept-block">
+            <div class="concept-title">The cost isn't just data; it's cognitive compression:</div>
+            <ul>
+                <li>We become less spontaneous, less original, less capable of depth</li>
+                <li>When everything is seen, nothing has time to form fully</li>
+                <li>We forget that creativity and insight are born in privacy</li>
+            </ul>
+        </div>
+        
+        <div class="highlight">
+            <p>"The modern mind, constantly exposed, becomes a glass house. And glass, though transparent, is fragile."</p>
+        </div>
+
+        <h2>Privacy as Mental Real Estate</h2>
+        <p>Let's redefine privacy: not as a digital fortress, but as mental real estate — space to inhabit your own consciousness without surveillance or interruption.</p>
+        
+        <div class="concept-block">
+            <div class="concept-title">Dimensions of Cognitive Freedom</div>
+            <ul>
+                <li><strong>Spatial Privacy:</strong> the physical and digital environments where no alerts, pings, or expectations intrude</li>
+                <li><strong>Temporal Privacy:</strong> unfragmented stretches of time where attention belongs solely to the present</li>
+                <li><strong>Emotional Privacy:</strong> the right to feel without broadcasting, to metabolize emotion before narration</li>
+                <li><strong>Cognitive Privacy:</strong> the freedom to think in unpolished drafts — raw, imperfect, alive</li>
+            </ul>
+        </div>
+        
+        <p>Together, these form the architecture of cognitive freedom — the ability to think, feel, and choose without being nudged by invisible code.</p>
+
+        <h2>Reclaiming the Inner Room</h2>
+        
+        <h3>Principle 1: Guard the Threshold of Attention</h3>
+        <p>Begin by identifying your mental entry points — the moments when your attention is most vulnerable.</p>
+        
+        <p>Disable non-essential notifications. Move social apps off your home screen. Create short "off-grid" hours each day where no signal can reach you.</p>
+        
+        <p>These are not acts of disconnection but of reclamation — small restorations of mental boundaries in an era of perpetual access.</p>
+        
+        <h3>Principle 2: Design Digital Rituals of Solitude</h3>
+        <p>Just as the body needs darkness to sleep, the mind needs solitude to think. Each day, curate spaces where nothing is shared or performed.</p>
+        
+        <div class="concept-block">
+            <div class="concept-title">Rituals of Solitude</div>
+            <ul>
+                <li>A silent morning journal on paper</li>
+                <li>A walk without your phone</li>
+                <li>Closing your laptop for five minutes before beginning something meaningful</li>
+            </ul>
+        </div>
+        
+        <p>Such rituals are like airlocks — transitional chambers between the outer world and your inner one.</p>
+        
+        <h3>Principle 3: Relearn the Joy of Obscurity</h3>
+        <p>To be unseen is not to be irrelevant. In fact, obscurity is fertile ground — a creative ecosystem where unobserved thoughts evolve into original insight.</p>
+        
+        <p>Allow some of your life to remain undocumented, unoptimized, untracked. Let parts of your consciousness belong only to you.</p>
+
+        <h2>Silence as a Boundary</h2>
+        <p>Try this: once a week, design a "private hour." A window where you disconnect from all forms of input — no messages, no feeds, no metrics.</p>
+        
+        <div class="concept-block">
+            <div class="concept-title">The Private Hour Practice</div>
+            <ul>
+                <li>Sit in the quiet room of your mind</li>
+                <li>Let thoughts drift without agenda</li>
+                <li>Notice what returns when the noise subsides</li>
+                <li>Rediscover the subtler textures of intuition</li>
+            </ul>
+        </div>
+        
+        <p>Privacy, in this sense, is not withdrawal — it's recalibration.</p>
+        
+        <div class="highlight">
+            <p>"Silence is the final encryption."</p>
+        </div>
+
+        <h2>The New Luxury of Solitude</h2>
+        <p>In the near future, privacy will be the rarest form of wealth. As technology grows more intimate — embedded in our homes, our bodies, our thoughts — the ability to opt out will define personal sovereignty.</p>
+        
+        <p>Digital minimalism won't just be aesthetic; it will be ethical. Owning your data will mean owning your mind.</p>
+        
+        <p>The next evolution of conscious living will not be about faster access, but selective absence — learning when to disconnect so that awareness can expand inward again.</p>
+
+        <div class="final-transmission">
+            <h3 class="final-title">EPILOGUE: BEYOND SURVEILLANCE</h3>
+            <p class="transmission-text">The most radical possibility isn't that we need more privacy—it's that we need better privacy.</p>
+            
+            <p class="call-to-action">
+                Reclaim your mental space.<br>
+                Honor the architecture of thought.
+            </p>
+            
+            <p class="transmission-text">
+                <strong>What if privacy isn't about hiding from the world<br>
+                but about creating space for your inner world?<br>
+                What if we're not just protecting data—we're protecting consciousness?</strong>
+            </p>
+            
+            <p class="call-to-action">
+                The quiet room is not empty.<br>
+                It is where thought learns to breathe.
+            </p>
+        </div>
+
+        <!-- Keep Reading Section -->
+        <section class="keep-reading">
+            <div class="keep-reading-container">
+                <h3 class="keep-reading-title">Continue Your Journey</h3>
+                <p class="keep-reading-subtitle">Explore more about conscious digital living</p>
+                
+                <div class="article-recommendations">
+                    <a href="sleep-architecture.html" class="recommendation-card">
+                        <div class="recommendation-image">
+                            <img src="blog/sleep1.jpg" alt="Sleep Architecture">
+                        </div>
+                        <div class="recommendation-content">
+                            <span class="category-tag">Biohacking</span>
+                            <h4>The Architecture of Optimal Sleep</h4>
+                            <p>Exploring sleep as conscious architecture - a living system that rebuilds the mind each night</p>
+                            <div class="read-more-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    
+                    
+                    <a href="conscious-travel.html" class="recommendation-card">
+                        <div class="recommendation-image">
+                            <img src="blog/nomad.jpg" alt="Digital Nomad">
+                        </div>
+                        <div class="recommendation-content">
+                            <span class="category-tag">Travel Tech</span>
+                            <h4>Conscious Travel in the Digital Age</h4>
+                            <p>Mindful approaches to modern travel and location independence</p>
+                            <div class="read-more-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="keep-reading-cta">
+                    <a href="blog.html" class="browse-all-btn">
+                        <i class="fas fa-book-open"></i>
+                        Browse All Articles
+                    </a>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <footer>
+        <p>© 2025 Siphosenkosi Mlotshwa. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://instagram.com/1heavy0">Instagram</a>
+            <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/">LinkedIn</a>
+            <a href="mailto:siphosenkosi.m@yahoo.com">Email</a>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Toggle between hamburger and close icon
+            const icon = mobileMenuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        // Hover effects
+        const hoverElements = document.querySelectorAll('a, .concept-block, .highlight');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(1.5)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+            });
+        });
+
+        // Reading progress bar
+        const progressBar = document.querySelector('.reading-progress');
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Fade in animation for content
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.concept-block, .highlight, .quote, .final-transmission').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
