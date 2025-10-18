@@ -82,6 +82,12 @@
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: -0.5px;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo:hover {
+            color: var(--accent);
         }
 
         .nav-links {
@@ -128,6 +134,11 @@
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-toggle.active {
+            transform: rotate(90deg);
         }
 
         /* Hero Section - Updated for video background */
@@ -251,10 +262,15 @@
             aspect-ratio: 4/3;
             background: #1a1a1a;
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block; /* Important for anchor tags */
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit text color */
         }
 
         .work-item:hover {
             transform: scale(0.98);
+            color: inherit; /* Maintain color on hover */
+            text-decoration: none; /* No underline on hover */
         }
 
         .work-img {
@@ -270,6 +286,7 @@
             filter: grayscale(0);
         }
 
+        /* Updated work overlay to always be visible */
         .work-overlay {
             position: absolute;
             bottom: 0;
@@ -277,14 +294,7 @@
             right: 0;
             padding: 2rem;
             background: linear-gradient(0deg, rgba(10,10,10,0.95) 0%, transparent 100%);
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.4s;
-        }
-
-        .work-item:hover .work-overlay {
-            transform: translateY(0);
-            opacity: 1;
+            /* Removed transform and opacity for always visible */
         }
 
         .work-title {
@@ -300,7 +310,6 @@
             font-weight: 500;
             line-height: 1.6;
             opacity: 0.9;
-
         }
 
         /* About Section */
@@ -331,8 +340,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
-        /* Removed about-visual and floating cards */
 
         /* Latest Thoughts */
         .thoughts {
@@ -419,8 +426,6 @@
             margin-bottom: 3rem;
         }
 
-        
-
         /* Footer */
         footer {
             padding: 3rem 4rem;
@@ -430,6 +435,7 @@
             font-size: 0.9rem;
         }
 
+        /* Updated social links to icons only */
         .social-links {
             display: flex;
             gap: 1.5rem;
@@ -440,46 +446,199 @@
         .social-links a {
             color: var(--gray-light);
             text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            padding: 0.8rem 1.5rem;
+            font-size: 1.5rem;
+            padding: 0.8rem;
             border: 1px solid var(--gray);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s;
         }
 
         .social-links a:hover {
             border-color: var(--accent);
             color: var(--accent);
+            transform: translateY(-5px);
         }
 
+        /* Digital Living Section - Redesigned */
+        .digital-living {
+            padding: 8rem 4rem;
+            background: #0f0f0f;
+            position: relative;
+        }
 
+        .digital-living-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-light);
+            font-size: 1.2rem;
+            margin-bottom: 6rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .living-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+        }
+
+        .category-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .category-header {
+            text-align: center;
+        }
+
+        .category-header h3 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .category-header p {
+            color: var(--gray-light);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .article-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.15);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.05);
+        }
+
+        .article-content {
+            padding: 2rem;
+        }
+
+        .article-type {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .article-card h4 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.4;
+            text-decoration: none;
+        }
+
+        .article-card p {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+            text-decoration: none;
+        }
+        .article-card span {
+        text-decoration: none;
+        }
+
+        .living-cta {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .living-cta .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+        }
 
         /* Responsive */
         @media (max-width: 1024px) {
             .work-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 1.5rem 2rem;
+            
+            .articles-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1.5rem;
             }
-
+            
+            /* Mobile menu for tablets and smaller screens */
             .nav-links {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 70%;
+                width: 100%;
                 height: 100vh;
                 background: var(--bg);
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 gap: 2rem;
-                transition: right 0.3s ease;
+                transition: right 0.4s ease;
                 z-index: 1000;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+                /* Removed box-shadow to eliminate border */
             }
 
             .nav-links.active {
@@ -487,12 +646,18 @@
             }
 
             .nav-links a {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
                 padding: 1rem 0;
             }
 
             .mobile-menu-toggle {
                 display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.5rem 2rem;
             }
 
             .hero {
@@ -532,6 +697,27 @@
             * {
                 cursor: auto;
             }
+            
+            .digital-living {
+                padding: 4rem 2rem;
+            }
+            
+            .living-grid {
+                gap: 4rem;
+            }
+            
+            .category-section {
+                gap: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 4rem;
+            }
+            
+            .category-header h3 {
+                font-size: 1.5rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -553,239 +739,49 @@
             }
 
             .social-links {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 1rem;
             }
 
             .social-links a {
                 text-align: center;
             }
+            
+            .digital-living {
+                padding: 3rem 1.5rem;
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .article-content {
+                padding: 1.5rem;
+            }
+            
+            .article-image {
+                height: 180px;
+            }
+            
+            .living-cta .btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
-        .work-item {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 4/3;
-    background: #1a1a1a;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    display: block; /* Important for anchor tags */
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit text color */
-}
-
-.work-item:hover {
-    transform: scale(0.98);
-    color: inherit; /* Maintain color on hover */
-    text-decoration: none; /* No underline on hover */
-}
-
-
-/* Digital Living Section - Redesigned */
-.digital-living {
-    padding: 8rem 4rem;
-    background: #0f0f0f;
-    position: relative;
-}
-
-.digital-living-container {
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: var(--gray-light);
-    font-size: 1.2rem;
-    margin-bottom: 6rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-}
-
-.living-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 6rem;
-}
-
-.category-section {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-}
-
-.category-header {
-    text-align: center;
-}
-
-.category-header h3 {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    color: var(--accent);
-    font-weight: 600;
-    letter-spacing: -0.5px;
-}
-
-.category-header p {
-    color: var(--gray-light);
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.articles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
-.article-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    position: relative;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.article-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent);
-    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.15);
-    text-decoration: none;
-    color: inherit;
-}
-
-
-
-.article-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    position: relative;
-}
-
-.article-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.article-card:hover .article-image img {
-    transform: scale(1.05);
-}
-
-.article-content {
-    padding: 2rem;
-}
-
-.article-type {
-    display: inline-block;
-    color: var(--accent);
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 1rem;
-}
-
-.article-card h4 {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.4;
-    text-decoration: none;
-}
-
-.article-card p {
-    color: var(--gray-light);
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin: 0;
-    text-decoration: none;
-}
-.article-card span {
-text-decoration: none;
-}
-
-.living-cta {
-    text-align: center;
-    margin-top: 4rem;
-    padding-top: 4rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.living-cta .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.2rem 2.5rem;
-    font-size: 1.1rem;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .articles-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .digital-living {
-        padding: 4rem 2rem;
-    }
-    
-    .living-grid {
-        gap: 4rem;
-    }
-    
-    .category-section {
-        gap: 2rem;
-    }
-    
-    .section-subtitle {
-        font-size: 1.1rem;
-        margin-bottom: 4rem;
-    }
-    
-    .category-header h3 {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .digital-living {
-        padding: 3rem 1.5rem;
-    }
-    
-    .articles-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .article-content {
-        padding: 1.5rem;
-    }
-    
-    .article-image {
-        height: 180px;
-    }
-    
-    .living-cta .btn {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-
+        /* Additional media query for landscape orientation on phones */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .nav-links {
+                padding-top: 80px;
+                justify-content: flex-start;
+                overflow-y: auto;
+            }
+            
+            .nav-links a {
+                padding: 0.5rem 0;
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -793,7 +789,7 @@ text-decoration: none;
     <div class="cursor-follower"></div>
 
     <nav>
-        <div class="logo">Siphosenkosi Mlotshwa</div>
+        <a href="index.html" class="logo">Siphosenkosi Mlotshwa</a>
         <button class="mobile-menu-toggle" id="mobileMenuToggle">
             <i class="fas fa-bars"></i>
         </button>
@@ -820,194 +816,180 @@ text-decoration: none;
         </div>
     </section>
 
-    
-
-    
-<section id="digital-living" class="digital-living">
-    <div class="digital-living-container">
-        <h2 class="section-title">Digital Living</h2>
-        <p class="section-subtitle"></p>
-        
-        <div class="living-grid">
+    <section id="digital-living" class="digital-living">
+        <div class="digital-living-container">
+            <h2 class="section-title">Digital Living</h2>
+            <p class="section-subtitle"></p>
             
-            <!-- Creative Expression -->
-            <div class="category-section">
-                <div class="category-header">
-                    <h3>Creative Expression</h3>
-                    <p>Bridging imagination and manifestation</p>
+            <div class="living-grid">
+                
+                <!-- Creative Expression -->
+                <div class="category-section">
+                    <div class="category-header">
+                        <h3>Creative Expression</h3>
+                        <p>Bridging imagination and manifestation</p>
+                    </div>
+                    <div class="articles-grid">
+                        <a href="creator-toolkit.html" class="article-card">
+                            <div class="article-image">
+                                <img src="blog/tools1.jpg" alt="Creator Toolkit">
+                            </div>
+                            <div class="article-content">
+                                <span class="article-type">Creative Tech</span>
+                                <h4>The Modern Creator's Toolkit</h4>
+                                <p>Essential workflows for tangible expression</p>
+                            </div>
+                        </a>
+                        
+                        <a href="automating-the-mundane.html" class="article-card">
+                            <div class="article-image">
+                                <img src="blog/auto.jpg" alt="Workflow Alchemy">
+                            </div>
+                            <div class="article-content">
+                                <span class="article-type">Productivity</span>
+                                <h4>Automating the Mundane</h4>
+                                <p>Creating mental space for creative work</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="articles-grid">
-                    <a href="creator-toolkit.html" class="article-card">
-                        <div class="article-image">
-                            <img src="blog/tools1.jpg" alt="Creator Toolkit">
-                        </div>
-                        <div class="article-content">
-                            <span class="article-type">Creative Tech</span>
-                            <h4>The Modern Creator's Toolkit</h4>
-                            <p>Essential workflows for tangible expression</p>
-                        </div>
-                    </a>
-                    
-                    <a href="automating-the-mundane.html" class="article-card">
-                        <div class="article-image">
-                            <img src="blog/auto.jpg" alt="Workflow Alchemy">
-                        </div>
-                        <div class="article-content">
-                            <span class="article-type">Productivity</span>
-                            <h4>Automating the Mundane</h4>
-                            <p>Creating mental space for creative work</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
 
-            <!-- Reality Exploration -->
-            <div class="category-section">
-                <div class="category-header">
-                    <h3>Reality Exploration</h3>
-                    <p>Tools for testing different states of existence</p>
+                <!-- Reality Exploration -->
+                <div class="category-section">
+                    <div class="category-header">
+                        <h3>Reality Exploration</h3>
+                        <p>Tools for testing different states of existence</p>
+                    </div>
+                    <div class="articles-grid">
+                        <a href="conscious-travel.html" class="article-card">
+                            <div class="article-image">
+                                <img src="blog/nomad.jpg" alt="Digital Nomad">
+                            </div>
+                            <div class="article-content">
+                                <span class="article-type">Travel Tech</span>
+                                <h4>Conscious Travel in the Digital Age</h4>
+                                <p>The art of boundaryless existence</p>
+                            </div>
+                        </a>
+                        
+                        <a href="curated-spaces.html" class="article-card">
+                            <div class="article-image">
+                                <img src="blog/space1.jpg" alt="Environment Design">
+                            </div>
+                            <div class="article-content">
+                                <span class="article-type">Lifestyle Design</span>
+                                <h4>Curated Spaces for Consciousness</h4>
+                                <p>How environments shape thought patterns</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="articles-grid">
-                    <a href="conscious-travel.html" class="article-card">
-                        <div class="article-image">
-                            <img src="blog/nomad.jpg" alt="Digital Nomad">
-                        </div>
-                        <div class="article-content">
-                            <span class="article-type">Travel Tech</span>
-                            <h4>Conscious Travel in the Digital Age</h4>
-                            <p>The art of boundaryless existence</p>
-                        </div>
-                    </a>
-                    
-                    <a href="curated-spaces.html" class="article-card">
-                        <div class="article-image">
-                            <img src="blog/space1.jpg" alt="Environment Design">
-                        </div>
-                        <div class="article-content">
-                            <span class="article-type">Lifestyle Design</span>
-                            <h4>Curated Spaces for Consciousness</h4>
-                            <p>How environments shape thought patterns</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
 
-            <!-- Consciousness Optimization -->
-            <div class="category-section">
-                <div class="category-header">
-                    <h3>Consciousness Optimization</h3>
-                    <p>Tools and practices for expanding awareness</p>
-                </div>
-                <div class="articles-grid">
-                    <a href="sleep-architecture.html" class="article-card">
-                        <div class="article-image">
-                            <img src="blog/sleep1.jpg" alt="Sleep Architecture">
-                        </div>
-                        <div class="article-content">
-                            <span class="article-type">Biohacking</span>
-                            <h4>The Architecture of Optimal Sleep</h4>
-                            <p>How sleep quality impacts consciousness expansion</p>
-                        </div>
-                    </a>
-                    
-                    <a href="digital-privacy.html" class="article-card">
-                        <div class="article-image">
-                            <img src="blog/privacy.jpg" alt="Digital Freedom">
-                        </div>
-                        <div class="article-content">
-                            <span class="article-type">Digital Wellness</span>
-                            <h4>Digital Privacy as Cognitive Freedom</h4>
-                            <p>Creating space for deeper thought and creativity</p>
-                        </div>
-                    </a>
+                <!-- Consciousness Optimization -->
+                <div class="category-section">
+                    <div class="category-header">
+                        <h3>Consciousness Optimization</h3>
+                        <p>Tools and practices for expanding awareness</p>
+                    </div>
+                    <div class="articles-grid">
+                        <a href="sleep-architecture.html" class="article-card">
+                            <div class="article-image">
+                                <img src="blog/sleep1.jpg" alt="Sleep Architecture">
+                            </div>
+                            <div class="article-content">
+                                <span class="article-type">Biohacking</span>
+                                <h4>The Architecture of Optimal Sleep</h4>
+                                <p>How sleep quality impacts consciousness expansion</p>
+                            </div>
+                        </a>
+                        
+                        <a href="digital-privacy.html" class="article-card">
+                            <div class="article-image">
+                                <img src="blog/privacy.jpg" alt="Digital Freedom">
+                            </div>
+                            <div class="article-content">
+                                <span class="article-type">Digital Wellness</span>
+                                <h4>Digital Privacy as Cognitive Freedom</h4>
+                                <p>Creating space for deeper thought and creativity</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>   
 
-        
-    </div>
-</section>   
+    <section id="thoughts" class="thoughts">
+        <div class="thoughts-container">
+            <h2 class="section-title">Latest Codex Enquiries</h2>
+            <div class="thought-cards">
+                <a href="reality-as-an-algorithm.html" class="thought-card">
+                    <div class="thought-meta">
+                        <span>Reality</span>
+                        <span>•</span>
+                        <span>19 Mar 2025</span>
+                    </div>
+                    <h3>Reality as an Algorithm</h3>
+                    <p>What if reality is not a fixed construct but a dynamic algorithm? Exploring the computational nature of existence and the code that underpins our perceived reality.</p>
+                    <span class="read-more">Read More →</span>
+                </a>
+                <a href="dissolution-of-self.html" class="thought-card">
+                    <div class="thought-meta">
+                        <span>Consciousness</span>
+                        <span>•</span>
+                        <span>16 Mar 2025</span>
+                    </div>
+                    <h3>The Dissolution of Self</h3>
+                    <p>Examining the boundaries of personal identity in an age where technology challenges our fundamental understanding of what it means to be an individual consciousness.</p>
+                    <span class="read-more">Read More →</span>
+                </a>
+                <a href="neuroscience-of-psychedelics.html" class="thought-card">
+                    <div class="thought-meta">
+                        <span>Psychedelics</span>
+                        <span>•</span>
+                        <span>20 Mar 2025</span>
+                    </div>
+                    <h3>How Psychedelics Dissolve Reality and Rewire the Mind</h3>
+                    <p>A deep dive into the neuroscience of altered states and how psychedelic experiences challenge our conventional understanding of reality and consciousness.</p>
+                    <span class="read-more">Read More →</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-    
-
-    
-
-
-
-
-<section id="thoughts" class="thoughts">
-    <div class="thoughts-container">
-        <h2 class="section-title">Latest Codex Enquiries</h2>
-        <div class="thought-cards">
-            <a href="reality-as-an-algorithm.html" class="thought-card">
-                <div class="thought-meta">
-                    <span>Reality</span>
-                    <span>•</span>
-                    <span>19 Mar 2025</span>
+    <section id="work" class="featured">
+        <h2 class="section-title">Simulations Under Construction</h2>
+        <div class="work-grid">
+            <a href="work.html#reality-matrix" class="work-item">
+                <img class="work-img" src="blog/reality-matrix.jpg" alt="Reality Matrix">
+                <div class="work-overlay">
+                    <h3 class="work-title">Reality Matrix - Meta-Reality Simulation</h3>
+                    <p class="work-desc">A metaphysical simulation Engine written in Python that models reality as a quantum entangled network of beliefs, emotions and narratives. Built from scratch using NumPY and NetworkX, it explores how consciousness, economics and myth co-evolve - merging philosophy, AI systems thinking, and speculative coding into one metaphoric universe.</p>
                 </div>
-                <h3>Reality as an Algorithm</h3>
-                <p>What if reality is not a fixed construct but a dynamic algorithm? Exploring the computational nature of existence and the code that underpins our perceived reality.</p>
-                <span class="read-more">Read More →</span>
             </a>
-            <a href="dissolution-of-self.html" class="thought-card">
-                <div class="thought-meta">
-                    <span>Consciousness</span>
-                    <span>•</span>
-                    <span>16 Mar 2025</span>
+            
+            <a href="work.html#synapse-atlas" class="work-item">
+                <img class="work-img" src="blog/synapse.jpg" alt="Synapse Atlas">
+                <div class="work-overlay">
+                    <h3 class="work-title">Synapse Atlas - Interactive Map of Consciousness</h3>
+                    <p class="work-desc">A generative web app that visualizes human thought and connection as a living network. Users can map their ideas, emotions, and inspirations into nodes and links, forming a digital atlas. Built with React and D3.js, with AI powered insight linking via language embeddings - bridging neural patterns, creative memory, and machine learning.</p>
                 </div>
-                <h3>The Dissolution of Self</h3>
-                <p>Examining the boundaries of personal identity in an age where technology challenges our fundamental understanding of what it means to be an individual consciousness.</p>
-                <span class="read-more">Read More →</span>
-            </a>
-            <a href="neuroscience-of-psychedelics.html" class="thought-card">
-                <div class="thought-meta">
-                    <span>Psychedelics</span>
-                    <span>•</span>
-                    <span>20 Mar 2025</span>
-                </div>
-                <h3>How Psychedelics Dissolve Reality and Rewire the Mind</h3>
-                <p>A deep dive into the neuroscience of altered states and how psychedelic experiences challenge our conventional understanding of reality and consciousness.</p>
-                <span class="read-more">Read More →</span>
             </a>
         </div>
-    </div>
-</section>
-
-
-<section id="work" class="featured">
-    <h2 class="section-title">Simulations Under Construction</h2>
-    <div class="work-grid">
-        <a href="work.html#reality-matrix" class="work-item">
-            <img class="work-img" src="blog/reality-matrix.jpg" alt="Reality Matrix">
-            <div class="work-overlay">
-                <h3 class="work-title">Reality Matrix - Meta-Reality Simulation</h3>
-                <p class="work-desc">A metaphysical simulation Engine written in Python that models reality as a quantum entangled network of beliefs, emotions and narratives. Built from scratch using NumPY and NetworkX, it explores how consciousness, economics and myth co-evolve - merging philosophy, AI systems thinking, and speculative coding into one metaphoric universe.</p>
-            </div>
-        </a>
-        
-        <a href="work.html#synapse-atlas" class="work-item">
-            <img class="work-img" src="blog/synapse.jpg" alt="Synapse Atlas">
-            <div class="work-overlay">
-                <h3 class="work-title">Synapse Atlas - Interactive Map of Consciousness</h3>
-                <p class="work-desc">A generative web app that visualizes human thought and connection as a living network. Users can map their ideas, emotions, and inspirations into nodes and links, forming a digital atlas. Built with React and D3.js, with AI powered insight linking via language embeddings - bridging neural patterns, creative memory, and machine learning.</p>
-            </div>
-        </a>
-    </div>
-</section>
-
-
-
-
-
-
-    
+    </section>
 
     <footer>
-        <p>© 2025 Siphosenkosi Mlotshwa. All rights reserved.</p>
+        <!-- Removed the copyright text as requested -->
         <div class="social-links">
-            <a href="https://instagram.com/1heavy0">Instagram</a>
-            <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/">LinkedIn</a>
-            <a href="mailto:siphosenkosi.m@yahoo.com">Email</a>
+            <a href="https://instagram.com/1heavy0" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:siphosenkosi.m@yahoo.com" aria-label="Email">
+                <i class="far fa-envelope"></i>
+            </a>
         </div>
     </footer>
 
@@ -1018,6 +1000,8 @@ text-decoration: none;
 
         mobileMenuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+            
             // Toggle between hamburger and close icon
             const icon = mobileMenuToggle.querySelector('i');
             if (navLinks.classList.contains('active')) {
@@ -1033,6 +1017,7 @@ text-decoration: none;
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
                 const icon = mobileMenuToggle.querySelector('i');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
