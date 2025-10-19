@@ -107,8 +107,8 @@
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 1001;
-            transition: transform 0.3s ease;
             outline: none !important;
+            transition: transform 0.3s ease;
         }
 
         .mobile-menu-toggle:focus {
@@ -129,14 +129,14 @@
             align-items: center;
             padding: 0 2rem;
             margin-top: 100px;
-            max-width: 800px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
             text-align: center;
         }
 
         .contact-header {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .contact-header h1 {
@@ -149,87 +149,133 @@
         .contact-header p {
             font-size: 1.2rem;
             color: var(--gray-light);
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
         }
 
-        /* Contact Methods */
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            width: 100%;
-            max-width: 500px;
-            margin-bottom: 4rem;
-        }
-
-        .contact-method {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
+        /* Contact Form */
+        .contact-form-container {
+            background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
+            padding: 3rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        .contact-form-container h2 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
             text-align: center;
         }
 
-        .contact-method:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.1);
-        }
-
-        .method-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 107, 53, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--accent);
+        .form-group {
             margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
         }
 
-        .contact-method:hover .method-icon {
-            background: var(--accent);
-            color: var(--bg);
-            transform: scale(1.1);
-        }
-
-        .method-text h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
+        .form-group label {
+            display: block;
             margin-bottom: 0.5rem;
-            text-align: center;
-        }
-
-        .method-text p {
-            font-size: 0.95rem;
-            color: var(--gray-light);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .method-cta {
-            color: var(--accent);
-            font-weight: 600;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: transform 0.3s ease;
+            color: var(--gray-light);
         }
 
-        .contact-method:hover .method-cta {
-            transform: translateX(5px);
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #2a2a2a;
+            color: var(--text);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border-radius: 6px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 107, 53, 0.05);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23a3a3a3' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 0.65rem;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            border: none;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            border-radius: 6px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-light);
+            transition: left 0.3s;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .form-status {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 6px;
+            display: none;
+            text-align: center;
+        }
+
+        .form-status.success {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            color: #4CAF50;
+            display: block;
+        }
+
+        .form-status.error {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+            color: #f44336;
+            display: block;
         }
 
         /* Footer */
@@ -249,8 +295,6 @@
         }
 
         .social-links a {
-            color: var(--gray-light);
-            text-decoration: none;
             font-size: 1.5rem;
             padding: 0.8rem;
             border: 1px solid var(--gray);
@@ -260,6 +304,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
+            color: var(--gray-light);
             transition: all 0.3s;
         }
 
@@ -271,6 +317,7 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
+            /* Mobile menu styles for tablets */
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -298,8 +345,22 @@
             .mobile-menu-toggle {
                 display: block;
             }
+
+            .contact-container {
+                padding: 0 1.5rem;
+                margin-top: 80px;
+            }
+
+            .contact-header {
+                margin-bottom: 2rem;
+            }
+
+            .contact-form-container {
+                padding: 2rem;
+            }
         }
 
+        /* Add landscape support */
         @media (max-height: 600px) and (orientation: landscape) {
             .nav-links {
                 padding-top: 80px;
@@ -312,20 +373,6 @@
             nav {
                 padding: 1.5rem 2rem;
             }
-
-            .contact-container {
-                padding: 0 1.5rem;
-                margin-top: 80px;
-            }
-
-            .contact-header {
-                margin-bottom: 3rem;
-            }
-
-            .contact-methods {
-                gap: 1.5rem;
-                margin-bottom: 3rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -337,22 +384,8 @@
                 font-size: 1.1rem;
             }
 
-            .contact-method {
+            .contact-form-container {
                 padding: 1.5rem;
-            }
-
-            .method-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-
-            .method-text h3 {
-                font-size: 1.2rem;
-            }
-
-            .method-text p {
-                font-size: 0.9rem;
             }
         }
     </style>
@@ -365,7 +398,6 @@
         </button>
         <div class="nav-links" id="navLinks">
             <a href="index.html">Home</a>
-            <a href="blog.html">Digital Living</a>
             <a href="work.html">Simulations</a>
             <a href="journal.html">Codex</a>
             <a href="contact.html">Contact</a>
@@ -375,61 +407,61 @@
     <main class="contact-container">
         <div class="contact-header">
             <h1>Get in Touch</h1>
-            <p>Open to collaborations, projects, and conversations.</p>
+            <p>Open to collaborations, projects, and conversations about technology, design, and consciousness.</p>
         </div>
 
-        <div class="contact-methods">
-            <a href="mailto:siphosenkosi.m@yahoo.com" class="contact-method">
-                <div class="method-icon">
-                    <i class="fas fa-envelope"></i>
+        <div class="contact-form-container">
+            <h2>Send a Message</h2>
+            <!-- Netlify Forms Configuration -->
+            <form 
+                class="contact-form" 
+                id="contactForm" 
+                name="contact" 
+                method="POST" 
+                netlify
+                netlify-honeypot="bot-field"
+                data-netlify="true"
+            >
+                <!-- Hidden honeypot field for spam protection -->
+                <input type="hidden" name="form-name" value="contact" />
+                <p class="hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+                
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
                 </div>
-                <div class="method-text">
-                    <h3>Email</h3>
-                    <p>For project inquiries and collaborations</p>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
                 </div>
-                <div class="method-cta">
-                    Send Message <i class="fas fa-arrow-right"></i>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject" class="form-control" required>
+                        <option value="" disabled selected>Select a subject</option>
+                        <option value="collaboration">Project Collaboration</option>
+                        <option value="web-design">Web/App Design</option>
+                        <option value="brand-work">Brand Collaboration</option>
+                        <option value="consultation">Consultation</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
-            </a>
-
-            <a href="https://instagram.com/1heavy0" class="contact-method">
-                <div class="method-icon">
-                    <i class="fab fa-instagram"></i>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" class="form-control" required placeholder="Tell me about your project or idea..."></textarea>
                 </div>
-                <div class="method-text">
-                    <h3>Instagram</h3>
-                    <p>Visual thoughts and creative moments</p>
-                </div>
-                <div class="method-cta">
-                    Follow <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
-
-            <a href="https://www.linkedin.com/in/siphosenkosi-mlotshwa/" class="contact-method">
-                <div class="method-icon">
-                    <i class="fab fa-linkedin"></i>
-                </div>
-                <div class="method-text">
-                    <h3>LinkedIn</h3>
-                    <p>Professional work and connections</p>
-                </div>
-                <div class="method-cta">
-                    Connect <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
-
-            <a href="https://www.threads.com/@1heavy0" class="contact-method">
-                <div class="method-icon">
-                    <i class="fas fa-comments"></i>
-                </div>
-                <div class="method-text">
-                    <h3>Threads</h3>
-                    <p>Conversations and extended thoughts</p>
-                </div>
-                <div class="method-cta">
-                    Join Conversation <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                    Send Message
+                </button>
+                
+                <div class="form-status" id="formStatus"></div>
+            </form>
         </div>
     </main>
 
@@ -464,7 +496,6 @@
             } else {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
-                mobileMenuToggle.classList.remove('active');
             }
         });
 
@@ -478,6 +509,96 @@
                 icon.classList.add('fa-bars');
             });
         });
+
+        // Netlify Forms handling
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        
+        // Hide the honeypot field
+        const hiddenField = document.querySelector('.hidden');
+        if (hiddenField) {
+            hiddenField.style.display = 'none';
+        }
+
+        // Handle form submission with Netlify
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !email || !subject || !message) {
+                showStatus('Please fill in all fields.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Netlify will handle the form submission automatically
+                // We're just adding a success message for better UX
+                const response = await fetch('/', {
+                    method: 'POST',
+                    body: new URLSearchParams(new FormData(contactForm)).toString(),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                });
+                
+                if (response.ok) {
+                    showStatus('Thank you for your message! I\'ll get back to you soon.', 'success');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                showStatus('There was an error sending your message. Please try again or email me directly.', 'error');
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+        
+        function showStatus(message, type) {
+            formStatus.textContent = message;
+            formStatus.className = 'form-status ' + type;
+            
+            // Hide status after 5 seconds
+            setTimeout(() => {
+                formStatus.style.display = 'none';
+            }, 5000);
+        }
+
+        // Add some subtle animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe form for animation
+        const formContainer = document.querySelector('.contact-form-container');
+        formContainer.style.opacity = '0';
+        formContainer.style.transform = 'translateY(20px)';
+        formContainer.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(formContainer);
     </script>
 </body>
 </html>
